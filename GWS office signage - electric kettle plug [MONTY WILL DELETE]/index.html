@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html data-sign="OS?">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+    <link rel="stylesheet" type="text/css" href="css/red-hat-outfit.css">
+
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Circular/stylesheet.css');
+
+      body {
+        font-family: "Red Hat Display";
+        font-size: 1rem;
+      }
+
+      .backgroundImage div {
+		width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+		position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+       }
+
+      /* Helper classes */
+      .u-hide {
+        display: none;
+      }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+      
+      .bg {
+      }
+      
+	  .wrapper {
+        padding: 150px 100px 10px 100px;
+        display: flex;
+        flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+		position: absolute;
+		top: 3mm;
+		right: 3mm;
+		bottom: 3mm;
+		left: 3mm;
+		background-color: {{{GWS-office-signage-table-tent-office-norms-color}}};
+        }
+      
+h1 {
+    font-family: "Red Hat Display", sans-serif;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 40px;
+    line-height: 1.1em;
+    text-align: center;
+    letter-spacing: 0.03em;
+    margin: -126px 0 15px 0;
+    padding: 0 0 0 0;
+}
+
+h2 {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    color: #FFF;
+    line-height: 1.3125em;
+    text-align: left;
+    letter-spacing: 0.053em;
+    padding: 30px 0 0 190px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+     h3 {
+        font-family: "Red Hat Display", sans-serif;
+        font-size: 26px;
+        font-weight: normal;
+      	color: #000;
+        line-height: 1.3125em;
+      	text-align: center !important;
+        letter-spacing: 0.053em;
+        margin: 100px 50px 0 50px;
+        }
+
+     h4 {
+        font-family: "Red Hat Display", sans-serif;
+        font-size: 20px;
+        font-weight: BOLD;
+      	color: #FFF;
+        line-height: 1.3125em;
+      	text-align: center !important;
+        letter-spacing: 0.053em;
+        margin: 31px 50px 0 50px;
+        }
+      
+img {
+    margin: 0 0 0 30px;
+    width: 100px;
+}
+     
+	.outside {
+		background-color: {{{GWS-office-signage-table-tent-office-norms-color}}};
+        height: 800px;
+        }
+
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  width: 500px;
+}
+      
+  
+      
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="bleed">
+        <div class="container fit">
+          <div class="bg reposition-fix"></div>
+          <div class="wrapper">
+            <div class="copy" data-max-height="css">
+                    <h1>{{{GWS-office-signage-concious-use-h1}}}</h1>
+              <div class="outside">
+                <div class="row">
+  <div class="column">
+<img src="{{{GWS-office-signage-kettle-plug-icon}}}">
+  </div>
+  <div class="column">
+<h2>{{{GWS-office-signage-concious-use-h2}}}</h2>
+  </div>
+</div>
+
+                   			  </div>
+           </div>
+        </div>
+        <!--container fit-->
+      </div>
+      <!--bleed-->
+
+    </div>
+    <!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script>
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxHeightCheck();
+          maxLineCheck();
+        });
+      });
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxHeightCheck();
+        maxLineCheck();
+      });
+
+      placeholderController();
+      checkCrop();
+      checkExport();
+
+    </script>
+
+
+  </body>
+</html>
