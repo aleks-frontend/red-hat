@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html data-sign="OS?">
+  <head>
+    <title>[IN BUILD]</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    {{{account.snippets.design-system-link}}}
+
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Circular/stylesheet.css');
+
+      :root {
+        --black: {{{account.colors.primary-black}}};
+        --red: {{{account.colors.primary-red-2019}}};
+        --gray: {{{account.colors.light-light-grey}}};
+        --gray-border: {{{account.colors.grey-2019}}};
+      }
+
+      html {
+        font-family: "Circular";
+        font-size: 11pt;
+        color: #000;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }        
+      
+      .fit {
+        padding: 3.4em 2.1em 1.45em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .featured-image {
+        width: 5.35em;
+      }
+      
+      .title-container {
+        max-width: 100%;
+      }
+      
+      h2.event-subheading {
+        font-size: 0.5em;
+        letter-spacing: 0.025em;
+        margin-bottom: 0.2em;
+        color: var(--red);
+        text-align: center;
+        overflow-wrap: break-word;
+      }
+      
+      .event-heading h1 {
+        font-size: 0.95em;
+        margin: 0;
+        letter-spacing: 0.03em;
+        color: var(--red);
+        text-align: center;
+        line-height: 1.15em;
+        overflow-wrap: break-word;
+      }
+      
+      strong {
+        font-weight: 600;
+      }
+      
+      .logo {
+        margin-top: 0.6em;
+        align-self: flex-end;
+      }
+      
+      .logo img {
+        max-width: 3.85em;
+      }
+      
+      .flex-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        margin-bottom: 1.55em;
+      }
+      
+      .event-copy-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        position: relative;
+        justify-content: flex-end;
+        margin-bottom: 1.25em;
+      }
+      
+      .event-copy {
+        max-width: 6em;
+      }
+      
+      .event-copy p {
+        font-size: 0.52em;
+        line-height: 1.35em;
+        overflow-wrap: break-word;
+        margin-bottom: 0;
+      }
+      
+      .line {
+        background-color: var(--red);
+        height: 2px;
+        width: 106%;
+        margin-top: 0.45em;
+        margin-bottom: 0.65em;
+      }
+      
+      .event-footer-copy {
+        max-width: 7em;
+      }
+      
+      .event-footer-copy p {
+        font-size: 0.33em;
+        line-height: 100%;
+        font-style: italic;
+        overflow-wrap: break-word;
+      }
+      
+      .event-img-container img {
+        width: 5.35em;
+      }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" data-crop="{{show-crop}}">
+
+    <div class="page front-page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          
+          <div class="title-container">
+            <h2 data-max-line="2" class="event-subheading">{{{ event-subheading }}}</h2>
+
+            <div data-max-height="200" class="event-heading">{{{ event-heading }}}</div>
+          </div><!--title-container-->
+          
+          <div class="flex-container">
+            <div class="event-copy-container">
+              <div class="event-copy" data-max-height="190">{{{ event-copy }}}</div>
+               <div class="line"></div>
+              <div class="event-footer-copy"><p data-max-line="1">{{{ event-footer-copy }}}</p></div>
+            </div>
+            
+            <div class="event-img-container">
+               <img src="{{ event-featured-image }}" />
+            </div>
+            
+          </div><!--flex-container-->
+          
+          <div class="logo">
+            <img src="{{{account.logos.primary-black-2019}}}" />
+          </div><!--logo-->
+          
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+        });
+      });
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+      });
+
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+    </script>
+
+
+  </body>
+</html>
