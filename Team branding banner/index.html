@@ -1,0 +1,141 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+<body>
+  
+  <section>
+  <h1 style="font-size: 12vmin">{{{headline}}}</h1>
+
+  <div class="team-logo">
+    <svg viewBox="20 20 260 200">
+      <use xlink:href="#hat" />
+    </svg>
+    <b>Red Hat</b> <span>{{{team-name}}} Team</span>
+  </div>
+
+</section>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;500;700;900&display=swap" rel="stylesheet">
+<svg class="hidden">
+  <defs>
+    <g id="hat">
+      <path id="brim" fill="#e00" d="M230.2 110.6c.1-1.6-.1-3.1-.4-4.5l-9.6-41.5c-2.2-9.2-4.2-13.3-20.1-21.4-12.5-6.3-39.6-16.8-47.6-16.8-7.5 0-9.6 9.5-18.6 9.5-9 0-14.9-7-23.1-7-8.1 0-12.7 5.2-16.5 15.9 0 0-10.8 30.4-12.2 34.9a10 10 0 0 0-.3 2.5c0 11.8 45.8 50.7 109 50.7 16 0 39.4-3.2 39.4-22.3zm2.4 7.5a72 72 0 0 1 2.2 13c0 18-20.2 28-46.8 28-60 0-112.4-35.1-112.4-58.4 0-3.3.7-6.5 2-9.6C56.2 92.5 28 96.5 28 121c0 40.4 95.6 90.2 171.5 90.2 58 0 72.7-26.3 72.7-47.1 0-16.3-14-34.8-39.5-45.9" />
+      <path id="band" fill="#000" d="M232.7 118.2a58 58 0 0 1 2.2 13c0 18-20.2 28-46.8 28-60 0-112.5-35.1-112.5-58.4 0-3.3.6-6.5 2-9.6l4.6-11.4-.3 2.4c0 12 46.6 50.7 109 50.7 15.9 0 39.3-4.1 39.3-22.3 0-1.6-.1-3.1-.4-4.5z" />
+    </g>
+  </defs>
+</svg>
+
+<svg class="bghat" viewBox="20 20 260 200">
+  <use xlink:href="#hat" />
+</svg>
+
+<svg class="bghat2" viewBox="20 20 260 200">
+  <use xlink:href="#hat" />
+</svg>
+  
+
+  <style>
+    :root {
+  font-size: 4vmax;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+svg {
+  width: 2.5em;
+  height: 2.5em;
+}
+body {
+  color: #222;
+  overflow: hidden;
+  background: radial-gradient(circle at top, white 0, white, #f5f5f5 100%);
+}
+section {
+  display: grid;
+  overflow: hidden;
+  grid-template-columns: 60% auto;
+
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+.hidden {
+  display: none;
+}
+
+h1 {
+  line-height: 1em;
+  margin-left: 0.666em;
+}
+
+h1 * {
+  line-height: 1em;
+}
+
+.team-logo {
+  font-size: 2.5vmax;
+  border-left: 0.05em solid;
+  margin: 1em 1em 1em 4em;
+  display: inline-block;
+  vertical-align: top;
+  min-height: 2em;
+  max-width: 10em;
+  padding: 0 0em 0 0.66em;
+  line-height: 1em;
+}
+
+.team-logo > svg {
+  position: absolute;
+  margin-left: -3.75em;
+  margin-top: -0.25em;
+}
+
+b {
+  font-weight: 500;
+  display: block;
+}
+span {
+  font-weight: 700;
+}
+
+.bghat,
+.bghat2 {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transform: scale(2) translate(-11%, -55%);
+}
+
+.bghat2 {
+  transform: scale(3) translate(-5%, 55%);
+}
+@media (orientation: portrait) {
+  section {
+    grid-template-columns: auto;
+
+    grid-template-rows: 60% auto;
+  }
+
+  .bghat {
+    transform: scale(2) translate(-25%, -55%);
+  }
+
+  .bghat2 {
+    transform: scale(3) translate(35%, 20%);
+  }
+}
+
+  </style> 
+</body>
+</html>
