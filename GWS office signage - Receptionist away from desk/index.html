@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html data-sign="OS?">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+    <link rel="stylesheet" type="text/css" href="css/red-hat-outfit.css">
+
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Circular/stylesheet.css');
+
+      body {
+        font-family: "Red Hat Display";
+        font-size: 1rem;
+      }
+
+      .backgroundImage div {
+		width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+		position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+       }
+
+      /* Helper classes */
+      .u-hide {
+        display: none;
+      }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+      
+      .bg {
+      }
+      
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    position: absolute;
+    top: 3mm;
+    right: 3mm;
+    bottom: 3mm;
+    left: 3mm;
+    background-color: #FFF;
+  margin: 50px 50px 50px 50px;
+}
+      
+h1 {
+    font-family: "Red Hat Display", sans-serif;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 70px;
+    line-height: 1.1em;
+    text-align: center;
+    letter-spacing: 0.03em;
+    margin: -60px 0 33px 0;
+    width: 675px;
+}
+      
+h2 {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    color: #000;
+    line-height: 1.3125em;
+    text-align: left !important;
+    letter-spacing: 0.053em;
+	padding: 80px 0 0 0;
+  width: 80%;
+}
+
+h3 {
+    font-family: "Red Hat Display", sans-serif;
+    font-size: 34px;
+    font-weight: bold !important;
+    color: #000;
+    line-height: 1.3125em;
+    text-align: left !important;
+    letter-spacing: 0.02em;
+    margin: 50px 50px 50px 50px;
+}
+
+h4 {
+  	position: absolute;
+    font-family: "Red Hat Display";
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    line-height: 1.3125em;
+    text-align: center !important;
+  margin: 1000px 0 0 0;
+}
+
+.outside {
+    background-color: #FFF;
+    padding: 50px 50px 50px 50px;
+}
+      
+.gws-logo {
+    position: absolute;
+    margin-top: 920px;
+    height: 120px;
+    width: auto;
+    margin-left: -250px;
+}
+      
+@media (min-width: 290mm) {
+.gws-logo {
+    position: absolute;
+    margin-top: 659px;
+    height: 120px;
+    width: auto;
+    margin-left: -428px;
+	}
+}    
+    </style>
+  
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="bleed">
+        <div class="container fit">
+          <div class="bg reposition-fix"></div>
+          <div class="wrapper">
+                  <img src="https://files.outfit.io/media_library_items/170001/HeaderReceptionist_away.png">
+<h3>{{{GWS-office-signage-concious-use-h3}}}</h3>
+            <img class="gws-logo" src="https://files.outfit.io/media_library_items/167513/Logo-Red_Hat-Global_Workplace_Solutions_Team-A-Standard-RGB%2520%25281%2529.png">
+  </div>
+</div>
+
+                    
+           </div>
+
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script>
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxHeightCheck();
+          maxLineCheck();
+        });
+      });
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxHeightCheck();
+        maxLineCheck();
+      });
+
+      placeholderController();
+      checkCrop();
+      checkExport();
+
+    </script>
+
+
+  </body>
+</html>
