@@ -1,0 +1,93 @@
+<html>
+<head>
+  <meta charset="utf-8">
+<link rel="stylesheet" href="https://red-hat-design-system.netlify.com/public/red-hat-outfit.css">
+<!--   {{{account.snippets.design-system-link}}} -->
+<style>
+	html {
+      }
+	body {
+  	}
+
+.outer {
+  	background-image: url("{{{event-promo-background}}}");
+  /* background-image: url("https://files.outfit.io/media_library_items/165745/CN-ModernizeYourAppsPlatform-Whitepaper-Ads-EN-Social-Twitter-800x418.png"); */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    max-width: 100vw;
+    font-size: 100%;
+    font-family: 'Red Hat Display', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+   }
+  
+.heading {
+    position: absolute;
+    width: 380px;
+    height: 440px;
+    font-size: 37px;
+    font-weight: 500;
+    line-height: 120%;
+    padding: 155px 0 0 40px;
+    letter-spacing: .02em;
+}
+  
+.content {
+    position: absolute;
+    width: 665px;
+    height: 440px;
+    font-size: 21px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 115%;
+    padding: 255px 0 0 40px;
+}
+ 
+.teaser {
+    position: absolute;
+    width: 375px;
+    height: 440px;
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 115%;
+    padding: 203px 0 0 40px;
+    overflow: hidden;
+    word-wrap: break-word;
+    white-space: nowrap;
+}
+ 
+  @media (aspect-ratio: 1200/628) {
+    body {
+    }
+  }
+  
+  @media (aspect-ratio: 1080/1080) {
+    body {
+    }
+  }
+</style>
+
+</head>
+<body>
+
+		<div class="outer {{{event-promo-background}}}">
+  			<div class="middle">
+    			<div class="inner">
+ 			<div class="heading">{{event-promo-heading}}</div>
+ 			<div class="content">{{event-promo-text}}</div>
+ 			<div class="teaser">{{event-promo-teaser}}</div>
+			  </div><!-- content -->
+				</div><!-- middle -->
+		</div><!-- outer -->
+
+</body>
+</html>
