@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="utf-8">
+    <!-- {{websiteUse }} {{{nfrh-clause}}} -->
+    <title>{{{ headline-breakonly }}}</title>
+    <!-- jQuery for the map -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Map themes -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.js"></script>
+    <!-- Google location serahc -->
+    <script src="//maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+
+    <!-- template styles -->  
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- reset defauly browser styles -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <!-- Red Hat Brand Font -->      
+    <link href='//overpass-30e2.kxcdn.com/overpass.css' rel='stylesheet' />
+    <!-- Map styles -->      
+    <link href='//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css' rel='stylesheet' />
+    <!-- Header Artwork -->  
+    <link href='artwork.css' rel='stylesheet' />
+
+    <style>
+      html {
+        background: white;
+      }
+      
+      body {
+        line-height: 17px;
+      }
+
+      .page {
+        background: white;
+        overflow: hidden;
+      }
+
+      .header-hit-target {
+        position: absolute;
+        width: 100%;
+        height: 27vh;
+        top: 0;
+        z-index: 200;
+      }
+
+      .header-hit-target > .token-value {
+        width: 100%;
+        position: absolute;
+        height: 100%;  
+        color: transparent;
+      }
+
+      .header-hit-target + .token-value {
+        height: 100%;
+        width: 100%;
+        z-index: 1000 !important;
+      }
+
+      .header-content {
+        pointer-events: none;
+      }
+      
+      .header-text {
+        position: absolute;
+        bottom: 21pt;
+        left: 42pt;
+        right: 49pt;
+      }
+
+      .header-content .white, .header-content .supporting-logo {
+        pointer-events: all;
+      }
+
+      .page {pointer-events: all !important;}
+
+      .redhat-logo {
+        width: 10em 
+      }
+
+      {{#sub-logo}}
+      .red-header .redhat-logo {
+        width: 8em 
+      }
+      .sub-logo {
+        height: 3em;
+        width: 14em;
+        background-size: contain;
+        background-position: left center;
+        background-repeat: no-repeat;
+        background-image: url('{{{sub-logo}}}') }
+
+      .lockup-seperator {
+        height: 4em;
+        width: 1px;
+        background: white;
+        margin: 0 2em;
+        display: none;
+      }
+      {{/sub-logo}}
+
+      {{#sub-logo-reversed}}
+      .sub-logo-reversed {
+        height: 3em;
+        width: 8em;
+        background-size: contain;
+        background-position: right center;
+        background-repeat: no-repeat;
+        background-image: url('{{{sub-logo-reversed}}}'); 
+      }
+
+      .lockup-seperator-reversed {
+        height: 4em;
+        width: 1px;
+        background: black;
+        margin: 0 2em; 
+      }
+      {{/sub-logo-reversed}}
+      
+    {{#supporting-logo}}
+    .red-header .redhat-logo {
+      width: 23em !important;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+      .red-header .redhat-logo svg {
+        width: 113px;
+      }
+    
+    .supporting-logo {
+      height: 3em;
+      width: 8em;
+      background-size: contain;
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-image: url('{{{supporting-logo}}}');
+      }
+    
+    .lockup-seperator {
+      height: 4em;
+      width: 1px;
+      background: white;
+      margin: 0 2em;
+      display: block;
+    }
+    {{/supporting-logo}}
+    
+    {{#supporting-logo-reversed}}
+      .white-header .redhat-logo {
+        width: 23em !important;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+      }
+      .white-header svg {
+        width: 113px;
+      }
+
+    .supporting-logo-reversed {
+      height: 3em;
+      width: 8em;
+      background-size: contain;
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-image: url('{{{supporting-logo-reversed}}}') }
+    
+    .lockup-seperator-reversed {
+      height: 4em;
+      width: 1px;
+      background: black;
+      margin: 0 2em }
+    {{/supporting-logo-reversed}}
+
+
+      .cover-page .header, .last-page .header {
+        background-image: url('{{{header-background-image-choice}}}');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+
+      #content {
+        -adobe-flow-into: pageflow;
+        -webkit-flow-into: pageflow;
+        flow-into: pageflow; 
+      }
+
+      .page-content {
+        -adobe-flow-from: pageflow; 
+        -webkit-flow-from: pageflow; 
+        flow-from: pageflow; 
+      }
+
+      .quote p { display: inline }
+
+      .sidebar-item .name, .sidebar-item .position {
+        padding: 0;
+      }
+
+      .sidebar-item .name p, .sidebar-item .position p {
+        margin: 0;
+      }
+      
+      .sidebar-item {
+        position: absolute;
+        width: 160px;
+        top: 0;
+        padding: 72pt 0 0;
+      }
+
+      #js-content-for-sidebar .sidebar-item {
+        background: white;
+        color: red;
+        z-index: 99999999;
+        padding: 40pt;
+      }
+      .customer-summary p {
+        margin: 0;
+      }
+
+      .customer-summary p + p {
+        margin-top: 0.7em;
+      }
+
+      .logo-lockup {
+        width: 100%;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+      }
+
+      .full-width {
+        height: 100%;
+      }
+
+      .red-header .redhat-logo {
+        width: 12em;
+      }
+
+      .cover-page .header {
+        height: 20.9vh;
+        background-position: 75%;
+      }
+
+      .seventy-five {
+        padding-left: 1.5em;
+      }
+
+      .header.white-header{
+        padding-left: 40pt;
+        padding-right: 40pt;
+        display: flex;
+        padding-bottom: 1em;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 4px solid #A7A9AB;
+      }
+      
+      .collection-pages .content-wrapper {
+        padding: 72pt 40pt 36pt 40pt;
+        position: relative;
+      }
+
+      .red-header {
+        border-bottom: 5px solid #a8a9ad;
+      }
+
+      .column.twenty-five {
+        display: flex;
+        webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+      }
+
+      .content-text h1 {
+         font-size: 10pt;
+        color: #cc0000 !important;
+        margin-top: 10pt;
+        margin-bottom: 0.5em !important;
+         -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em;
+      }
+      
+      .content-text h2 {
+        font-size: 10pt;
+        color: #cc0000 !important;
+        margin-top: 10pt;
+        margin-bottom: 0.5em !important;
+        -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em;
+      }
+      
+      .content-text h2:first-child {
+        margin-top: 0;
+      }
+      
+      .content-text p {
+        font-size: 8.5pt;
+        line-height: 17px;
+        -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em;
+        margin-bottom: 0.7em;
+      }
+
+      table#table-section {
+        font-size: 16px;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+      }
+
+
+      table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 2px;
+        border-color: grey;
+      }
+
+      .w3-white, .w3-hover-white:hover {
+        color: #000!important;
+        background-color: #fff!important;
+      }
+
+      .w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
+        color: #000!important;
+        background-color: #f1f1f1!important;
+      }
+
+      html, body {
+        line-height: 1.5;
+      }
+
+      .w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
+        color: #000!important;
+        background-color: #f1f1f1!important;
+      }
+
+      .red-header .redhat-logo {
+        width: 10em;
+      }
+      
+      .sidebars h1, h2, h3, h4, h5, p{
+        color: #58595b !important;
+      }
+	  
+      .content-collection-container p, .content-collection-container li, .content-collection-container h3 {
+        color: #231F20 !important;
+      }
+
+      .test-background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.6;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        pointer-events: none;
+      }
+      
+      .test-background-image {
+        background-image: url('https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/1932549faff1663e98c6c83de23ae759/Datasheet%20sample_Page_4.png');
+      }
+      
+
+      table#table-section {
+        font-size: 16px;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+      }
+
+      table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 2px;
+        border-color: grey;
+      }
+
+      tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+      }
+
+      table#table-section {
+        font-size: 16px;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+      }
+
+      table {
+        display: table;
+        border-collapse: separate;
+        border-spacing: 2px;
+        border-color: grey;
+        position: relative;
+        border-bottom: 1px solid black;
+        margin: 10pt 0;
+      }
+      
+      a {
+        color: {{{ account.colors.secondary-navy }}};
+        text-decoration: none;
+      }
+
+      tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: white;
+      }
+
+      table#table-section {
+        font-size: 10pt;
+        color: #58595b;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width: 100%;
+      }
+
+      #table-section th {
+        padding-top: 11px;
+        padding-bottom: 11px;
+        background-color: white;
+        color: #58595b;
+        font-size: 10pt;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      #table-section td, #table-section th {
+        text-align: left;
+        padding: 8px;
+      }
+      
+      .table-heading + .table-row, .table-row:first-child {
+        border-top: 1px solid #58595b;
+      }
+
+      tr:nth-child(odd) {
+        background-color: #E6E7E8 !important;
+      }
+      tr:nth-child(even) {
+        background-color: #ffffff !important;
+      }
+
+      tr td {
+        font-size: 8pt !important;
+        padding: 5pt;
+        margin-bottom: 0;
+      }
+
+      tr td:nth-child(even) {
+        border-left: 1px solid white;
+        font-weight: 200;
+      }
+
+      tr td:nth-child(odd) {
+        width: 14em;
+        font-weight: bold;
+        vertical-align: top;
+      }
+      
+      .content-image {
+        width: 100%;
+        margin: 10pt 0 10pt 0;
+        background-color: #E6E7E8;
+        padding: 10pt;
+            box-sizing: border-box;
+      }
+      
+      .content-image .caption {
+        border-top: 1px solid rgb(87, 89, 91);
+        margin-top: 10pt;
+        padding-top: 5pt;
+      }
+      
+      .content-image .caption p {
+        font-size: 8pt;
+        font-style: italic;
+        margin-bottom: 0 !important;
+      }
+      
+      .footnote-content {
+        font-size: 8pt;
+        padding-top: 2pt;
+        font-style: italic;
+        padding: 0 0 0 0.6em;
+      }
+      
+      .about-redhat p {
+        line-height: 11pt;
+      }
+      
+      .about-redhat {
+        padding-top: 4pt;
+        margin-bottom: 8pt;
+      }
+      
+      .sidebar-container {
+        height: 826px !important;
+        overflow: hidden;
+      }
+      .last-page .sidebar-item {
+        padding: 40pt 0 0;
+      }
+      .last-page .sidebar-container {
+        height: 546px !important;
+      }
+      @media screen {
+        .sidebar-container {
+          border-right: 1px dotted aqua;
+          border-bottom: 1px dotted aqua;
+        }
+      }
+      
+      .break-inside {
+        break-inside: avoid !important;
+      }
+      
+      .sidebar-quote h1 {
+        font-size: 11pt;
+        text-align: right;
+        font-weight: 300;
+        line-height: 1.2em;
+        font-style: italic;
+        text-transform: initial;
+      }
+      
+      .sidebar-quote p {
+        FONT-SIZE: 6pt;
+        text-align: right;
+        padding-right: 0;
+        text-transform: uppercase;
+        font-weight: 500;
+      }
+      
+      .sidebar-quote p span {
+        font-weight: 300;
+        display: block;
+      }
+      
+      /* Not For Use on Redhat.com Styles - 0410 LM */
+      .nfrh {
+        display: none;
+      }
+      .disallowed .nfrh {
+        display: initial;
+      }
+    </style> 
+  </head>
+
+  <article id="content">
+    <div class="content-collection-container">
+      {{ #collection.main-content }}
+
+      {{ #block.text-section }}
+      <div class="content-text {{collection-block-title}}">
+        {{{ text-title }}}
+        {{{text-content}}}
+      </div><!--content-collection-->
+      {{ /block.text-section }}
+
+      {{ #block.image-section }}
+      <div class="content-image break-inside {{collection-block-title}}">
+        <div class="image">
+        	<img src="{{{ image }}}" />
+        </div>
+        <div class="caption"><p>{{{ caption }}}</p></div>
+      </div><!--content-collection-->
+      {{ /block.image-section }}
+
+      {{ #block.table-section }}
+      <table id="table-section" class="{{collection-block-title}}">
+        <tr class="table-heading">
+          {{ #table-header-row-one }}<th>{{{ table-header-row-one }}}</th>{{ /table-header-row-one }}
+          {{ #table-header-row-two }}<th>{{{ table-header-row-two }}}</th>{{ /table-header-row-two }}
+        </tr>
+        
+        {{#spreadsheet.table-section}}
+          <tr class="break-inside table-row">
+            {{ #table-row }}<td>{{{ table-row }}}</td>{{ /table-row }}
+            {{ #table-row-two }}<td>{{{ table-row-two }}}</td>{{ /table-row-two }}
+          </tr>
+        {{/spreadsheet.table-section}}
+      </table>
+      {{ /block.table-section }}
+
+      {{ /collection.main-content }}
+    </div><!--content-collection-->
+  </article>
+  <script> 
+    var requestedNumberOfContentPages = {{number-of-extra-pages}}{{^number-of-extra-pages}}0{{/number-of-extra-pages}} 
+  </script>
+
+  <body class="{{websiteUse}}">
+    <div class="cover-page page 1">
+      <div class="header red-header">
+        <div class="full-height corporate-artwork"></div>
+        <div class="header-content">
+          <div class="full-width">
+            <div class="header-details">
+              <div class="logo-lockup">
+                <div class="sub-logo" data-hit-target="{{sub-logo}}"></div>
+                <div class="redhat-logo">
+                  <div><img src="{{{account.logos.mono-white-2019}}}"></div>
+                  {{#supporting-logo}}
+                  <div class="lockup-seperator"></div>
+                  <div class="supporting-logo" data-hit-target="{{supporting-logo}}"></div>
+                  {{/supporting-logo}}
+                </div><!--redhat-logo-->
+
+              </div><!--logo-lockup-->
+            </div><!--header-details-->
+            <div class="header-text">
+              <h1 class="white">{{{headline-breakonly}}}</h1>
+              <h2 class="white">{{{collateral-subheading}}}</h2>
+              <p class="white headline"><strong class="white">{{{ collateral-content-type }}}</strong></p>
+            </div>
+          </div><!--full-width-->
+        </div><!--header-content-->
+      </div><!--header-->
+
+      <div class="content-wrapper">
+        <div class="content">
+          <div class="columns">
+            <div class="column twenty-five">
+              <div>
+                <div class="first-page-sidebar sidebars">{{{first-page-sidebar-content}}}</div>
+
+              </div> 
+              <div class="social-icons">
+                {{#more-info-url}}
+                <div class="more-info">
+                  <p>For more information, visit</p>
+                  <a>{{{ more-info-url }}}</a>
+                </div><!--more-info-->
+                {{/more-info-url}}
+                
+                {{#facebook-link}}<a href="https://www.{{{facebook-link}}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>{{/facebook-link}}
+                {{#twitter-link}}<a href="https://www.twitter.com/{{{twitter-link}}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>{{/twitter-link}}
+                {{#linkedin-link}}<a href="https://www.{{{linkedin-link}}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>{{/linkedin-link}}
+                <br />
+                <small>
+                  {{#facebook-link}}{{facebook-link}}{{/facebook-link}}<br/>
+                  {{#twitter-link}}{{twitter-link}}{{/twitter-link}}<br/>
+                  {{#linkedin-link}}{{linkedin-link}}{{/linkedin-link}}
+                </small>
+              </div>
+            </div>
+              <section class="contentRight__wrapper">
+                <div class="collection-page-content page-content"></div>
+                <div class="footnote-target"></div>    
+              </section>
+            </div>
+          </div><!--columns--> 
+        </div><!--content-->
+      </div><!--content-wrapper-->
+      <footer class="flex one-hundred">
+        <div class="heavier twenty-five right website">redhat.com</div>
+        <div class="seventy-five">
+          <div class="number right" style="visibility: hidden;"></div>
+        </div>
+      </footer>
+    </div><!--cover-page--> 
+
+
+    <div>
+      <div class="page collection-pages js-page-with-content 2">
+        <div class="header white-header">
+          <div class="logo-lockup">
+            <div class="sub-logo-reversed" data-hit-target="{{sub-logo-reversed}}"></div>
+            <div class="redhat-logo">
+                  <div><img src="{{{account.logos.mono-white-2019}}}"></div>
+              {{#supporting-logo-reversed}}
+              <div class="lockup-seperator-reversed"></div>
+                          <div class="supporting-logo-reversed" data-hit-target="{{supporting-logo-reversed}}"></div>
+              {{/supporting-logo-reversed}}
+            </div><!--redhat-logo-->
+
+          </div><!--logo-lockup-->
+        </div><!--header-->
+        <div class="content-wrapper">
+          <div class="content">
+            <div class="height-100">
+              <div class="collection-sidebar twenty-five js-sidebar sidebars"></div>
+              <section class="contentRight__wrapper">
+                <div class="collection-page-content page-content"></div>
+                <div class="footnote-target"></div>    
+              </section>
+            </div><!--columns--> 
+          </div><!--content-->
+        </div><!--content-wrapper-->
+        <footer class="flex one-hundred">
+          <div class="heavier twenty-five right website" style="width: 25%;">redhat.com</div>
+          <div class="fifty" style="width: 67%;">
+            <p style="margin-bottom: 0; margin-top: 9pt; font-size: 8pt;"><strong style="margin-left: 7pt">{{{ collateral-content-type }}} </strong><span class="headline-after" style="color: #606264;">{{^footer-headline-override}} {{{ headline-breakonly }}} {{/footer-headline-override}} {{{ footer-headline-override }}}</span></p>
+          </div>
+          <div class="twenty-five" style="width: 7%">
+            <div class="number right" style="font-size: 8pt; margin-top: 9pt;"></div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <div class="page last-page cover-page" id="last-page">
+      <!--<div class="test-background-image"></div>-->
+      <div class="header red-header">
+        <div class="full-height corporate-artwork"></div>
+        <div class="header-content">
+          <div class="full-width">
+            <div class="header-details">
+              <div class="logo-lockup">
+                <div class="sub-logo" data-hit-target="{{sub-logo}}"></div>
+                <div class="redhat-logo">
+                  <div><img src="{{{account.logos.mono-white-2019}}}"></div>
+
+                  <div class="lockup-seperator"></div>
+                                  <div class="supporting-logo" data-hit-target="{{supporting-logo}}"></div>
+                </div><!--redhat-logo-->
+
+              </div><!--logo-lockup-->
+            </div><!--header-details-->
+            <div>
+              <p class="white headline" style="position: absolute; left: 40pt; bottom: 20pt;"><strong class="white">{{{ collateral-content-type }}}</strong> {{{ headline-breakonly }}}</p>
+            </div>
+          </div><!--full-width-->
+        </div><!--header-content-->
+      </div><!--header-->
+      <div class="content-wrapper">
+        <div class="content">
+          <div class="height-100">
+            <div class="column twenty-five sidebar sidebars">
+              <div></div>
+              <div class="social-icons">
+                <img class="building" src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                <br />
+                <br />
+                <br />
+                <br />
+                {{#facebook-link}}<a href="https://www.{{{facebook-link}}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>{{/facebook-link}}
+                {{#twitter-link}}<a href="https://www.twitter.com/{{{twitter-link}}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>{{/twitter-link}}
+                {{#linkedin-link}}<a href="https://www.{{{linkedin-link}}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>{{/linkedin-link}}
+                <br />
+                <p style="font-size: 7pt; line-height: 7pt;">{{#facebook-link}}{{facebook-link}}{{/facebook-link}}</p>
+                <p style="font-size: 7pt; line-height: 7pt;">{{#twitter-link}}{{twitter-link}}{{/twitter-link}}</p>
+                <p style="font-size: 7pt; line-height: 7pt;">{{#linkedin-link}}{{linkedin-link}}{{/linkedin-link}}</p>
+                
+                <footer style="position: initial; padding-left: 0; padding-right: 0; bottom: 0;">
+                  <div class="website" style="padding-right: 0; margin-bottom: 0; margin-top: 30pt;">
+                    redhat.com
+                  </div>
+                  <div>
+                    <p>{{{ document-id }}} <span class="nfrh">{{{nfrh-clause}}}</span></p>
+                  </div>
+                </footer>
+              </div>
+            </div>
+            <div class="seventy-five content-and-footer">
+              <div class="page-content">
+
+              </div>
+              
+              <div class="info-and-copyright">
+                <div class="about-redhat">
+                  <h2>ABOUT RED HAT</h2>
+                  <p>Red Hat is the world’s leading provider of open source software solutions, using a community-powered approach to reliable and high-performing cloud, Linux, middleware, storage, and virtualization technologies. Red Hat also offers award-winning support, training, and consulting services. As a connective hub in a global network of enterprises, partners, and open source communities, Red Hat helps create relevant, innovative technologies that liberate resources for growth and prepare customers for the future of IT.</p>
+                </div>
+                <div class="columns" style="height: initial; border-top: 1px solid #828384; padding-top: 4pt;">
+                  <div class="column twenty-five">
+                    <p><strong> NORTH AMERICA </strong><br>
+                      1 888 REDHAT1</p>
+                  </div>
+                  <div class="column twenty-five">
+                    <p><strong> EUROPE, MIDDLE EAST, AND AFRICA </strong><br/>
+                      00800 7334 2835<br/>
+                      europe@redhat.com</p>
+                  </div>
+                  <div class="column twenty-five">
+                    <p><strong> ASIA PACIFIC </strong><br/>
+                      +65 6490 4200<br/>
+                      apac@redhat.com</p>
+                  </div>
+                  <div class="column twenty-five">
+                    <p><strong> LATIN AMERICA </strong><br/>
+                      +54 11 4329 7300 <br />
+                      info-latam@redhat.com</p>
+                  </div>
+                </div>
+                <div class="small copyright">
+                  {{{disclaimers-and-copyrights}}}
+                </div>
+              </div>
+            </div>
+          </div><!--columns--> 
+        </div><!--content-->
+      </div><!--content-wrapper-->
+    </div>
+
+    <div id="js-content-for-sidebar" class="hidden">
+      {{#collection.content-for-sidebar}}
+      
+      {{#page-number}}
+        <div class="sidebar-item" data-targetpage="{{ page-number }}">
+          <div class="sidebar-container">
+          <div class="first-page-sidebar sidebars">
+            {{#collection.sidebar-content-blocks}}
+              {{#block.sidebar-text-section}}
+              <div class="sidebar-text">
+                {{{ sidebar-text-content }}}
+              </div>
+              {{/block.sidebar-text-section}}
+            
+              {{#block.sidebar-quote-section}}
+              <div class="sidebar-quote">
+                <h1><span style="font-size: 18pt;">″</span>{{{ sidebar-quote }}}<span>″</span></h1>
+                <p>{{{ author }}}<span>{{{ organisation }}}</span></p>
+              </div>
+              {{/block.sidebar-quote-section}}
+            {{/collection.sidebar-content-blocks}}
+          </div>
+          </div>
+        </div>
+      {{/page-number}}
+
+      {{/collection.content-for-sidebar}}
+    </div>
+
+    <div id="js-footnotes" class="hidden">
+      {{#collection.footnotes}}
+      {{#page-number}}
+      <div class="footnote {{page-number}}" data-index="{{{page-number}}}">
+        <div class="footnote-content">
+          {{{footnote-content}}}
+        </div>
+      </div>
+      {{/page-number}}
+      {{/collection.footnotes}}
+    </div>
+
+    <!-- header-artwork -->  
+    <script src="artwork.js"></script>
+
+    <!-- autoprefix css -->  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+
+
+    <script>
+      var contentPages                  = document.getElementsByClassName('js-page-with-content');
+      var contentPageParent             = contentPages[0].parentNode
+      var currentNumberOfContentPages   = contentPages.length 
+
+      while ( currentNumberOfContentPages < requestedNumberOfContentPages ) {
+        var currentPageNumber = currentNumberOfContentPages + 2;
+        var contentPageClone  = contentPages[0].cloneNode(true);
+        contentPageClone.classList.add(currentPageNumber)
+        contentPageClone.classList.remove('2')
+        contentPageParent.appendChild(contentPageClone)
+        currentNumberOfContentPages ++ 
+
+      }
+
+      if ( currentNumberOfContentPages == requestedNumberOfContentPages ) {  
+        currentPageNumber ++
+ 
+        // Check to see if currentPageNumber is NaN
+        // This means we must have exactly 3 pages. First, Internal and Last
+        if(isNaN(currentPageNumber)) {
+          currentPageNumber = 3;
+        }
+        
+        document.getElementById('last-page').classList.add(currentPageNumber)
+      }
+	
+      if ( requestedNumberOfContentPages === 0 ) {
+        $('.js-page-with-content').remove();
+        $('#js-content-for-sidebar').remove();
+      }
+
+      const lastPage = document.getElementById("last-page");
+      const pageEnd = document.querySelector(".info-and-copyright");
+      const footNotes = document.querySelectorAll(".footnote");
+      
+      initFootnotes();
+      
+      function initFootnotes() {  
+        footNotes.forEach(function(fNote) {
+          let itemClass = fNote.classList[1];
+          const targetPage = $('.page.' + itemClass);
+          const pageContent = $(targetPage).find(".page-content");
+          const targetContainer = $('.page.' + itemClass + ' .footnote-target');
+          // Last Page Condition
+          if(lastPage.classList.contains(itemClass)) {
+            pageEnd.insertBefore(fNote, pageEnd.firstChild);
+          }
+          // Internal Page Condition
+          else {
+            targetContainer.append(fNote);                  
+          }      
+          // Find the height after we have added our footnote
+          const height = targetContainer.height();
+          // Save this value to compare against later
+          targetContainer.data('height', height);
+          pageContent.css("height", "calc(100% - " + height + "px)");
+        });
+      }
+      
+      // Update heights if we need too.
+      
+      function updateFootnotes() {
+        footNotes.forEach(function(fNote) {
+
+        });
+      }
+      
+      initSidebars();
+      
+      /* Sets ups the Page Sidebars */
+      function initSidebars() {
+      	// Grab all the Sidebars 
+        var sidebars = document.querySelectorAll(".sidebar-item");
+        // Grab all Pages
+        var pages = document.querySelectorAll(".page");
+        // Loop through and inject them into their correct pages
+        for (var i = 0; i < sidebars.length; i++) {
+          var sidebar = sidebars.item(i);
+          var targetPage = sidebar.dataset.targetpage;
+          // Exceptional Case Handling
+          if(targetPage == 1) {
+            sidebar.innerHTML = "Sorry you cannot assign a second sidebar to the first page. Please use the first page sidebar input instead if you wish to add more content";
+          }
+          if(targetPage == pages.length) {
+            targetPage = "last-page";
+          }
+          injectSidebar(sidebar,targetPage);
+        }
+      }
+      
+      // 
+      function injectSidebar(sidebar, targetPage) {
+        var page = document.getElementsByClassName("page " + targetPage);
+        if (page.length != 1) {
+          sidebar.innerHTML = "Sorry you have assigned this sidebar to page " + targetPage +  " that page does not exist";
+          return;
+        }
+        var contentArea = page[0].querySelector(".content-wrapper");
+        contentArea.appendChild(sidebar);
+      }
+      
+      function loop() {
+        checkHeight(document.getElementsByClassName('content-and-footer'));
+        checkHeight(document.querySelectorAll('.first-page-sidebar'));
+        updateFootnotes();
+        numberedListCheck();
+      } setInterval(loop, 3000);
+
+      function checkHeight(element) {
+        for (var i = 0; i < element.length; i++ ) {
+          var currentElement = element[i];
+          var height = currentElement.offsetHeight;
+          var parent = currentElement.parentNode;
+          var parentHeight = parent.offsetHeight;
+
+          if (height > parentHeight) {
+            parent.classList.add('overflow');
+          } else {
+            parent.classList.remove('overflow');
+          }
+
+          if ((currentElement).parentNode.classList.contains('overflow')) {
+            document.body.classList.add('overflow-true');
+          } else {
+            document.body.classList.remove('overflow-true'); 
+          }
+        }
+      }
+    </script>
+    <script src=" https://outfit-assets-production.s3.amazonaws.com/scripts/css-regions-polyfill.min.js" type="text/javascript"></script>
+    <script>
+      /*
+*  Include this Snippet to Enforce Text lockups and line limits
+*  NOTES 
+*   - This requires base.css as it utilises overflow clss styles.
+*   - Your element must have an explicit line-heights set
+*/
+
+// Grab all nodes to be checked
+var nodesToCheck = document.querySelectorAll('[data-limit]');
+
+// Set up our Observables
+var lineObservable = new ResizeObserver(function(entries, observer) {
+    entries.forEach(function(entry) {
+        checkLimitedText(entry.target);
+    })
+});  
+
+// Observe All the Nodes
+nodesToCheck.forEach(function(node) {
+    lineObservable.observe(node);      
+});
+
+function checkLimitedText(node) {
+        // Check the line limit set   
+        const limit = node.getAttribute('data-limit');
+        // Count the amount of lines currently in the element
+        const lines = countElementLines(node); 
+        if (lines > limit) {
+            node.classList.add("overflow");
+        } 
+        else {
+            node.classList.remove("overflow");
+        }
+}
+// Calculates the amount lines in a node
+// based on the css line-height value
+function countElementLines(node) {
+    var styles = window.getComputedStyle(node);
+    const height = parseFloat(styles.getPropertyValue("height"));
+    const padding = parseFloat(styles.getPropertyValue("padding-bottom"));
+  	const border = parseFloat(styles.getPropertyValue("border-bottom"));
+    const lineHeight = parseFloat(styles.getPropertyValue('line-height'));
+    const lines = Math.ceil((height - padding - border) / lineHeight);
+    return lines;
+}      
+      
+      function numberedListCheck() {
+        // Find all Bulleted Lists
+        const olNodes = document.querySelectorAll("ol");
+
+        // Find Bulleted Lists in Regions Ternary checks to see if we have a token value or not.
+        let allRegions = document.querySelectorAll("cssregion token-value").length > 0 ? document.querySelectorAll("cssregion token-value") : document.querySelectorAll("cssregion .content-text");
+
+        let flag;
+        let compareList;
+        
+      // Check to see if we have an Ol as the last child
+        for(var i = 0; i < allRegions.length; i++) {          
+          const children = allRegions[i].children;
+          
+          // If we have no children jump over this iteration.
+          if(children.length === 0) { continue };
+                    
+          const lastChild = children[children.length - 1];
+         // IF We have an OL as the last child we now need to check the FIRST child of the next element
+         if(flag) {
+           const firstChild = children[0];
+           // If first Child is an OL also we have work to do
+           if(firstChild.tagName === "OL") {
+             // Same value is an array with a Boolean and a Numeric Value
+             const sameValue = compareValue(compareList, firstChild);
+             
+             // If we have Two Lists AND the last element of the first lists value MATCHES the first element of the second lists value
+             if(sameValue[0]) {
+               // We need to manipulate our Template code to create a new list with a new start.
+               breakList(sameValue[1]);
+             }
+           } // END Inner IF
+         } // END Outer IF          
+          
+        if(lastChild.tagName === "OL") {
+          compareList = lastChild;
+          flag = true;
+        } // END If
+         else {
+           flag = false;
+           let compareList;
+         } // END Else
+        
+        } // END For     
+      } // END numberedListCheck()
+      
+      function compareValue(listOne, listTwo) {
+        // Null Checking
+        if(listOne.children.length === 0 || listTwo.children.length === 0) { return false };
+        
+        const l1value = listOne.lastChild.getAttribute("value");
+        const l2value = listTwo.firstChild.getAttribute("value");
+        
+        if(l1value === l2value) {
+          return [true, l1value];
+        }
+        
+        return [false, 0];
+        
+      } // END sameValue()
+      
+      function breakList(value) {
+        const contentLists = document.querySelectorAll("#content ol");
+        
+        for(var i = 0; i < contentLists.length; i++) {
+          const activeList = contentLists[i];
+          
+          // We need to check to see if there are any LI items with breaks in them.
+          const listItems = activeList.children;
+		  let itemToBreak = false;
+          
+          for(var j = 0; j < listItems.length; j++) {
+            // Check for break tags
+            if(listItems[j].children.length > 0) { 
+              itemToBreak = j;
+              break
+            } // END If
+          } // END Inner FOR Loop
+          
+          // If ItemToBreak has been set
+          if(itemToBreak != false) {
+            // We need to create a new OL and populate it.
+            const newList = document.createElement("ol");
+            const newLI = document.createElement("li");
+            let duplicateList = activeList.cloneNode(true);
+            
+            // We need to split the original LI text
+            const fullText = listItems[itemToBreak].innerHTML
+            const endSentence = fullText.indexOf(". ") + 2; //Add 2 to grab the . in the string
+            const startText = fullText.slice(0, endSentence);
+            const endText = fullText.slice(endSentence, -1);
+            
+            // populate the text of the new LI
+            newLI.innerHTML = endText;
+            newLI.classList.add("no-number");
+            // Add the LI to the new OL
+            newList.appendChild(newLI);
+            
+            // We also need to move the extra LI items from the original list to the new list
+            for(var k = (itemToBreak + 1); k < listItems.length; k++) {
+              let clone = listItems[k].cloneNode(true);
+              newList.appendChild(clone);
+            }
+            
+            // We need to modify the duplicated list
+            const dupeChildren = duplicateList.children;
+            dupeChildren[itemToBreak].innerHTML = startText;
+            
+            for(var x = 0; x < dupeChildren.length; x++) {
+              if(dupeChildren.length === itemToBreak) {
+                // we are done
+                break;
+              }
+              duplicateList.children[duplicateList.children.length - 1].remove();
+            }
+            console.log(duplicateList);
+            console.log(newList);
+            
+            
+            activeList.replaceWith(duplicateList, newList);
+            // console.log(activeList.parent());
+            
+            // Update the Original List Item
+            //listItems[itemToBreak].innerHTML = startText;
+          }
+        } // END Outer FOR Loop
+      } // END breakList()
+    </script>
+  </body>
+</html>
