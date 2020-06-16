@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//overpass-30e2.kxcdn.com/overpass.css' rel='stylesheet' />
+    {{{account.snippets.design-system-link}}}
+    <style>
+
+      html {
+        font-family: "Red Hat Display";
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        font-size: initial;
+      }
+
+      body {
+        background-image: url("https://files.outfit.io/media_library_items/167518/GWS%2520email%2520header.png");
+        color: #FFF;
+      }
+
+
+      .content-wrapper {
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        width: 94%;
+        padding: 1.2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      #internal-email-banner-headline {
+        font-size: 4.4em;
+        line-height: 110%;
+      }
+      #internal-email-banner-date {
+        font-size: 2em;
+      }
+
+    </style>
+  </head>
+
+  <body class="{{{ theme-colour-header }}}">
+    <div class="background">
+      <div class="background-colour"></div>
+      <div class="background-image"></div>
+    </div>
+    
+    <div class="content-wrapper">
+      
+      <div id="internal-email-banner-headline">
+        {{{internal-email-banner-headline}}}
+      </div><!-- internal-email-banner-headline -->
+      
+      <div>
+      <div id="internal-email-banner-date">
+        {{{internal-email-banner-date}}}
+      </div><!-- internal-email-banner-date -->
+      <div id="internal-email-banner-subheading" style="font-size: 2.5em; line-height: 1.1em;">
+        {{{internal-email-banner-subheading}}}
+      </div><!-- internal-email-banner-subheading -->
+      </div>
+      
+      
+    </div><!-- content-wrapper -->
+  </body>
+</html>
