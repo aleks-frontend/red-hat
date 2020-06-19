@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html data-sign="OS?">
+  <head>
+    <title>[IN BUILD] Event Kit 2019 - Easels</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <style>
+      @import url("https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/redhat-webfonts.css");
+
+      :root {
+        --red: {{account.colors.primary-red-2019}};        
+        --blue: {{account.colors.blue-2019}};
+        --grey: {{account.colors.grey-2019}};
+        --light-grey: {{account.colors.light-grey-2019}};
+        --lighter-grey: {{account.colors.light-light-grey}};
+        --white: {{account.colors.primary-white}};
+        --black: {{account.colors.primary-black}};
+        --text-black: {{account.colors.primary-black-text}};
+      }
+
+      html {
+        font-size: 100%;
+        font-family: "Red Hat Text", sans-serif;
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.4;
+        color: var(--text-black);
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+      
+      .overflow::after {
+        font-size: 0.75rem;
+      }
+      
+      .overflow[data-validate-type="type"]:hover:after {
+        content: "Badge type is invalid";
+      }
+      
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */            
+      .wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;        
+        background: url(https://files.outfit.io/media_library_items/167210/events-badges-portrait.svg) center top no-repeat;
+        background-size: contain;
+      }
+      
+      h1, h2, h3 {
+        font-family: 'Red Hat Display';
+        font-weight: normal;
+        line-height: 1.1em;
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 19pt;
+      }
+      
+      h2 {
+        font-size: 28pt;
+        margin-bottom: 0.25em;
+      }
+      
+      h3 {        
+        font-weight: bold;
+        font-size: 29pt;
+        text-transform: capitalize;
+      }
+      
+      .header {
+        width: 100%;
+        height: 57mm;
+        padding: 3mm 6mm 0 6mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: var(--red);
+      }
+      
+      .logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10pt;
+      }
+      
+      .logo img {
+        width: 50mm;
+        height: auto;
+      }
+      
+      .body-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;        
+        padding: 0 6mm;
+      }
+      
+      .footer {        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 23mm;
+        width: 100%;        
+        padding: 0 6mm 3mm;
+        color: var(--white);
+        background-color: var(--black);
+      }
+      
+      .footer-content {
+        width: 100%;
+        height: 100%;    
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .footer.name-badge-Attendee {
+      	background-color: var(--red);
+      }
+      
+      .footer.name-badge-Staff {
+      	background-color: var(--black);
+      }
+      
+      .footer.name-badge-Partners {
+      	background-color: var(--lighter-grey);
+        color: var(--black);
+      }
+      
+      /* Landscape */
+      @media (orientation: landscape) {
+		.wrapper {
+          background-image: url(https://files.outfit.io/media_library_items/167211/event-badges-4x3.svg);
+        }
+        
+        .header {
+          height: 32mm;
+          flex: 0 0 32mm;
+        }
+        
+        .logo {
+          margin-bottom: 5pt;
+        }
+        
+        .logo img {
+          width: 95pt;
+        }
+        
+        h1 {
+          font-weight: 500;
+          font-size: 18pt;
+        }
+        
+        h2 {
+          font-weight: normal;
+          font-size: 26pt;
+        }
+        
+        h3 {
+          font-weight: bold;
+          font-size: 26pt;
+        }
+        
+        .footer {
+          height: 19mm;
+          flex: 0 0 19mm;
+        }
+      }                      
+    </style>
+  </head>
+  <body style="background: white" data-crop="{{show-crop}}">
+    {{#spreadsheet.EventKit--Name-Badges--spreadsheet}}
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="wrapper">
+          	<div class="header">
+              <div class="logo">
+                <img src="{{{account.logos.primary-black-2019}}}" />
+              </div><!--logo-->
+              <h1 data-max-line="1">{{{ event-name }}}</h1>
+            </div>
+            <div class="body-content">                
+              <h2 data-max-line="2">{{{ attendee-name }}}</h2>
+            </div><!--body-content-->
+            <div class="footer name-badge-{{ type }}">
+              <div class="footer-content" data-validate-value="{{ type }}" data-validate-type="type">
+              	<h3 data-max-line="1">{{{ type }}}</h3>
+              </div>
+            </div><!--body-content-->
+          </div>
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+    {{/spreadsheet.EventKit--Name-Badges--spreadsheet}}    
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+      
+      function validation() {
+        const els = document.querySelectorAll("[data-validate-value]");
+
+        els.forEach(el => {
+          const type = el.dataset.validateType;
+          const value = el.dataset.validateValue;
+          const validTypes = ['attendee', 'partners', 'staff'];
+          let error = false;
+
+          switch(type) {
+            case 'type':
+              if (!value || !validTypes.includes(value.toLowerCase())) {
+                error = true;
+              }
+              break;
+          }
+
+          if (error) {
+            el.classList.add("overflow"); 
+          } else {
+            el.classList.remove("overflow");
+          }
+        });
+      }
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          validation();
+        });
+      });
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();        
+      });
+
+      checkCrop();
+      checkExport();
+      validation();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+    </script>
+
+
+  </body>
+</html>
