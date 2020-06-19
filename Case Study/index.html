@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html data-sign="OS?">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    {{{account.snippets.design-system-link}}}
+
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Circular/stylesheet.css');
+      @import url('https://fonts.googleapis.com/css?family=Overpass+Mono&display=swap');
+
+      :root {
+        --blue: #00a4e4;
+        --red: #ee0000;
+        --black: #000000;
+        --text-black: #231f20;
+        --grey: #58595b;
+        --light-grey: #e6e7e8;
+        --light-light-grey: #ededee;
+      }
+      
+      html {
+        font-family: "Circular";
+        font-size: 11pt;
+        color: var(--grey);
+      }
+      
+      a {
+        text-decoration: none;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }        
+      
+      .container {
+        padding: 0.95rem 1.19rem;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      @media (min-width: 816px) {
+        .container {
+          padding: 1em 1.25em;
+        }
+      }
+      
+      /* Header content */
+      .redhatLogo {
+        margin: 0;
+      }
+      
+      .redhatLogo > img {
+        height: 35.58px;
+      }
+      
+      .header-content {
+        padding-bottom: 1.2rem;
+      }
+      
+      .logo-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+      
+      .brief-text {
+        font-size: 0.17em;
+        color: var(--red);
+      }
+      
+      .js-heading-src, .js-name-src, .js-url-src {
+        display: none;
+      }
+      
+      /* Title content */
+      .heading {
+        font-size: 0.66em;
+        color: var(--red);
+        margin-bottom: 1.15em;
+        font-weight: 400;
+      }
+      
+      p, ul li, ol li {
+        font-size: 0.195em;
+        line-height: 1.35em;
+      }
+      
+      ul, ol {
+        margin-bottom: 0;
+      }
+      
+      ul li, ol li {
+        margin-bottom: 0;
+        line-height: 1.8em !important;
+      }
+      
+      li li {
+        font-size: 0.95em !important;
+      }
+      
+      .text-block ul, .text-block ol {
+        margin-left: 0.05em;
+      }
+      
+      .text-block p {
+        line-height: 1.5;
+      }
+      
+      .text-block span {
+        font-family: monospace;
+        text-decoration: none !important;
+        font-weight: 600;
+      }
+      
+      @media (min-width: 816px) {
+        .p {
+          font-size: 0.22em;
+        }
+      }
+      
+      strong {
+        font-weight: bold !important;
+      }
+      
+      /* Main */
+      .flex-row {
+        display: flex;
+        flex-direction: row;
+        width: 100%
+      }
+      .flex-col {
+        display: flex;
+        flex-direction: column;
+      }
+      .main {
+        /*flex-grow: 1;*/
+        height: 100%;
+      }
+      
+      /* Sidebar content */
+      .sidebar-content {
+        position: relative;
+        border: none;
+        margin: 0;
+        padding: 0.07em 0 0 0 !important;
+        width: 25.75%;
+      }
+      .customer-logo {
+        max-height: 1.27em;
+        text-align: right;
+        padding-right: 0.38em;
+        position: relative;
+        border-bottom: 1px solid var(--grey);
+        margin-bottom: 0.28em;
+        padding-bottom: 0.35em;
+      }
+      .customer-logo img {
+        max-height: 100%;
+        max-width: 100%;
+        display: block;
+        float: right;
+        vertical-align: top;
+      }
+      .sidebar-text-block {
+        border-bottom: 1px solid var(--grey);
+        margin: 0 0 0.35em;
+        padding: 0 0 0.33em;
+        text-align: right;
+        padding-right: 0.38em;
+      }
+      .sidebar-text-block h1 {
+        font-size: 0.2em;
+        color: var(--red);
+        font-weight: bold;
+        letter-spacing: 0.055em;
+        margin-bottom: 0.65em;
+      }
+      .sidebar-text-block h1:not(:first-child) {
+        padding-top: 0.8em;
+      }
+      
+      .sidebar-footer {
+        flex-grow: 1;
+        justify-content: flex-end;
+        margin-right: 0.38em;
+      }
+      .sidebar-content .sidebar-footer {
+        text-align: right;
+      }
+      
+      .internal-page .sidebar-content {
+        text-align: right;
+      }
+      
+      /* Social Links */
+      .social-links {
+        margin-bottom: 0.4em;
+      }
+      .social-links a {
+        font-size: 0.17em;
+        color: #000;
+        display: block;
+        line-height: 1.3;
+      }
+      .social-icons {
+        line-height: 10%; /* temporary fix for whitespace */
+        margin-bottom: 0.13em;
+      }
+      .social-icons img {
+        width: 0.41em;
+      }
+      .social-icons a {
+        display: inline-block;
+        margin-left: -0.14em;
+      }
+      
+      /* Main content */
+      .main-content {
+        width: 74%;
+      }
+      .front-page .main-content {
+        border-left: 1px solid var(--grey);
+      }
+      .front-page .text-block {
+        padding: 0 0 0.28em 0.38em;
+        border-bottom: 1px solid var(--grey);
+      }
+      .text-block h1 {
+        font-size: 0.25em;
+        color: var(--red);
+        font-weight: bold;
+        margin: 0.15em 0 0.65em;
+      }
+      .main-content h2 {
+        font-size: 0.2em;
+        color: var(--red);
+      }
+      .text-block h2 {
+        color: #000;
+        letter-spacing: 0.05em;
+      }
+      .text-block h3 {
+        font-family: monospace;
+        font-size: 0.195em;
+      }
+      
+      /* Columns */
+      .columns {
+        flex-grow: 1;
+      }
+      
+      .left-column {
+        width: 65.5%;
+      }
+      .featured-image {
+        height: 3em !important;
+        width: auto;
+        position: relative;
+        border-bottom: 1px solid var(--grey);
+      }
+      .customer-quote {
+        padding: 0.3em 0.33em 0;
+      }
+      .quote {
+        font-size: 0.26em !important;
+        text-align: right;
+        font-weight: 400;
+        font-style: italic;
+        color: var(--grey) !important;
+        line-height: 1.4;
+        margin-bottom: 0.85em
+      }
+      .quote:before {
+        content: open-quote;
+      }
+      .quote:after {
+        content: close-quote;
+      }
+      .customer-name {
+        text-align: right;
+        font-size: 0.145em;
+        font-weight: 700;
+        margin-bottom: 0;
+      }
+      .customer-title {
+        text-align: right;
+        font-size: 0.145em;
+      }
+      
+      .right-column {
+        width: 34.5%;
+        border-left: 1px solid var(--grey);
+      }
+      .customer-industry, .customer-challenge, .customer-benefits, .customer-statistics {
+        padding: 0.3em 0.37em;
+        border-bottom: 1px solid var(--grey);
+      }
+      .customer-statistics {
+        padding: 0.2em 0.37em;
+      }
+      .customer-statistics strong {
+        color: var(--red);
+        font-weight: 500;
+        padding-right: 0.25em;
+      }
+      .customer-industry h2, .customer-challenge h2, .customer-benefits h2 {
+        letter-spacing: 0.055em;
+      }
+      .customer-industry h2 {
+        margin: 0;
+      }
+      .right-column div:last-child {
+        border-bottom: none !important;
+      }
+      
+      /* Page Footer */
+      .footer-text, .footer-link {
+        font-size: 0.17em;
+        font-weight: 500;
+        margin: 0 2.28em 1.5em 0;
+        text-align: right;
+      }
+      .footer-link a {
+        color: var(--grey);
+      }
+      .js-name-target {
+        font-weight: 400;
+        padding-left: 1em;
+      }
+      
+      /* Internal page */
+      .internal-page .header-content {
+        padding-bottom: 1.79rem;
+      }
+      .internal-page .sidebar-content {
+        padding-right: 0.38em !important;
+      }
+      .headshot-image {
+        position: relative;
+        width: 100%;
+        height: 5.68em !important;
+      }
+      .internal-page .customer-quote {
+        padding: 0.37em 0 0;
+      }
+      .internal-page .text-block {
+        margin-bottom: 0.15em;
+      }
+      .customer-image {
+        position: relative;
+        width: 100%;
+        height: 3.35em !important;
+        margin-bottom: 0.3em;
+      }
+      
+      /* Internal Page 2 */
+      .call-out {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        text-align: initial;
+      }
+      
+      .table-title {
+        font-size: 0.2em;
+        letter-spacing: 0.05em;
+        padding-top: 0.15em;
+        margin-bottom: 0.85em;
+        color: #000;
+      }
+      .case-study-table {
+        margin-bottom: 0.2em;
+      }
+      .case-study-table th {
+        font-size: 0.2em;
+        padding: 0.65em 0.4em 0.35em 0.4em;
+      }
+      .case-study-table td {
+        font-size: 0.19em;
+        padding: 0.46em 0.4em;
+      }
+      
+      .img-container {
+        background-color: var(--light-light-grey);
+        padding: 0.3em;
+        margin: 0.2em 0 0.4em 0;
+      }
+      .img-container .img {
+        height: 3.4em !important;
+        position: relative;
+      }
+      .img-container cite {
+        border-top: 1px solid var(--grey);
+        color: var(--grey);
+        font-size: 0.17em;
+        padding-top: 0.7em;
+        margin-top: 1.4em;
+        line-height: 1.2em;
+        font-style: normal;
+        display: block;
+        width: 100%;
+      }
+      
+      .footnotes {
+        margin-top: 0.32em;
+        border-top: 1px solid var(--grey);
+        padding-top: 0.13em;
+      }
+      .footnotes p {
+        font-size: 0.16em;
+        margin-bottom: 0.4em;
+      }
+      sup, sub {
+        font-weight: bold;
+        font-size: 1em;
+        padding-right: 0.7em;
+      }
+      
+      /* Internal Page Footer */
+      .internal-page .footer-text:after {
+        content: attr(data-footnote-number);
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-weight: 400;
+      }
+      .page-footer {
+        margin-top: 0.4em;
+      }
+      .internal-page .footer-link {
+        width: 22.55%;
+        margin-bottom: 0;
+      }
+      .internal-page .footer-text {
+        width: 75%;
+        text-align: left;
+        margin-right: 0;
+        margin-bottom: 0;
+        position: relative;
+      }
+      .footer-text .js-heading-target {
+        color: var(--red);
+      }
+      .sidebar-footnote {
+        flex-grow: 1;
+        justify-content: flex-end;
+      }
+      .sidebar-footnote-text {
+        border-top: 1px solid var(--grey);
+        margin-bottom: 1.3em;
+        padding-top: 0.15em;
+      }
+      
+      /* Last Page */
+      .last-page .header-content {
+        padding-bottom: 3.4rem;
+      }
+      
+      /* Last Page Sidebar */
+      
+      .last-page .sidebar-footer {
+        margin-right: 0;
+        text-align: right;
+        margin-bottom: 0.1em;
+      }
+      .last-page .footer-link {
+        width: 100%;
+      }
+      .last-page .footer-text {
+        text-align: right;
+        width: 100%;
+        font-size: 0.15em;
+      }
+      .building {
+        line-height: 1;
+        margin-bottom: 0.4em;
+      }
+      .building img {
+        width: 0.75em;
+        display: inline-block;
+      }
+      .building.hide {
+        display: none;
+      }
+      
+      /* Last Page Footer */
+      .main-content-footer {
+        flex-grow: 1;
+        justify-content: flex-end;
+      }
+      .about {
+        border-bottom: 1px solid var(--grey);
+        margin-bottom: 0.1em;
+      }
+      .about h1 {
+        font-size: 0.20em;
+        font-weight: 600;
+        margin-bottom: 0.4em;
+        color: var(--grey);
+        letter-spacing: 0.035em;
+      }
+      .about p {
+        font-size: 0.18em;
+        line-height: 1.2;
+      }
+      .about-text {
+        margin-bottom: 0.1em;
+      }
+      
+      .locations {
+        margin-bottom: 0.45em;
+      }
+      .locations .text-block {
+        font-size: 0.19em;
+      }
+      .location-block {
+        width: 25%;
+      }
+      .location-block a {
+        color: var(--grey);
+      }
+      
+      .copyright-text {
+        display: inline-block;
+        font-size: 0.14em;
+      }
+      
+      /* Override what is in the Design System*/
+      body {
+        font-size: 57.2335px;
+        line-height: initial;
+      }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" class="u-placeholder-{{ placeholder-toggle-new }}{{^placeholder-toggle-new}}hide{{/placeholder-toggle-new}}" data-crop="{{show-crop}}">
+    <div class="placeholderMaster" data-opacity="{{ placeholder-opacity }}">
+      {{#placeholder-image-1}}
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-1 }}"></div>
+      {{/placeholder-image-1}}
+    </div><!-- end placeholderMaster -->
+    
+    <div class="js-heading-src">{{{ type }}}</div>
+    <div class="js-name-src">{{{ document-name }}}</div>
+    <div class="js-url-src">{{{ url }}}</div>
+    
+    {{#collection.RH_general-collateral--cs}}
+	
+    {{#block.RH_front-page--cs}}
+    <div class="page front-page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          
+          <div class="header-content">
+            <div class="logo-container">
+              <div class="redhatLogo">
+                <img src="https://files.outfit.io/media_library_items/96161/rh.png"/>
+              </div>
+              <span class="brief-text js-heading-target"></span>
+            </div>
+          </div><!--header-content-->
+          
+          <h1 class="heading" data-max-line="3">{{{ heading }}}</h1>
+          
+          <div class="main flex-row">
+            
+            <div class="sidebar-content flex-col">
+              {{#collection.RH_sidebar-content--cs}}
+              
+                {{#block.RH_customer-logo--cs}}
+                <div class="customer-logo"><img src="{{{ case-study-customer-logo }}}" /></div>
+                {{/block.RH_customer-logo--cs}}
+
+                {{#block.RH_sidebar-text--cs}}
+                <div class="sidebar-text-block" data-max-height="500">{{{ RH_sidebar-text--cs }}}</div>
+                {{/block.RH_sidebar-text--cs}}
+				
+                {{#block.RH_social--cs}}
+                <div class="sidebar-footer flex-col">
+                  <div class="social-icons">
+                    <a href="https://{{{facebook-link}}}{{^facebook-link}}facebook.com/redhatinc{{/facebook-link}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                    <a href="https://twitter.com/{{{twitter-link}}}{{^twitter-link}}redhat{{/twitter-link}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                    <a href="https://{{{linkedin-link}}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                  </div>
+                  <div class="social-links">
+                    <a href="https://{{{facebook-link}}}{{^facebook-link}}facebook.com/redhatinc{{/facebook-link}}">{{{facebook-link}}}{{^facebook-link}}facebook.com/redhatinc{{/facebook-link}}</a>
+                    <a href="https://twitter.com/{{{twitter-link}}}{{^twitter-link}}redhat{{/twitter-link}}">@{{{twitter-link}}}{{^twitter-link}}redhat{{/twitter-link}}</a>
+                    <a href="https://{{{linkedin-link}}}">{{{linkedin-link}}}{{^linkedin-link}}linkedin.com/company/red-hat{{/linkedin-link}}</a>
+                  </div>
+                </div>
+                {{/block.RH_social--cs}}
+              
+              {{/collection.RH_sidebar-content--cs}}
+              <div class="footer-link"><a href="" class="js-url-target"></a></div>
+            </div><!--sidebar-content-->
+
+            <div class="main-content flex-col" data-max-height="750">
+              {{#collection.RH_mainContent--cs}}    
+              
+                {{#block.main-content--gc}}
+                <div class="text-block">{{{ RH_case-study-main-content--gc }}}</div>
+                {{/block.main-content--gc}}
+
+                {{#block.main-content-columns--cs}}
+                <div class="columns flex-row">
+                  <div class="left-column">
+                    <div class="featured-image">{{{ featured-image }}}</div>
+                    <div class="customer-quote">
+                      <h2 class="quote">{{{ quote }}}</h2>
+                      <p class="customer-name">{{{ customer-name }}}</p>
+                      <p class="customer-title">{{{ cs-customer-representative-title }}}</p>
+                    </div>
+                  </div><!--left-column-->
+
+                  <div class="right-column">
+                    <div class="customer-industry">
+                      <h2> {{ customer-industry }} Industry</h2>
+                    </div>
+                    {{#customer-challenge}}
+                    <div class="customer-challenge">
+                      <h2>Challenge</h2>
+                      {{{ customer-challenge }}}
+                    </div>
+                    {{/customer-challenge}}
+                    <div class="customer-statistics">
+                      {{#spreadsheet.customer-statistics}}<p><strong>{{value}}</strong>{{text}}</p>{{/spreadsheet.customer-statistics}}
+                    </div>
+                    <div class="customer-benefits">
+                      <h2>Benefits</h2>
+                      {{{ customer-benefits }}}
+                    </div>
+                  </div><!--right-column-->
+                </div><!--columns-->
+                {{/block.main-content-columns--cs}}
+              
+              {{/collection.RH_mainContent--cs}}
+            </div><!--main-content-->
+            
+          </div><!--main-->
+
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+	{{/block.RH_front-page--cs}}
+    
+    {{#block.RH_internal-page-one--cs}}
+    <div class="page internal-page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="header-content">
+            <div class="logo-container">
+              <div class="redhatLogo">
+                <img src="https://files.outfit.io/media_library_items/96161/rh.png"/>
+              </div>
+            </div>
+          </div><!--header-content-->
+          
+          <div class="main flex-row">
+            <div class="sidebar-content flex-col">
+              {{#collection.RH_sidebar-content--cs}}
+              
+              {{#block.RH_headshot-image--cs}}
+              <div class="headshot-image">{{{ headshot-image }}}</div>
+              {{/block.RH_headshot-image--cs}}
+
+              {{#block.RH_customer-quote--cs}}
+              <div class="customer-quote">
+                <h2 class="quote" data-max-height="420">{{{ quote }}}</h2>
+                <p class="customer-name">{{{ customer-name }}}</p>
+                <p class="customer-title">{{{ cs-customer-representative-title }}}</p>
+              </div>
+              {{/block.RH_customer-quote--cs}}
+              
+              {{#block.RH_sidebar-text--cs}}
+              <div class="call-out"><p>{{{ sidebar-text }}}</p></div>
+              {{/block.RH_sidebar-text--cs}}
+
+              {{/collection.RH_sidebar-content--cs}}
+            </div><!--sidebar-content-->
+
+            <div class="main-content" data-max-height="840">
+            {{#collection.RH_mainContent--cs}}
+              
+              {{#block.main-content--gc}}
+              <div class="text-block">{{{ RH_case-study-main-content--gc }}}</div>
+              {{/block.main-content--gc}}
+
+              {{#block.customer-image--cs}}
+              <div class="customer-image">{{{ customer-image }}}</div>
+              {{/block.customer-image--cs}}
+              
+            {{/collection.RH_mainContent--cs}}
+            </div><!--main-content-->
+          </div><!--main-->
+          
+          <div class="page-footer flex-row">
+            <div class="footer-link"><a href="" class="js-url-target"></a></div>
+            <div class="footer-text" data-footnote-number="2"><span class="js-heading-target"></span><span class="js-name-target"></span></div>
+          </div><!--page-footer-->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+	{{/block.RH_internal-page-one--cs}}
+    
+    {{#block.RH_internal-page-two--cs}}
+    <div class="page internal-page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="header-content">
+            <div class="logo-container">
+              <div class="redhatLogo">
+                <img src="https://files.outfit.io/media_library_items/96161/rh.png"/>
+              </div>
+            </div>
+          </div><!--header-content-->
+          
+          <div class="main flex-row">
+            <div class="sidebar-content flex-col" data-max-height="860">
+              {{#collection.RH_sidebar-content--cs}}
+              
+              {{#block.RH_customer-quote--cs}}
+              <div class="customer-quote">
+                <h2 class="quote">{{{ quote }}}</h2>
+                <p class="customer-name">{{{ customer-name }}}</p>
+                <p class="customer-title">{{{ cs-customer-representative-title }}}</p>
+              </div>
+              {{/block.RH_customer-quote--cs}}
+              
+              {{#block.RH_sidebar-text--cs}}
+              <div class="call-out"><p>{{{ sidebar-text }}}</p></div>
+              {{/block.RH_sidebar-text--cs}}
+              
+              {{#block.RH_sidebar-footnote--cs}}
+              <div class="sidebar-footnote flex-col">
+                <div class="sidebar-footnote-text">{{{ sidebar-footnote }}}</div>
+              </div>
+              {{/block.RH_sidebar-footnote--cs}}
+
+              {{/collection.RH_sidebar-content--cs}}
+            </div><!--sidebar-content-->
+
+            <div class="main-content" data-max-height="850">
+            {{#collection.RH_mainContent--cs}}        
+              
+              {{#block.main-content--gc}}
+              <div class="text-block">{{{ RH_case-study-main-content--gc }}}</div>
+              {{/block.main-content--gc}}
+
+              {{#block.case-study-table--cs}}
+              <h3 class="table-title">{{{ table-title }}}</h3>
+              <table class="case-study-table">
+                <thead>
+                  <tr>
+                    <th>{{ table-column-one-name }}</th>
+                    <th>{{ table-column-two-name }}</th>
+                    <th>{{ table-column-three-name }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {{#spreadsheet.case-study-table}}
+                  <tr>
+                    <td>{{ column-one-text }}</td>
+                    <td>{{ column-two-text }}</td>
+                    <td>{{ column-three-text }}</td>
+                  </tr>
+                  {{/spreadsheet.case-study-table}}
+                </tbody>
+              </table>
+              {{/block.case-study-table--cs}}
+              
+              {{ #block.image-section }}
+              <div class="img-container">
+                <div class="img">{{{ image-with-caption }}}</div>
+                {{#caption}}
+                <cite>{{{ caption }}}</cite>
+                {{/caption}}
+              </div>
+              {{ /block.image-section }}
+              
+              {{#block.footnote--gc}}
+              <div class="footnotes">{{{ case-study-footnotes }}}</div>
+              {{/block.footnote--gc}}
+              
+            {{/collection.RH_mainContent--cs}}
+            </div><!--main-content-->
+          </div><!--main-->
+          
+          <div class="page-footer flex-row">
+            <div class="footer-link"><a href="" class="js-url-target"></a></div>
+            <div class="footer-text" data-footnote-number="3"><span class="js-heading-target"></span><span class="js-name-target"></span></div>
+          </div><!--page-footer-->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+	{{/block.RH_internal-page-two--cs}}
+    
+    {{#block.RH_internal-page-three--cs}}
+    <div class="page internal-page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="header-content">
+            <div class="logo-container">
+              <div class="redhatLogo">
+                <img src="https://files.outfit.io/media_library_items/96161/rh.png"/>
+              </div>
+            </div>
+          </div><!--header-content-->
+          
+          <div class="main flex-row"></div><!--main-->
+          
+          <div class="page-footer flex-row">
+            <div class="footer-link"><a href="" class="js-url-target"></a></div>
+            <div class="footer-text" data-footnote-number="4"><span class="js-heading-target"></span><span class="js-name-target"></span></div>
+          </div><!--page-footer-->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+	{{/block.RH_internal-page-three--cs}}
+    
+    {{#block.RH_last-page--cs}}
+    <div class="page internal-page last-page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="header-content">
+            <div class="logo-container">
+              <div class="redhatLogo">
+                <img src="https://files.outfit.io/media_library_items/96161/rh.png"/>
+              </div>
+            </div>
+          </div><!--header-content-->
+          
+          <div class="main flex-row">
+            <div class="sidebar-content flex-col">
+              {{#collection.RH_sidebar-content--cs}}
+              
+              {{#block.RH_customer-quote--cs}}
+              <div class="customer-quote">
+                <h2 class="quote" data-max-height="460">{{{ quote }}}</h2>
+                <p class="customer-name">{{{ customer-name }}}</p>
+                <p class="customer-title">{{{ cs-customer-representative-title }}}</p>
+              </div>
+              {{/block.RH_customer-quote--cs}}
+              
+              {{#block.RH_sidebar-text--cs}}
+              <div class="call-out"><p>{{{ sidebar-text }}}</p></div>
+              {{/block.RH_sidebar-text--cs}}
+              
+              {{#block.RH_sidebar-footer--cs}}
+                <div class="sidebar-footer flex-col">
+                  <div class="building {{ show-building }}">
+                    <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                  </div>
+                  <div class="social-icons">
+                    <a href="https://{{{facebook-link}}}{{^facebook-link}}facebook.com/redhatinc{{/facebook-link}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                    <a href="https://twitter.com/{{{twitter-link}}}{{^twitter-link}}redhat{{/twitter-link}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                    <a href="https://{{{linkedin-link}}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                  </div>
+                  <div class="social-links">
+                    <a href="https://{{{facebook-link}}}{{^facebook-link}}facebook.com/redhatinc{{/facebook-link}}">{{{facebook-link}}}{{^facebook-link}}facebook.com/redhatinc{{/facebook-link}}</a>
+                    <a href="https://twitter.com/{{{twitter-link}}}{{^twitter-link}}redhat{{/twitter-link}}">@{{{twitter-link}}}{{^twitter-link}}redhat{{/twitter-link}}</a>
+                    <a href="https://{{{linkedin-link}}}">{{{linkedin-link}}}{{^linkedin-link}}linkedin.com/company/red-hat{{/linkedin-link}}</a>
+                  </div>
+                  <div class="footer-link"><a href="" class="js-url-target"></a></div>
+                  <div class="footer-text">{{{ document-number }}}</div>
+                </div>
+              {{/block.RH_sidebar-footer--cs}}
+
+              {{/collection.RH_sidebar-content--cs}}
+            </div><!--sidebar-content-->
+
+            <div class="main-content flex-col">
+            {{#collection.RH_mainContent--cs}}        
+              
+              {{#block.main-content--gc}}
+              <div class="text-block" data-max-height="550">{{{ RH_case-study-main-content--gc }}}</div>
+              {{/block.main-content--gc}}
+              
+              {{#block.RH_main-content-footer--cs}}
+              <div class="main-content-footer flex-col">
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">{{{ RH_about-red-hat--cs }}}</div>
+                </div>
+
+                <div class="locations flex-row">
+                {{#collection.RH_locations--cs}}
+                  {{#block.location--gc}}
+                  <div class="location-block">
+                    <div class="text-block">{{{ RH_location--cs }}}</div>
+                  </div>
+                  {{/block.location--gc}}
+                {{/collection.RH_locations--cs}}
+                </div>
+
+                <small class="copyright-text" data-max-line="5">{{{ RH_case-study-copyright--cs }}}</small>
+              </div>
+              {{/block.RH_main-content-footer--cs}}
+              
+            {{/collection.RH_mainContent--cs}}
+            </div><!--main-content-->
+            
+          </div><!--main-->
+          
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+	{{/block.RH_last-page--cs}}
+    
+	{{/collection.RH_general-collateral--cs}}
+    
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+      
+      setInterval(() => {
+        injectHeading();
+      }, 500);
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+        });
+      });
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+      });
+
+      placeholderController();
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+      
+      function injectHeading() {
+        const src = document.querySelector('.js-heading-src');
+        const targets = document.querySelectorAll('.js-heading-target');
+
+        targets.forEach(target => {
+          // If no text is set for the Type, it will fallback to 'Checklist'
+          const output = src.innerHTML;
+          target.innerHTML = output;
+        });
+        
+        const nameSrc = document.querySelector('.js-name-src');
+        const nameTargets = document.querySelectorAll('.js-name-target');
+
+        nameTargets.forEach(nameTarget => {
+          // If no text is set for the Type, it will fallback to 'Checklist'
+          const output = (nameSrc.innerText == '') ? 'Name of document goes here (Change on Master, not individual pages)' : nameSrc.innerHTML;
+          nameTarget.innerHTML = output;
+        });
+        
+        const urlSrc = document.querySelector('.js-url-src');
+        const urlTargets = document.querySelectorAll('.js-url-target');
+
+        urlTargets.forEach(urlTarget => {
+          // If no text is set for the Type, it will fallback to 'Checklist'
+          const output = (urlSrc.innerText == '') ? 'redhat.com' : urlSrc.innerHTML;
+          const urlOutput = (urlSrc.href == '') ? 'redhat.com' : urlSrc.innerHTML;
+          urlTarget.innerHTML = output;
+          urlTarget.href = urlOutput;
+        });
+      }
+
+    </script>
+
+
+  </body>
+</html>
