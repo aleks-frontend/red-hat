@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html data-sign="OSZ">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <style>
+      @import url("https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/redhat-webfonts.css");
+      @import url("https://outfit-assets-production.s3.amazonaws.com/fonts/InterstateCondensed/stylesheet.css");
+      @import url("https://use.typekit.net/srm7awc.css");
+
+      /* Input order
+
+      {{show-crop}}
+      {{RH_layout-options--ag}}
+      {{{RH_profile-image--ag}}}
+      {{{RH_profile-image-opacity--ag}}}
+      {{{RH_initial-text--ag}}}
+
+      */
+
+      :root {
+        --white: {{{account.colors.primary-white}}};
+        --red: {{{account.colors.primary-red-2019}}};
+        --grey: {{{account.colors.light-grey-2019}}};
+        --black: {{{account.colors.primary-black}}};
+        --black-text: {{{account.colors.primary-black-text}}};
+      }
+
+      .layoutOption--1 {
+        --dynamic-bg-colour: var(--white);
+        --dynamic-colour: var(--red);
+      }
+
+      .layoutOption--2 {
+        --dynamic-bg-colour: var(--red);
+        --dynamic-colour: var(--white);
+      }
+
+      .layoutOption--3 {
+        --dynamic-bg-colour: var(--black);
+        --dynamic-colour: var(--red);
+      }
+
+      .layoutOption--4 {
+        --dynamic-bg-colour: var(--grey);
+        --dynamic-colour: var(--red);
+      }
+
+      .layoutOption--5 {
+        --dynamic-bg-colour: var(--red);
+        --dynamic-colour: var(--white);
+      }
+
+      .layoutOption--6 {
+        --dynamic-bg-colour: var(--black);
+        --dynamic-colour: var(--white);
+      }
+
+      .layoutOption--7 {
+        --dynamic-bg-colour: var(--white);
+        --dynamic-colour: var(--red);
+      }
+
+      .layoutOption--8 {
+        --dynamic-bg-colour: var(--white);
+        --dynamic-colour: var(--white);
+      }
+
+      .layoutOption--9 {
+        --dynamic-bg-colour: var(--white);
+        --dynamic-colour: var(--red);
+      }
+
+      html {
+        font-family: "Red Hat Text";
+        color: var(--black-text);
+        word-break: break-word;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }    
+
+      .fit {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* .layoutOption--7 .fit,
+      .layoutOption--8 .fit,
+      .layoutOption--9 .fit {
+        background: var(--dynamic-bg-colour);
+      } */
+
+      .profile {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        background: var(--dynamic-bg-colour);
+        overflow: hidden;
+      }
+
+      .layoutOption--1 .profile,
+      .layoutOption--2 .profile,
+      .layoutOption--3 .profile,
+      .layoutOption--4 .profile,
+      .layoutOption--5 .profile,
+      .layoutOption--6 .profile {
+        width: 809.1pt;
+        height: 809pt;
+        padding: 0 53pt;
+      }
+
+
+      .layoutOption--7 .profile,
+      .layoutOption--8 .profile,
+      .layoutOption--9 .profile {
+        width: 774pt;
+        height: 774pt;
+      }
+
+      .layoutOption--1 .profile,
+      .layoutOption--2 .profile,
+      .layoutOption--3 .profile,
+      .layoutOption--9 .profile {
+        border: 16pt solid var(--dynamic-colour);
+      }
+
+      .layoutOption--7 .profile,
+      .layoutOption--8 .profile {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;   
+      }
+
+      .layoutOption--7 .profile {
+        background: url(https://files.outfit.io/media_library_items/148883/RH-Layout%25207.svg); 
+      }
+
+      .layoutOption--8 .profile {
+        background: url(https://files.outfit.io/media_library_items/148890/RH-Layout%25208.svg);    
+      }   
+
+      .profile__image {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+
+      .layoutOption--7 .profile__image,
+      .layoutOption--8 .profile__image,
+      .layoutOption--9 .profile__image {
+        display: block;
+        opacity: {{RH_profile-image-opacity--ag}}{{^RH_profile-image-opacity--ag}}1{{/RH_profile-image-opacity--ag}};
+      }
+
+      .layoutOption--8 .profile__image,
+      .layoutOption--9 .profile__image {
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+        filter: grayscale(100%);
+      }
+
+      .layoutOption--7 .profile__image,
+      .layoutOption--8 .profile__image {
+        mix-blend-mode: multiply;
+      }
+
+      .layoutOption--7 .profile__image {
+      }
+
+
+      .decoration {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+      }
+
+      .layoutOption--4 .decoration,
+      .layoutOption--5 .decoration,
+      .layoutOption--6 .decoration {
+        display: block;
+      }
+
+      .layoutOption--4 .decoration {
+        background-image: url(https://files.outfit.io/media_library_items/148883/RH-Layout%25207.svg);
+      }
+
+      .layoutOption--5 .decoration {
+        background-image: url(https://files.outfit.io/media_library_items/148890/RH-Layout%25208.svg);
+      }
+
+      .layoutOption--6 .decoration {
+        background-image: url(https://files.outfit.io/media_library_items/148936/RH-black.png);
+      }
+
+      .profile__initial {
+        display: none;
+        position: relative;
+        font-size: 314pt;
+        font-weight: 500;
+        line-height: 1.2em;
+        text-transform: uppercase;
+        color: var(--dynamic-colour);
+      }
+
+      .layoutOption--1 .profile .profile__initial--primary,
+      .layoutOption--2 .profile .profile__initial--primary,
+      .layoutOption--3 .profile .profile__initial--primary,
+      .layoutOption--4 .profile .profile__initial--secondary,
+      .layoutOption--5 .profile .profile__initial--secondary,
+      .layoutOption--6 .profile .profile__initial--secondary {
+        display: block;
+      }
+
+      .profile__initial.overflow::before {
+        font-size: 0.3em;
+      }
+
+      .profile__initial.overflow:hover:after {
+        font-size: 0.15em;
+        text-transform: none;
+      }
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body data-crop="{{show-crop}}" class="layoutOption--{{RH_layout-options--ag}}{{^RH_layout-options--ag}}1{{/RH_layout-options--ag}}">
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="profile">
+            <div class="profile__image"><div class="reposition-fix">{{{RH_profile-image--ag}}}</div></div> <!--profile__image-->
+            <div class="decoration"></div> <!--decoration-->
+            {{#RH_initial-text--ag}}
+            <div class="profile__initial profile__initial--primary" data-char-limit="4">{{{RH_initial-text--ag}}}</div> <!--profile__initial--primary-->
+            {{/RH_initial-text--ag}}
+            {{#RH_initial-text--ag}}
+            <div class="profile__initial profile__initial--secondary" data-char-limit="1">{{{RH_initial-text--ag}}}</div> <!--profile__initial--secondary-->
+            {{/RH_initial-text--ag}}
+            <div class="overlay"></div> <!--overlay-->
+          </div> <!--profile-->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/custom-rich-text.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="js/text-fit-min.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      console.clear();
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      function injectTextFit() {
+        const container = document.querySelector('.fit');
+        const initials = container.querySelector('.profile__initial--primary');
+        const layoutOption = document.querySelector('body');
+
+        if (layoutOption.className.includes('layoutOption--1') || layoutOption.className.includes('layoutOption--2') || layoutOption.className.includes('layoutOption--3')) {
+          initials.classList.add('textFit');
+        }
+
+      }
+
+      injectTextFit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+
+
+    </script>
+
+
+  </body>
+</html>
