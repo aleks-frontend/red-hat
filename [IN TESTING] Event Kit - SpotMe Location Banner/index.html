@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html data-sign="OSR">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    <style>
+      @import url("https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/redhat-webfonts.css");
+
+      /* Inputs Order
+
+      {{show-crop}}
+      {{RH_layout-size--slb}}
+      {{RH_theme--slb}}
+      {{RH_layout--slb}}
+      {{RH_heading--slb}}
+      */
+
+      :root {
+        --black: {{{account.colors.primary-black}}};
+        --white: {{{account.colors.primary-white}}};
+        --red: {{{account.colors.primary-red-2019}}};
+        --gray: {{{account.colors.light-light-grey}}}; 
+
+        --dynamic-font-colour: var(--black);
+      }
+
+      .theme--white {
+        --dynamic-colour: var(--white);
+        --dynamic-font-colour: var(--black);
+      }
+
+      .theme--black {
+        --dynamic-colour: var(--black);
+        --dynamic-font-colour: var(--white);
+      }
+
+      .theme--red {
+        --dynamic-colour: var(--red);
+        --dynamic-font-colour: var(--white);
+      }
+
+      html {
+        font-family: "Red Hat Display";
+        font-weight: 700;
+        word-break: break-word;
+      }
+
+      .formatSize--2000x500 .fit {
+        padding: 62pt 100pt;
+      }
+
+      .formatSize--1500x700 .fit {
+        padding: 87pt 100pt;
+      }
+
+      .decoration,
+      .decoration__color,
+      .decoration__background {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .decoration__background {
+        top: 3mm;
+        bottom: 3mm;
+        left: 3mm;
+        right: 3mm;
+      }
+
+      .decoration__color {
+        background-color: var(--dynamic-colour);
+      }
+
+      .formatSize--1500x700.theme--white.layout--1 .decoration__background {
+        background-image: url('https://files.outfit.io/media_library_items/146518/RH-Layout-1-white-placeholder.png');
+      }
+
+      .formatSize--1500x700.theme--red.layout--1 .decoration__background {
+        background-image: url('https://files.outfit.io/media_library_items/146517/RH-Layout-1-red-placeholder.png');
+      }
+
+      .formatSize--1500x700.theme--black.layout--1 .decoration__background {
+        background-image: url('https://files.outfit.io/media_library_items/146519/RH-Layout-1-black-placeholder.png');
+      }
+
+      .formatSize--2000x500.theme--white.layout--1 .decoration__background {
+        background-image: url('https://files.outfit.io/media_library_items/146354/RH-beckground9.png');
+      }
+
+      .formatSize--2000x500.theme--red.layout--1 .decoration__background {
+        background-image: url('https://files.outfit.io/media_library_items/146359/RH-beckground7.png');
+      }
+
+      .formatSize--2000x500.theme--black.layout--1 .decoration__background {
+        background-image: url('https://files.outfit.io/media_library_items/146360/RH-beckground10.png');
+      }
+
+      .decoration__image {
+        display: none;
+        position: absolute;
+        top: 1%;
+        left: 1%;
+        max-width: unset;
+      }
+
+      .formatSize--2000x500.theme--white.layout--2 .decoration__image--white,
+      .formatSize--2000x500.theme--red.layout--2 .decoration__image--red,
+      .formatSize--2000x500.theme--black.layout--2 .decoration__image--black,
+      .formatSize--2000x500.theme--white.layout--3 .decoration__image--white,
+      .formatSize--2000x500.theme--red.layout--3 .decoration__image--red,
+      .formatSize--2000x500.theme--black.layout--3 .decoration__image--black {
+        display: block;
+      }
+
+      .formatSize--2000x500.theme--white.layout--2 .decoration__image--white,
+      .formatSize--2000x500.theme--red.layout--2 .decoration__image--red, 
+      .formatSize--2000x500.theme--black.layout--2 .decoration__image--black { 
+        left: 61%;
+        top: -9%;  
+        width: 43%;
+      }
+
+      .formatSize--2000x500.theme--white.layout--3 .decoration__image--white,
+      .formatSize--2000x500.theme--red.layout--3 .decoration__image--red, 
+      .formatSize--2000x500.theme--black.layout--3 .decoration__image--black {
+        top: -129%;
+        left: -3%;
+        width: 107%;
+      }
+
+      .body {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .logo {
+        display: none;
+        object-fit: contain;
+        width: 326pt;
+        max-height: 250pt;
+      }
+
+      .formatSize--2000x500 .logo {  
+        margin-bottom: 33pt;  
+      }
+
+      .formatSize--1500x700 .logo {  
+        margin-bottom: 89pt;
+      }
+
+      .theme--white .logo--secondary,
+      .theme--black .logo--primary,
+      .theme--red .logo--tertiary {
+        display: block;
+      }
+
+      .heading {
+        font-size: 63pt;
+        line-height: 1.2em;
+      }
+
+      .heading,
+      .info {     
+        color: var(--dynamic-font-colour);
+      }
+
+      .info {
+        text-align: center;
+      }
+
+      .date {
+        border-color: var(--dynamic-font-colour);
+      }
+
+      .location,
+      .date {
+        display: inline-block;
+        font-size: 46pt;
+        line-height: 0.9em;
+        font-weight: normal;
+      }
+
+      .formatSize--2000x500 .info {
+        max-height: 100pt;
+      }
+
+      .formatSize--1500x700 .info span {
+        display: block;
+        text-align: center;
+        font-size: 49pt;
+        line-height: 1.1em;
+      }
+
+      .formatSize--2000x500 .location + .date {
+        border-left: 3pt solid var(--dynamic-font-colour);
+        margin-left: 0.2em;
+        padding-left: 0.3em;
+      }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" data-crop="{{show-crop}}" class="formatSize--{{{RH_layout-size--slb}}}
+                                                                   theme--{{{RH_theme--slb}}}{{^RH_theme--slb}}black{{/RH_theme--slb}}
+                                                                   layout--{{{RH_layout--slb}}}">
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="decoration">
+            <div class="decoration__color"></div><!--decoration__color-->
+            <div class="decoration__background"></div><!--decoration__image-->
+            <img src="https://files.outfit.io/media_library_items/145044/Hat%2520-%2520White.svg" class="decoration__image decoration__image--white"><!--decoration__image-->
+            <img src="https://files.outfit.io/media_library_items/145046/Hat%2520-%2520Black.svg" class="decoration__image decoration__image--black"><!--decoration__image-->
+            <img src="https://files.outfit.io/media_library_items/145045/Hat%2520-%2520Red.svg" class="decoration__image decoration__image--red"><!--decoration__image-->
+          </div><!--decoration-->
+          <div class="body">
+            <img class="logo logo--primary" src="{{{account.logos.primary-white-2019}}}"><!--logo--primary-->
+            <img class="logo logo--secondary" src="{{{account.logos.primary-black-2019}}}"><!--logo--secondary-->
+            <img class="logo logo--tertiary" src="{{{account.logos.mono-white-2019}}}"><!--logo--tertiary-->
+            <div class="heading" data-max-line="1">{{{RH_heading--slb}}}</div><!--heading-->
+            <div class="info" data-max-height="css">
+              <span class="location" data-max-line="1">{{{RH_location--slb}}}</span>
+
+              <span class="date" data-max-line="1">{{{RH_date--slb}}}</span>
+            </div><!--info-->
+          </div><!--body-->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="js/text-fit-min.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      console.clear();
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+
+    </script>
+
+
+  </body>
+</html>
