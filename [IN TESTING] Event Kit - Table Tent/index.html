@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html data-sign="OSZ">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <style>
+      @import url("https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/redhat-webfonts.css");
+      @import url("https://outfit-assets-production.s3.amazonaws.com/fonts/InterstateCondensed/stylesheet.css");
+      @import url("https://use.typekit.net/srm7awc.css");
+
+      /* Input order
+
+      {{show-crop}}
+      {{{RH_theme--tt}}}
+      {{{RH_display-printer-marks--tt}}}
+      {{#spreadsheet.RH_table-data--tt}}{{/spreadsheet.RH_table-data--tt}}
+
+      */
+
+      :root {
+        --white: {{{account.colors.primary-white}}};
+        --red: {{{account.colors.primary-red}}};
+        --black: {{{account.colors.primary-black}}};
+        --black-text: {{{account.colors.primary-black-text}}};
+      }
+
+      .theme--white {
+        --dynamic-colour: var(--white);
+        --dynamic-heading-colour: var(--black-text);
+        --dynamic-subheading-colour: var(--red);
+      }
+
+      .theme--black {
+        --dynamic-colour: var(--black);
+        --dynamic-heading-colour: var(--white);
+        --dynamic-subheading-colour: var(--white);
+      }
+
+      html {
+        font-family: "Red Hat Display";
+        color: var(--black-text);
+        word-break: break-word;
+      }
+
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      .fit {
+        display: flex;
+        padding: 206pt 147pt 224pt 190pt;
+        background-color: var(--dynamic-colour);
+      }
+
+      .crops,
+      .frame {
+        position: absolute;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .theme--white .crops {
+        top: 9pt;
+        bottom: 9pt;
+        left: 0;
+        right: 0;
+        background-image: url(https://files.outfit.io/media_library_items/146362/rh-table-tent-template-crops.png);
+      }
+
+      .theme--black .crops {
+        top: 63pt;
+        bottom: 55pt;
+        left: 11pt;
+        right: 25pt;
+        background-image: url(https://files.outfit.io/media_library_items/146596/Table-Tent-white-crops.png);
+      }
+
+      .displayPrinterMarks--hide .crops {
+        display: none;
+      }
+
+      .frame {
+        left: 0pt;
+        right: 0pt;
+      }
+
+      .theme--white .frame {
+        top: 9pt;
+        bottom: 11pt;
+        background-image: url(https://files.outfit.io/media_library_items/146365/rh-table-tent-template-crops2.png);
+      }
+
+      .theme--black .frame {
+        top: 62pt;
+        bottom: 61pt;
+        background-image: url(https://files.outfit.io/media_library_items/146594/Table-Tent-Lines-white.png);
+      }
+
+      .column__container {
+        position: relative;
+        display: flex;
+        margin-left: -88pt;
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 380pt;
+        margin-left: 88pt;
+      }
+
+      .column:last-child {
+        margin-left: 72pt;
+      }
+
+      .section--bottom {
+        font-size: 0;
+      }
+
+      .logo {
+        display: none;
+        width: 201.5pt;
+        margin-bottom: 58pt;
+      }
+
+      .theme--white .logo--primary,
+      .theme--black .logo--secondary {
+        display: block;
+      }
+
+      .heading {
+        font-size: 39.4pt;
+        font-weight: 700;
+        line-height: 1.2em;
+        color: var(--dynamic-heading-colour);
+      }
+
+      .partnerText {
+        margin-bottom: 20pt;
+        font-size: 23pt;
+        font-weight: 500;
+        font-family: "Red Hat Text";
+        line-height: 1.2em;
+        color: var(--dynamic-subheading-colour);
+      }
+
+      .partnerLogo {
+        width: 100%;
+        height: 131pt;
+        object-fit: contain;
+        object-position: left center;
+      }
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" data-crop="{{show-crop}}" class="theme--{{{RH_theme--tt}}}{{^RH_theme--tt}}white{{/RH_theme--tt}}
+                                                                   displayPrinterMarks--{{{RH_display-printer-marks--tt}}}{{^RH_display-printer-marks--tt}}show{{/RH_display-printer-marks--tt}}">
+    {{#spreadsheet.RH_table-data--tt}}
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="crops"></div> <!--crops-->
+          <div class="frame"></div> <!--frame-->
+          <div class="column__container">
+            <div class="column">
+              <div class="section section--top">
+                <img class="logo logo--primary" src="{{{account.logos.primary-black-2019}}}"> <!--logo--primary-->
+                <img class="logo logo--secondary" src="{{{account.logos.primary-white-2019}}}"> <!--logo--secondary-->
+                {{#headline}}
+                <div class="heading" data-max-line="2"> 
+                  <div class="js-customRichText-src"> {{{headline}}} </div>
+                </div> <!--heading-->
+                {{/headline}}
+              </div> <!--section--top-->
+              {{#logo}}
+              <div class="section section--bottom">
+                <div class="partnerText">Sponsored by</div> <!--sponsorText-->
+                <img class="partnerLogo" src="{{{logo}}}"> <!--partnerLogo-->
+              </div> <!--section--bottom-->
+              {{/logo}}
+            </div> <!--column-->
+            <div class="column">
+              <div class="section section--top">
+                <img class="logo logo--primary" src="{{{account.logos.primary-black-2019}}}"> <!--logo--primary-->
+                <img class="logo logo--secondary" src="{{{account.logos.primary-white-2019}}}"> <!--logo--secondary-->
+                {{#headline}}
+                <div class="heading" data-max-line="2">
+                  <div class="js-customRichText-src"> {{{headline}}} </div>
+                </div> <!--heading-->
+                {{/headline}}
+              </div> <!--section--top-->
+              {{#logo}}
+              <div class="section section--bottom">
+                <div class="partnerText">Sponsored by</div> <!--sponsorText-->
+                <img class="partnerLogo" src="{{{logo}}}"> <!--partnerLogo-->
+              </div> <!--section--bottom-->
+              {{/logo}}
+            </div> <!--column-->
+            <div class="column">
+              <div class="section section--top">
+                <img class="logo logo--primary" src="{{{account.logos.primary-black-2019}}}"> <!--logo--primary-->
+                <img class="logo logo--secondary" src="{{{account.logos.primary-white-2019}}}"> <!--logo--secondary-->
+                {{#headline}}
+                <div class="heading" data-max-line="2">
+                  <div class="js-customRichText-src"> {{{headline}}} </div>
+                </div> <!--heading-->
+                {{/headline}}
+              </div> <!--section--top-->
+              {{#logo}}
+              <div class="section section--bottom">
+                <div class="partnerText">Sponsored by</div> <!--sponsorText-->
+                <img class="partnerLogo" src="{{{logo}}}"> <!--partnerLogo-->
+              </div> <!--section--bottom-->
+              {{/logo}}
+            </div> <!--column-->
+          </div> <!--column__container-->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+    {{/spreadsheet.RH_table-data--tt}}
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="js/text-fit-min.js"></script>
+    <script src="js/custom-rich-text.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      console.clear();
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+
+      setInterval(() => { customRichText()},1000) 
+
+    </script>
+
+
+  </body>
+</html>
