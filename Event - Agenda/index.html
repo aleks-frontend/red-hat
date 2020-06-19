@@ -1,0 +1,96 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="assets/stylesheets/main.css">
+  <link rel="stylesheet" href="assets/stylesheets/themes.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <style type="text/css">
+
+    .headline-font-size {
+      font-size: {{agenda-day-title-size}}em;
+      /*template is designed for 1em to be used as a base font size*/
+    }
+    
+    .subheading-font-size {
+      font-size: {{agenda-day-date-size}}em;
+      /*template is designed for 1em to be used as a base font size*/
+    }
+    
+    .redhat-logo {
+      width: 3em;
+      height: 1em;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url('https://files.outfit.io/media_library_items/97626/Logo-RedHat-A-White-RGB.svg');
+    }
+  </style>
+  <!--<script type="text/javascript" src="assets/javascripts/cssregions.min.js"></script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body class="{{forum-theme}} {{^forum-theme}}red-theme{{/forum-theme}} {{crop-bleed}} theme-color {{brand-theme}} {{^brand-theme}}corporate{{/brand-theme}} {{background-artwork-type}}-artwork {{^background-artwork-type}}stripes-artwork{{/background-artwork-type}}">
+  {{#collection.event-agenda-day}}
+    <div class="page {{agenda-row-size}}">
+      <div class="document">
+        <div class="js-append-background"></div>
+        
+        <div class="content">  
+          <div class="titles">
+            <h1 class="headline-font-size">{{{agenda-day-title}}} {{^agenda-day-title}}&nbsp;{{/agenda-day-title}}</h1>
+            <h2 class="subheading-font-size">{{{agenda-day-date}}} {{^agenda-day-date}}&nbsp;{{/agenda-day-date}}</h2>
+          </div>  
+          
+          <div class="logos">
+            <div class="redhat-logo"></div>
+            {{#logo}}
+            <div class="divider"></div>
+            <div class="js-append-logo"></div>
+            {{/logo}}
+          </div>
+          
+          <div id="tab-content-{{agenda-day-title}}" class="tab-content">
+            {{#spreadsheet.event-agenda-times}}
+            <div class="{{^is-it-a-track}}agenda-row fadeInUp animated{{/is-it-a-track}} {{session-type}} track-{{is-it-a-track}}">{{#session-title}}<div class="agenda-titles"><h1>{{{session-time}}}</h1><h2>{{{session-title}}}</h2><p class="location">{{{session-location}}}</p></div>{{/session-title}}{{#session-speaker}}<div class="agenda-details"><p class="speaker">{{{session-speaker}}}</p></div>{{/session-speaker}}</div><!--agenda-row fadeInUp animated-->
+            {{/spreadsheet.event-agenda-times}}
+          </div><!--tab-content-->
+       
+        </div><!--content-->
+      </div><!--document-->
+
+    <div class="crop top-left">
+        <div class="bottom"></div>
+        <div class="right"></div>
+      </div>
+      <div class="crop top-right">
+        <div class="bottom"></div>
+        <div class="left"></div>
+      </div>
+      <div class="crop bottom-right">
+        <div class="top"></div>
+        <div class="left"></div>
+      </div>
+      <div class="crop bottom-left">
+        <div class="top"></div>
+        <div class="right"></div>
+      </div>
+     </div><!--page-->
+  	{{/collection.event-agenda-day}}
+  <script>
+    $( ".js-append-background" ).append( '<div class="background"><div class="pattern {{brand-theme}}-hero-full-pattern"></div><div class="background-image" style="background-image: url({{background-image}}); opacity: {{background-image-opacity}}"></div><div class="square-pattern {{square-pattern-type}} {{^square-pattern-type}}square-one{{/square-pattern-type}}"></div><div class="full-height {{brand-theme}}-artwork {{^brand-theme}}corporate-artwork{{/brand-theme}} js-artwork"></div></div><!--background-->' );
+  </script>
+  <script type="text/javascript">
+    window.redhatArtComplexity = 8;
+  </script>
+  <script src="//redhatbrand.github.io/RedHatPatterns/red-hat-patterns.js"></script>
+  <script type="text/javascript" src="assets/javascripts/modernizr.js"></script>
+  <script type="text/javascript" src="assets/javascripts/main.js"></script>
+  
+  <script>
+    var headerLogos = document.getElementsByClassName('js-append-logo');
+    for ( i = 0 ; i < headerLogos.length ; i++ ) {
+      headerLogos[i].innerHTML = "<div class='small-events {{#logo}}has-logo{{/logo}}{{^logo}}no-logo{{/logo}}'> {{#logo}} <img class='other-logo' src='{{logo}}' alt='logo'> {{/logo}} {{^logo}} <div class='event-logo'> {{#event-name}} <h2>{{{event-name}}} <svg preserveAspectRatio='xMinYMin meet'xmlns='http://www.w3.org/2000/svg'viewBox='0 0 10 3.75'width='100%'height='1em'> <path d='M -0,.5 3,.5 4.5,2.2 6,.5 100,.5'style='stroke:currentcolor;stroke-width:0.25px;fill:none' /> </svg> </h2> <br> <p>{{{location}}}</p> {{/event-name}} </div> {{/logo}} </div><!--small-events-->";
+    };             
+  </script>
+  </body>
+</html>
