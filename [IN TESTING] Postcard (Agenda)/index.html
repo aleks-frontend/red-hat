@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html data-sign="OSZ">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    <style>
+      @import url("https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/redhat-webfonts.css");
+
+      /* Input order
+
+      {{show-crop}}
+      {{{RH_headline--poc}}}
+      {{{RH_body-copy--poc}}}
+      {{#collection.RH_agenda--poc}}{{/collection.RH_agenda--poc}}
+      {{{RH_disclamer--poc}}}
+
+      */
+
+      :root {
+        --white: {{{account.colors.primary-white}}};
+        --red: {{{account.colors.primary-red}}};
+        --black: {{{account.colors.primary-black}}};
+      }
+
+      html {
+        font-family: "Red Hat Display";
+        color: var(--black);
+        word-break: break-word;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      .fit {
+        display: flex;
+        flex-direction: column;
+        padding: 30pt 24pt 29.7pt 27pt;
+      }
+
+      .decoration {
+        position: absolute;
+        bottom: -48pt;
+        right: -36pt;
+        width: 367pt;
+        height: 287pt;
+        background-image: url(https://files.outfit.io/media_library_items/145855/Red%2520Hat-hat.svg);
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      .body {
+        position: relative;
+        flex: 1;
+      }
+
+      .heading {
+        margin-bottom: 20.1pt;
+        letter-spacing: 0.52pt;
+        font-size: 12.2pt;
+        line-height: 1.2em;
+        color: var(--red);
+      }
+
+      .copy {
+        margin-bottom: 31pt;
+        font-family: "Red Hat Text";
+        font-size: 8.08pt;
+        font-weight: 400;
+        line-height: 1.25em;
+      }
+
+      .agenda__container {
+        padding: 0 1.5pt;
+      }
+
+      .agenda {
+        margin-bottom: 24pt;
+      }
+
+      .agenda__row {
+        display: flex;
+      }
+
+      .agenda__row--header {
+        margin-bottom: 6pt;
+      }
+
+      .agenda__row--body {
+        margin-bottom: 7.1pt;
+      }
+
+      .agenda:last-child,
+      .agenda__row:last-child {
+        margin-bottom: 0pt;
+      }
+
+      .agenda__date {
+        max-width: 50%;
+        font-size: 8.8pt;
+        font-weight: bold;
+        line-height: 1.2em;
+        text-transform: uppercase;
+        color: var(--red);
+      }
+
+      .agenda__line {
+        flex: 1;
+        height: 8.7pt;
+        margin: 0 6pt;
+        border-bottom: 1pt solid var(--black);
+      }
+
+      .agenda__time {
+        width: 93pt;
+        flex-shrink: 0;
+        font-size: 7.8pt;
+        font-weight: 400;
+        font-family: "Red Hat Text";
+        line-height: 1.2em;
+      }
+
+      .agenda__info {
+        font-size: 8.09pt;
+        font-weight: bold;
+        line-height: 1.2em;
+      }
+
+      .footer {
+        position: relative;
+        margin-top: 20pt;
+        padding-left: 1.7pt;
+      }
+
+      .disclamer {
+        font-size: 6.62pt;
+        letter-spacing: 0.35pt;
+        line-height: 1.2em;
+      }
+
+      @supports (-moz-appearance:none) {   
+        .fit {
+          padding: 30pt 24pt 28.7pt 27pt;
+        }
+
+        .heading {
+          margin-bottom: 18.1pt;
+        }
+
+        .copy {
+          margin-bottom: 30pt;
+        }
+
+        .agenda__row--body {
+          margin-bottom: 6.1pt;
+        }
+      }
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" data-crop="{{show-crop}}">
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+
+          <div class="decoration"></div> <!--decoration-->
+          <div class="body">
+            <div class="body__inner" data-max-height="dynamic">
+              {{#RH_headline--poc}}
+              <div class="heading" data-max-line="2">{{{RH_headline--poc}}}</div> <!--heading-->
+              {{/RH_headline--poc}}
+              {{#RH_body-copy--poc}}
+              <div class="copy">{{{RH_body-copy--poc}}}</div> <!--copy-->
+              {{/RH_body-copy--poc}}
+              <div class="agenda__container">
+                {{#collection.RH_agenda--poc}}
+                <div class="agenda">
+                  <div class="agenda__row agenda__row--header">
+                    <div class="agenda__date" data-max-line="1">{{{date}}}</div> <!--agenda__date--> 
+                    <div class="agenda__line"></div> <!--agenda__line--> 
+                  </div> <!--agenda__row--header--> 
+                  {{#spreadsheet.RH_agenda--poc}}
+                  <div class="agenda__row agenda__row--body">
+                    <div class="agenda__time">{{{time}}}</div> <!--agenda__time--> 
+                    <div class="agenda__info">{{{information}}}</div> <!--agenda__info--> 
+                  </div> <!--agenda__row--body-->    
+                  {{/spreadsheet.RH_agenda--poc}}
+                </div> <!--agenda--> 
+                {{/collection.RH_agenda--poc}}
+              </div> <!--agenda__container--> 
+            </div> <!--body__inner-->
+          </div> <!--body-->
+          <div class="footer">
+            {{#RH_disclamer--poc}}
+            <div class="disclamer" data-max-line="3">{{{RH_disclamer--poc}}}</div> <!--disclamer-->
+            {{/RH_disclamer--poc}}
+          </div> <!--footer-->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="js/text-fit-min.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      console.clear();
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+
+    </script>
+
+
+  </body>
+</html>
