@@ -1,0 +1,2504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Case Study</title>
+    <meta charset="utf-8">
+    <!-- Red Hat Brand Font -->      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>  
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>    
+    <script src="main.js"></script>
+    <script>
+      setInterval(() => {
+        injectHeading();
+      }, 1000);
+
+      function injectHeading() {
+        const src = document.querySelector('.js-heading-src');
+        const targets = document.querySelectorAll('.js-heading-target');
+
+        targets.forEach(target => {
+          // If no text is set for the Type, it will fallback to 'Checklist'
+          const output = src.innerHTML;
+          target.innerHTML = output;
+        });
+
+        const nameSrc = document.querySelector('.js-name-src');
+        const nameTargets = document.querySelectorAll('.js-name-target');
+
+        nameTargets.forEach(nameTarget => {
+          // If no text is set for the Type, it will fallback to 'Checklist'
+          const output = nameSrc.innerHTML;
+          nameTarget.innerHTML = output;
+        });
+
+        const urlSrc = document.querySelector('.js-url-src');
+        const urlTargets = document.querySelectorAll('.js-url-target');
+
+        urlTargets.forEach(urlTarget => {
+          // If no text is set for the Type, it will fallback to 'Checklist'
+          const url = 'https://' + urlSrc.innerText;
+          const output = urlSrc.innerHTML;
+          const urlOutput = url;
+          urlTarget.innerHTML = output;
+          urlTarget.href = urlOutput;
+        });
+      }
+	</script>
+    <!-- STYLES FOR COPY CLIPBOARD -->
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/stylesheet.css');
+      @import url('https://fonts.googleapis.com/css?family=Overpass+Mono:400,700');
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Noto%20Sans%20CJK%20JP/stylesheet.css');
+      
+      .hideOutfit {
+        display: none !important;
+      }
+
+      html, :root {
+        position: relative;
+        background: white;
+        font-size: 100%;
+        counter-reset: pagenumber;
+      }
+      body {
+        margin: 0 auto;
+        max-width: 1140px;
+        border: 1px dotted cyan;
+        padding: 1.5em;
+        position: relative;
+      }
+
+      .dynamic-content {
+        display: block;
+      }
+
+      .copy-overlay {
+        background: #eee;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .copy-content {
+        margin: 0 auto;
+        text-align: center;
+        background: #eee;
+        padding: 2em;
+      }
+
+      .copy-content div {
+        padding: 0 0 2em 0;
+      }
+
+      .btn-red {
+        background-color: #c00;
+        color: #fff;
+        display: inline-block;
+        border: none;
+        font-size: 1rem;
+        padding: 0.4rem 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
+      }      
+
+      .page {
+        overflow: initial;
+        height: initial;
+        width: initial;
+      }
+
+      .mce-item-table tr:last-child td {
+        border: initial !important;
+        border-bottom: 1px solid var(--grey, #58595b) !important;
+      }
+
+      .mce-item-table tr:first-child td, table tr:first-child td {
+        border: initial !important;
+        border-top: 1px solid var(--grey, #58595b) !important;
+        border-bottom: 1px solid var(--grey, #58595b) !important;
+        background-color: white;
+        color: var(--grey, #58595b);
+      }
+
+      .mce-item-table td {
+        font-size: 1em;
+        line-height: 1.41;
+        font-weight: 500;
+        padding: 0.4em;
+        border: initial !important;
+        border-right: 1px solid white !important;
+        color: var(--grey, #58595b);
+      }
+
+      .mce-item-table th {
+        font-size: 1.0625em;
+        line-height: 1.41em;
+        font-weight: 700;
+        text-align: left;
+        padding: 0.4em 0.4em 0.35em 0.4em;
+      }
+      
+      h1 {
+        font-size: 3.55rem;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+      }
+
+      h4 {
+        font-size: 1.0625rem;
+      }
+
+      h6 {
+        font-size: 1.0625rem;
+      }
+      
+      .brief-text {
+        font-size: 0.85rem;
+      }
+      
+      p {
+        font-size: 1rem;
+      }
+      
+      ul {
+        font-size: 1rem;
+      }
+      
+      ul li:before {
+        font-size: 1.4rem;
+      }
+      
+      ol {
+        font-size: 1rem;
+      }
+      
+     ol li:before {
+        font-size: 0.7647rem;
+      }
+      
+     td {
+        font-size: 1rem;
+      }
+      
+     th {
+        font-size: 1.0625rem;
+      }
+      
+      .table-title {
+        font-size: 1.1rem;
+      }
+      
+      .img-container cite {
+        font-size: 0.9rem;
+      }
+      
+      .sidebar-text-block h1 {
+        font-size: 1rem;
+      }
+      
+      .sidebar p {
+        font-size: 1rem;
+      }
+      
+      .social-links a {
+        font-size: 0.93rem;
+      }
+      
+      .last-page.internal-page .footer-text {
+        font-size: 0.8rem;
+      }
+      
+      .footer-link {
+        font-size: 0.9rem;
+      }
+      
+      .footer-text, .footer-link {
+        font-size: 0.9rem;
+      }
+      
+      .last-page .about h1 {
+        font-size: 1.1rem;
+      }
+      
+      .last-page .about p {
+        font-size: 0.95rem;
+      }
+      
+      .locations .text-block {
+        font-size: 0.95rem;
+      }
+
+      .copyright-text {
+        font-size: 0.75em;
+      }
+      
+      .text-block span {
+        font-size: 1.2rem;
+      }
+
+      .text-block h1 {
+        font-size: 1.3rem;
+      }
+      
+      .quote {
+        font-size: 1.3rem !important;
+      }
+      
+      .customer-name {
+        font-size: 0.75rem;
+      }
+      
+      .customer-title {
+        font-size: 0.7rem;
+      }
+      
+      .customer-industry h2, #selections .customer-challenge h2, #selections .customer-benefits h2 {
+        font-size: 1rem;
+      }
+
+      .footnotes p {
+        font-size: 0.8rem;
+      }
+      
+      sup, sub {
+        font-size: 1rem;
+      }
+
+    </style>   
+  </head>
+
+  <body data-language="{{language}}{{^language}}en{{/language}}">
+    <div class="js-exports"></div>
+
+    <div id="resource">
+      <div id="selections" class="dynamic-content">
+        <!-- Styles that need to be included on the Clipboard -->
+        <style> 
+          /*	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	*\
+          *
+          *
+          *	 	ALL STYLES IN THIS TEMPLATE ARE PREFIXED TO ENSURE NO STYLE CONFLICTS 
+          *		THIS IS BECAUSE THIS TEMPLATE CODE WILL END UP IN RED HAT DRUPAL CSM
+          *
+          *
+          *	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE*/
+          /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */ /* Document ========================================================================== */ /** * 1. Correct the line height in all browsers. * 2. Prevent adjustments of font size after orientation changes in iOS. */ #selections html {line-height: 1.15; /* 1 */ -webkit-text-size-adjust: 100%; /* 2 */ } /* Sections ========================================================================== */ /** * Remove the margin in all browsers. */ #selections body {margin: 0; } /** * Correct the font size and margin on `h1` elements within `section` and * `article` contexts in Chrome, Firefox, and Safari. */ #selections h1 {margin: 0; } /* Grouping content ========================================================================== */ /** * 1. Add the correct box sizing in Firefox. * 2. Show the overflow in Edge and IE. */ #selections hr {box-sizing: content-box; /* 1 */ height: 0; /* 1 */ overflow: visible; /* 2 */ } /** * 1. Correct the inheritance and scaling of font size in all browsers. * 2. Correct the odd `em` font sizing in all browsers. */ #selections pre {font-family: monospace, monospace; /* 1 */ font-size: 1em; /* 2 */ } /* Text-level semantics ========================================================================== */ /** * Remove the gray background on active links in IE 10. */ #selections a {background-color: transparent; } /** * 1. Remove the bottom border in Chrome 57- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari. */ #selections abbr[title] {border-bottom: none; /* 1 */ text-decoration: underline; /* 2 */ text-decoration: underline dotted; /* 2 */ } /** * 1. Correct the inheritance and scaling of font size in all browsers. * 2. Correct the odd `em` font sizing in all browsers. */ #selections code,  #selections kbd, #selections samp {font-family: monospace, monospace; /* 1 */ font-size: 1em; /* 2 */ } /** * Add the correct font size in all browsers. */ #selections small {font-size: 80%; } /** * Prevent `sub` and `sup` elements from affecting the line height in * all browsers. */ #selections sub, #selections sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; } #selections sub {bottom: -0.25em; } #selections sup {top: -0.5em; } /* Embedded content ========================================================================== */ /** * Remove the border on images inside links in IE 10. */ #selections img {border-style: none; } /* Forms ========================================================================== */ /** * 1. Change the font styles in all browsers. * 2. Remove the margin in Firefox and Safari. */  #selections button,  #selections input,  #selections optgroup, #selections select, #selections textarea {font-family: inherit; /* 1 */ font-size: 100%; /* 1 */ line-height: 1.15; /* 1 */ margin: 0; /* 2 */ } /** * Show the overflow in IE. * 1. Show the overflow in Edge. */ #selections button, #selections input { /* 1 */ overflow: visible; } /** * Remove the inheritance of text transform in Edge, Firefox, and IE. * 1. Remove the inheritance of text transform in Firefox. */ #selections button, #selections select { /* 1 */ text-transform: none; } /** * Correct the inability to style clickable types in iOS and Safari. */ #selections button, #selections [type="button"], #selections [type="reset"], #selections [type="submit"] {-webkit-appearance: button; } /** * Remove the inner border and padding in Firefox. */ #selections button::-moz-focus-inner, #selections [type="button"]::-moz-focus-inner, #selections [type="reset"]::-moz-focus-inner, #selections [type="submit"]::-moz-focus-inner {border-style: none; padding: 0; } /** * Restore the focus styles unset by the previous rule. */ #selections button:-moz-focusring, #selections [type="button"]:-moz-focusring, #selections [type="reset"]:-moz-focusring, #selections [type="submit"]:-moz-focusring {outline: 1px dotted ButtonText; } /** * Correct the padding in Firefox. */ #selections fieldset {padding: 0.35em 0.75em 0.625em; } /** * 1. Correct the text wrapping in Edge and IE. * 2. Correct the color inheritance from `fieldset` elements in IE. * 3. Remove the padding so developers are not caught out when they zero out *    `fieldset` elements in all browsers. */ #selections legend {box-sizing: border-box; /* 1 */ color: inherit; /* 2 */ display: table; /* 1 */ max-width: 100%; /* 1 */ padding: 0; /* 3 */ white-space: normal; /* 1 */ } /** * Add the correct vertical alignment in Chrome, Firefox, and Opera. */ #selections progress {vertical-align: baseline; } /** * Remove the default vertical scrollbar in IE 10+. */ #selections textarea {overflow: auto; } /** * 1. Add the correct box sizing in IE 10. * 2. Remove the padding in IE 10. */ #selections [type="checkbox"], #selections [type="radio"] {box-sizing: border-box; /* 1 */ padding: 0; /* 2 */ } /** * Correct the cursor style of increment and decrement buttons in Chrome. */ #selections [type="number"]::-webkit-inner-spin-button, #selections [type="number"]::-webkit-outer-spin-button {height: auto; } /** * 1. Correct the odd appearance in Chrome and Safari. * 2. Correct the outline style in Safari. */ #selections [type="search"] {-webkit-appearance: textfield; /* 1 */ outline-offset: -2px; /* 2 */ } /** * Remove the inner padding in Chrome and Safari on macOS. */ #selections [type="search"]::-webkit-search-decoration {-webkit-appearance: none; } /** * 1. Correct the inability to style clickable types in iOS and Safari. * 2. Change font properties to `inherit` in Safari. */ #selections ::-webkit-file-upload-button {-webkit-appearance: button; /* 1 */ font: inherit; /* 2 */ } /* Interactive ========================================================================== */ /* * Add the correct display in Edge, IE 10+, and Firefox. */ #selections details {display: block; } /* * Add the correct display in all browsers. */ #selections summary {display: list-item; } /* Misc ========================================================================== */ /** * Add the correct display in IE 10+. */  #selections template {display: none; } /** * Add the correct display in IE 10. */ #selections [hidden] {display: none; }
+
+          /** Base **/
+
+          :root {
+            --blue: #00a4e4;
+            --red: #ee0000;
+            --black: #000000;
+            --text-black: #231f20;
+            --grey: #58595b;
+            --light-grey: #e6e7e8;
+            --light-light-grey: #ededee;
+          }
+          
+          #selections html {
+            font-family: "Circular";
+            font-size: 11pt;
+            color: var(--grey, #58595b);
+          }
+
+          #selections a {
+            text-decoration: none;
+          }
+
+          #selections .backgroundImage {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+          }
+
+          #selections .backgroundImage div {
+            width: auto !important;
+            height: auto !important;
+            right: 0;
+            bottom: 0;
+          }      
+
+          /* Helper class for fixing Reposition tool bug */
+          #selections .reposition-fix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+          }
+          
+          /* HEADER CONTENT */
+          #selections .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 5.4em;
+          }
+          #selections .brief-text {
+            color: var(--red, #ee0000);
+            display: inline-block;
+            padding-top: 0.4em;
+          }
+          #selections .page-content.hide .header-content {
+            display: none !important;
+          }  
+          
+          #selections .internal-page .header-content {
+            margin-bottom: 5.8em;
+          }
+          
+          /* TITLE CONTENT */
+          #selections .title-content {
+            padding-bottom: 2.3em;
+            border-bottom: 1px solid #000;
+            margin-bottom: 2.75em;
+          }
+          
+          /** LOGO **/
+          
+      	 #selections .redhatLogo {
+      	    font-size: 2.85rem;
+      	  }
+
+          #selections .redhatLogo img {
+            width: 15rem;
+          }
+
+          #selections .redhatLogo span {
+            font-size: 1.26rem;
+            line-height: 1em;
+            font-weight: 500;
+            margin-left: 2.2125em;
+            margin-top: -0.4em;
+            display: block;
+            color: black;
+            white-space: pre-wrap;
+          }
+
+          /** Headings **/
+
+          #selections h1,
+          #selections h2,
+          #selections h3,
+          #selections h4,
+          #selections h5,
+          #selections h6 {
+            font-family: 'RedHatDisplay', sans-serif;
+          }
+
+          #selections p,
+          #selections li,
+          #selections a,
+          #selections cite, 
+          #selections .footnote, 
+          #selections td, 
+          #selections th {
+            font-family: 'RedHatText', sans-serif;
+          }
+
+          #selections h1 {
+            line-height: 1.2em;
+            font-weight: 300;
+            margin-bottom: 1.16em;
+            color: var(--red, #ee0000);
+          }
+
+          #selections h2 {
+            line-height: 1.3em;
+            margin-bottom: 1em;
+            font-weight: 700;
+            letter-spacing: 0.015em;
+          }
+
+          #selections h3 {
+            margin-top: 0;
+            margin-bottom: 0.9em;
+            line-height: 1.15;
+          }
+
+          #selections h4 {
+            line-height: 1.2em;
+            margin-bottom: 0.51875em;
+            font-weight: 700;
+          }
+
+          #selections h6 {
+            line-height: 1.2em;
+            font-weight: 400;
+            margin-bottom: 0.75em;
+            font-family: 'Overpass Mono', monospace;
+          }
+
+          #selections a {
+            color: var(--blue, #00a4e4);
+            text-decoration: none;
+          }
+
+          /** Paragraph **/
+
+          #selections p {
+            line-height: 1.5em;
+            font-weight: 400;
+            margin-top: 0;
+            margin-bottom: 0.75em;
+            letter-spacing: 0.01em;
+          }
+
+          #selections p:last-child {
+            margin: 0;
+          }
+
+          /** List UL **/
+
+          #selections ul {
+            font-weight: 400;
+            list-style: none;
+            margin: 0 0 0.75em 0;
+            padding: 0;
+          }
+
+          #selections ul li {
+            position: relative;
+            padding-left: 1em;
+            line-height: 1.5em;
+            font-weight: 400;
+            margin-top: 0;
+            margin-bottom: 0.93em;
+            letter-spacing: 0.02em;
+          }
+
+          #selections ul ul,
+          #selections ul li:not(:first-of-type) {
+            margin-top: 0.15em;
+          }
+
+          #selections ul li:before {
+            content: '•';
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+
+          #selections ul ul {
+            margin: 0.5em 0 0 1em;
+          }
+
+          #selections ul ul li {
+            padding-left: 1em;
+          }
+          
+          #selections .text-block ul {
+            margin-left: 0.4em;
+          }
+
+          /** List OL **/
+
+          #selections ol {
+            font-weight: 400;
+            list-style: none;
+            margin: 0 0 0.75em 0;
+            padding: 0;
+            counter-reset: ol;
+          }
+
+          #selections ol li {
+            position: relative;
+            padding-left: 1em;
+            line-height: 1.5em;
+            font-weight: 400;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+          }
+
+          #selections ol li ol,
+          #selections ol li:not(:first-of-type) {
+            margin-top: 0.15em;
+          }
+
+          #selections ol li:before {
+            content: '•';
+            position: absolute;
+            top: 0.03em;
+            left: 0;
+            font-weight: 700;
+            counter-increment: ol;
+            content: counters(ol, '.') '.';
+          }
+
+          #selections ol ol {
+            margin: 0.5em 0 0 1em;
+          }
+
+          #selections ol ol li {
+            padding-left: 1em;
+          }
+          
+          #selections .text-block ol {
+            margin-left: 0.4em;
+          }
+
+          /** Tables **/
+
+          #selections table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+
+          #selections table tr:nth-child(odd) td {
+            background-color: var(--light-grey, #e6e7e8);
+          }
+
+          #selections table tr:last-child td {
+            border-bottom: 1px solid var(--grey, #58595b);
+          }
+
+          #selections table tr:first-child th {
+            border-top: 1px solid var(--grey, #58595b);
+            border-bottom: 1px solid var(--grey, #58595b);
+            background-color: white;
+          }
+
+          #selections td {
+            line-height: 1.41em;
+            font-weight: 500;
+            padding: 0.45em 0.65em;
+            border-right: 1px solid white;
+          }
+
+          #selections tr td:last-child {
+            border-right: initial;
+          }
+
+          #selections th {
+            line-height: 1.41em;
+            font-weight: 700;
+            text-align: left;
+            padding: 0.65em 0.55em 0.5em 0.55em;
+          }
+          
+          #selections .table-title {
+            letter-spacing: 0.055em;
+            margin-bottom: 0.65em;
+            margin-top: 1.2em;
+          }
+          #selections .case-study-table {
+            margin-bottom: 1.7em;
+          }
+
+          /** Image Container **/
+		  
+          #selections .img-container {
+            background-color: var(--light-light-grey);
+            padding: 1.6em;
+            margin: 0 0 2.5em 0;
+          }
+          
+          #selections .img-container .img {
+            height: 19.55em !important;
+            position: relative;
+          }
+
+          #selections .img-container cite {
+            border-top: 1px solid var(--grey, #58595b);
+            color: var(--grey, #58595b);
+            padding-top: 0.7em;
+            margin-top: 1.4em;
+            line-height: 1.2em;
+            font-style: normal;
+            display: block;
+            width: 100%;
+            margin-bottom: 0;
+          }
+
+          /** Sidebar **/
+
+          #selections .sidebar h1,
+          #selections .sidebar h2,
+          #selections .sidebar h3,
+          #selections .sidebar h4,
+          #selections .sidebar h5,
+          #selections .sidebar h6,
+          #selections .sidebar p {
+            text-align: right;
+            color: var(--red, #ee0000);
+          }
+          #selections .sidebar-content {
+            position: relative;
+            border: none;
+            margin: 0;
+            padding: 0.07em 0 0 0 !important;
+            width: 25.9%;
+          }
+          #selections .customer-logo {
+            max-height: 6.9em;
+            text-align: right;
+            padding-right: 1.9em;
+            padding-bottom: 1.9em;
+            border-bottom: 1px solid var(--grey, #58595b);
+            margin-bottom: 1.65em;
+            height: 100%;
+          }
+          #selections .customer-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            display: inline-block;
+            vertical-align: top;
+          }
+          #selections .sidebar-text-block {
+            border-bottom: 1px solid var(--grey, #58595b);
+            margin: 0 0 1.8em;
+            padding: 0 1.9em 1.9em 1em;
+            text-align: right;
+          }
+          #selections .sidebar-text-block h1 {
+            color: var(--red, #ee0000);
+            margin-bottom: 0.65em;
+            font-weight: bold;
+            letter-spacing: 0.095em;
+          }
+          #selections .sidebar-text-block h1:not(:first-child) {
+            padding-top: 0.8em;
+          }
+
+          #selections .sidebar-footer {
+            flex-grow: 1;
+            justify-content: flex-end;
+            margin-right: 1.95em;
+            text-align: right;
+          }
+          #selections .sidebar-content .sidebar-footer {
+            text-align: right;
+          }
+
+          #selections .internal-page .sidebar-content {
+            text-align: right;
+          }
+
+          #selections .sidebar p {
+            line-height: 1.5em;
+          }
+          
+          /** SOCIAL LINKS **/
+
+          #selections .social-links {
+            margin-bottom: 1em;
+          }
+          #selections .social-links a {
+            color: #000;
+            display: block;
+            line-height: 1.3;
+          }
+          #selections .social-icons {
+            line-height: 10%; /* temporary fix for whitespace */
+            margin-bottom: 0.5em;
+          }
+          #selections .social-icons img {
+            width: 2.15em;
+          }
+          #selections .social-icons a {
+            display: inline-block;
+            margin-left: 0.15em;
+          }
+          
+          /** Last Page Sidebar **/
+
+          #selections .last-page .sidebar-footer {
+            margin-right: 0;
+            text-align: right;
+          }
+          #selections .last-page.internal-page .footer-link {
+            width: 100%;
+            padding: 0;
+          }
+          #selections .last-page.internal-page .footer-text {
+            text-align: right;
+            width: 100%;
+            font-weight: 600;
+            color: var(--grey, #58595b);
+          }
+          #selections .building {
+            line-height: 1;
+            margin-bottom: 3rem;
+          }
+          #selections .building img {
+            width: 3.9em;
+            display: inline-block;
+          }
+          #selections .building.hide {
+            display: none;
+          }
+          
+          #selections .last-page .social-links {
+            margin-bottom: 2.3em;
+          }
+          
+          /** PAGE FOOTER **/
+          
+          #selections .footer-link {
+            font-weight: 600;
+          }
+          
+          #selections .footer-text, 
+          #selections .footer-link {
+            font-weight: 600;
+            margin: 0 2.28em 1.5em 0;
+            text-align: right;
+          }
+          #selections .footer-link a {
+            color: var(--grey, #58595b);
+          }
+          #selections .js-name-target {
+            font-weight: 400;
+            padding-left: 1em;
+          }
+          
+          #selections .sidebar-content .footer-link {
+            text-align: right;
+            padding-right: 1.95em;
+            margin: 0;
+          }
+          
+          /** Internal Page Footer **/
+          
+          #selections .internal-page .footer-text:after {
+            content: attr(data-footnote-number);
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: 400;
+          }
+          #selections .page-footer {
+            margin-top: 0.4em;
+          }
+          #selections .internal-page .footer-link {
+            width: 23%;
+            margin-bottom: 0;
+          }
+          #selections .internal-page .footer-text {
+            width: 75%;
+            text-align: left;
+            margin-right: 0;
+            margin-bottom: 0;
+            position: relative;
+          }
+          #selections .footer-text .js-heading-target {
+            color: var(--red, #ee0000);
+            font-weight: 400;
+          }
+          #selections .sidebar-footnote {
+            flex-grow: 1;
+            justify-content: flex-end;
+          }
+          #selections .sidebar-footnote-text {
+            border-top: 1px solid var(--grey, #58595b);
+            margin-bottom: 6em;
+            padding-top: 1em;
+          }
+          
+          /** Last Page Footer **/
+          
+          #selections .main-content-footer {
+            flex-grow: 1;
+            justify-content: flex-end;
+          }
+          #selections .page-content.hide .main-content-footer {
+            margin-top: 5em;
+          }
+          #selections .last-page .about {
+            border-bottom: 1px solid var(--grey, #58595b);
+            margin-bottom: 0.65em;
+          }
+          #selections .last-page .about h1 {
+            font-weight: 600;
+            margin-bottom: 0.4em;
+            color: var(--grey, #58595b);
+            letter-spacing: 0.035em;
+          }
+          #selections .last-page .about p {
+            line-height: 1.2;
+          }
+          #selections .last-page .about-text {
+            margin-bottom: 0.9em !important;
+          }
+          
+          #selections .about-header {
+            font-size: 8pt;
+            display: flex;
+            justify-content: flex-end;
+          }
+
+          #selections .about-header a {
+            color: inherit;
+            margin-left: 0.5em;
+          }
+
+          #selections .locations {
+            margin-bottom: 2.3em;
+          }
+
+          #selections .location-block {
+            width: 25%;
+          }
+          #selections .location-block a {
+            color: var(--grey, #58595b);
+          }
+
+          #selections .copyright-text {
+            display: inline-block;
+          }
+
+          /********************************/
+          /* REFACTOR START 22/01/19 - LM */
+          /* Start STRUCTURE */
+          #selections {
+            box-sizing: border-box;
+            /*background: white;*/
+          }
+          #selections *, 
+          #selections *:before, 
+          #selections *:after {
+            box-sizing: inherit;
+          }
+
+          /* START GLOBAL STYLES */   
+          /* START SIDE BAR STYLES
+          #selections .sidebar {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            padding: 0 0 1.5em;
+            color: #58595b;
+          }
+          #selections .sidebar-content {
+            padding-top: 1em;
+          }
+          #selections .sidebar-content:first-child {
+            padding-top: 0;
+          }   
+
+          #selections .sidebar-quote h2 {
+            font-size: 1.375em;
+            line-height: 1.36em;
+            font-weight: 400;
+            color: var(--grey);
+          }
+
+          #selections .sidebar-quote p {
+            font-size: 0.75em;
+            line-height: 1.46em;
+            margin-bottom: 1em;
+          }
+
+          #selections .sidebar-quote p strong {
+            font-weight: 500;
+          } */
+          
+          /** PAGE **/
+          
+          #selections .page {
+            padding: 2.55em 3.5em;
+            font-family: 'Red Hat Text', sans-serif;
+          }
+          
+          #selections .js-heading-src, 
+          #selections .js-name-src, 
+          #selections .js-url-src {
+            display: none;
+          }
+
+          #selections .content-wrapper .guide {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+          }
+          #selections .page-content {
+            display: flex;
+            flex-flow: column nowrap;
+            flex: 1;
+          }
+
+          /** MAIN CONTENT STYLES  **/
+          
+          #selections .flex-row {
+            display: flex;
+            flex-direction: row;
+            width: 100%
+          }
+          #selections .flex-col {
+            display: flex;
+            flex-direction: column;
+          }
+          #selections .main {
+            /*flex-grow: 1;*/
+            height: 100%;
+          }
+          
+          #selections .main-content {
+            width: 74%;
+          }
+          
+          #selections .text-block span {
+            font-family: monospace;
+            text-decoration: none !important;
+            font-weight: 600;
+          }
+          
+          #selections .front-page .text-block {
+            padding: 0 0 1.55em 1.95em;
+            border-bottom: 1px solid var(--grey, #58595b);
+          }
+          #selections .text-block h1 {
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.6em;
+          }
+          #selections .text-block h2 {
+            font-family: 'Overpass Mono', monospace;
+            color: var(--grey, #58595b);
+          }
+          
+          /** COLUMNS **/
+
+          #selections .columns {
+            flex-grow: 1;
+          }
+
+          #selections .left-column {
+            width: 65%;
+          }
+          #selections .featured-image {
+            height: 16.1em !important;
+            width: auto;
+            position: relative;
+            border-bottom: 1px solid var(--grey, #58595b);
+          }
+          #selections .featured-image img {
+            width: 100%;
+          }
+          #selections .customer-quote {
+            padding: 0 1.95em;
+            margin-top: 1.6em;
+          }
+          #selections .quote {
+            font-weight: 300 !important;
+            line-height: 1.45em !important;
+            margin: 0 0 0.85em 0 !important;
+            letter-spacing: 0 !important;
+            text-align: right;
+            font-style: italic;
+            color: var(--grey, #58595b) !important;
+          }
+          #selections .quote:before {
+            content: open-quote;
+          }
+          #selections .quote:after {
+            content: close-quote;
+          }
+          #selections .customer-name {
+            text-align: right;
+            font-weight: 700;
+            margin-bottom: 0;
+            letter-spacing: 0.05em;
+          }
+          #selections .customer-title {
+            text-align: right;
+            letter-spacing: 0.05em;
+          }
+
+          #selections .right-column {
+            width: 35%;
+            border-left: 1px solid var(--grey, #58595b);
+          }
+          #selections .customer-industry, 
+          #selections .customer-challenge, 
+          #selections .customer-benefits, 
+          #selections .customer-statistics {
+            padding: 1.55em 1.95em;
+            border-bottom: 1px solid var(--grey, #58595b);
+          }
+          #selections .customer-statistics {
+            padding: 1em 1.95em;
+          }
+          #selections .customer-statistics strong {
+            color: var(--red, #ee0000);
+            padding-right: 0.25em;
+          }
+          #selections .customer-industry h2, 
+          #selections .customer-challenge h2, 
+          #selections .customer-benefits h2 {
+            letter-spacing: 0.055em;
+            margin-top: 0;
+            letter-spacing: 0.095em;
+            margin-bottom: 0.7em;
+          }
+          #selections .customer-industry h2 {
+            margin: 0;
+          }
+          #selections .right-column div:last-child {
+            border-bottom: none !important;
+          }
+          
+          /** Internal page **/
+          
+          #selections .page.internal-page {
+            padding-top: 1em;
+            padding-bottom: 1em;
+          }
+          
+          #selections .internal-page .header-content {
+            margin-bottom: 8.9em;
+          }
+          #selections .internal-page .sidebar-content {
+            padding-right: 2em !important;
+          }
+          #selections .headshot-image {
+            position: relative;
+            width: 100%;
+            height: 30.5em !important;
+          }
+          #selections .internal-page .customer-quote {
+            padding: 0;
+          }
+          #selections .internal-page .text-block {
+            margin-bottom: 0.9em;
+          }
+          #selections .customer-image {
+            position: relative;
+            width: 100%;
+            height: 18em !important;
+            margin-bottom: 1.5em;
+          }
+          #selections .internal-page .text-block h1:not(:first-of-type), 
+          #selections .internal-page .text-block p + h1 {
+            margin-top: 2em;
+          }
+          
+          /** Internal Page 2 **/
+          
+          #selections .call-out {
+            padding-top: 1em;
+            padding-bottom: 1em;
+            text-align: right;
+          }
+
+          #selections .footnotes {
+            margin-top: 2.5em;
+            border-top: 1px solid var(--grey, #58595b);
+            padding-top: 1em;
+          }
+          #selections .footnotes p {
+            margin-bottom: 0.4em;
+          }
+          #selections sup, 
+          #selections sub {
+            font-weight: bold;
+            padding-right: 0.7em;
+          }
+          
+          /** Last Page **/
+          
+          #selections .last-page.internal-page .header-content {
+            margin-bottom: 17.5em;
+          }
+
+          /* MEDIA QUERIES */
+     /*     @media (min-width: 768px) {
+            #selections .sidebar {
+              flex: 0 0 25%;
+              padding: 0 1.5em 0 0;          
+            }
+            /*#selections .page-content {
+              flex: 0 0 75%;
+            }*/
+      /*      #selections .content-wrapper .guide {
+              flex-flow: row nowrap;
+            }
+            #selections .sidebar ul,
+            #selections .sidebar ol {
+              padding: 0 0 0 1.6em;
+            }
+          }      */
+
+          /* JAMES UPDATES 29 MAR */
+          #selections h2 {
+            color: var(--red, #ee0000);
+          }
+
+          #selections h3,
+          #selections h4, 
+          #selections p, 
+          #selections li {
+            color: var(--text-black, #231f20);
+          }
+          
+          /*#selections .js-heading-src {
+        	display: none;
+      	  }
+          
+          .header-content.hide {
+            display: none !important;
+          }        
+
+          #selections .building {
+            padding-bottom: 1.7rem;
+          }
+          
+          #selections .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+          }
+          
+          #selections .about {
+            width: 85%;
+            border-bottom: 1px solid var(--grey);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+          }
+          
+          #selections .about-contain {
+            display: flex;
+          }
+          
+          #selections .locations-row {
+            display:flex;            
+          }
+
+          #selections .image-contain {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 0;
+          }
+          
+          #selections .column-pad {
+            padding-bottom: 1rem;
+          }
+          
+          #selections .split {
+            display: grid;
+            grid-template-columns: 50% 50%;
+          }*/
+          
+          /* Conditionals to Show / Hide depending on the language */
+      
+          #selections .sidebar-footer.flex-col {
+            display: none;
+          }
+		  
+          body[data-language="en"] #selections .sidebar-footer.flex-col.en,
+          body[data-language="it"] #selections .sidebar-footer.flex-col.it,
+          body[data-language="ja"] #selections .sidebar-footer.flex-col.ja,
+          body[data-language="ko"] #selections .sidebar-footer.flex-col.ko,
+          body[data-language="de"] #selections .sidebar-footer.flex-col.de,
+          body[data-language="es"] #selections .sidebar-footer.flex-col.es,
+          body[data-language="esES"] #selections .sidebar-footer.flex-col.esES,
+          body[data-language="fr"] #selections .sidebar-footer.flex-col.fr,
+          body[data-language="ptBR"] #selections .sidebar-footer.flex-col.ptBR,
+          body[data-language="zhCN"] #selections .sidebar-footer.flex-col.zhCN {
+            display: flex;
+          }
+
+          #selections .footer-link {
+            display: none
+          }
+
+          body[data-language="en"] #selections .footer-link.en,
+          body[data-language="it"] #selections .footer-link.it,
+          body[data-language="ja"] #selections .footer-link.ja,
+          body[data-language="ko"] #selections .footer-link.ko,
+          body[data-language="de"] #selections .footer-link.de,
+          body[data-language="es"] #selections .footer-link.es,
+          body[data-language="esES"] #selections .footer-link.esES,
+          body[data-language="fr"] #selections .footer-link.fr,
+          body[data-language="ptBR"] #selections .footer-link.ptBR,
+          body[data-language="zhCN"] #selections .footer-link.zhCN {
+            display: block;
+          }
+
+          #selections .main-content-footer.flex-col {
+            display: none;
+          }
+
+          body[data-language="en"] #selections .main-content-footer.flex-col.en,
+          body[data-language="it"] #selections .main-content-footer.flex-col.it,
+          body[data-language="ja"] #selections .main-content-footer.flex-col.ja,
+          body[data-language="ko"] #selections .main-content-footer.flex-col.ko,
+          body[data-language="de"] #selections .main-content-footer.flex-col.de,
+          body[data-language="es"] #selections .main-content-footer.flex-col.es,
+          body[data-language="esES"] #selections .main-content-footer.flex-col.esES,
+          body[data-language="fr"] #selections .main-content-footer.flex-col.fr,
+          body[data-language="ptBR"] #selections .main-content-footer.flex-col.ptBR,
+          body[data-language="zhCN"] #selections .main-content-footer.flex-col.zhCN {
+            display: flex;
+          }
+          
+          #selections .main-content-footer.flex-col.ja .about-text p {
+            text-align: justify;
+          }
+          
+          #selections .sidebar-footer.flex-col.ko > .building {
+            margin-bottom: 1.3em;
+          }
+          
+          #selections .sidebar-footer.flex-col.ko .social-links {
+            margin-bottom: 0;
+          }
+
+          #selections .location-block.ko {
+            display: flex;
+            flex-direction: row;
+            font-size: 7pt;
+            width: 30%;
+          }
+
+          #selections .location-block.ko {
+            display: flex;
+            flex-direction: row;
+            font-size: 7pt;
+            width: 30%;
+          }
+
+          #selections .location-block.ko > .text-block {
+            display: flex;
+            width: 80%;
+            flex-direction: column;
+            font-size: inherit;
+          }
+
+          #selections .location-block.ko > .text-block:first-child {
+            width: 20%;
+            justify-content: center;
+          }
+
+          #selections .location-block.ko > .text-block > a {
+            width: 75%;
+          }
+          
+          #selections .location-block.de {
+            width: 46%;
+          }
+          
+         #selections .location-block.es {
+            width: 33.33%;
+         }
+         
+         #selections .location-block.ptBR {
+            width: 30%;
+          }
+          
+         #selections .social-icons.zhCN {
+            display: flex;
+            flex-direction: row;
+          }
+
+          #selections .social-block.zhCN {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          #selections .social-block.zhCN:last-child {
+            margin-left: 0.5em;
+          }
+
+          #selections .social-block.zhCN img {
+            width: 100%;
+          }
+
+          #selections .social-block p {
+            font-size: 0.7em;
+          }
+
+          #selections .location-block.zhCN:last-child {
+            width: 65%;
+            margin-left: 10%;
+          }
+          
+          /* JA custom font */
+          body[data-language="ja"] #selections h1,
+          body[data-language="ja"] #selections h2,
+          body[data-language="ja"] #selections h3,
+          body[data-language="ja"] #selections h4,
+          body[data-language="ja"] #selections h5,
+          body[data-language="ja"] #selections h6,
+          body[data-language="ja"] #selections p,
+          body[data-language="ja"] #selections li,
+          body[data-language="ja"] #selections a,
+          body[data-language="ja"] #selections cite, 
+          body[data-language="ja"] #selections .footnote, 
+          body[data-language="ja"] #selections td, 
+          body[data-language="ja"] #selections th,
+          body[data-language="ja"] #selections .page,
+          body[data-language="ja"] #selections .text-block h2,
+          body[data-language="ja"] .main-content-footer.flex-col.ja {
+            font-family: "NotoSansCJKjp" !important;
+          }
+ 
+        </style>
+        <div class="blueprint"></div>
+        {{#collection.RH_general-collateral--cs}}
+		
+        {{#block.RH_front-page--cs}}
+        <div class="front-page page"><!-- Start Front Page -->
+          <div class="content-wrapper"><!-- Start Content-Wrapper -->
+            <div class="guide"><!-- Start Guide -->
+
+              <div class="page-content js-height-calculator-container {{ header-content-visibility }}"><!-- Start Page-Content -->
+                  
+                <div class="header-content">
+                  <div class="redhatLogo">
+                    <img src="https://files.outfit.io/media_library_items/96161/rh.png"/>
+                  </div>
+                </div><!--header-content-->
+
+                <h1 class="heading" data-max-line="3">{{{ heading }}}</h1>
+
+                <div class="main flex-row">
+
+                  <div class="sidebar-content flex-col">
+                   {{#collection.RH_sidebar-content--cs}}
+
+                      {{#block.RH_customer-logo--cs}}
+                      <div class="customer-logo"><img src="{{{ case-study-customer-logo }}}" /></div>
+                      {{/block.RH_customer-logo--cs}}
+
+                      {{#block.RH_sidebar-text--cs}}
+                      <div class="sidebar-text-block" data-max-height="500">{{{ RH_sidebar-text--cs }}}</div>
+                      {{/block.RH_sidebar-text--cs}}
+                    {{/collection.RH_sidebar-content--cs}}
+                    
+                      <!-- ENGLISH -->
+                      <div class="sidebar-footer flex-col en">
+                        <div class="social-icons">
+                          <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                          <a href="https://twitter.com/redhat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                          <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                        </div>
+                        <div class="social-links">
+                          <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                          <a href="https://twitter.com/redhat">@redhat</a>
+                          <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                        </div>
+                      </div>
+                    <div class="footer-link en"><a href="https://www.redhat.com">redhat.com</a></div>
+                    
+                      <!-- ITALIAN -->
+                      <div class="sidebar-footer flex-col it">
+                        <div class="social-icons">
+                          <a href="https://facebook.com/RedHatItaly"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                          <a href="https://twitter.com/RedHatItaly"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                          <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                        </div>
+                        <div class="social-links">
+                          <a href="https://facebook.com/RedHatItaly">facebook.com/RedHatItaly</a>
+                          <a href="https://twitter.com/RedHatItaly">twitter.com/RedHatItaly</a>
+                          <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                        </div>
+                      </div>
+                    <div class="footer-link it"><a href="https://it.redhat.com">it.redhat.com</a></div>
+
+                      <!-- JAPANESE -->
+                      <div class="sidebar-footer flex-col ja">
+                        <div class="social-icons">
+                          <a href="https://fb.com/RedHatJapan"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                          <a href="https://twitter.com/RedHatJapan"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                          <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                        </div>
+                        <div class="social-links">
+                          <a href="https://fb.com/RedHatJapan">fb.com/RedHatJapan</a>
+                          <a href="https://twitter.com/RedHatJapan">twitter.com/RedHatJapan</a>
+                          <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                        </div>
+                      </div>
+                     <div class="footer-link ja"><a href="https://jp.redhat.com">jp.redhat.com</a></div>
+                    
+                    <!-- KOREAN -->
+                    <div class="sidebar-footer flex-col ko">
+                      <div class="social-icons">
+                        <a href="https://www.facebook.com/redhatkorea"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                      </div>
+                      <div class="social-links">
+                        <a href="https://www.facebook.com/redhatkorea">www.facebook.com/redhatkorea</a>
+                      </div>
+                    </div>
+                   <div class="footer-link ko"><a href="https://www.redhat.com/ko">www.redhat.com/ko</a></div>
+                  
+                  <!-- GERMAN (DE) -->
+                  <div class="sidebar-footer flex-col de">
+                    <div class="social-icons">
+                      <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                      <a href="https://twitter.com/RedHatDACH"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                      <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                    </div>
+                    <div class="social-links">
+                      <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                      <a href="https://twitter.com/RedHatDACH">@RedHatDACH</a>
+                      <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                    </div>
+                  </div>
+                 <div class="footer-link de"><a href="https://de.redhat.com">de.redhat.com</a></div>
+                    
+                <!-- SPANISH (ES) -->
+                <div class="sidebar-footer flex-col es">
+                  <div class="social-icons">
+                    <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                    <a href="https://twitter.com/redhatla"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                    <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                  </div>
+                  <div class="social-links">
+                    <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                    <a href="https://twitter.com/redhatla">@redhatla</a>
+                    <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                  </div>
+                </div>
+               <div class="footer-link es"><a href="http://es.redhat.com">es.redhat.com</a></div>
+                    
+                <!-- SPANISH (esES) -->
+                <div class="sidebar-footer flex-col esES">
+                  <div class="social-icons">
+                    <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                    <a href="https://twitter.com/RedHatIberia"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                    <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                  </div>
+                  <div class="social-links">
+                    <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                    <a href="https://twitter.com/RedHatIberia">@RedHatIberia</a>
+                    <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                  </div>
+                </div>
+               <div class="footer-link esES"><a href="https://es.redhat.com">es.redhat.com</a></div>
+               
+                <!-- FRENCH (FR) -->
+                <div class="sidebar-footer flex-col fr">
+                  <div class="social-icons">
+                    <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                    <a href="https://twitter.com/RedHat_France"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                    <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                  </div>
+                  <div class="social-links">
+                    <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                    <a href="https://twitter.com/RedHat_France">@RedHat_France</a>
+                    <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                  </div>
+                </div>
+               <div class="footer-link fr"><a href="https://fr.redhat.com">fr.redhat.com</a></div>
+                    
+                <!-- PORTUGUESE (FR) -->
+                <div class="sidebar-footer flex-col ptBR">
+                  <div class="social-icons">
+                    <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                    <a href="https://twitter.com/redhatbr"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                    <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                  </div>
+                  <div class="social-links">
+                    <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                    <a href="https://twitter.com/redhatbr">@redhatbr</a>
+                    <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                  </div>
+                </div>
+               <div class="footer-link ptBR"><a href="https://br.redhat.com">br.redhat.com</a></div>
+                    
+               <!-- CHINESE (zhCN) -->
+               <div class="sidebar-footer flex-col zhCN"></div>
+               <div class="footer-link zhCN"><a href="https://redhat.com/zh">redhat.com/zh</a></div>
+                    
+             </div><!--sidebar-content-->
+
+                  <div class="main-content flex-col" data-max-height="750">
+                    {{#collection.RH_mainContent--cs}}    
+
+                    {{#block.main-content--gc}}
+                    <div class="text-block">{{{ RH_case-study-main-content--gc }}}</div>
+                    {{/block.main-content--gc}}
+
+                    {{#block.main-content-columns--cs}}
+                    <div class="columns flex-row">
+                      <div class="left-column">
+                        <div class="featured-image"><img src="{{{ cs-featured-image }}}"></div>
+                        <div class="customer-quote">
+                          <h2 class="quote">{{{ quote }}}</h2>
+                          <p class="customer-name">{{{ customer-name }}}</p>
+                          <p class="customer-title">{{{ cs-customer-representative-title }}}</p>
+                        </div>
+                      </div><!--left-column-->
+
+                      <div class="right-column">
+                        <div class="customer-industry">
+                          <h2> {{ customer-industry }} Industry</h2>
+                        </div>
+                        {{#customer-challenge}}
+                        <div class="customer-challenge">
+                          <h2>Challenge</h2>
+                          {{{ customer-challenge }}}
+                        </div>
+                        {{/customer-challenge}}
+                        <div class="customer-statistics">
+                          {{#spreadsheet.customer-statistics}}<p><strong>{{value}}</strong>{{text}}</p>{{/spreadsheet.customer-statistics}}
+                        </div>
+                        <div class="customer-benefits">
+                          <h2>Benefits</h2>
+                          {{{ customer-benefits }}}
+                        </div>
+                      </div><!--right-column-->
+                    </div><!--columns-->
+                    {{/block.main-content-columns--cs}}
+
+                    {{/collection.RH_mainContent--cs}}
+                  </div><!--main-content-->
+
+                </div><!--main-->
+
+              </div><!-- End page-content-->
+            </div><!-- End Guide -->
+          </div><!-- End Content-Wrapper -->
+        </div><!-- END FRONT PAGE --> 
+        {{/block.RH_front-page--cs}}
+      
+        {{#block.RH_internal-page-one--cs}}
+        <!-- Start Internal Page -->
+        <div class="page internal-page">
+          <div class="content-wrapper">
+            <div class="guide">
+              <div class="page-content js-height-calculator-container">
+
+                <div class="main flex-row">
+                  <div class="sidebar-content flex-col">
+                    {{#collection.RH_sidebar-content--cs}}
+
+                    {{#block.RH_headshot-image--cs}}
+                    <div class="headshot-image">{{{ headshot-image }}}</div>
+                    {{/block.RH_headshot-image--cs}}
+
+                    {{#block.RH_customer-quote--cs}}
+                    <div class="customer-quote">
+                      <h2 class="quote" data-max-height="420">{{{ quote }}}</h2>
+                      <p class="customer-name">{{{ customer-name }}}</p>
+                      <p class="customer-title">{{{ cs-customer-representative-title }}}</p>
+                    </div>
+                    {{/block.RH_customer-quote--cs}}
+                    
+                    {{#block.RH_sidebar-text--cs}}
+                    <div class="call-out"><p>{{{ sidebar-text }}}</p></div>
+                    {{/block.RH_sidebar-text--cs}}
+
+                    {{/collection.RH_sidebar-content--cs}}
+                  </div><!--sidebar-content-->
+
+                  <div class="main-content" data-max-height="840">
+                    {{#collection.RH_mainContent--cs}}
+
+                    {{#block.main-content--gc}}
+                    <div class="text-block">{{{ RH_case-study-main-content--gc }}}</div>
+                    {{/block.main-content--gc}}
+
+                    {{#block.customer-image--cs}}
+                    <div class="customer-image">{{{ customer-image }}}</div>
+                    {{/block.customer-image--cs}}
+
+                    {{/collection.RH_mainContent--cs}}
+                  </div><!--main-content-->
+                </div><!--main-->
+                
+               <div class="page-footer flex-row">
+                <!-- ENGLISH -->
+            	<div class="footer-link en"><a href="https://www.redhat.com">redhat.com</a></div>
+                <!-- ITALIAN -->
+                <div class="footer-link it"><a href="it.redhat.com">it.redhat.com</a></div>
+                <!-- JAPANESE -->
+                <div class="footer-link ja"><a href="jp.redhat.com">jp.redhat.com</a></div>
+                <!-- KOREAN -->
+            	<div class="footer-link ko"><a href="https://www.redhat.com/ko">www.redhat.com/ko</a></div>
+                <!-- GERMAN (DE) -->
+                <div class="footer-link ja"><a href="de.redhat.com">de.redhat.com</a></div>
+                <!-- SPANISH (ES) -->
+                <div class="footer-link es"><a href="https://es.redhat.com">es.redhat.com</a></div>
+                <!-- SPANISH (esES) -->
+                <div class="footer-link esES"><a href="https://es.redhat.com">es.redhat.com</a></div>
+                <!-- FRENCH (FR) -->
+                <div class="footer-link fr"><a href="https://fr.redhat.com">fr.redhat.com</a></div>
+                <!-- PORTUGUESE (ptBR) -->
+                <div class="footer-link ptBR"><a href="https://br.redhat.com">br.redhat.com</a></div>
+                <!-- CHINESE (zhCN) -->
+            	<div class="footer-link zhCN"><a href="https://redhat.com/zh">redhat.com/zh</a></div>
+                <div class="footer-text" data-footnote-number="2"><span class="js-heading-target"></span><span class="js-name-target"></span></div>
+              </div><!--page-footer-->
+                
+              </div><!--page-content-->
+            </div><!-- End Guide -->
+          </div><!--content-wrapper-->       
+        </div><!-- End Page -->
+        {{/block.RH_internal-page-one--cs}}
+        
+        {{#block.RH_internal-page-two--cs}}
+        <!-- Start Internal Page -->
+        <div class="page internal-page">
+          <div class="content-wrapper">
+            <div class="guide">
+              <div class="page-content js-height-calculator-container">
+
+                <div class="main flex-row">
+                  <div class="sidebar-content flex-col" data-max-height="860">
+                    {{#collection.RH_sidebar-content--cs}}
+
+                    {{#block.RH_customer-quote--cs}}
+                    <div class="customer-quote">
+                      <h2 class="quote">{{{ quote }}}</h2>
+                      <p class="customer-name">{{{ customer-name }}}</p>
+                      <p class="customer-title">{{{ cs-customer-representative-title }}}</p>
+                    </div>
+                    {{/block.RH_customer-quote--cs}}
+
+                    {{#block.RH_sidebar-text--cs}}
+                    <div class="call-out"><p>{{{ sidebar-text }}}</p></div>
+                    {{/block.RH_sidebar-text--cs}}
+
+                    {{#block.RH_sidebar-footnote--cs}}
+                    <div class="sidebar-footnote flex-col">
+                      <div class="sidebar-footnote-text">{{{ sidebar-footnote }}}</div>
+                    </div>
+                    {{/block.RH_sidebar-footnote--cs}}
+
+                    {{/collection.RH_sidebar-content--cs}}
+                  </div><!--sidebar-content-->
+
+                  <div class="main-content" data-max-height="850">
+                    {{#collection.RH_mainContent--cs}}        
+
+                    {{#block.main-content--gc}}
+                    <div class="text-block">{{{ RH_case-study-main-content--gc }}}</div>
+                    {{/block.main-content--gc}}
+
+                    {{#block.case-study-table--cs}}
+                    <h3 class="table-title">{{{ table-title }}}</h3>
+                    <table class="case-study-table">
+                      <thead>
+                        <tr>
+                          <th>{{ table-column-one-name }}</th>
+                          <th>{{ table-column-two-name }}</th>
+                          <th>{{ table-column-three-name }}</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {{#spreadsheet.case-study-table}}
+                        <tr>
+                          <td>{{ column-one-text }}</td>
+                          <td>{{ column-two-text }}</td>
+                          <td>{{ column-three-text }}</td>
+                        </tr>
+                        {{/spreadsheet.case-study-table}}
+                      </tbody>
+                    </table>
+                    {{/block.case-study-table--cs}}
+
+                    {{ #block.image-section }}
+                    <div class="img-container">
+                      <div class="img">{{{ image-with-caption }}}</div>
+                      {{#caption}}
+                      <cite>{{{ caption }}}</cite>
+                      {{/caption}}
+                    </div>
+                    {{ /block.image-section }}
+
+                    {{#block.footnote--gc}}
+                    <div class="footnotes">{{{ case-study-footnotes }}}</div>
+                    {{/block.footnote--gc}}
+
+                    {{/collection.RH_mainContent--cs}}
+                  </div><!--main-content-->
+                </div><!--main-->
+                
+              <div class="page-footer flex-row">
+                <!-- ENGLISH -->
+            	<div class="footer-link en"><a href="https://www.redhat.com">redhat.com</a></div>
+                <!-- ITALIAN -->
+                <div class="footer-link it"><a href="it.redhat.com">it.redhat.com</a></div>
+                <!-- JAPANESE -->
+                <div class="footer-link ja"><a href="jp.redhat.com">jp.redhat.com</a></div>
+                <!-- KOREAN -->
+            	<div class="footer-link ko"><a href="https://www.redhat.com/ko">www.redhat.com/ko</a></div>
+                <!-- GERMAN (DE) -->
+                <div class="footer-link ja"><a href="de.redhat.com">de.redhat.com</a></div>
+                <!-- SPANISH (ES) -->
+                <div class="footer-link es"><a href="https://es.redhat.com">es.redhat.com</a></div>
+                <!-- SPANISH (esES) -->
+                <div class="footer-link esES"><a href="https://es.redhat.com">es.redhat.com</a></div>
+                <!-- FRENCH (FR) -->
+                <div class="footer-link fr"><a href="https://fr.redhat.com">fr.redhat.com</a></div>
+                <!-- PORTUGUESE (ptBR) -->
+                <div class="footer-link ptBR"><a href="https://br.redhat.com">br.redhat.com</a></div>
+                <!-- CHINESE (zhCN) -->
+            	<div class="footer-link zhCN"><a href="https://redhat.com/zh">redhat.com/zh</a></div>
+                <div class="footer-text" data-footnote-number="2"><span class="js-heading-target"></span><span class="js-name-target"></span></div>
+              </div><!--page-footer-->
+                
+              </div><!--page-content-->
+            </div><!-- End Guide -->
+          </div><!--content-wrapper-->       
+        </div><!-- End Page -->
+        {{/block.RH_internal-page-two--cs}}
+        
+        {{#block.RH_last-page--cs}}
+        <!-- Start Internal Page -->
+        <div class="page last-page internal-page">
+          <div class="content-wrapper">
+            <div class="guide">
+              <div class="page-content js-height-calculator-container">
+           
+          <div class="main flex-row">
+            <div class="sidebar-content flex-col">
+             {{#collection.RH_sidebar-content--cs}}
+
+                    {{#block.RH_customer-quote--cs}}
+                    <div class="customer-quote">
+                      <h2 class="quote" data-max-height="460">{{{ quote }}}</h2>
+                      <p class="customer-name">{{{ customer-name }}}</p>
+                      <p class="customer-title">{{{ cs-customer-representative-title }}}</p>
+                    </div>
+                    {{/block.RH_customer-quote--cs}}
+              
+                    {{#block.RH_sidebar-text--cs}}
+                    <div class="call-out"><p>{{{ sidebar-text }}}</p></div>
+                    {{/block.RH_sidebar-text--cs}}
+
+                    {{/collection.RH_sidebar-content--cs}}
+              
+                    <!-- ENGLISH -->
+                    <div class="sidebar-footer flex-col en">
+                      <div class="building {{ show-building }}">
+                        <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                      </div>
+                      <div class="social-icons">
+                        <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                        <a href="https://twitter.com/redhat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                        <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                      </div>
+                      <div class="social-links">
+                        <a href="https://facebook.com/RedHatItaly">facebook.com/redhatinc</a>
+                        <a href="https://twitter.com/redhat">@redhat</a>
+                        <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                      </div>
+                      <div class="footer-link en"><a href="https://www.redhat.com">redhat.com</a></div>
+                      <div class="footer-text">#0000000_0014</div>
+                    </div>
+              
+                     <!-- ITALIAN -->
+                      <div class="sidebar-footer flex-col it">
+                        <div class="building {{ show-building }}">
+                          <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                        </div>
+                        <div class="social-icons">
+                          <a href="https://facebook.com/RedHatItaly"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                          <a href="https://twitter.com/RedHatItaly"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                          <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                        </div>
+                        <div class="social-links">
+                          <a href="https://facebook.com/RedHatItaly">facebook.com/RedHatItaly</a>
+                          <a href="https://twitter.com/RedHatItaly">twitter.com/RedHatItaly</a>
+                          <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                        </div>
+                        <div class="footer-link it"><a href="https://it.redhat.com">it.redhat.com</a></div>
+                        <div class="footer-text">#0000000_0014</div>
+                      </div>
+
+                     <!-- JAPANESE -->
+                      <div class="sidebar-footer flex-col ja">
+                        <div class="building {{ show-building }}">
+                          <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                        </div>
+                        <div class="social-icons">
+                          <a href="https://fb.com/RedHatJapan"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                          <a href="https://twitter.com/RedHatJapan"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                          <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                        </div>
+                        <div class="social-links">
+                          <a href="https://fb.com/RedHatJapan">fb.com/RedHatJapan</a>
+                          <a href="https://twitter.com/RedHatJapan">twitter.com/RedHatJapan</a>
+                          <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                        </div>
+                        <div class="footer-link ja"><a href="https://jp.redhat.com">jp.redhat.com</a></div>
+                        <div class="footer-text">#0000000_0014</div>
+                      </div>
+              
+                      <!-- KOREAN -->
+                      <div class="sidebar-footer flex-col ko">
+                       <div class="building {{ show-building }}">
+                          <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                        </div>
+                       <div class="footer-link ko"><a href="https://www.redhat.com/ko">www.redhat.com/ko</a></div>
+                       <div class="footer-text">#0000000_0014</div>
+                      </div>
+              
+                      <!-- GERMAN (DE) -->
+                      <div class="sidebar-footer flex-col de">
+                        <div class="building {{ show-building }}">
+                          <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                        </div>
+                        <div class="social-icons">
+                          <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                          <a href="https://twitter.com/RedHatDACH"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                          <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                        </div>
+                        <div class="social-links">
+                          <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                          <a href="https://twitter.com/RedHatDACH">@RedHatDACH</a>
+                          <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                        </div>
+                        <div class="footer-link de"><a href="https://de.redhat.com">de.redhat.com</a></div>
+                        <div class="footer-text">#0000000_0014</div>
+                      </div>
+              
+                      <!-- SPANISH (ES) -->
+                      <div class="sidebar-footer flex-col es">
+                        <div class="building {{ show-building }}">
+                          <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                        </div>
+                        <div class="social-icons">
+                          <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                          <a href="https://twitter.com/redhatla"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                          <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                        </div>
+                        <div class="social-links">
+                          <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                          <a href="https://twitter.com/redhatla">@redhatla</a>
+                          <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                        </div>
+                        <div class="footer-link es"><a href="http://es.redhat.com">es.redhat.com</a></div>
+                        <div class="footer-text">#0000000_0014</div>
+                      </div>
+              		  
+                    <!-- SPANISH (esES) -->
+                    <div class="sidebar-footer flex-col esES">
+                      <div class="building {{ show-building }}">
+                        <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                      </div>
+                      <div class="social-icons">
+                        <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                        <a href="https://twitter.com/RedHatIberia"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                        <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                      </div>
+                      <div class="social-links">
+                        <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                        <a href="https://twitter.com/RedHatIberia">@RedHatIberia</a>
+                        <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                      </div>
+                      <div class="footer-link esES"><a href="https://es.redhat.com">es.redhat.com</a></div>
+                      <div class="footer-text">#0000000_0014</div>
+                    </div>
+              
+                    <!-- FRENCH (FR) -->
+                    <div class="sidebar-footer flex-col fr">
+                      <div class="building {{ show-building }}">
+                        <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                      </div>
+                      <div class="social-icons">
+                        <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                        <a href="https://twitter.com/RedHat_France"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                        <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                      </div>
+                      <div class="social-links">
+                        <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                        <a href="https://twitter.com/RedHat_France">@RedHat_France</a>
+                        <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                      </div>
+                      <div class="footer-link fr"><a href="https://fr.redhat.com">fr.redhat.com</a></div>
+                      <div class="footer-text">#0000000_0014</div>
+                    </div>
+              
+                    <!-- PORTUGUESE (ptBR) -->
+                    <div class="sidebar-footer flex-col ptBR">
+                      <div class="building {{ show-building }}">
+                        <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                      </div>
+                      <div class="social-icons">
+                        <a href="https://facebook.com/redhatinc"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                        <a href="https://twitter.com/redhatbr"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                        <a href="https://linkedin.com/company/red-hat"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                      </div>
+                      <div class="social-links">
+                        <a href="https://facebook.com/redhatinc">facebook.com/redhatinc</a>
+                        <a href="https://twitter.com/redhatbr">@redhatbr</a>
+                        <a href="https://linkedin.com/company/red-hat">linkedin.com/company/red-hat</a>
+                      </div>
+                      <div class="footer-link ptBR"><a href="https://br.redhat.com">br.redhat.com</a></div>
+                      <div class="footer-text">#0000000_0014</div>
+                    </div>
+              
+                    <!-- CHINESE (zhCN) -->
+                    <div class="sidebar-footer flex-col zhCN">
+                      <div class="building {{ show-building }}">
+                        <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+                      </div>
+                      <div class="social-icons zhCN">
+                        <div class="social-block zhCN">
+                        	<img src="https://files.outfit.io/media_library_items/134444/Collateral-Red_Hat-Customer_Case_Study-A4-zhCN.png"/>
+                          	<p>红帽官方微博</p>
+                        </div>
+                        <div class="social-block zhCN">
+                          <img src="https://files.outfit.io/media_library_items/134596/Collateral-Red_Hat-Customer_Case_Study-A4-zhCN2.png"/>
+                          <p>红帽官方微信</p>
+                        </div>
+                      </div>
+                      <div class="footer-link zhCN"><a href="https://redhat.com/zh">redhat.com/zh</a></div>
+                      <div class="footer-text">#0000000_0014</div>
+                    </div>
+              
+            </div><!--sidebar-content-->
+
+            <div class="main-content flex-col">
+            {{#collection.RH_mainContent--cs}}        
+              {{#block.main-content--gc}}
+              <div class="text-block" data-max-height="550">{{{ RH_case-study-main-content--gc }}}</div>
+              {{/block.main-content--gc}}
+            {{/collection.RH_mainContent--cs}}
+              
+              <!-- ENGLISH -->
+              <div class="main-content-footer flex-col en">
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">
+                     <h1>About Red Hat</h1>
+                     <p>
+                       Red Hat is the world’s leading provider of open source software solutions, using a community-powered
+					   approach to provide reliable and high-performing cloud, Linux, middleware, storage, and virtualization
+					   technologies. Red Hat also offers award-winning support, training, and consulting services. As a
+					   connective hub in a global network of enterprises, partners, and open source communities, Red Hat
+					   helps create relevant, innovative technologies that liberate resources for growth and prepare customers
+					   for the future of IT.
+                     </p>
+                  </div>
+                </div>
+
+                <div class="locations flex-row">
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>NORTH AMERICA</strong>
+                      <br/>
+                      1 888 REDHAT1
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>EUROPE, MIDDLE EAST, AND AFRICA</strong>
+                      <br/>
+                      00800 7334 2835
+                      <br/>
+                      <a href="mailto:europe@redhat.com">europe@redhat.com</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>ASIA PACIFIC</strong>
+                      <br/>
+                      +65 6490 4200
+                      <br/>
+                      <a href="mailto:apac@redhat.com">apac@redhat.com</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>LATIN AMERICA</strong>
+                      <br/>
+                      +54 11 4329 7300
+                      <br/>
+                      <a href="mailto:info-latam@redhat.com">info-latam@redhat.com</a>
+                    </div>
+                  </div>
+                </div>
+
+                <small class="copyright-text" data-max-line="5">
+					Copyright © 2020 Red Hat, Inc. Red Hat, Red Hat Enterprise Linux, the Red Hat logo, and JBoss are trademarks or registered trademarks
+					of Red Hat, Inc. or its subsidiaries in the United States and other countries. Linux® is the registered trademark of Linus Torvalds in the U.S. and other countries.
+                </small>
+              </div><!--main-content-footer-->
+              
+              <!-- ITALIAN -->
+              <div class="main-content-footer flex-col it">
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">
+                     <h1>About Red Hat</h1>
+                     <p>Red Hat è leader mondiale nella fornitura di soluzioni software open source. Con un approccio basato
+						sul concetto di community, distribuisce tecnologie come Kubernetes, container, Linux e hybrid cloud
+						caratterizzate da affidabilità e prestazioni elevate. Red Hat favorisce l’integrazione di applicazioni
+						nuove ed esistenti, lo sviluppo di applicazioni cloud native, la standardizzazione su uno tra i principali
+						sistemi operativi enterprise, e consente di automatizzare e gestire ambienti complessi in modo sicuro. I
+						pluripremiati servizi di consulenza, formazione e assistenza hanno reso Red Hat un partner affidabile
+						per le aziende della classifica Fortune 500. Lavorando al fianco di provider di servizi cloud e applicazioni,
+						system integrator, clienti e community open source, Red Hat prepara le organizzazioni ad affrontare un
+						futuro digitale.
+                     </p>
+                  </div>
+                </div>
+
+                <div class="locations flex-row">
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>ITALIA</strong>
+                      <br/>
+                      it.redhat.com
+                      <br/>
+                      <a href="mailto:italy@redhat.com">italy@redhat.com</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>EUROPA, MEDIO ORIENTE, E AFRICA (EMEA)</strong>
+                      <br/>
+                      00800 7334 2835
+                      <br/>
+                      it.redhat.com
+                      <br/>
+                      <a href="mailto:europe@redhat.com">europe@redhat.com</a>
+                    </div>
+                  </div>
+                </div>
+
+                <small class="copyright-text" data-max-line="5">
+                  Copyright © 2020 Red Hat, Inc. Red Hat, Red Hat Enterprise Linux, il logo Red Hat e JBoss sono marchi di Red Hat, Inc. registrati negli
+Stati Uniti o in altri Paesi. Linux® è un marchio registrato di Linus Torvalds negli Stati Uniti e in altri Paesi.
+                </small>
+              </div><!--main-content-footer-->
+              
+              <!-- JAPANESE -->
+              <div class="main-content-footer flex-col ja">
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">
+                     <h1>RED HAT について</h1>
+                     <p>
+						エンタープライズ・オープンソース・ソフトウェア・ソリューションのプロバイダーとして世界をリードする
+						Red Hat は、コミュニティとの協業により高い信頼性と性能を備える Linux、ハイブリッドクラウド、コンテナ、
+						および Kubernetes テクノロジーを提供しています。Red Hat は、新規および既存 IT アプリケーションの統合、
+						クラウドネイティブ・アプリケーションの開発、Red Hat が提供する業界トップレベルのオペレーティングシス
+						テムへの標準化、複雑な環境の自動化、セキュリティ保護、運用管理を支援します。受賞歴のあるサポート、ト
+						レーニング、コンサルティングサービスを提供する Red Hat は、Fortune 500 企業に信頼されるアドバイザー
+						です。クラウドプロバイダー、システムインテグレーター、アプリケーションベンダー、お客様、オープンソー
+						ス・コミュニティの戦略的パートナーとして、Red Hat はデジタル化が進む将来に備える企業を支援します。
+                     </p>
+                  </div>
+                </div>
+
+                <div class="locations flex-row">
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>日本</strong>
+                      <br/>
+                      0120 266 086
+                      <br/>
+                      03 5798 8510
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>アジア太平洋</strong>
+                      <br/>
+                      +65 6490 4200
+                      <br/>
+                      <a href="mailto:apac@redhat.com">apac@redhat.com</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>欧州、中東、アフリカ</strong>
+                      <br/>
+                      00800 7334 2835
+                      <br/>
+                      <a href="mailto:europe@redhat.com">europe@redhat.com</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>中南米</strong>
+                      <br/>
+                      +54 11 4329 7300
+                      <br/>
+                      <a href="mailto:info-latam@redhat.com">info-latam@redhat.com</a>
+                    </div>
+                  </div>
+                </div>
+
+                <small class="copyright-text" data-max-line="5">
+					Copyright © 2020 Red Hat, Inc. Red Hat、Red Hat Enterprise Linux、Red Hatロゴ、およびJBossは、米国およびその他の国における Red Hat,
+Inc.の登録商標です。Linux®は、米国およびその他の国におけるLinus Torvalds氏の登録商標です。
+                </small>
+              </div><!--main-content-footer-->
+              
+              <!-- KOREAN -->
+              <div class="main-content-footer flex-col ko">
+                <div class="about-header">
+                  한국레드햇 홈페이지  <a href="https://www.redhat.com/ko">https://www.redhat.com/ko</a>
+                </div>
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">
+                     <h1>RED HAT 정보</h1>
+                     <p>
+                       Red Hat은 세계적인 엔터프라이즈 오픈소스 솔루션 공급업체로서 커뮤니티 기반 접근 방식을 통해 신뢰도 높은
+					   고성능 Linux, 하이브리드 클라우드, 컨테이너, 쿠버네티스 기술을 제공합니다. 또한 고객으로 하여금 신규 및 기존
+					   IT 애플리케이션을 통합하고, 클라우드 네이티브 애플리케이션을 개발하며, 업계를 선도하는 Red Hat의 운영
+					   체제를 기반으로 표준화하는 동시에 복잡한 환경의 자동화, 보안 및 관리를 실현할 수 있도록 지원합니다. Red Hat은
+					   전세계 고객에게 높은 수준의 지원과 교육 및 컨설팅 서비스를 제공하여 권위있는 어워드를 다수 수상한 바 있으며,
+					   Fortune 선정 500대 기업의 신뢰를 받는 어드바이저로 인정받고 있습니다. 또한 기업, 파트너, 오픈소스 커뮤니티의
+					   전략적인 파트너로서 고객들이 디지털 미래에 대비할 수 있도록 지원하고 있습니다.
+                     </p>
+                  </div>
+                </div>
+
+                <div class="locations flex-row">
+                  <div class="location-block ko">
+                    <div class="text-block">
+                      <a href="https://www.facebook.com/redhatkorea"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                    </div>
+                    <div class="text-block">
+                      <a href="https://www.facebook.com/redhatkorea">www.facebook.com/redhatkorea</a>
+                      구매문의 080 708 0880
+                      <br/>
+                      <a href="mailto:buy-kr@redhat.com">buy-kr@redhat.com</a>
+                    </div>
+                  </div>
+                </div>
+
+                <small class="copyright-text" data-max-line="5">
+				Copyright © 2020 Red Hat, Inc. Red Hat, Red Hat Enterprise Linux, Red Hat 로고 및 JBoss는 미국 및 기타 국가에서 Red Hat, Inc.
+				의 등록 상표입니다. Linux®는 미국 및 기타 국가에서 Linus Torvalds의 등록 상표입니다.
+                </small>
+              </div><!--main-content-footer-->
+              
+              <!-- GERMAN (DE) -->
+              <div class="main-content-footer flex-col de">
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">
+                     <h1>ÜBER RED HAT</h1>
+                     <p>
+                       Red Hat, weltweit führender Anbieter von Open Source Software-Lösungen für Unternehmen, folgt
+					   einem community-basierten Ansatz, um verlässliche und leistungsstarke Technologien in den Bereichen
+					   Linux, Hybrid Cloud, Container und Kubernetes bereitzustellen. Wir unterstützen Kunden bei der
+					   Integration neuer und bestehender IT-Anwendungen, der Entwicklung cloudnativer Anwendungen,
+					   der Standardisierung auf unserem branchenführenden Betriebssystem sowie der Automatisierung,
+					   Sicherung und Verwaltung komplexer Umgebungen. Dank unserer vielfach ausgezeichneten Support-,
+					   Training- und Consulting-Services ist Red Hat ein bewährter Partner der Fortune 500 Unternehmen. Als
+					   strategischer Partner für Cloud-Anbieter, Systemintegratoren, Anwendungsanbieter, Kunden und Open
+					   Source Communities hilft Red Hat Organisationen auf ihrem Weg in die digitale Zukunft.
+                     </p>
+                  </div>
+                </div>
+
+                <div class="locations flex-row">
+                  <div class="location-block de">
+                    <div class="text-block">
+                      <strong>EUROPA, NAHOST,
+UND AFRIKA (EMEA)</strong>
+                      <br/>
+                      00800 7334 2835
+                      <br/>
+                      <a href="https://de.redhat.com">de.redhat.com</a>
+                      <br/>
+                      <a href="mailto:europe@redhat.com">europe@redhat.com</a>
+                    </div>
+                  </div>
+                  <div class="location-block de">
+                    <div class="text-block">
+                      <strong>Deutschland, Österreich, Schweiz</strong>
+                      <br/>
+                      <a href="mailto:germany@redhat.com">germany@redhat.com</a>
+                      <br/>
+                      <a href="mailto:switzerland@redhat.com">switzerland@redhat.com</a>
+                      <br/>
+                      <a href="mailto:europe@redhat.com">europe@redhat.com</a>
+                    </div>
+                  </div>
+                </div>
+
+                <small class="copyright-text" data-max-line="5">
+                  Copyright © 2020 Red Hat, Inc. Red Hat, Red Hat Enterprise Linux, das Red Hat Logo und JBoss sind Marken oder eingetragene Marken
+von Red Hat, Inc. oder deren Tochterunternehmen in den USA und anderen Ländern. Linux® ist eine in den USA und anderen Ländern
+eingetragene Marke von Linus Torvalds.
+                </small>
+              </div><!--main-content-footer-->
+              
+              <!-- SPANISH (ES) -->
+              <div class="main-content-footer flex-col es">
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">
+                     <h1>ACERCA DE RED HAT</h1>
+                     <p>
+						Red Hat es el proveedor líder de soluciones de software de open source para empresas, que adopta
+						un enfoque basado en la comunidad para ofrecer tecnologías confiables y de alto rendimiento de
+						Linux, nube híbrida, contenedores y Kubernetes. Red Hat ayuda a los clientes a integrar aplicaciones
+						de TI nuevas y existentes, desarrollar aplicaciones nativas de la nube, estandarizar en nuestro sistema
+						operativo líder del sector y automatizar, proteger y gestionar entornos complejos. Sus servicios
+						galardonados de soporte, capacitación y consultoría convierten a Red Hat en un asesor de confianza
+						para las empresas de Fortune 500. Como partner estratégico de proveedores de nube, integradores de
+						sistemas, proveedores de aplicaciones, clientes y comunidades de open source, Red Hat puede ayudar a
+						las organizaciones a prepararse para el futuro digital.
+                     </p>
+                  </div>
+                </div>
+
+                <div class="locations flex-row">
+                  <div class="location-block es">
+                    <div class="text-block">
+                      <strong>ARGENTINA</strong>
+                      <br/>
+                      +54 11 4329 7300
+                    </div>
+                  </div>
+                  <div class="location-block es">
+                    <div class="text-block">
+                      <strong>CHILE</strong>
+                      <br/>
+                      +562 2597 7000
+                    </div>
+                  </div>
+                  <div class="location-block es">
+                    <div class="text-block">
+                      <strong>COLOMBIA</strong>
+                      <br/>
+                      +571 508 8631
+                      <br/>
+                      +52 55 8851 6400
+                    </div>
+                  </div>
+                </div>
+                <div class="locations flex-row">
+                  <div class="location-block es">
+                    <div class="text-block">
+                      <strong>MÉXICO</strong>
+                      <br/>
+                      +52 55 8851 6400
+                    </div>
+                  </div>
+                  <div class="location-block es">
+                    <div class="text-block">
+                      <strong>ESPAÑA</strong>
+                      <br/>
+                      +34 914 148 800
+                    </div>
+                  </div>
+                </div>
+
+                <small class="copyright-text" data-max-line="5">
+                Copyright © 2020 Red Hat, Inc. Red Hat, Red Hat Enterprise Linux, el logotipo Red Hat, y JBoss son marcas comerciales
+                de Red Hat, Inc. registradas en Estados Unidos y en otros países. Linux® es la marca comercial registrada de Linus Torvalds
+                en Estados Unidos y en otros países.
+                </small>
+              </div><!--main-content-footer-->
+              
+              <!-- SPANISH (esES) -->
+              <div class="main-content-footer flex-col esES">
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">
+                     <h1>ACERCA DE RED HAT</h1>
+                     <p>
+						Red Hat es el proveedor líder de soluciones de software de open source para empresas, que adopta
+						un enfoque basado en la comunidad para ofrecer tecnologías confiables y de alto rendimiento de
+						Linux, nube híbrida, contenedores y Kubernetes. Red Hat ayuda a los clientes a integrar aplicaciones
+						de TI nuevas y existentes, desarrollar aplicaciones nativas de la nube, estandarizar en nuestro sistema
+						operativo líder del sector y automatizar, proteger y gestionar entornos complejos. Sus servicios
+						galardonados de soporte, capacitación y consultoría convierten a Red Hat en un asesor de confianza
+						para las empresas de Fortune 500. Como partner estratégico de proveedores de nube, integradores de
+						sistemas, proveedores de aplicaciones, clientes y comunidades de open source, Red Hat puede ayudar a
+						las organizaciones a prepararse para el futuro digital.
+                     </p>
+                  </div>
+                </div>
+
+                <div class="locations flex-row">
+                  <div class="location-block es">
+                    <div class="text-block">
+                      <strong>ARGENTINA</strong>
+                      <br/>
+                      +54 11 4329 7300
+                    </div>
+                  </div>
+                  <div class="location-block es">
+                    <div class="text-block">
+                      <strong>CHILE</strong>
+                      <br/>
+                      +562 2597 7000
+                    </div>
+                  </div>
+                  <div class="location-block es">
+                    <div class="text-block">
+                      <strong>COLOMBIA</strong>
+                      <br/>
+                      +571 508 8631
+                      <br/>
+                      +52 55 8851 6400
+                    </div>
+                  </div>
+                </div>
+                <div class="locations flex-row">
+                  <div class="location-block es">
+                    <div class="text-block">
+                      <strong>MÉXICO</strong>
+                      <br/>
+                      +52 55 8851 6400
+                    </div>
+                  </div>
+                  <div class="location-block es">
+                    <div class="text-block">
+                      <strong>ESPAÑA</strong>
+                      <br/>
+                      +34 914 148 800
+                    </div>
+                  </div>
+                </div>
+
+                <small class="copyright-text" data-max-line="5">
+                Copyright © 2020 Red Hat, Inc. Red Hat, Red Hat Enterprise Linux, el logotipo Red Hat, y JBoss son marcas comerciales
+                de Red Hat, Inc. registradas en Estados Unidos y en otros países. Linux® es la marca comercial registrada de Linus Torvalds
+                en Estados Unidos y en otros países.
+                </small>
+              </div><!--main-content-footer-->
+              
+              <!-- FRENCH (FR) -->
+              <div class="main-content-footer flex-col fr">
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">
+                     <h1>À PROPOS DE RED HAT</h1>
+                     <p>
+					   Premier éditeur mondial de solutions Open Source, Red Hat s'appuie sur une approche communautaire pour 
+                       fournir des technologies Linux, de cloud, de virtualisation, de stockage et de middleware fiables et 
+                       performantes. Red Hat propose également des services d'assistance, de formation et de consulting reconnus. 
+                       Situé au cœur d'un réseau mondial d'entreprises, de partenaires et de communautés Open Source, Red Hat 
+                       participe à la création de technologies novatrices qui permettent de libérer des ressources pour la 
+                       croissance et de préparer ses clients à l'avenir de l'informatique.
+                     </p>
+                  </div>
+                </div>
+
+                <div class="locations flex-row">
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>EUROPE, MOYEN-ORIENT
+ET AFRIQUE (EMEA)</strong>
+                      <br/>
+                      00800 7334 2835
+                      <a href="mailto:europe@redhat.com">europe@redhat.com</a>
+                    </div>
+                  </div>
+                  <div class="location-block">
+                    <div class="text-block">
+                      <strong>FRANCE</strong>
+                      <br/>
+                      00 33 1 4191 2323
+                      <a href="https://fr.redhat.com">fr@redhat.com</a>
+                    </div>
+                  </div>
+                </div>
+
+                <small class="copyright-text" data-max-line="5">
+				Copyright © 2020 Red Hat, Inc. Red Hat, Red Hat Enterprise Linux, le logo Red Hat et JBoss sont des marques de Red Hat, Inc., déposées
+				aux États-Unis et dans d’autres pays. Linux® est la marque commerciale déposée de Linus Torvalds aux États-Unis et dans d’autres pays.
+                </small>
+              </div><!--main-content-footer-->
+              
+              <!-- PORTUGUESE (ptBR) -->
+              <div class="main-content-footer flex-col ptBR">
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">
+                     <h1>SOBRE A RED HAT</h1>
+                     <p>
+						A Red Hat é a líder mundial no fornecimento de soluções corporativas de software open source. Por
+						meio da estreita parceria com as comunidades, a Red Hat oferece tecnologias confiáveis e de alto
+						desempenho em Linux, nuvem híbrida, containers e Kubernetes. A Red Hat ajuda os clientes a integrar
+						aplicações de TI novas e existentes, desenvolver aplicações nativas em nuvem e definir padrões
+						com nosso sistema operacional líder do setor, além de automatizar, proteger e gerenciar ambientes
+						complexos. Com serviços de consultoria, treinamento e suporte premiados, a Red Hat tem a confiança
+						das empresas da Fortune 500. Como um parceiro estratégico para provedores de serviços de nuvem, integradores
+						de sistema, fornecedores de aplicações, clientes e comunidades open source, a Red Hat ajuda as
+						organizações a se preparar para o futuro digital.
+                     </p>
+                  </div>
+                </div>
+
+                <div class="locations flex-row">
+                  <div class="location-block ptBR">
+                    <div class="text-block">
+                      <strong>América Latina</strong>
+                      <br/>
+                      +54 11 4329 7300<br/>
+                      <a href="mailto:latammktg@redhat.com">latammktg@redhat.com</a>
+                    </div>
+                  </div>
+                  <div class="location-block ptBR">
+                    <div class="text-block">
+                      <strong>Brasil</strong>
+                      <br/>
+                      +55 11 3629 6000<br/>
+                      <a href="mailto:marketing-br@redhat.com">marketing-br@redhat.com</a>
+                    </div>
+                  </div>
+                </div>
+
+                <small class="copyright-text" data-max-line="5">
+					Copyright © 2020 Red Hat, Inc. Red Hat, Red Hat Enterprise Linux, o logotipo Red Hat e JBoss são marcas registradas da Red Hat, Inc.
+					ou suas subsidiárias, nos Estados Unidos da América e em outros países. Linux® é uma marca registrada da Linus Torvalds nos Estados
+					Unidos e em outros países.
+                </small>
+              </div><!--main-content-footer-->
+              
+              <!-- CHINESE (zhCN) -->
+              <div class="main-content-footer flex-col zhCN">
+                <div class="about">
+                   <div class="text-block about-text" data-max-line="8">
+                     <h1>关于红帽</h1>
+                     <p>
+						红帽是世界领先的企业开源软件解决方案供应商,依托强大的社区支持,为客户提供稳定可靠而且高性能的
+						Linux、混合云、容器和 Kubernetes 技术。 红帽帮助客户集成现有和新的 IT 应用,开发云原生应用,在业界
+						领先的操作系统上开展标准化作业,并实现复杂环境的自动化、安全防护和管理。 凭借一流的支持、培训和
+						咨询服务,红帽成为《财富》500 强公司备受信赖的顾问。 作为众多云提供商、系统集成商、应用供应商、客户
+						和开源社区的战略合作伙伴,红帽致力于帮助企业做好准备,拥抱数字化未来。
+                     </p>
+                  </div>
+                </div>
+
+                <div class="locations flex-row">
+                  <div class="location-block zhCN">
+                    <div class="text-block">
+                      <strong>销售及技术支持</strong>
+                      <br/>
+                      800 810 2100
+                      <br/>
+                      400 890 2100
+                    </div>
+                  </div>
+                  <div class="location-block zhCN">
+                    <div class="text-block">
+                      <strong>红帽北京办公地址</strong>
+                      <br/>
+                      北京市朝阳区东大桥路 9 号 侨福芳草地大厦 A 座 8 层 邮编: 100020
+                      <br/>
+                      8610 6533 9300
+                    </div>
+                  </div>
+                </div>
+
+                <small class="copyright-text" data-max-line="5">
+					© 2020 年红帽版权所有。红帽、红帽企业 Linux、红帽标识以及 JBoss 均为红帽及其子公司在美国或其他国家的注册商标。 Linux® 是 Linus
+					Torvalds 在美国或其他国家的注册商标。
+                </small>
+              </div><!--main-content-footer-->
+              
+            </div><!--main-content-->
+          </div><!--main-->
+         </div><!--page-content-->
+        </div><!-- End Guide -->
+       </div><!--content-wrapper-->       
+      </div><!-- End Page -->
+        {{/block.RH_last-page--cs}}
+        {{/collection.RH_general-collateral--cs}}
+      </div><!-- End SELECTIONS -->
+    </div><!-- End RESOURCE -->
+  </body>
+</html>
