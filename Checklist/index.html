@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html data-sign="OS?">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    {{{account.snippets.design-system-link}}}
+
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/Circular/stylesheet.css');
+
+      :root {
+        --blue: #00a4e4;
+        --red: #ee0000;
+        --black: #000000;
+        --text-black: #231f20;
+        --grey: #58595b;
+        --light-grey: #e6e7e8;
+        --light-light-grey: #ededee;
+      }
+      
+      html {
+        font-family: "Circular";
+        font-size: 11pt;
+        color: #000;
+      }
+      
+      a {
+        text-decoration: none;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+      
+      .front-page {
+        border-bottom: 5px solid var(--grey);
+      }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }        
+      
+      .fit {
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+      
+      @media (min-width: 816px) {
+        .fit {
+          padding: 1em 1.25em;
+        }
+      }
+      
+      /* Header content */
+      .redhatLogo {
+        font-size: 0.375em !important;
+        margin: 0;
+        display: flex;
+      }
+      .header-content {
+        margin-bottom: 1.09em;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      }
+      .brief-text {
+        font-size: 0.19em;
+        color: var(--red);
+      }
+      
+      .js-heading-src {
+        display: none;
+      }
+      
+      /* Title content */
+      .heading {
+        font-size: 0.675em;
+        color: var(--red);
+        margin-bottom: 0.83em;
+        font-weight: 400;
+      }
+      .subheading {
+        font-weight: 600;
+        font-size: 0.23em;
+        color: var(--red);
+        letter-spacing: 0.013em;
+        margin-bottom: 1.15em;
+        line-height: 1.3em;
+      }
+      .introduction {
+        padding-bottom: 0.4em;
+        border-bottom: 1px solid #000;
+        margin-bottom: 0.5em !important;
+      }
+      
+      p {
+        font-size: 0.215em;
+        line-height: 1.35em;
+      }
+      
+      @media (min-width: 816px) {
+        .p {
+          font-size: 0.22em;
+        }
+      }
+      
+      /* Main content */
+      .row {
+        display: flex;
+      }
+      .column {
+        flex: 50%;
+      }
+      
+      .column:first-child {
+        padding-right: 0.6em;
+      }
+      .image-content {
+        padding-bottom: 0.3em;
+        border-bottom: 1px solid #000;
+        margin-bottom: 0.15em;
+      }
+      .image-content img {
+        max-height: 230px;
+      }
+      .image-caption {
+        font-size: 0.17em;
+        margin-bottom: 1em;
+      }
+      
+      .column:last-child {
+        padding-left: 0.55em;
+      }
+      .main-content h2, .main-content h3 {
+        font-size: 0.4em;
+        font-weight: 400;
+        margin-top: 0.2em;
+        color: var(--red);
+        margin-bottom: 0.5em;
+      }
+      .main-content h2 strong, .main-content h3 strong {
+        margin-right: 0.45em;
+        font-weight: 700;
+      }
+      .main-content ul li, .main-content ol li {
+        font-size: 0.2em;
+        line-height: 1.35em;
+      }
+      .main-content li {
+        margin-bottom: 0.85em;
+      }
+      .main-content li:last-child {
+        margin-bottom: 0;
+      }
+      .main-content ul, .main-content ol {
+        margin: 0 0 0 0.1em;
+      }
+      .main-content h2:not(:first-child), .main-content h3:not(:first-child) {
+        margin-top: 1.25em;
+      }
+      
+      /* Footer Content */
+      .footer-content.row, .footer-content .row {
+        justify-content: flex-start;
+        width: 100%;
+        flex: 1;
+      }
+      .footer-content.row {
+        align-items: flex-end;
+      }
+      .footer-column:first-child {
+        width: 22.55%;
+        text-align: right;
+      }
+      .footer-column:last-child {
+        flex: 75%;
+        position: relative;
+      }
+      .front-page .footer-column:last-child:after {
+        content: attr(data-footnote-number);
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-weight: 400;
+        font-size: 0.17em;
+      }
+      .footer-text {
+        letter-spacing: 0.005em;
+      }
+      .footer-text a {
+        color: #000;
+      }
+      .footer-text p {
+        font-weight: 500;
+      }
+      .footer-content .document-text, .footer-text p {
+        font-size: 0.17em
+      }
+      .footer-content .document-text {
+        position: relative;
+      }
+      .footer-column:last-child {
+        padding-left: 0.40em;
+      }
+      .document-text {
+        letter-spacing: 0.015em;
+      }
+      .document-name {
+        padding-left: 1em;
+      }
+      
+      .document-text .js-heading-target {
+        color: var(--red);
+      }
+      
+      /* Internal page
+      
+      CTA */
+      
+      .cta-content {
+        margin-top: 0.45em;
+      }
+      .call-to-action {
+        background: var(--red);
+        display: block;
+        font-weight: 600;
+        padding: 0.2em 0.5em;
+        color: white;
+        font-size: 0.22em;
+        word-break: break-all;
+      }
+      .cta-text {
+        padding: 0.5em 0.75em;
+      }
+      
+      /* Header content */
+      .internal-page .header-content {
+        margin-bottom: 1.2em;
+      }
+      
+      /* Footer */
+      .internal-page .footer-content {
+        margin-top: 0.5em;
+      }
+      .internal-page .about-row {
+        align-items: center;
+        border-bottom: 1px solid #000;
+        padding-bottom: 0.1em;
+        margin-bottom: 0.35em;
+      }
+      .internal-page .footer-column:first-child {
+        width: 21%;
+      }
+      .internal-page .footer-column.building {
+        width: 10% !important;
+      }
+      .about h3 {
+        font-size: 0.20em;
+        font-weight: 600;
+        margin-bottom: 0.17em;
+      }
+      .about p {
+        font-size: 0.18em;
+        line-height: 1.3;
+        column-count: 2;
+        column-gap: 2em;
+      }
+      .about-text {
+        margin-bottom: 0.2em;
+      }
+      .building img {
+        width: 0.75em;
+        display: inline-block;
+      }
+      .social-links {
+        margin-bottom: 0.35em;
+      }
+      .social-links a {
+        font-size: 0.17em;
+        color: #000;
+        display: block;
+      }
+      .social-icons {
+        line-height: 10%; /* temporary fix for whitespace */
+        margin-bottom: 0.25em;
+      }
+      .social-icons img {
+        width: 0.41em;
+      }
+      .social-icons a {
+        display: inline-block;
+        margin-left: -0.14em;
+      }
+      .locations {
+        align-items: flex-start !important;
+      }
+      .location-block {
+        width: 24%;
+      }
+      .location-block a {
+        color: #000;
+      }
+      .copyright-text {
+        display: inline-block;
+        font-size: 0.15em;
+      }
+      
+      /* FARHAAN CO_BRAND UPDATE */
+      .co-brandImage1 {
+        width: 5em;
+      }
+
+      .vertical-line {
+        height: 1.2rem;
+        width: 0.03rem;
+        background-color: var(--grey);
+        /* margin-left: 0px; */
+        margin: 0 0.2rem;
+        border-radius: 2px;
+        /* border: 1px solid blue; */
+      }
+
+      .co-brandImage1  img{
+        height: 100%;
+        width: 100%;
+      }
+
+      .co-brandImage2 {
+        width: 5em;
+      }
+
+      .co-brandImage2 img {
+        height: 100%;
+        width: 100%;
+      }
+
+      .header-content.hide {
+        display: none !important;
+      }
+
+      .brand-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+          "brand-1 brand-2"
+          "brand-3 brand-4";
+        padding: 0.6rem 0.2rem 0.3rem 0.2rem;
+        font-size: 0.25rem;
+        width: 100%;
+      }
+
+      .brand-link1 { 
+        grid-area: brand-1; 
+      }
+
+      .brand-link2 { 
+        grid-area: brand-2;
+      }
+
+      .brand-link3 { 
+        grid-area: brand-3; 
+      }
+
+      .brand-link4 { 
+        grid-area: brand-4; 
+      }
+
+      .brand-link1 a, 
+      .brand-link2 a,
+      .brand-link3 a,
+      .brand-link4 a {
+        color: var(--blue);
+      }
+
+      .redhatLogo svg {
+        width: 5em;
+      }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" class="u-placeholder-{{ placeholder-toggle-new }}{{^placeholder-toggle-new}}hide{{/placeholder-toggle-new}}" data-crop="{{show-crop}}">
+    <div class="placeholderMaster" data-opacity="{{ placeholder-opacity }}">
+      {{#placeholder-image-1}}
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-1 }}"></div>
+      {{/placeholder-image-1}}
+    </div><!-- end placeholderMaster -->
+    
+    <div class="js-heading-src">{{{ type }}}</div>
+    
+    {{#collection.RH_general-collateral--cs}}
+		{{#block.RH_front-page--cs}}
+    <div class="page front-page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="header-content {{  header-content-visibility }}">
+            <div class="redhatLogo">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 246.35 57.98">
+                <g id="Layer_2" data-name="Layer 2">
+                  <g id="Layer_1-2" data-name="Layer 1">
+                    <path
+                          d="M51.12,33.41c5,0,12.33-1,12.33-7A5.3,5.3,0,0,0,63.32,25l-3-13C59.63,9.11,59,7.81,54,5.29,50.08,3.3,41.58,0,39.06,0c-2.34,0-3,3-5.82,3S28.56.78,26,.78s-4,1.65-5.21,5c0,0-3.38,9.55-3.82,10.94a2.71,2.71,0,0,0-.09.78c0,3.71,14.62,15.88,34.2,15.88m13.11-4.59a20.17,20.17,0,0,1,.69,4.07c0,5.65-6.33,8.77-14.67,8.77-18.83,0-35.32-11-35.32-18.31a7.36,7.36,0,0,1,.61-3C8.77,20.74,0,22,0,29.68,0,42.35,30,58,53.81,58,72,58,76.64,49.73,76.64,43.22c0-5.12-4.42-10.93-12.41-14.4"
+                          style="fill: #ee0000"
+                          />
+                    <path d="M64.23,28.82a20.17,20.17,0,0,1,.69,4.07c0,5.65-6.33,8.77-14.67,8.77-18.83,0-35.32-11-35.32-18.31a7.36,7.36,0,0,1,.61-3L17,16.75a2.71,2.71,0,0,0-.09.78c0,3.71,14.62,15.88,34.2,15.88,5,0,12.33-1,12.33-7A5.3,5.3,0,0,0,63.32,25Z" />
+                    <path d="M233.22,37.17c0,4.78,2.88,7.11,8.13,7.11a21.2,21.2,0,0,0,4.79-.68V38.05a10,10,0,0,1-3.1.47c-2.15,0-3-.68-3-2.71V27.3h6.27V21.58h-6.27V14.34l-6.86,1.48v5.76h-4.53V27.3h4.53Zm-21.32.12c0-1.48,1.49-2.2,3.73-2.2a17.1,17.1,0,0,1,4.07.51v2.88a8.68,8.68,0,0,1-4.28,1.06c-2.2,0-3.52-.85-3.52-2.25m2.1,7.07a10.46,10.46,0,0,0,6.18-1.73V44H227V29.63c0-5.46-3.68-8.47-9.82-8.47a24.94,24.94,0,0,0-10.46,2.45l2.46,5a18.23,18.23,0,0,1,6.77-1.77c2.84,0,4.28,1.1,4.28,3.34v1.1a20,20,0,0,0-5.08-.63c-5.76,0-9.23,2.41-9.23,6.73,0,3.94,3.13,6.94,8.13,6.94M176.78,44h7.28V32.38h12.19V44h7.29V14.34h-7.29V25.73H184.06V14.34h-7.28ZM149,32.76a5.67,5.67,0,0,1,5.89-5.67,7,7,0,0,1,4.74,1.73v7.84a6.62,6.62,0,0,1-4.74,1.78A5.71,5.71,0,0,1,149,32.76M159.74,44h6.77V12.86l-6.86,1.48v8.43a11.31,11.31,0,0,0-5.72-1.48,11.5,11.5,0,1,0-.21,23,10.14,10.14,0,0,0,6-2ZM128.66,26.79a5,5,0,0,1,4.7,3.56H124a4.66,4.66,0,0,1,4.66-3.56m-11.56,6c0,6.53,5.33,11.61,12.19,11.61A13.46,13.46,0,0,0,138.65,41l-4.53-4a6.08,6.08,0,0,1-4.49,1.69,5.78,5.78,0,0,1-5.5-3.56h16V33.44c0-7.11-4.79-12.24-11.31-12.24A11.5,11.5,0,0,0,117.1,32.8M105.28,20.57c2.42,0,3.77,1.52,3.77,3.34s-1.35,3.35-3.77,3.35h-7.2V20.57ZM90.8,44h7.28V33.18h5.55L109.22,44h8.13l-6.52-11.85a9,9,0,0,0,5.59-8.35c0-5.33-4.19-9.44-10.46-9.44H90.8Z" />
+                  </g>
+                </g>
+              </svg>
+              {{#co-brand1}}
+              <div class="vertical-line"></div>
+              <div class="co-brandImage1">
+               <img src="{{{co-brand1}}}">
+              </div>  
+              {{/co-brand1}}
+              {{#co-brand2}}
+              <div class="vertical-line"></div>
+              <div class="co-brandImage2">
+               <img src="{{{co-brand2}}}">
+              </div>
+               {{/co-brand2}}
+            </div>
+            <span class="brief-text js-heading-target"></span>
+          </div><!--header-content-->
+
+          {{#collection.RH_title-content--cs}}
+          <div class="title-content">
+            {{#block.RH_title-section--cs}}
+            <h1 class="heading" data-max-line="3">{{{ heading }}}</h1>
+            <h2 class="subheading" data-max-line="3">{{{ sub-heading }}}</h2>
+            <div class="introduction"><p data-max-line="4">{{{ intro-text }}}</p></div>
+           
+            {{/block.RH_title-section--cs}}
+          </div><!--title-content-->
+          {{/collection.RH_title-content--cs}}
+
+       <div class="main-content row">
+            {{#collection.RH_mainContent}}
+            {{#block.main-content-with-image--gc}}
+            <div class="column">
+              {{#RH_image--gc}}
+              <div class="image-content"><img src="{{{ RH_image--gc }}}" /></div>
+              <p class="image-caption" data-max-line="3">{{{ RH_image-caption--gc }}}</p>
+              {{/RH_image--gc}}
+              <div data-max-height="200">{{{ RH_checklist-main-content--gc }}}</div>
+            </div>
+            {{/block.main-content-with-image--gc}}
+            {{#block.main-content--gc}}
+            <div class="column" data-max-line="6">
+              {{{ RH_checklist-main-content--gc }}}
+            </div>
+            {{/block.main-content--gc}}
+            {{/collection.RH_mainContent}}
+          </div><!--main-content--> 
+          
+
+
+          <div class="footer-content row">
+            {{#collection.RH_footnotes--cs}}
+            <div class="footer-text footer-column">{{{ RH_footnote--cs }}}</div>
+            <div class="footer-column" data-footnote-number="{{footnote-number}}">
+              <div class="document-text">
+                <span class="js-heading-target"></span>
+                <span class="document-name">{{{ RH_document-name--cs }}}</span>
+              </div>
+            </div>
+            {{/collection.RH_footnotes--cs}}
+          </div><!--footer-content-->
+
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+	{{/block.RH_front-page--cs}}
+    
+    {{#block.RH_internal-page--cs}}
+    <div class="page internal-page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="header-content {{ header-content-visibility }}">
+            <div class="redhatLogo">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 246.35 57.98">
+                <g id="Layer_2" data-name="Layer 2">
+                  <g id="Layer_1-2" data-name="Layer 1">
+                    <path
+                          d="M51.12,33.41c5,0,12.33-1,12.33-7A5.3,5.3,0,0,0,63.32,25l-3-13C59.63,9.11,59,7.81,54,5.29,50.08,3.3,41.58,0,39.06,0c-2.34,0-3,3-5.82,3S28.56.78,26,.78s-4,1.65-5.21,5c0,0-3.38,9.55-3.82,10.94a2.71,2.71,0,0,0-.09.78c0,3.71,14.62,15.88,34.2,15.88m13.11-4.59a20.17,20.17,0,0,1,.69,4.07c0,5.65-6.33,8.77-14.67,8.77-18.83,0-35.32-11-35.32-18.31a7.36,7.36,0,0,1,.61-3C8.77,20.74,0,22,0,29.68,0,42.35,30,58,53.81,58,72,58,76.64,49.73,76.64,43.22c0-5.12-4.42-10.93-12.41-14.4"
+                          style="fill: #ee0000"
+                          />
+                    <path d="M64.23,28.82a20.17,20.17,0,0,1,.69,4.07c0,5.65-6.33,8.77-14.67,8.77-18.83,0-35.32-11-35.32-18.31a7.36,7.36,0,0,1,.61-3L17,16.75a2.71,2.71,0,0,0-.09.78c0,3.71,14.62,15.88,34.2,15.88,5,0,12.33-1,12.33-7A5.3,5.3,0,0,0,63.32,25Z" />
+                    <path d="M233.22,37.17c0,4.78,2.88,7.11,8.13,7.11a21.2,21.2,0,0,0,4.79-.68V38.05a10,10,0,0,1-3.1.47c-2.15,0-3-.68-3-2.71V27.3h6.27V21.58h-6.27V14.34l-6.86,1.48v5.76h-4.53V27.3h4.53Zm-21.32.12c0-1.48,1.49-2.2,3.73-2.2a17.1,17.1,0,0,1,4.07.51v2.88a8.68,8.68,0,0,1-4.28,1.06c-2.2,0-3.52-.85-3.52-2.25m2.1,7.07a10.46,10.46,0,0,0,6.18-1.73V44H227V29.63c0-5.46-3.68-8.47-9.82-8.47a24.94,24.94,0,0,0-10.46,2.45l2.46,5a18.23,18.23,0,0,1,6.77-1.77c2.84,0,4.28,1.1,4.28,3.34v1.1a20,20,0,0,0-5.08-.63c-5.76,0-9.23,2.41-9.23,6.73,0,3.94,3.13,6.94,8.13,6.94M176.78,44h7.28V32.38h12.19V44h7.29V14.34h-7.29V25.73H184.06V14.34h-7.28ZM149,32.76a5.67,5.67,0,0,1,5.89-5.67,7,7,0,0,1,4.74,1.73v7.84a6.62,6.62,0,0,1-4.74,1.78A5.71,5.71,0,0,1,149,32.76M159.74,44h6.77V12.86l-6.86,1.48v8.43a11.31,11.31,0,0,0-5.72-1.48,11.5,11.5,0,1,0-.21,23,10.14,10.14,0,0,0,6-2ZM128.66,26.79a5,5,0,0,1,4.7,3.56H124a4.66,4.66,0,0,1,4.66-3.56m-11.56,6c0,6.53,5.33,11.61,12.19,11.61A13.46,13.46,0,0,0,138.65,41l-4.53-4a6.08,6.08,0,0,1-4.49,1.69,5.78,5.78,0,0,1-5.5-3.56h16V33.44c0-7.11-4.79-12.24-11.31-12.24A11.5,11.5,0,0,0,117.1,32.8M105.28,20.57c2.42,0,3.77,1.52,3.77,3.34s-1.35,3.35-3.77,3.35h-7.2V20.57ZM90.8,44h7.28V33.18h5.55L109.22,44h8.13l-6.52-11.85a9,9,0,0,0,5.59-8.35c0-5.33-4.19-9.44-10.46-9.44H90.8Z" />
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <span class="brief-text js-heading-target"></span>
+          </div><!--header-content-->
+          
+          <div class="main-content row">
+            {{#collection.RH_mainContent}}
+              {{#block.main-content--gc}}
+              <div class="column" data-max-line="6">
+                {{{ RH_checklist-main-content--gc }}}
+              </div>
+              {{/block.main-content--gc}}
+            {{/collection.RH_mainContent}}
+          </div><!--main-content-->
+          
+          <div class="cta-content row">
+            {{#collection.RH_ctaContent}}
+              {{#block.cta-content--gc}}
+              <div class="column">
+                <a class="call-to-action" href="{{{ RH_call-to-action-url--gc }}}" data-max-line="2">{{{ RH_call-to-action--gc }}}{{^RH_call-to-action--gc}}Call to action{{/RH_call-to-action--gc}}</a>
+                <p class="cta-text" data-max-line="4">{{{ RH_call-to-action-description--gc }}}</p>
+              </div>
+              {{/block.cta-content--gc}}
+            {{/collection.RH_ctaContent}}
+          </div><!--cta-content-->
+          
+          {{#collection.RH_hyperlink-block}}
+          {{#block.hyperlink--block}}
+          <div class="brand-grid">
+            <div class="brand-link1">
+              {{{ RH_brandLink1--cs }}}                      
+            </div>
+            <div class="brand-link2">
+              {{{ RH_brandLink2--cs }}}                      
+            </div>
+            <div class="brand-link3">
+              {{{ RH_brandLink3--cs }}}                      
+            </div>
+            <div class="brand-link4">
+              {{{ RH_brandLink4--cs }}}                      
+            </div>
+          </div>        
+          {{/block.hyperlink--block}}
+          {{/collection.RH_hyperlink-block}}
+          
+          <div class="footer-content">
+            <div class="row about-row">
+              <div class="footer-column building">
+                 <img src="//outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/4f5bb881c3214644d5197593b1b1e780/footer-building.svg">
+              </div>
+              <div class="footer-column about">
+                {{#collection.RH_about--cs}}
+                 <div class="text-block about-text" data-max-line="8">{{{ RH_content--cs }}}</div>
+                {{/collection.RH_about--cs}}
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="footer-column">
+                {{#collection.RH_social--cs}}
+                <div class="social-icons">
+                  <a href="https://{{{facebook-link}}}{{^facebook-link}}facebook.com/redhatinc{{/facebook-link}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/facebook-grey.svg" /></a>
+                  <a href="https://twitter.com/{{{twitter-link}}}{{^twitter-link}}redhat{{/twitter-link}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/twitter-grey.svg" /></a>
+                  <a href="https://{{{linkedin-link}}}"><img class="social-icon" src="https://redhatbrand.github.io/RedHatTemplates/global-assets/images/social-icons/linkedin-grey.svg" /></a>
+                </div>
+                <div class="social-links">
+                  <a href="https://{{{facebook-link}}}{{^facebook-link}}facebook.com/redhatinc{{/facebook-link}}">{{{facebook-link}}}{{^facebook-link}}facebook.com/redhatinc{{/facebook-link}}</a>
+                  <a href="https://twitter.com/{{{twitter-link}}}{{^twitter-link}}redhat{{/twitter-link}}">@{{{twitter-link}}}{{^twitter-link}}redhat{{/twitter-link}}</a>
+                  <a href="https://{{{linkedin-link}}}">{{{linkedin-link}}}</a>
+                </div>
+                {{/collection.RH_social--cs}}
+                {{#collection.RH_footnotes--cs}}
+                <div class="footer-text">{{{ RH_footnote--cs }}}</div>
+                {{/collection.RH_footnotes--cs}}
+              </div>
+              
+              <div class="footer-column">
+                <div class="locations row">
+                  {{#collection.RH_locations--cs}}
+                  {{#block.location--gc}}
+                  <div class="location-block">
+                    <div class="text-block">{{{ RH_location--cs }}}</div>
+                  </div>
+                  {{/block.location--gc}}
+                  {{/collection.RH_locations--cs}}
+                </div>
+                {{#collection.RH_copyright--cs}}
+                <small class="copyright-text" data-max-line="5">{{{ RH_copyright--cs }}}</small>
+                {{/collection.RH_copyright--cs}}
+              </div>
+            </div>
+          </div><!--footer-content-->
+          
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+	{{/block.RH_internal-page--cs}}
+	{{/collection.RH_general-collateral--cs}}
+    
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+      
+      setInterval(() => {
+        injectHeading();
+      }, 500);
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+        });
+      });
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+      });
+
+      placeholderController();
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+      
+      function injectHeading() {
+        const src = document.querySelector('.js-heading-src');
+        const targets = document.querySelectorAll('.js-heading-target');
+
+        targets.forEach(target => {
+          // If no text is set for the Type, it will fallback to 'Checklist'
+          // const output = (src.innerText == '') ? 'Checklist' : src.innerHTML;
+          const output = src.innerHTML;
+          target.innerHTML = output;
+        });
+      }
+
+    </script>
+
+
+  </body>
+</html>
