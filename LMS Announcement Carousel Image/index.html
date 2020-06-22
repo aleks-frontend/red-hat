@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="themes.css">
+    <link rel="stylesheet" href="artwork.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{{headline}}}</title>
+    <style type="text/css">
+      /* @import url("https://red-hat-overpass-fonts.s3.amazonaws.com/overpass.css"); */
+   @import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+
+      html { background-color: #FFFFFF; 
+      
+   
+      }
+      
+      #bottom-right-logo {
+        margin-right: -3px;
+        margin-bottom: -3px;
+      }
+      
+      h1 p {
+        margin: 0;
+        padding: 0;
+      }
+      
+      .body {
+        position: relative;
+      }
+      
+      div {
+        position: absolute;
+      }
+      
+      h1 > div {
+        position: static;
+      }
+      
+      .custom-hero-image {
+        {{#background-image}}
+          background-image: url('{{{background-image}}}');
+        {{/background-image}}
+          background-position: center;
+        {{#black-and-white-amount}}
+          -webkit-filter: grayscale({{black-and-white-amount}}%);
+          filter: grayscale({{black-and-white-amount}}%);
+        {{/black-and-white-amount}}
+      }
+      
+      .background-darken {
+        background-color: rgba(0,0,0,{{background-darken-amount}});
+      }
+      
+      html {
+        height: 100%;
+      }
+      
+      body {
+        width: 100%;
+        height: 100%;
+        
+        
+        margin: 0;
+        box-sizing: border-box;
+        overflow: hidden;
+        padding: 7vmin 30vmin;
+        /*font-family: Overpass, "Hiragino Kaku Gothic ProN", "Hiragino Kaku Gothic", "ヒラギノ角ゴ Pro W3", Overpass, sans-serif !important;*/
+        font-family: "Overpass", sans-serif;
+      }
+      
+      /*\/\/\/\/\/\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+                       LANGUAGES
+
+      /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
+
+      .en { 
+        font-family: 
+          "Overpass", 
+          sans-serif; }
+      .jp { 
+        font-family: 
+          "Overpass", 
+          "Hiragino Kaku Gothic ProN", 
+          "Hiragino Kaku Gothic", 
+          "ヒラギノ角ゴ Pro W3", 
+          sans-serif; }
+      .ko { 
+        font-family: 
+          "Overpass",
+          "Malgun Gothic",
+          "HelveticaNeueW01-85Heav",
+          sans-serif; }
+      .zh { 
+        font-family: 
+          "Overpass",  
+          "Microsoft Yahei",
+          "Hiragino Sans GB",
+          sans-serif; }
+
+      /*\/\/\/\/\/\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+      /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
+      
+      h1 {
+
+        margin: 0;
+        margin-top: 0vh;
+        font-size: {{font-size}}{{^font-size}}8vmin{{/font-size}};
+        line-height: 1.2em;
+      }
+      .white {
+        color:white;
+        text-shadow: -1px 2px 4px rgba(0, 0, 0, 0.22) !important;
+      }
+      
+      path.white {
+        fill: #fff !important;
+      }
+      
+      .black {
+        color: #000;
+        text-shadow: none !important;
+      }
+      
+      .reversed {
+        text-shadow: none !important;
+      }
+      
+      path.black, path.reversed {
+        fill: #000 !important;
+      }
+      
+      path.theme-color {
+        fill: #000 !important;
+      }
+      
+      
+      h2 {
+        font-weight: 600;
+        margin: 0;
+        margin-top: 0.6em;
+        font-size:6.5vmin !important;
+        line-height: 1.2em;
+      }
+
+      h2 > p:first-child{margin-top:0;}
+      
+      a.call-to-action {
+        text-transform: uppercase;
+        color: currentColor;
+        text-decoration: none;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        font-weight: 800;
+        margin-top: 1.5em;
+        font-size: calc({{font-size}}{{^font-size}}10vmin{{/font-size}} /  2.5);
+        display: inline-block;
+        padding: .66666em 2em;
+        text-shadow: none !important;
+        box-shadow: -1px 2px 4px rgba(0, 0, 0, 0.10) !important;
+      }
+      
+      a.call-to-action.bottom-right {
+        position: initial
+      }
+      
+      .information {
+        position: absolute;
+        top: 7vmin;
+        bottom: 7vmin;
+        left:30vmin;
+        height: calc(100% - 30vmin * 2);
+        width: calc(100% - 30vmin * 2);
+        right: 30vmin;
+        z-index: 100;
+      }
+      .information-content {
+        position: relative;
+      }
+      
+      #bottom-right-logo.top-left {
+        display: none !important;
+      }
+      
+      #bottom-right-logo.bottom-right {
+        display:block !important;
+      }
+      
+      .logos.bottom-right {
+        display: none !important;
+      }
+      
+      .logos.top-left {
+        display: block !important;
+      }
+    
+      #bottom-right-logo {
+        position: absolute;
+        bottom: 0;
+        top: auto;
+        right: 0;
+        height: 90%;
+        width: 100%;
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+        background-size: contain;
+      }
+       
+
+      @media (max-width: 300px) {
+        a.call-to-action {
+          text-align:center;
+          right: 0;
+        }
+
+        .logo:only-child {
+          width:35%!important;
+        }
+
+        .logo, .logo-custom {
+          margin-top: 2vh;
+        }
+
+        h1 {
+          padding-top: 5vh;
+          font-size: 1.4em;
+        }
+
+        h2 {
+          padding-top: 2vh;
+          font-size: 1.5em;
+        }
+
+        a.call-to-action {
+          font-size: 0.6em;
+          padding: 1em;
+        }
+
+        .bottom-right-logo {
+          width: 40vmin;
+        }
+      }
+      
+      @media (max-width: 300px) and (max-aspect-ratio: 2/3) {
+       h1 { 
+         font-size: 2em;
+       }
+      }
+
+      @media (max-width:200px) {
+       
+        #bottom-right-logo {
+          width: 130%;
+        }
+        
+        .logo:only-child {
+          width:55%!important;
+        }
+        h1 {
+          padding-top: 5vh;
+          font-size: 1.25em;
+        }
+        h2 {
+          padding-top: 2vh;
+          font-size: 0.9em;
+        }
+      }
+      
+      @media (max-height: 400px) {
+        
+        .bottom-right-logo {
+
+        }
+      }
+        
+      @media (min-aspect-ratio: 3 / 2) {
+        .logo, .logo-custom {
+          margin-top: 0;
+          min-width: 60px;
+        }
+        
+        a.call-to-action {
+          position: initial;
+        }
+        
+        .information {
+          height: auto;
+          top: 50%;
+          bottom: auto;
+          transform: translatey(-50%);
+          -webkit-transform: translatey(-50%);
+        }
+      }
+      
+      @media (min-aspect-ratio: 3 / 1 ) {
+        #bottom-right-logo {
+          min-height: 300px;
+        }
+      }
+      
+      @media (min-aspect-ratio: 4 / 1) {
+      
+        .information {
+          margin: auto;
+          width: 90%;
+        }
+        
+        .information.bottom-right {
+          margin: 0 0 0 5%;
+          width: 80%;
+        }
+        
+        h1 {
+          font-size: calc({{font-size}}{{^font-size}}10vmin{{/font-size}} * 1.5);
+        }
+      
+        h2 {
+          margin-top: 3vmin;
+          font-size: calc({{font-size}}{{^font-size}}10vmin{{/font-size}} * 1);
+        }
+      }
+
+      @media (min-aspect-ratio: 5 / 1) {
+      
+        a.call-to-action {
+          position: absolute !important;
+        }
+        
+        h1 {
+          width: 80%;
+          font-size: calc({{font-size}}{{^font-size}}10vmin{{/font-size}} * 2);
+        }
+        
+        a.call-to-action {
+          margin: 0;
+          transform: translatey(-50%);
+          -webkit-transform: translatey(-50%);
+          top: 50%;
+          bottom: auto;
+          position: absolute;
+          right: 0;
+          left: auto;
+          font-size: calc({{font-size}}{{^font-size}}10vmin{{/font-size}} / 1.3);
+        }
+      }
+        
+        @media (max-height: 200px;) {
+          .bottom-right-logo {
+            max-width: 120px;
+            right: 10%;
+            bottom: 10%;
+          }
+          
+          #bottom-right-logo {
+            background-position: 120% 100%;
+        }
+      }
+      
+      @media (max-height: 70px) {
+      
+        #bottom-right-logo {
+          width: 40%;
+        }
+        
+        .bottom-right-logo {
+          right: 10px;
+          bottom: 7px;
+          min-width: 70px;
+        }
+        
+        h2 {
+          display:none;
+        }
+      }
+      
+      @media (max-height: 55px) {
+        a.call-to-action { 
+          display:none;
+        }
+        .none h1 {
+          width:100%; 
+        }
+        
+        #bottom-right-logo {
+          width: 66% !important; 
+        }
+      }
+
+      @media (max-height: 60px) {
+        .bottom-right-logo {
+          min-width: 170vmin !important;
+          width: 30vmin;
+          bottom: 25vmin;
+        }
+      }
+
+      @media (max-height: 60px) and (min-aspect-ratio: 1 / 5) {
+      #bottom-right-logo {
+        width: 60%; 
+        background-position: 120% 130% !important;
+      }
+      .top-left h1 {
+        font-size: 0.7em;
+        width: 90%;
+      }
+      
+      h1 {
+        font-size:1em;
+        }
+      }
+      
+      @media (max-height: 60px) and (min-aspect-ratio: 1 / 6) and (min-width: 400px){
+        a.call-to-action {
+          font-size: 0.6em;
+          padding: 0.5em;
+          right: 40px;
+        }
+        
+        h1 {
+          width: 60% !important;
+        }
+        
+        #bottom-right-logo {
+          width: 56%;
+          background-position: 100% 150% !important;
+        }  
+      }
+        
+      @media (max-height: 100px) and (min-aspect-ratio: 4/1) {
+        #bottom-right-logo {
+          background-position: 120% 100%;
+
+        }
+        
+        .bottom-right-logo {
+          min-width: 80px;
+        }
+        
+        a.call-to-action {
+          font-size: 0.6em;
+          right: 55px;
+        }
+        
+        h1 {
+          width: 70%;
+        }
+        
+        h2 {
+          font-size: 0.85em;
+          width: 70%;
+        }
+      }
+      
+      .bottom-right.pattern {
+        display: none;
+      }
+      
+      @media (max-width: 400px) and (min-aspect-ratio: 6/7) and (max-aspect-ratio: 3/2 ){
+        #bottom-right-logo {
+          height: 55%; 
+        }
+        .bottom-right-logo {
+          right: 4vmin;
+          bottom: 4vmin;
+          min-width: 60px; 
+          width: 35vmin;
+        }
+      }
+      
+      .logos.none, #bottom-right-logo.none {
+        display:none;
+      }
+      
+     .red h1, .red h2, path.red {
+       color: #cc0000 !important;
+       fill: #000;
+     }
+ .custom-hero-image {  background-position:  {{background-position}}%  {{background-position}}% }};
+       }
+      
+      
+      @media (min-aspect-ratio: 5/3) {
+      }
+
+      @media (max-aspect-ratio: 4/5) {
+      }
+      
+      
+      @media (max-height: 90px) and (min-height: 89px) {
+        .bottom-right-logo {
+          margin-bottom: 1.5em;
+          margin-right: 1.5em;
+        }
+      }
+      
+      @media (min-width: 438px) and (max-width: 442px) and (min-height: 218px) and (max-height: 222px) {
+        .logo, .logo-custom { width: 50vmin; }
+      }
+      
+      @media (min-width: 318px) and (max-width: 322px) and (min-height: 48px) and (max-height: 52px) {
+        .bottom-right h1, .none h1 { font-size: 0.65em; }
+      }
+      
+      @media (min-width: 466px) and (max-width: 470px) and (min-height: 58px) and (max-height: 62px) {
+        .bottom-right h1, .none h1 { font-size: 0.65em; }
+      }
+
+    </style>
+  </head>
+  <body class=" {{ lang }} ">
+    {{#background-image}}
+      <div class="background-darken"></div>
+      <div class="stripe {{theme}}{{^theme}}corporate{{/theme}}-hero-{{blend-effect}}-stripe hero-{{blend-effect}}"></div>
+      <div class="stripe2 {{theme}}{{^theme}}corporate{{/theme}}-hero-{{blend-effect}}-stripe2 hero-{{blend-effect}}"></div>
+      <div class="pattern {{theme}}{{^theme}}corporate{{/theme}}-hero-{{blend-effect}}-pattern hero-{{blend-effect}} "></div>
+      <div class="custom-hero-image {{theme}}{{^theme}}corporate{{/theme}}-background" {{^theme}} {{#background-image}} style="opacity:{{background-brightness-amount}}" {{/background-image}} style="background-color:#a30000;}}" {{/theme}} style="opacity:{{background-brightness-amount}}"></div>
+    {{/background-image}}
+      
+    {{^background-image}}
+      <div class="stripe {{theme}}{{^theme}}corporate{{/theme}}-hero-{{blend-effect}}-stripe hero-{{blend-effect}} artwork-stripe"></div>
+      <div class="stripe2 {{theme}}{{^theme}}corporate{{/theme}}-hero-{{blend-effect}}-stripe2 hero-{{blend-effect}} artwork-stripe"></div>
+      <div id="artwork" class="full-height {{theme}}{{^theme}}corporate{{/theme}}-artwork {{artwork-mode}}"></div>
+      
+    {{/background-image}}
+    
+  <main style="text-align:center">
+      <div  style="{{^font-color}}color: white !important;{{/font-color}}" class="information {{font-color}} {theme}}">
+       
+        <span class="text {{font-size}}">
+          <h1>{{{headline}}}</h1>
+          <h2>{{{subtitle}}}</h2>
+        </span>
+        {{#call-to-action}}
+        <a href="" style="color:white; !important;" class="corporate-background call-to-action ">{{{ call-to-action }}}</a>
+        {{/call-to-action}}
+
+      </div>
+
+    </main>
+ 
+    <script type="text/javascript">
+    window.redhatArtComplexity = 2;
+    </script>
+     <script src="artwork.js"></script>
+    <script src="//redhatbrand.github.io/RedHatPatterns/red-hat-patterns.js"></script>
+  </body>
+</html>
