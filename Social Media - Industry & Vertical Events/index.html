@@ -1,0 +1,202 @@
+<html>
+<head>
+  <meta charset="utf-8">
+<link rel="stylesheet" href="https://red-hat-design-system.netlify.com/public/red-hat-outfit.css">
+<!--   {{{account.snippets.design-system-link}}} -->
+<style>
+	html {
+      }
+	body {
+  	}
+
+.outer {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    max-width: 100vw;
+    font-size: 100%;
+    font-family: 'Red Hat Display', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.4;
+   }
+  
+  .content {
+    position: absolute;
+	width: 665px;
+    height: 440px;
+    font-size: 50px;
+    font-weight: 600;
+    letter-spacing: -.8px;
+    line-height: 115%;
+    padding: 100px 0 0 0;
+    }
+
+    .eventname {
+     position: relative;
+     padding-bottom: 180px;
+     padding-left: 72px;
+     padding-right: {{{industry-and-vertical-event-content-width}}}0px;
+     color: #EE0000;
+     font-size: 50px;
+     font-weight: 600;
+     letter-spacing: -.8px;
+     line-height: 115%;
+     margin-left: 0px;
+    }
+
+    .location {
+     position: fixed;
+     top: 250px;
+     padding: 0 0 0 72px;
+     color: #000;
+     font-size: 29px;
+     font-weight: 400;
+     letter-spacing: .7px;
+     line-height: 110%;
+    }
+
+    .date {
+     position: fixed;
+     top: 280px;
+     padding: 4px 72px 0 72px;
+     font-size: 30px;
+     font-weight: 400;
+     letter-spacing: .5px;
+     line-height: 115%;
+    }
+
+  @media (aspect-ratio: 880/440) {
+    .outer.light-pattern {
+     background-image: url("https://files.outfit.io/media_library_items/136042/twitterWhite-pattern.png");
+     }
+    .eventname.light-pattern {
+      color: #EE0000;
+    }
+    .location.light-pattern {
+      color: #000;
+    }
+    .date.light-pattern {
+      color: #000;
+    }
+    .outer.red-pattern {
+      background-image: url("https://files.outfit.io/media_library_items/136048/twitterRed-pattern.png");
+    }
+    .eventname.red-pattern {
+      color: #FFF;
+    }
+    .location.red-pattern {
+      color: #FFF;
+    }
+    .date.red-pattern {
+      color: #FFF;
+    }
+  	.outer.map {
+ 		background-image: url("https://files.outfit.io/media_library_items/136047/twitterMap.png");
+    }
+    .eventname.map {
+      color: #000;
+      	  padding-top: 30px;
+    }
+    .location.map {
+      color: #000;
+            top: 280px;
+
+    }
+    .date.map {
+      color: #000;
+            top: 310px;
+
+    }
+  	.outer.city {
+		background-image: url("https://files.outfit.io/media_library_items/136046/twitterCity.png");
+    }
+    .eventname.city {
+      color: #EE0000;
+            	  padding-top: 30px;
+    }
+    .location.city {
+     color: #000;
+     margin: 120px 0 0 0px;
+      top: 225px;
+    }
+    .content.city {
+	 padding: 100px 0 0 0;
+      
+      }
+    .date.city {
+      color: #000;
+           margin: 120px 0 0 0px;
+
+            top: 255px;
+
+    }
+  	.outer.hat-black {
+      background-image: url("https://files.outfit.io/media_library_items/136045/twitterBlack-large-hat.png");
+    }
+    .eventname.hat-black {
+      color: #FFF;
+      	  padding-top: 30px;
+    }
+    .location.hat-black {
+      color: #FFF;
+      top: 280px;
+    }
+    .date.hat-black {
+      color: #FFF;
+            top: 310px;
+    }
+  	.outer.hat-light {
+      background-image: url("https://files.outfit.io/media_library_items/136043/twitterLight-large-hat.png");
+    }
+    .eventname.hat-light {
+      color: #000;
+      	  padding-top: 30px;
+
+    }
+    .location.hat-light {
+      color: #000;
+           top: 280px;
+
+    }
+    .date.hat-light {
+      color: #000;
+           top: 310px;
+
+    }
+  }
+ 
+  @media (aspect-ratio: 1200/628) {
+    body {
+     background-image: url("https://files.outfit.io/media_library_items/133736/rh-industry-event-generic-social-us220652cs-201907-fb-linkedin-1200x628-a-light.jpg");
+    }
+  }
+  @media (aspect-ratio: 1080/1080) {
+    body {
+     background-image: url("https://files.outfit.io/media_library_items/133737/rh-industry-event-generic-social-us220652cs-201907-instagram-1080x1080-a-light.jpg");
+    }
+  }
+</style>
+
+</head>
+<body>
+
+		<div class="outer {{{industry-vertical-event-theme}}}">
+  			<div class="middle">
+    			<div class="inner">
+ 					<div class="content">
+              <div class="eventname {{{industry-vertical-event-theme}}}">{{industry-and-vertical-event-name}}</div>
+              <div class="location {{{industry-vertical-event-theme}}}">{{{industry-and-vertical-event-location}}}</div>
+              <div class="date {{{industry-vertical-event-theme}}}">{{{industry-and-vertical-event-date}}}</div>
+			  </div><!-- content -->
+				</div><!-- middle -->
+		</div><!-- outer -->
+
+</body>
+</html>
