@@ -1,0 +1,116 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+<style>
+  
+  @import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+
+  body{background-color: white; font-family: Overpass,sans-serif;  color: #234; padding: 2vw 0vw; text-align:center}
+  blockquote{    font-size:.7em; margin:0;margin-bottom:5em; }
+  a{text-decoration: none; color:#4e9fdd}
+
+  h1{color:#c00; text-transform: uppercase; font-size: .75em; font-weight: 900; margin-top:1em; margin-bottom:0}
+  h4{  font-family: Overpass,sans-serif; font-size: 1vw; color:#bbdde7;text-transform: uppercase; margin-bottom:0}
+  
+  
+  p{font-size:1vw; margin-bottom:0; margin-top:0} 
+ 
+  
+  
+  
+  
+  
+
+body {
+  font-family: Overpass, sans-serif;
+  
+}
+
+  
+  body{font-family:Overpass, sans-serif}
+h1, h2, h3, input, label {
+  text-transform: uppercase;
+}
+
+h3, h3 span {
+  font-weight: 600;
+}
+
+  
+ h3 span {
+  font-weight: 800;
+}
+
+  
+h3 {white-space:nowrap;
+  display:inline-block;
+  line-height: 4em;
+  font-size: 3vw; text-align:center;
+  letter-spacing: .05em;
+  color: #c00;
+  padding: 0.666em;
+}
+
+h3 span {
+  position:relative;
+  background-color: #c00;
+  color: #fff; white-space:nowrap;
+  display:inline-block;
+  white-space: nowrap;
+  padding: 0em 0.5em; height:1.5em; line-height:1.5em;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10' preserveAspectRatio='none' style='fill:#b30000'%3E %3Cpath d='M 10,0 10,10 0,10 Z'/%3E %3C/svg%3E");
+  
+}
+
+
+  
+  
+  
+section{ margin: 1em auto;  padding-top:2em; width: 100%;}
+
+  
+  </style>
+  </head>
+<body>
+  <section>
+    
+<h1>
+  Internal Tool Name Drafting Document
+    </h1>    
+<blockquote>    
+Example only. See the  <a target="_blank" href="http://brand.redhat.com/logos/internallogos/tools/">Tool Logo Standards </a>
+    </blockquote>
+   
+        <h4>
+      Standard logo
+    </h4>
+
+
+<h3 style="font-size: 5vw;">Red Hat <span>{{tool-name}}{{^tool-name}}Tool Name{{/tool-name}}</span></h3>
+
+    
+<br /><br />
+            <h4>
+      1 color version
+    </h4>
+
+
+<h3 style="color:#000">Red Hat <span style="background-image:none; background-color:#000">{{tool-name}}{{^tool-name}}Tool Name{{/tool-name}}</span></h3>
+
+    <h3 style="color:#fff; background-color:#c00">Red Hat <span style="background-image:none; color:#c00; background-color:#fff">{{tool-name}}{{^tool-name}}Tool Name{{/tool-name}}</span></h3>
+
+<br /><br />
+            <h4>
+      stacked logo
+    </h4>
+
+    
+    <h3  style="display:inline-block; line-height:1.2em;">Red Hat <span style="display:block; margin:0;">{{tool-name}}{{^tool-name}}Tool Name{{/tool-name}}</span></h3>
+
+    
+    
+  </section>
+  
+</body>
+</html>
