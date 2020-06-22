@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html data-sign="OSL">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    <style>
+
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/redhat-webfonts.css');
+
+      :root {
+        --white: {{{account.colors.primary-white}}};
+        --black: {{{account.colors.primary-black-text}}};
+      }
+
+      html {
+        font-family: "Red Hat Display";
+        font-size: 10px;
+        color: var(--white);
+        word-break: break-word;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .fit {
+        top: 3mm;
+        left: 3mm;
+        bottom: 3mm;
+        right: 3mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: left;
+        padding: 58px 106px;
+        color: var(--white);
+      }
+
+      .theme--grey .fit {
+        color: var(--black); 
+      }
+
+
+      .format--facebook-linkedin .fit {
+        padding: 58px 171px;
+      }
+
+      .format--facebook-linkedin.layoutOption--with-caption .fit {
+        padding: 58px 130px;
+      }
+
+      .format--twitter .fit {
+        padding: 14px 40px;
+      } 
+
+      .format--instagram .fit {
+        padding: 58px 65px;
+      }
+
+      .format--instagram.layoutOption--with-topic .fit {
+        padding: 58px 90px;
+      }
+
+      .layoutOption--with-caption.contentPosition--left .container{     
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .layoutOption--with-caption.contentPosition--center .container {     
+        align-items: center;
+        text-align: center;
+      }
+
+      .layoutOption--with-caption.contentPosition--right .container {    
+        align-items: flex-end;
+        text-align: right;
+      }
+
+      .bgImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-size: cover;
+        background-position: center;
+      }
+
+      .theme--red.format--facebook-linkedin .bgImage {
+        background-image: url(https://files.outfit.io/media_library_items/112290/RedLinearFacebook.png);
+      }
+
+      .theme--red.format--twitter .bgImage {
+        background-image: url(https://files.outfit.io/media_library_items/112289/RedLinearTwitter.png);
+      }
+
+      .theme--red.format--instagram .bgImage {
+        background-image: url(https://files.outfit.io/media_library_items/112301/RedLinearInstagram.png);
+      }
+
+      .theme--grey.format--facebook-linkedin .bgImage {
+        background-image: url(https://files.outfit.io/media_library_items/112303/GreyLinearFacebook.png);
+      }
+
+      .theme--grey.format--twitter .bgImage {
+        background-image: url(https://files.outfit.io/media_library_items/112302/GreyLinearTwitter.png);
+      }
+
+      .theme--grey.format--instagram .bgImage {
+        background-image: url(https://files.outfit.io/media_library_items/112304/GreyLinearInstagram.png);
+      }
+
+      .theme--red.toggleBackground--plain .bgImage {
+        background-image: url(https://files.outfit.io/media_library_items/114391/Red_Plain_Background.jpg);
+      }
+
+      .theme--grey.toggleBackground--plain .bgImage {
+        background-image: url(https://files.outfit.io/media_library_items/114390/Grey_Plain_Background.jpg);
+      }
+
+
+      .logo {
+        display: none;
+        width: 486px;
+        position: relative;
+        margin-bottom: 139px;
+      }
+
+      .theme--red .logo--primary,
+      .theme--grey .logo--secondary  {
+        display: block;
+      }
+
+      .toggleLogo--hide.theme--red .logo--primary,
+      .toggleLogo--hide.theme--grey .logo--secondary {
+        display: none;
+      }
+
+      .format--facebook-linkedin.layoutOption--with-caption .logo  {
+        width: 486px;
+        margin-bottom: 139px;
+        margin-top: 22px;
+      }
+
+      .format--twitter.layoutOption--with-caption .logo  {
+        width: 193px;
+        margin-bottom: 58px;
+        margin-top: 9px;
+      }
+
+      .format--instagram.layoutOption--with-caption .logo  {
+        width: 373px;
+        margin-bottom: 143px;
+      }
+
+      .format--facebook-linkedin.layoutOption--with-topic .logo  {
+        width: 483px;
+        margin-bottom: 152px;
+      }
+
+      .format--twitter.layoutOption--with-topic .logo  {
+        width: 209px;
+        margin-bottom: 68px;
+      }
+
+      .format--instagram.layoutOption--with-topic .logo  {
+        width: 262px;
+        margin-bottom: 115px;
+      }
+
+      .headline {
+        position: relative;
+        line-height: 1.3em; 
+        font-size: 20px;
+      }
+
+      .layoutOption--with-topic .headline {
+        text-transform: uppercase;
+      }
+
+      .format--facebook-linkedin.layoutOption--with-caption .headline {
+        margin-bottom: 182px;
+        font-size: 84px;   
+      }
+
+      .format--twitter.layoutOption--with-caption .headline {
+        margin-bottom: 55px;
+        font-size: 34.9px;
+      }
+
+      .format--instagram.layoutOption--with-caption .headline {
+        margin-bottom: 97px;
+        font-size: 60.2px; 
+      }
+
+      .format--facebook-linkedin.layoutOption--with-topic .headline {
+        margin-bottom: 55px;
+        font-size: 90px;
+
+      }
+      .format--twitter.layoutOption--with-topic .headline {
+        margin-bottom: 25px;
+        font-size: 39.3px;  
+      }
+
+      .format--instagram.layoutOption--with-topic .headline {
+        margin-bottom: 53px;
+        font-size: 70px;   
+      }
+
+      .subheading {
+        position: relative;
+        font-size: 62px;
+        line-height: 1.3em;
+        display: none;
+      }
+
+      .subheading--primary {
+        display: block;
+      }
+
+      .format--twitter.layoutOption--with-topic .subheading--primary {
+        display: none;
+      }
+
+      .format--twitter.layoutOption--with-topic .subheading--secondary {
+        display: block;
+      }
+
+      .format--facebook-linkedin.layoutOption--with-caption .subheading {
+        font-size: 62px;
+      }
+
+      .format--twitter.layoutOption--with-caption .subheading {
+        font-size: 19.5px;
+      }
+
+      .format--instagram.layoutOption--with-caption .subheading {
+        margin-bottom: 39px;
+        font-size: 36px;      
+      }
+
+      .format--facebook-linkedin.layoutOption--with-topic .subheading {
+        font-size: 69px;
+      }
+
+      .format--twitter.layoutOption--with-topic .subheading {
+        font-size: 30.3px;
+      }
+
+      .format--instagram.layoutOption--with-topic .subheading {
+        margin-bottom: 12px;
+        font-size: 44.2px;     
+      }
+
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" class="u-placeholder-{{ placeholder-toggle-new }}{{^placeholder-toggle-new}}hide{{/placeholder-toggle-new}}
+                                         theme--{{ RH_theme--qts }}{{^RH_theme--qts }}red{{/RH_theme--qts }}
+                                         toggleBackground--{{RH_toggle-background--qts}}{{^RH_toggle-background--qts}}pattern{{/RH_toggle-background--qts}}
+                                         format--{{ RH_format--qts }}{{^RH_format--qts }}facebook-linkedin{{/RH_format--qts }}
+                                         layoutOption--{{ RH_layoutOption--qts }}{{^RH_layoutOption--qts}}with-caption{{/RH_layoutOption--qts}}
+                                         contentPosition--{{ RH_layout--qts }}{{^RH_layout--qts}}center{{/RH_layout--qts}}
+                                         toggleLogo--{{RH_toggle-logo--qts}}{{^RH_toggle-logo--qts}}show{{/RH_toggle-logo--qts}}" data-crop="{{show-crop}}">
+    <div class="placeholderMaster" data-opacity="{{ placeholder-opacity }}">
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-1 }}"></div>
+    </div><!-- end placeholderMaster -->
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+
+          <div class="bgImage"></div><!--backgroundImage-->
+          <img src="{{{account.logos.mono-white-2019}}}" alt="" class="logo logo--primary"><!--logo-->
+          <img src="{{{account.logos.primary-black-2019}}}" alt="" class="logo logo--secondary"><!--logo-->
+          {{#RH_headline--qts}}<div class="headline" data-max-line="4">{{{ RH_headline--qts }}}</div><!--headline-->{{/RH_headline--qts}}
+          {{#RH_subheading--qts}}<div class="subheading subheading--primary" data-max-line="2">{{{ RH_subheading--qts }}}</div><!--subheading-->{{/RH_subheading--qts}}
+
+          {{#RH_subheading--qts}}<div class="subheading subheading--secondary" data-max-line="1">{{{ RH_subheading--qts }}}</div><!--subheading-->{{/RH_subheading--qts}}
+
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      placeholderController();
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+      function detectSystem() {
+        const isMac = window.navigator.appVersion.includes('Mac');
+        if ( isMac ) document.body.classList.add('is-mac');
+      }
+
+      detectSystem();
+
+    </script>
+
+
+  </body>
+</html>
