@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--[if !mso]>
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   	<!--<![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Red Hat</title>
+
+    <!--[if gte mso 9]>
+    <xml>
+    <o:OfficeDocumentSettings>
+    <o:AllowPNG/>
+    <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    <![endif]-->
+
+    <!--[if gte mso 9]>
+    <style style="text/css">
+    /*! Reset list item styling so items are aligned correctly */
+    li{text-indent:-1em}
+    /*! Globally reset any font styling on major layout elements for Outlook */
+    a,body,h1,h2,h3,h4,h5,h6,p,span,strong,table,td{font-family:Helvetica,Arial,sans-serif!important}
+    </style>
+    <![endif]-->
+
+    <style type="text/css">
+      /*! Adjust font rendering on supported devices */
+
+      * {
+        webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+        -moz-text-size-adjust: none;
+        -ms-text-size-adjust: none
+      }           
+
+      /*! Force Outlook desktop clients (Windows) to always display the view in browser option */
+
+      #outlook a {
+        padding: 0
+      }
+
+      /*! Reset main body element to fix alignment issues in some clients */
+
+      body {
+        width: 100%!important;
+        height: 100%!important;
+        margin: 0 auto!important;
+        padding: 0!important
+      }
+
+      /*! Force Outlook webmail to display at full width */
+
+      .ExternalClass,
+      .ReadMsgBody {
+        width: 100%
+      }
+
+      /*! Override default line-height value for Outlook webmail */
+
+      .ExternalClass,
+      .ExternalClass div,
+      .ExternalClass font,
+      .ExternalClass p,
+      .ExternalClass span,
+      .ExternalClass td {
+        line-height: 100%
+      }
+      
+      .hide {
+        display: none !important;
+      }
+
+      /*! Reset the wrapper tables */
+
+      #main-wrapper {
+        margin: 0;
+        padding: 0;
+        width: 100%!important;
+        line-height: 100%!important
+      }
+
+      /*! Default anchor styling */
+
+      a,
+      a:link {
+        color: #ee0000;
+        text-decoration: none;
+      }
+
+      p a,
+      p a:link {
+        text-decoration: underline;
+      }
+
+      /*! Remove hyperlink borders around images on Internet Explorer based clients */
+
+      a img {
+        border: none
+      }
+
+      /*! Make all images block elements and allow smoother image resizing with attributes for IE */
+
+      img {
+        display: block;
+        border: none;
+        outline: 0;
+        text-decoration: none;
+        -ms-interpolation-mode: bicubic
+      }
+
+      /*! Collapse all tables to avoid gaps or spacing in Outlook 2007+ */
+
+      table {
+        border-collapse: collapse;
+        mso-table-lspace: 0pt;
+        mso-table-rspace: 0pt
+      }
+
+      /*! Collapse all table cells to avoid gaps or spacing in Outlook 2007+ */
+
+      table td {
+        border-collapse: collapse
+      }
+
+      /*! Default white class to override data styling in iOS/other clients */
+
+      .appleLinksWhite a {
+        color: #ffffff!important;
+        text-decoration: none!important
+      }
+
+      /*! Default black class to override data styling in iOS/other clients */
+
+      .appleLinksBlack a {
+        color: #000000!important;
+        text-decoration: none!important
+      }
+
+      /*! General reset for iOS data styling */
+
+      a[x-apple-data-detectors] {
+        color: inherit!important;
+        text-decoration: none!important;
+        font-size: inherit!important;
+        font-family: inherit!important;
+        font-weight: inherit!important;
+        line-height: inherit!important
+      }
+
+      /*! Android 4.4 margin fix */
+
+      div[style*="margin: 16px 0"] {
+        margin: 0 auto!important;
+        font-size: 100%!important
+      }
+
+      /*! Yahoo! Mail fix (plus blank rule after comment hack) */
+
+      .yfix {}
+
+      .video-wrapper {
+        display: none;
+      }
+
+      @media screen {        
+        @font-face {
+          font-family: 'RedHatDisplay';
+          src: url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatDisplay-Regular.eot');
+          /* IE9 Compat Modes */
+          src: url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatDisplay-Regular.eot?#iefix') format('embedded-opentype'), url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatDisplay-Regular.woff') format('woff');
+          /* Modern Browsers */
+          font-style: normal;
+          font-weight: 300;
+          text-rendering: optimizeLegibility;
+        }
+        @font-face {
+          font-family: 'RedHatDisplay';
+          src: url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatDisplay-Medium.eot');
+          /* IE9 Compat Modes */
+          src: url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatDisplay-Medium.eot?#iefix') format('embedded-opentype'), url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatDisplay-Medium.woff') format('woff');
+          /* Modern Browsers */
+          font-style: normal;
+          font-weight: 400;
+          text-rendering: optimizeLegibility;
+        }
+        @font-face {
+          font-family: 'RedHatDisplay';
+          src: url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatDisplay-Bold.eot');
+          /* IE9 Compat Modes */
+          src: url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatDisplay-Bold.eot?#iefix') format('embedded-opentype'), url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatDisplay-Bold.woff') format('woff');
+          /* Modern Browsers */
+          font-style: normal;
+          font-weight: 700;
+          text-rendering: optimizeLegibility;
+        }
+        @font-face {
+          font-family: 'RedHatText';
+          src: url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatText-Regular.eot');
+          /* IE9 Compat Modes */
+          src: url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatText-Regular.eot?#iefix') format('embedded-opentype'), url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatText-Regular.woff') format('woff');
+          /* Modern Browsers */
+          font-style: normal;
+          font-weight: 400;
+          text-rendering: optimizeLegibility;
+        }
+        @font-face {
+          font-family: 'RedHatText';
+          src: url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatText-Medium.eot');
+          /* IE9 Compat Modes */
+          src: url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatText-Medium.eot?#iefix') format('embedded-opentype'), url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/RedHatText-Medium.woff') format('woff');
+          /* Modern Browsers */
+          font-style: normal;
+          font-weight: 700;
+          text-rendering: optimizeLegibility;
+        }
+      }
+
+      h2 {
+        font-family: 'RedHatText', RedHatText, Helvetica, helvetica, Arial, arial, sans-serif;
+        font-weight: bold;
+        color: #ffffff;
+        font-size: 36px;
+        line-height: 1.2em;
+        margin: 1em 0;
+      }
+
+      a.button {
+        background-color: #ffffff;
+        border-bottom: 3px solid #cc0000;
+        color: #ee0000;
+        display: inline-block;
+        text-transform: uppercase;
+        font-family: 'RedHatText', RedHatText, Helvetica, helvetica, arial, sans-serif;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 44px;
+        text-align: center;
+        text-decoration: none !important;
+        width: 200px;
+        transition: all .3s;
+        -webkit-transition: all .3s;
+        -webkit-text-size-adjust: none;
+      }
+
+      a.button:hover {
+        background-color: #dcdcdc !important;
+        border-bottom: 3px solid #ee0000;
+      }
+
+      .video-wrapper img,
+      .video-fallback img,
+      .video-wrapper video {
+        max-width: 100%;
+      }
+      
+      .summit-countdown > img {
+        width: 100%;
+      }
+
+      @media screen and (max-device-width:600px),
+        screen and (max-width:600px) {
+          .email-container {
+            width: 100% !important;
+            min-width: 100% !important;
+          }
+          
+          .rh-logo {
+            margin-right: 10px;
+          }
+      }
+
+      @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+        /* iPhone 6 and 6+ */
+        .email-container {
+          min-width: 375px !important;
+        }
+
+        .video-wrapper,
+        .video-fallback,
+        .video-wrapper img,
+        .video-fallback img {
+          width: 350px !important;
+          height: auto !important;
+        }
+      }
+
+      @media only screen and (max-device-width: 374px) {
+        /* iPhone 5 in portrait */
+        .summit-logo,
+        .summit-logo-wrapper {
+          width: 104px;
+        }
+
+        .video-wrapper,
+        .video-fallback,
+        .video-wrapper img,
+        .video-fallback img {
+          width: 300px !important;
+          height: auto !important;
+        }
+      }
+
+      /* Display video in Apple Mail */
+
+      @media (-webkit-min-device-pixel-ratio: 0) and (min-device-width:1024px) {
+        .video-wrapper {
+          display: block!important;
+        }
+        .video-fallback {
+          display: none!important;
+        }
+      }
+
+      /* Display video in iOS 10 */
+
+      @supports (-webkit-overflow-scrolling:touch) and (color:#ffffffff) {
+        div[class^=video-wrapper] {
+          display: block!important;
+        }
+        div[class^=video-fallback] {
+          display: none!important;
+        }
+      }
+
+      /* Samsung email fix */
+
+      #MessageViewBody .video-wrapper {
+        display: block!important;
+      }
+
+      #MessageViewBody .video-fallback {
+        display: none!important;
+      }
+    </style>
+  </head>
+
+  <body bgcolor="#e6e7e8" id="main-body" width="100%" class="body" style="background-color: #e6e7e8; padding: 0;">
+    <table role="presentation" bgcolor="#e6e7e8" border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+      <tr>
+        <td bgcolor="#e6e7e8" valign="top" align="center">
+          <!-- Visually Hidden Preheader Text : START -->
+          <div id="preheader" style="color: #e6e7e8; display: none !important; font-size: 0px; line-height: 0; max-height: 0; max-width: 0; mso-hide: all; opacity: 0; overflow: hidden;">
+            Mark your calendar
+          </div>
+          <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
+          <!-- Visually Hidden Preheader Text : END -->
+
+          <!-- Red Hat logo : START -->
+          <table role="presentation" bgcolor="#e6e7e8" class="email-container" style="width: 600px; margin: 0 auto;" width="600" border="0" cellpadding="0" cellspacing="0" align="center">
+            <tr>
+              <td bgcolor="#e6e7e8" valign="top" align="right" style="padding: 20px 0 10px 0;">
+                <img src="https://files.outfit.io/media_library_items/91486/logo-primary-black.png" width="100" alt="Red Hat" border="0" align="right" class="rh-logo">
+              </td>
+            </tr>
+          </table>
+          <!-- Red Hat logo : END -->
+          
+          <table role="presentation" bgcolor="#ffffff" class="email-container" style="width: 600px; margin: 0 auto;" width="600" border="0" cellpadding="0" cellspacing="0" align="center">
+            {{#collection.email-sections}}
+            {{#block.e-countdown}}
+            <!-- Event Countdown : START -->
+            <tr>
+              <td valign="top" align="left">
+                <table role="presentation" width="325" border="0" cellpadding="0" cellspacing="0" align="left">
+                  <tr>
+                    <td valign="top" width="136" align="left" style="padding: 15px;" class="summit-logo-wrapper">
+                      <img src="https://files.outfit.io/media_library_items/126941/Logo-Red_Hat-Summit-A-Standard-RGB.png" width="136" height="64" alt="Red Hat Summit" border="0" class="summit-logo" style="height: auto;">
+                    </td>
+                    <td valign="top" align="left" style="padding: 22px 0; text-transform: uppercase; font-family: 'RedHatText', RedHatText, Helvetica, helvetica, Arial, arial, sans-serif; font-weight: bold; margin: 0; font-size: 15px; line-height: 1.3em;" class="summit-header-date">
+                      San Francisco, CA<br /> April 27-29, 2020
+                    </td>
+                  </tr>
+                </table>
+                <table role="presentation" width="270" border="0" cellpadding="0" cellspacing="0" align="left" class="{{{show-counter}}}{{^show-counter}}show{{/show-counter}}">
+                  <tr>
+                    <td valign="top" align="center" style="padding: 15px;" class="summit-countdown">
+                      <img src="https://s.mmgo.io/t/BgX9/scale_2x" alt="motionmailapp.com" />
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Event Countdown : END -->
+            {{/block.e-countdown}}
+            {{#block.e-header}}
+            <!-- Event Header : START -->
+            <tr>
+              <td bgcolor="#ee0000" valign="middle" style="text-align: center; padding: 20px 30px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff; ">
+                <h2 class="headline" style="font-family:'RedHatDisplay',RedHatDisplay,Helvetica,helvetica,arial,sans-serif; color: #ffffff; font-size: 30px; line-height: 1.3em; margin: .5em 0; background-color: transparent; text-align: center; border:none;">
+                  {{#sm2020-headline}}<span style="font-weight: normal;">{{{sm2020-headline}}}</span>{{/sm2020-headline}}{{#date}}<br><span style="font-weight: normal; text-transform: uppercase;">{{{date}}}</span>{{/date}}
+                </h2>
+              </td>
+            </tr>
+            <!-- Event Header : END -->
+            {{/block.e-header}}
+            
+            {{#block.e-cover}}     
+            <!-- Fullwidth Cover : START -->
+            <tr>
+              <td background="{{{background-image}}}" valign="middle" style="text-align: center; height: {{{section-height}}}{{^section-height}}280{{/section-height}}px; background-position: center center !important; background-size: cover !important;">
+                <table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="background: rgba(0, 0, 0, {{{overlay-opacity}}}{{#overlay-opacity}}0{{/overlay-opacity}})">
+                  <tr><td style="height: {{{section-height}}}{{^section-height}}280{{/section-height}}px;">&nbsp;</td></tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Fullwidth Cover : END -->
+            {{/block.e-cover}}
+            
+            {{#block.sm2020-bg}}
+            <!-- Background Image with Text : START -->
+            <tr>
+              <td background="{{{background-image}}}" bgcolor="#ffffff" valign="middle" style="text-align: center; background-position: center center !important; background-size: cover !important;">
+
+                <!--[if gte mso 9]>
+                <v:image xmlns:v="urn:schemas-microsoft-com:vml" style="width:600px; height:750px" src="{{{background-image}}}" />
+        		<v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="false" stroke="false" style="position: relative; width:600px; height:750px;">
+        		<v:textbox inset="30px,450px,30px,40px">
+                <div style="text-align: center;">
+                <![endif]-->
+                <table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="background: rgba(0, 0, 0, {{{overlay-opacity}}}{{#overlay-opacity}}0{{/overlay-opacity}})">
+                  <tr>
+                    <td valign="middle" style="text-align: center; padding: {{{padding-top}}}{{^padding-top}}5{{/padding-top}}% 30px {{{padding-bottom}}}{{^padding-bottom}}5{{/padding-bottom}}% 30px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff; ">
+                      {{#collection.sm2020-content}}
+                      {{#block.sm2020-heading}}
+                      {{#sm2020-text}}
+                      <h2 class="headline" style="font-family:'RedHatDisplay',RedHatDisplay,Helvetica,helvetica,arial,sans-serif; font-weight: bold; color: #ffffff; font-size: {{{sm2020-text-size}}}{{^sm2020-text-size}}36{{/sm2020-text-size}}px; line-height: 1.2em; margin: 30px 0 30px 0; background-color: transparent; text-align: center; border:none;">{{{sm2020-text}}}</h2>
+                      {{/sm2020-text}}
+                      {{/block.sm2020-heading}}
+
+                      {{#block.sm2020-cta}}
+                      {{#sm2020-cta-text}}
+                      <!-- CTA Button : START -->
+                      <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top: 30px; margin-bottom: 30px;">
+                        <tr>
+                          <td align="center" style="border-bottom: 3px solid #004153;" bgcolor="#ffffff">
+                            <a href="{{{sm2020-cta-link}}}" target="_blank" style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif;font-size:16px;text-transform:uppercase;font-weight:bold; color: #004153; text-decoration: none; padding: 12px 40px; border: 1px solid #ffffff; display: inline-block;">
+                            {{{sm2020-cta-text}}}
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- CTA Button : END -->
+                      {{/sm2020-cta-text}}
+                      {{/block.sm2020-cta}}
+
+                      {{#block.sm2020-paragraph}}
+                      {{#sm2020-text}}
+                      <p style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif; text-align: center; font-size: 16px; line-height: 22px !important; color: #ffffff; margin: 20px 0;">{{{sm2020-text}}}</p>
+                      {{/sm2020-text}}
+                      {{/block.sm2020-paragraph}}
+                      
+                      {{#block.sm2020-image}}
+                      {{#sm2020-image}}
+                      <img src="{{{sm2020-image}}}" title="" alt="" style="display: inline-block; margin: 0 auto 30px auto; width: {{{sm2020-image-width}}}{{^sm2020-image-width}}75{{/sm2020-image-width}}%; height: auto !important;" />
+                      {{/sm2020-image}}
+                      {{/block.sm2020-image}}
+                      
+                      {{/collection.sm2020-content}}
+                    </td>
+                  </tr>
+                </table>
+                <!--[if gte mso 9]>
+                </div>
+                </v:textbox>
+                </v:rect>
+                <![endif]-->
+              </td>
+            </tr>
+            <!-- Background Image with Text : END -->
+            {{/block.sm2020-bg}}
+            
+            {{#block.sm2020-light-block}}
+            <!-- White Background with Text : START -->
+            <tr>
+              <td bgcolor="{{{sm2020-light-background-color}}}{{^sm2020-light-background-color}}#ffffff{{/sm2020-light-background-color}}" valign="middle" style="text-align: center;">
+                <table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td valign="middle" style="text-align: center; padding: {{{padding-top}}}{{^padding-top}}5{{/padding-top}}% 30px {{{padding-bottom}}}{{^padding-bottom}}0{{/padding-bottom}}% 30px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff; ">
+                      {{#collection.sm2020-content}}
+                      {{#block.sm2020-heading}}
+                      {{#sm2020-text}}
+                      <h2 class="headline" style="font-family:'RedHatDisplay',RedHatDisplay,Helvetica,helvetica,arial,sans-serif; font-weight: bold; color: #000000; font-size: {{{sm2020-text-size}}}{{^sm2020-text-size}}36{{/sm2020-text-size}}px; line-height: 1.2em; margin: 30px 0 30px 0; background-color: transparent; text-align: center; border:none;">{{{sm2020-text}}}</h2>
+                      {{/sm2020-text}}
+                      {{/block.sm2020-heading}}
+
+                      {{#block.sm2020-cta}}
+                      {{#sm2020-cta-text}}
+                      <!-- CTA Button : START -->
+                      <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top: 30px; margin-bottom: 30px;">
+                        <tr>
+                          <td align="center" style="border-bottom: 3px solid #cc0000;" bgcolor="#ee0000">
+                            <a href="{{{sm2020-cta-link}}}" target="_blank" style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif;font-size:16px;text-transform:uppercase;font-weight:bold; color: #ffffff; text-decoration: none; padding: 12px 40px; border: 1px solid #ee0000; display: inline-block;">
+                            {{{sm2020-cta-text}}}
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- CTA Button : END -->
+                      {{/sm2020-cta-text}}
+                      {{/block.sm2020-cta}}
+
+                      {{#block.sm2020-paragraph}}
+                      {{#sm2020-text}}
+                      <p style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif; text-align: center; font-size: 16px; line-height: 22px !important; color: #000000; margin: 20px 0;">{{{sm2020-text}}}</p>
+                      {{/sm2020-text}}
+                      {{/block.sm2020-paragraph}}
+                      
+                      {{/collection.sm2020-content}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- White Background with Text : END -->
+            {{/block.sm2020-light-block}}
+            
+            {{#block.sm2020-dark-block}}
+            <!-- Dark Background with Text : START -->
+            <tr>
+              <td background="{{{background-image}}}" bgcolor="{{{sm2020-dark-background-color}}}{{^sm2020-dark-background-color}}#ee0000{{/sm2020-dark-background-color}}" valign="middle" style="text-align: center; background-position: center center !important; background-size: cover !important;">                
+                <table role="presentation" align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                  <tr>
+                    <td valign="middle" style="text-align: center; padding: {{{padding-top}}}{{^padding-top}}5{{/padding-top}}% 30px {{{padding-bottom}}}{{^padding-bottom}}0{{/padding-bottom}}% 30px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #ffffff; ">
+                      {{#collection.sm2020-content}}
+                      {{#block.sm2020-heading}}
+                      {{#sm2020-text}}
+                      <h2 class="headline" style="font-family:'RedHatDisplay',RedHatDisplay,Helvetica,helvetica,arial,sans-serif; font-weight: bold; color: #ffffff; font-size: {{{sm2020-text-size}}}{{^sm2020-text-size}}36{{/sm2020-text-size}}px; line-height: 1.2em; margin: 30px 0 30px 0; background-color: transparent; text-align: center; border:none;">{{{sm2020-text}}}</h2>
+                      {{/sm2020-text}}
+                      {{/block.sm2020-heading}}
+
+                      {{#block.sm2020-cta}}
+                      {{#sm2020-cta-text}}
+                      <!-- CTA Button : START -->
+                      <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0" style="margin-top: 30px; margin-bottom: 30px;">
+                        <tr>
+                          <td align="center" style="border-bottom: 3px solid #cc0000;" bgcolor="#ffffff">
+                            <a href="{{{sm2020-cta-link}}}" target="_blank" style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif;font-size:16px;text-transform:uppercase;font-weight:bold; color: #ee0000; text-decoration: none; padding: 12px 40px; border: 1px solid #ffffff; display: inline-block;">
+                            {{{sm2020-cta-text}}}
+                            </a>
+                          </td>
+                        </tr>
+                      </table>
+                      <!-- CTA Button : END -->
+                      {{/sm2020-cta-text}}
+                      {{/block.sm2020-cta}}
+
+                      {{#block.sm2020-paragraph}}
+                      {{#sm2020-text}}
+                      <p style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif; text-align: center; font-size: 16px; line-height: 22px !important; color: #ffffff; margin: 20px 0;">{{{sm2020-text}}}</p>
+                      {{/sm2020-text}}
+                      {{/block.sm2020-paragraph}}
+                      
+                      {{/collection.sm2020-content}}
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Dark Background with Text : END -->
+            {{/block.sm2020-dark-block}}
+            
+            {{#block.sm2020-articles}}
+            <!-- Email Body : START -->           
+            <tr>
+              <td class="responsive-columns" valign="top" align="center" bgcolor="#ffffff" style="text-align: center; padding: 15px; font-family:'RedHatText', RedHatText, Helvetica, helvetica, arial, sans-serif; font-size: 16px; line-height: 1.2em; color: #ee0000;">
+                {{#sm2020-heading}}
+                <h2 class="headline" style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif; text-transform: uppercase; font-weight: bold; color: #ee0000; font-size: 22px; line-height: 1.2em; margin: 1em 0; background-color: transparent; text-align: inherit; border:none;">{{{sm2020-heading}}}</h2>
+				{{/sm2020-heading}}
+                
+                {{#collection.sm2020-articles}}
+                <!-- Responsive grid of 4 cards : START -->
+                <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0">
+                  {{#block.sm2020-articles-row}}
+                  <tr>
+                    <td class="col" width="280" valign="top">
+                      <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
+                        <tr>
+                          <td background="{{{article-1-image}}}" bgcolor="#cccccc" valign="middle" style="height: 280px; text-align: center; background-position: center center !important; background-size: cover !important;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="left" style="padding-top: 15px;">
+                            {{#article-1-heading}}
+                            <h2 style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif; font-size: 22px; font-weight: normal; color: #000000; margin: 0 0 10px 0;">{{{article-1-heading}}}</h2>
+                            {{/article-1-heading}}
+                            {{#article-1-text}}
+                            <p style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif; font-size: 14px; line-height: 20px !important; color: #000000; margin: 0;">{{{article-1-text}}}</p>
+                            {{/article-1-text}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                    <td class="spacer" width="10" style="font-size: 1px;">&nbsp;</td>
+                    <td class="col" width="280" valign="top">
+                      <table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="margin-bottom: 20px;">
+                        <tr>
+                          <td background="{{{article-2-image}}}" bgcolor="#cccccc" valign="middle" style="height: 280px; text-align: center; background-position: center center !important; background-size: cover !important;">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td align="left" style="padding-top: 15px;">
+                            {{#article-2-heading}}
+                            <h2 style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif; font-size: 22px; font-weight: normal; color: #000000; margin: 0 0 10px 0;">{{{article-2-heading}}}</h2>
+                            {{/article-2-heading}}
+                            {{#article-2-text}}
+                            <p style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif; font-size: 14px; line-height: 20px !important; color: #000000; margin: 0;">{{{article-2-text}}}</p>
+                            {{/article-2-text}}
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                  {{/block.sm2020-articles-row}}                  
+                </table>
+                <!-- Responsive grid of 4 cards: END -->
+                {{/collection.sm2020-articles}}
+                
+                {{#sm2020-cta-text}}
+                <!-- CTA Button : START -->
+                <table role="presentation" align="center" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td align="center" style="border-bottom: 3px solid #cc0000;" bgcolor="#ee0000">
+                      <a href="{{{sm2020-cta-link}}}" target="_blank" style="font-family:'RedHatText',RedHatText,Helvetica,helvetica,arial,sans-serif;font-size:16px;text-transform:uppercase;font-weight:bold; color: #ffffff; text-decoration: none; padding: 12px 40px; border: 1px solid #ee0000; display: inline-block;">{{{sm2020-cta-text}}}</a>
+                    </td>
+                  </tr>
+                </table>
+                <!-- CTA Button : END -->
+                {{/sm2020-cta-text}}                
+              </td>
+            </tr>
+            <!-- Email Body : END -->
+            {{/block.sm2020-articles}}                        
+            {{/collection.email-sections}}
+            
+            <!-- Summit Social Media : START -->
+            <tr class="{{{show-socials}}}{{^show-socials}}show{{/show-socials}}">
+              <td bgcolor="#e6e7e8" valign="top" align="center" style="padding: 0px 0;">
+                <table cellpadding="0" cellspacing="0" border="0" align="center" style="margin: 0 auto;">
+                  <tr>
+                    {{#twitter-url}}
+                    <td width="42" align="center">
+                      <a href="{{{twitter-url}}}" target="_blank" style="margin:0; padding:5px; border:none; display:block;"><img src="http://images.engage.redhat.com/EloquaImages/clients/RedHat/%7B75accc7e-e588-482e-82b8-2291f29c771e%7D_twitter-logo.png" width="32" height="32" border="0" alt="Twitter"></a>
+                    </td>
+                    {{/twitter-url}}
+                    {{#facebook-url}}
+                    <td width="42" align="center">
+                      <a href="{{{facebook-url}}}" target="_blank" style="margin:0; padding:5px; border:none; display:block;"><img src="http://images.engage.redhat.com/EloquaImages/clients/RedHat/%7Bff3175dc-428c-4e68-b57b-602e5143ce46%7D_facebook-logo.png" width="32" height="32" border="0" alt="Facebook"></a>
+                    </td>
+                    {{/facebook-url}}
+                    {{#youtube-url}}
+                    <td width="42" align="center">
+                      <a href="{{{youtube-url}}}" target="_blank" style="margin:0; padding:5px; border:none; display:block;"><img src="http://images.engage.redhat.com/EloquaImages/clients/RedHat/%7B5cf521f2-9bab-4643-a843-ef873ec5f810%7D_youtube-logo.png" width="32" height="32" border="0" alt="YouTube"></a>
+                    </td>
+                    {{/youtube-url}}
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- Summit Social Media : END -->
+          </table>          
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
