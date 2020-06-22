@@ -1,0 +1,122 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+<style>@import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+
+  body{background-color: white; font-family: Overpass,sans-serif;  color: #234; padding: 2vw 0vw; text-align:center}
+  blockquote{    font-size:.7em; margin:0;margin-bottom:5em; }
+  a{text-decoration: none; color:#4e9fdd}
+  @import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+  h1{color:#c00; text-transform: uppercase; font-size: .75em; font-weight: 900; margin-top:1em; margin-bottom:0}
+  h4{  font-family: Overpass,sans-serif; font-size: 1vw; color:#bbdde7; text-align:center; text-transform: uppercase; margin-bottom:0}
+  div {
+
+  font-family: Overpass,sans-serif;
+  border: .05em solid #bbdde7;
+    padding: 2em;
+  font-size: 5vw; 
+   
+}
+
+  
+  
+  
+.event-logo {
+  text-align: left;
+  display: inline-block;
+  margin-bottom: 0;
+  font-family: overpass,sans-serif;
+  line-height: 1em;
+  max-width: 14em;
+}
+.event-logo h2 { color:#c00;
+  text-transform: uppercase;
+  font-weight: 900 !important;
+  letter-spacing: 0;
+}
+.event-logo p, .event-logo h2 {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+  width: auto;
+}
+.event-logo svg {
+  display: block;
+  margin: 0;
+  height: 1em;
+  margin: 0.25em 0 0 0;
+}
+.event-logo p {
+  mARGIN: 0;
+  font-weight: 600;
+  line-height: 1em;
+  letter-spacing: -.01em;display:block;
+}
+
+  
+  
+section{ margin: 1em auto;  padding-top:2em; width: 100%;}
+
+  
+  </style>
+  </head>
+<body>
+  <section>
+    
+<h1>
+  Small Event Name Drafting Document
+    </h1>    
+<blockquote>    
+Example only. See the  <a target="_blank" href="http://brand.redhat.com/logos/eventlogos/small-events/"> Small Event Logo Standards </a>
+    </blockquote>
+   
+        <h4>
+      Standard logo
+    </h4>
+    
+    <br />       
+
+<div class="event-logo">
+  <h2>{{#location}}Red Hat{{/location}} {{{event-name}}}{{^event-name}}Event Name{{/event-name}}<br>
+  <svg   xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 10 3.75"  width="100%"  height="1em">   
+  <path  d="M -0,.5 3,.5 4.5,2.5 6,.5 100,.5" style="stroke:#000;stroke-width:0.3px;fill:none" /> </svg>
+  </h2>    
+  <p>{{{location}}}{{^location}}presented by Red Hat{{/location}}</p>
+</div>
+    
+    <br /> <br /> <br />
+        <h4>
+      One Color Variations
+    </h4><br /> 
+    <div class="event-logo" style="  font-size: 2.5vw; ">
+  <h2>{{#location}}Red Hat{{/location}} {{{event-name}}}{{^event-name}}Event Name{{/event-name}}<br>
+  <svg   xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 10 3.75"  width="100%"  height="1em">   
+  <path  d="M -0,.5 3,.5 4.5,2.5 6,.5 100,.5" style="stroke:#c00;stroke-width:0.3px;fill:none" /> </svg>
+  </h2>    
+  <p style="color:#c00">{{{location}}}{{^location}}presented by Red Hat{{/location}}</p>
+</div>
+    
+    
+    
+    
+    <div class="event-logo" style="  font-size: 2.5vw; background-color:#b00; color:#fff; border-color: #b00;
+                                   
+                                 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: linear-gradient(-45deg, #b00 25%, #a00 25%, #a00 70%, #b00 70%);
+                                   ">
+  <h2 style="color:#fff"> {{#location}}Red Hat{{/location}} {{{event-name}}}{{^event-name}}Event Name{{/event-name}}<br>
+  <svg   xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet" viewBox="0 0 10 3.75"  width="100%"  height="1em">   
+  <path  d="M -0,.5 3,.5 4.5,2.5 6,.5 100,.5" style="stroke:#fff;stroke-width:0.3px;fill:none" /> </svg>
+  </h2>    
+  <p style="color:#fff">{{{location}}}{{^location}}presented by Red Hat{{/location}}</p>
+</div>
+    
+  </section>
+  
+</body>
+</html>
