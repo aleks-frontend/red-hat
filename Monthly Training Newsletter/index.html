@@ -1,0 +1,230 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>{{{subjectLine}}}</title>
+<meta content="width=device-width,initial-scale=1" name="viewport">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="telephone=no" name="format-detection">
+<style media="all" type="text/css">
+/* Smartphones (portrait and landscape) ----------- */
+
+
+@media only screen and (min-width : 280px) and (max-width : 656px) {
+/* mobile-specific CSS styles go here */
+table {
+	width: 100% !important;
+	height: auto;
+}
+img {
+	width: 100% !important;
+	height: auto;
+}
+.mobile {
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+.RHCP {padding-left:0!important}
+.left-col {padding-left:5px!important}
+}
+body {
+	background-color: #F2F2F2;
+	margin: 0px;
+	width: 100% !important;line-height:20px;
+}
+body, table, p, li, ul {
+	font-family: arial, helvetica, sans-serif;
+	color: rgb(51, 51, 51);line-height:20px;
+}
+p, li {
+	font-size: 10pt;
+}
+a:link, a:visited {
+	color: #cc0000;
+	text-decoration: none;
+}
+h2 {
+	color: #000000;
+	font-size: 15pt;
+}
+.footer {
+	font-family: Arial, Helvetica, Sans-serif;
+	color: #666666;
+	font-size: 10px;
+}
+</style>
+</head>
+
+<body>
+<table width="655" cellspacing="0" cellpadding="0" border="0" bgcolor="#FFFFFF" align="center">
+  <tbody>
+    <tr>
+      <td valign="top" align="left" style="border:1px solid #ccc;"><table width="655" cellspacing="0" align="center">
+          <tbody>
+            <tr>
+              <td width="655" valign="top" style="padding:0px;">
+              {{#mainBanner}}	<img height="96" src="{{{mainBanner}}}" width="655" alt="{{{mainBanneralt}}}">{{/mainBanner}}
+                </td>
+            </tr>
+            <tr>
+              <td valign="top" align="left" class="mobile">
+              	<table width="580" cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#FFFFFF">
+                  <tbody>
+                    <tr>
+                      <td valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; line-height:20px;">
+                      <table width="580" cellspacing="0" cellpadding="0" border="0">
+                          <tbody>
+                            <tr>
+                              <td width="580" valign="top" colspan="2" class="force-col" style="padding: 0; font-size:10px; line-height:20px; padding-top:10px; padding-bottom:10px; border-top:0px solid #ccc;">
+                              <table width="575" cellspacing="0" cellpadding="0" border="0" align="center">
+                                  <tbody>
+                                    <tr>
+                                      <td width="370" valign="top" align="left" style="padding-right:17px;padding-top:10px;" class="left-col">
+                                      <table cellspacing="0" cellpadding="0" border="0" align="left" class="col-1" style="width:380px;">
+                                          <tbody>
+                                         <tr>
+                                              <td style="padding:0 0 5px; font:bold 15px Arial, Helvetica, sans-serif; color:#c00; text-transform:uppercase;" class=""><a name="Spotlight"></a><span style="text-decoration:none; color:#c00;">Spotlight</span></td>
+                                            </tr>
+                                          {{#collection.spotlight_trainingnewsletter}}  {{#block.spotlightbannerblock_trainingnewsletter}}    <tr>
+                                              <td style="font:13px Arial, Helvetica, sans-serif;  color: rgb(51, 51, 51); line-height:20px; padding-top:10px">{{#spotlightbanner_trainingnewsletter}}<img alt="{{{spotlightbanneralt_trainingnewsletter}}}" border="0" src="{{{spotlightbanner_trainingnewsletter}}}">{{/spotlightbanner_trainingnewsletter}}</td>
+                                            </tr>{{/block.spotlightbannerblock_trainingnewsletter}} 
+                                        {{#block.spotlightbodyCopyblock_trainingnewsletter}}     <tr>
+                                              <td valign="top" align="left" style="padding:10 0 5px; font:bold 16px Arial, Helvetica, sans-serif;  color: rgb(51, 51, 51);" class=""><a style="text-decoration:none;color: rgb(51, 51, 51);" target="_blank">{{{spotlightheading_trainingnewsletter}}}</a></td>
+                                            </tr>
+                                            <tr>
+                                              <td style="font:13px Arial, Helvetica, sans-serif;padding-bottom:10px;color: rgb(51, 51, 51); line-height:20px;">{{{spotlightbodyCopy_trainingnewsletter}}}
+                                              <br>  <a style="color:#cc0000; text-decoration:none" href="{{{spotlightlinkurl_trainingnewsletter}}}" target="_blank">{{{spotlightlink_trainingnewsletter}}}</a></td>
+                                            </tr>{{/block.spotlightbodyCopyblock_trainingnewsletter}}   {{/collection.spotlight_trainingnewsletter}} 
+                                          
+                                          
+                                 
+                                       
+                                            <tr>
+                                              <td style="line-height:20px;padding-top:13px;border-top:1px solid #ccc; font:bold 15px Arial, Helvetica, sans-serif; color:#c00; text-transform:uppercase"><a name="News"></a><span>News</span></td>
+                                            </tr>
+                                      {{#collection.news_trainingnewsletter}}  {{#block.newsbodyCopyblock_trainingnewsletter}}                <tr>
+                                              <td valign="top" align="left" style="padding:10 0 5px; font:bold 16px Arial, Helvetica, sans-serif;  color: rgb(51, 51, 51);" class="">{{{newsheading_trainingnewsletter}}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="font:13px Arial, Helvetica, sans-serif;padding-bottom:10px;color: rgb(51, 51, 51); line-height:20px;">{{{newsbodyCopy_trainingnewsletter}}}<br>
+                                                <a style="color:#cc0000; text-decoration:none" href="{{{newslinkurl_trainingnewsletter}}}" target="_blank">{{{newslink_trainingnewsletter}}}</a></td>
+                                            </tr> {{/block.newsbodyCopyblock_trainingnewsletter}}      {{/collection.news_trainingnewsletter}}
+                                          
+                                         
+                                            <tr>
+                                              <td style="line-height:20px;padding-top:15px;border-top:1px solid #ccc; font:bold 15px Arial, Helvetica, sans-serif; color:#c00; text-transform:uppercase; "><a name="Events"></a><span>Upcoming events</span></td>
+                                            </tr>
+                                     {{#collection.events_trainingnewsletter}}     {{#block.eventsbodyCopyblock_trainingnewsletter}}           <tr>
+                                              <td valign="top" align="left" style="padding:10 0 5px; font:bold 16px Arial, Helvetica, sans-serif;  color: rgb(51, 51, 51);" class="">{{{eventsheading_trainingnewsletter}}}</td>
+                                            </tr>
+                                            <tr>
+                                              <td style="font:13px Arial, Helvetica, sans-serif;  color: rgb(51, 51, 51); line-height:20px;"> <strong>{{{eventssubheading_trainingnewsletter}}}</strong><br>
+                                                <span style="font-size:13px;font-family: Arial, Helvetica, Sans-serif;color: #cc0000;font-weight:bold">{{{eventsredsubheading_trainingnewsletter}}}</span><br>
+                                               {{{eventsbodyCopy_trainingnewsletter}}}<br>
+                                                <a style="color:#cc0000; text-decoration:none" href="{{{eventslinkurl_trainingnewsletter}}}" target="_blank">{{{eventslink_trainingnewsletter}}}</a></td>
+                                            </tr>{{/block.eventsbodyCopyblock_trainingnewsletter}}    
+                                     {{/collection.events_trainingnewsletter}} 
+                                        <tr>
+                                              <td style="line-height:20px; padding-top:15px;border-top:1px solid #ccc; font:bold 15px Arial, Helvetica, sans-serif; color:#c00;"><a name="Ways to Save"></a><span style="text-transform:uppercase;">Ways to Save</span></td>
+                                            </tr>
+                                                  <tr>
+                                              <td style="line-height:20px; padding-bottom:12px; padding-top:15px;" width="340">
+                                                 {{#collection.waystosave_trainingnewsletter}}     {{#block.waystosaveimageblock_trainingnewsletter}}  <table cellspacing="0" cellpadding="0" border="0" align="left" style="width:138px;">
+                                                  <tbody>
+                                       <tr>
+                                                      <td valign="top" align="left" style="width:131px;padding-top:3px;">{{#waystosaveimage_trainingnewsletter}}<img align="left" alt="{{{waystosaveimageAlt_trainingnewsletter}}}" height="102" src="{{{waystosaveimage_trainingnewsletter}}}" width="131" style=" width:131px !important;">{{/waystosaveimage_trainingnewsletter}}</td>
+                                                    </tr> 
+                                                  </tbody>
+                                                </table>{{/block.waystosaveimageblock_trainingnewsletter}}
+                                           {{#block.waystosavebodyCopyblock_trainingnewsletter}}         <table cellspacing="0" cellpadding="0" border="0" align="center" style="width:220px;" class="col-1">
+                                                
+                                                  <tbody>
+                                                    <tr>
+                                                      <td valign="top" align="left"><table cellspacing="0" cellpadding="0">
+                                                          <tbody>
+                                                         <tr>
+                                                              <td valign="top" style="font:13px Arial, Helvetica, sans-serif;  color: rgb(51, 51, 51); line-height:20px;"><strong>{{{waystosaveheading_trainingnewsletter}}}</strong><br>
+                                                                <em>{{{waystosavesubheading_trainingnewsletter}}}</em><br>
+                                                               {{{waystosavebodyCopy_trainingnewsletter}}}<br>
+                                                                <a style="color:#cc0000; text-decoration:none" href="{{{waystosavelinkurl_trainingnewsletter}}}" target="_blank">{{{waystosavelink_trainingnewsletter}}}</a></td>
+                                                            </tr>  
+                                                          </tbody>
+                                                        </table></td>
+                                                    </tr>  
+                                                  </tbody>
+                                                </table>{{/block.waystosavebodyCopyblock_trainingnewsletter}} {{/collection.waystosave_trainingnewsletter}} </td>
+                                            </tr>
+                                             
+                                          </tbody>
+                                        </table>
+                                      </td>
+                                      <td width="170" valign="top" align="left">
+                                      <table cellspacing="0" cellpadding="0" border="0" align="center" style="width:180px;">
+                                          <tbody>
+                                            <tr>
+                                              <td valign="top" bgcolor="#fff" align="right" style=" padding-left:10px; padding-top:10px; padding-bottom:10px; width:180px; line-height:20px" class="">
+                                              <table bgcolor="#ececec" border="0" cellpadding="0" cellspacing="0" style="color: rgb(51, 51, 51); font-family: Arial, Helvetica, Sans-serif;" width="168">
+                                                  <tbody>
+                                                 <tr>
+                                                      <td style="font-family: Arial, Helvetica, Sans-serif; font-size:13px;padding-left:5px; padding-top:5px; border-top:1px solid rgb(239, 0, 0); padding-bottom:5px;" colspan="2" width="120"><strong> In this newsletter</strong></td>
+                                                    </tr>
+                                                                 <tr>
+                                                      <td style="padding-left:5px; padding-bottom:5px;"><table cellpadding="0" cellspacing="0">
+                                                          <tbody><tr>
+                                                            <td valign="top" style="padding-top:0;"><img border="0" src="http://images.engage.redhat.com/EloquaImages/clients/RedHat/%7b633c1532-ec9f-4aed-90b4-24c719d2761a%7d_Arrow.png" style="width:4px !important;" />   <a href="#Spotlight" style="color: rgb(239, 0, 0); font-family: Arial, Helvetica, Sans-serif;font-size: 11px; text-decoration: none;">Spotlight</a></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td valign="top" style="padding-top:0;"><img border="0" src="http://images.engage.redhat.com/EloquaImages/clients/RedHat/%7b633c1532-ec9f-4aed-90b4-24c719d2761a%7d_Arrow.png" style="width:4px !important;" />   <a href="#News" style="color: rgb(239, 0, 0); font-family: Arial, Helvetica, Sans-serif; font-size: 11px; text-decoration: none;">News</a></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td valign="top" style="padding-top:0;"><img border="0" src="http://images.engage.redhat.com/EloquaImages/clients/RedHat/%7b633c1532-ec9f-4aed-90b4-24c719d2761a%7d_Arrow.png" style="width:4px !important; " />   <a href="#Events" style="color: rgb(239, 0, 0); font-family: Arial, Helvetica, Sans-serif; font-size: 11px; text-decoration: none;">Upcoming events</a></td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td valign="top" style="padding-top:0;"><img border="0" src="http://images.engage.redhat.com/EloquaImages/clients/RedHat/%7b633c1532-ec9f-4aed-90b4-24c719d2761a%7d_Arrow.png" style="width:4px !important;" />   <a href="#Ways to Save" style="color: rgb(239, 0, 0); font-family: Arial, Helvetica, Sans-serif; font-size: 11px; text-decoration: none;">Ways to Save</a></td>
+                                                          </tr>
+                                                         
+                                                        </table></td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table></td>
+                                            </tr>
+                                 {{#collection.rightimagecollections_trainingnewsletter}}{{#block.rightimageblock_trainingnewsletter}}         <tr>
+                                              <td valign="top" bgcolor="#fff" style="padding-left:10px;padding-bottom:10px; padding-top:5px; width:180px; line-height:20px;color: rgb(51, 51, 51);   font-family: Arial, Helvetica, Sans-serif; font-size: 10pt; line-height: 20px; text-align: center; padding-top:10px;" class=""><a href="{{{rightimagelinks_trainingnewsletter}}}" target="_blank">{{#rightimage_trainingnewsletter}} <img alt="{{{rightimagealt_trainingnewsletter}}}" border="0" src="{{{rightimage_trainingnewsletter}}}">{{/rightimage_trainingnewsletter}}</a></td>
+                                            </tr>       {{/block.rightimageblock_trainingnewsletter}}     {{/collection.rightimagecollections_trainingnewsletter}}  
+                                                                                <tr>
+                                              <td valign="top" bgcolor="#fff" style="padding-left:10px;padding-bottom:10px; padding-top:5px; width:180px; line-height:20px;color: rgb(51, 51, 51);   font-family: Arial, Helvetica, Sans-serif; font-size: 10pt; padding-top:10px;" class=""><a target="_blank" href="https://twitter.com/RedHat_Training?sc_cid=70160000000bgBdAAI&amp%3belqTrackId=3629bcf84ccb4f038d83c65ef223095c&amp%3belqaid=&gt%3belqassetId&lt%3b%2fspan&gt%3b&gt%3belqassetType&lt%3b%2fspan&gt%3b&amp%3belqat=&lt%3bspan%20class=eloquaemail&lt%3bspan%20class=eloquaemail&elqTrackId=6cad1d2d4e2a4ebb89ffc90c740b2578&elqTrack=true">
+<img style=" width:55px !important; height:55px !important " alt="Twitter" border="0" height="55" src="http://images.engage.redhat.com/eloquaimages/clients/RedHat/%7B15f45c08-895d-4b93-b94d-3fd8db29a352%7D_RHVE_email_4_twitter_4880297_1110_ma.png" width="55">
+</a>&nbsp;&nbsp;&nbsp; <a href="https://www.facebook.com/RedHatCertified?sc_cid=70160000000bgBdAAI&amp%3belqTrackId=14fe7031e2ac4e95ad897cdb5a59861c&amp%3belqaid=&gt%3belqassetId&lt%3b%2fspan&gt%3b&gt%3belqassetType&lt%3b%2fspan&gt%3b&amp%3belqat=&lt%3bspan%20class=eloquaemail&lt%3bspan%20class=eloquaemail&elqTrackId=fe4f3bc7e5a249878fa5a49caaab5ef1&elqTrack=true" target="_blank"> <img style=" width:55px !important; height:55px !important " alt="Facebook" border="0" height="55" src="http://images.engage.redhat.com/eloquaimages/clients/RedHat/%7B1a938015-da53-40df-8351-99ed4f60e9e8%7D_Training_Facebook.png" width="55"></a>&nbsp;&nbsp;&nbsp;<br>
+                                                <br>
+                                                <a href="https://www.linkedin.com/uas/login?session_redirect=https%3A%2F%2Fwww.linkedin.com%2Fgroups%2F3737892&elqTrackId=4643259cc6e44e0080763c0e6f11f383&elqTrack=true" target="_blank"><img style=" width:55px !important; height:55px !important " alt="LinkedIn" border="0" height="55" src="http://images.engage.redhat.com/eloquaimages/clients/RedHat/%7Bcbf06a4c-32a7-4a47-b722-278cea623a47%7D_130-linkedin.jpg" width="55"></a> &nbsp;&nbsp;&nbsp; <a href="http://servicesblog.redhat.com/?sc_cid=70160000000bgBdAAI&elqTrackId=82e48f2b30224932b7c5ec81c3912828&elqTrack=true" target="_blank">
+ <img style=" width:55px !important; height:55px !important " alt="Service Speaker" border="0" height="55" src="http://images.engage.redhat.com/EloquaImages/clients/RedHat/%7B240dc431-177b-4852-b08d-a693d2033ced%7D_Screen_Shot_2015-07-20_at_3.56.56_PM.jpg" width="55"></a><br></td>
+                                            </tr>
+                                          </tbody>
+                                        </table></td>
+                                    </tr>
+                                  </tbody>
+                                </table></td>
+                            </tr>
+                          </tbody>
+                        </table></td>
+                    </tr>
+                    <tr>
+                      <td><table cellpadding="0" cellspacing="0">
+                          <tbody>
+                            <tr>
+                              <td valign="top" style="padding-bottom:10px;"><p style="font-size: 10px; font-family:Arial, Helvetica, sans-serif;color: rgb(51, 51, 51); ">The OpenStack<sup>&reg;</sup> Word Mark and OpenStack Logo are either registered trademarks ⁄ service marks or trademarks ⁄ service marks of the OpenStack Foundation, in the United States and other countries and are used with the OpenStack Foundation’s permission. We are not affiliated with, endorsed or sponsored by the OpenStack Foundation or the OpenStack community.</p></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+               </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>
