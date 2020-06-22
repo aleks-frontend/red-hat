@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="//redhatbrand.github.io/RedHatForumTemplates/shared/stylesheets/main.css" />
+    <link rel="stylesheet" href="//redhatbrand.github.io/RedHatForumTemplates/templates/generic-resizeable/assets/stylesheets/main.css" />
+
+    <style type="text/css">
+      html, body { height: 100%; }
+      body {
+        background-color: rgb({{^artwork-background}}75,0,0{{/artwork-background}}{{artwork-background}});
+        background-image: url({{{artwork-image}}});
+      }
+      .canvas-overlay { color: rgb({{^artwork-background}}75,0,0{{/artwork-background}}{{artwork-background}}); }
+      
+      /*\/\/\/\/\/\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+                       LANGUAGES
+
+      /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
+
+      .en { 
+        font-family: 
+          "Overpass", 
+          sans-serif; }
+      .jp { 
+        font-family: 
+          "Overpass", 
+          "Hiragino Kaku Gothic ProN", 
+          "Hiragino Kaku Gothic", 
+          "ヒラギノ角ゴ Pro W3", 
+          sans-serif; }
+      .ko { 
+        font-family: 
+          "Overpass",
+          "Malgun Gothic",
+          "HelveticaNeueW01-85Heav",
+          sans-serif; }
+      .zh { 
+        font-family: 
+          "Overpass",  
+          "Microsoft Yahei",
+          "Hiragino Sans GB",
+          sans-serif; }
+
+      /*\/\/\/\/\/\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+
+      /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
+    </style>
+    
+    <script src="//redhatbrand.github.io/RedHatTemplates/global-assets/javascripts/vendor/jquery.js"></script>
+  </head>
+  <body class="{{ lang }}">
+    
+    <div class="canvas-overlay"></div>
+    
+    <div id="content">
+      <h3 class="content-title">{{headline}}</h3>
+      <h4 class="content-text">{{{body}}}</h4>
+    </div>
+
+    <div class="bottom-left">
+      <img src="//redhatbrand.github.io/RedHatForumTemplates/shared/images/forum-logo.svg" id="logo-forum"/>
+    </div>
+    
+    <div class="bottom-right">
+      <img src="//redhatbrand.github.io/RedHatForumTemplates/shared/images/rh-logo.svg" id="logo-rh"/>
+    </div>
+  </body>
+</html>
