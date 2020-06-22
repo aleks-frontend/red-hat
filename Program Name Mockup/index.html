@@ -1,0 +1,144 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+<style>
+  
+  @import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+
+  body{background-color: white; font-family: Overpass,sans-serif;  color: #234; padding: 2vw 0vw; text-align:center}
+  blockquote{    font-size:.7em; margin:0;margin-bottom:5em; }
+  a{text-decoration: none; color:#4e9fdd}
+
+  h1{color:#c00; text-transform: uppercase; font-size: .75em; font-weight: 900; margin-top:1em; margin-bottom:0}
+  h4{  font-family: Overpass,sans-serif; font-size: 1vw; color:#bbdde7;text-transform: uppercase; margin-bottom:0}
+  p{font-size:1vw; margin-bottom:0; margin-top:0} 
+ 
+  
+  
+  
+  
+  
+
+body {
+  font-family: Overpass, sans-serif;
+  
+}
+
+.program {
+  font-size: 2.5vw;
+  display: flex;
+  align-items: center;
+  text-align:center;
+}
+
+.program-box {
+  color: white;
+  background-color: #c00;
+  padding: 1.1em 1.333em;
+ text-align:left;
+  display:inline-block; margin:0 auto;
+
+}
+
+p,
+h2 {text-transform: uppercase;
+  margin: 0;
+}
+
+p {
+  font-weight: 700;
+  line-height: 1em;
+  padding: .2em 0;
+  letter-spacing: .075em;
+  font-size: 1em;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 1.75em;
+  line-height: 1em;
+}
+
+.program  h2 p{padding:0}
+.program h3 {
+  color: #c00;
+  font-weight: 400;
+  padding: 0 .5em;
+  margin: 0;
+  font-size: 1.75em;
+  max-width: 13em;
+  line-height: 1em;
+  margin-top: -.15em;
+  text-align:left;
+    min-width: 50%;
+    text-transform: capitalize;
+    -webkit-flex: 2 0 0; 
+   flex: 2 0 0; 
+}
+
+  
+  .smaller{
+    transform: scale(.7);
+    transform-origin: 50% 0;
+    
+  }
+
+  .variant{display:block; font-weight: 600; font-size: .5em; text-transform: initial; margin-top:-.4em; text-indent:.1em;}
+
+section{ margin: 1em auto;  padding-top:2em; width: 100%;}
+
+  
+  </style>
+  </head>
+<body>
+  <section>
+    
+<h1>
+  Program Name Drafting Document
+    </h1>    
+<blockquote>    
+Example only. See the  <a target="_blank" href="http://brand.redhat.com/logos/internallogos/programs/">Program Logo Standards </a>
+    </blockquote>
+   
+        <h4>
+      Standard logo
+    </h4>
+
+<br />
+
+
+ <div class="program" style="max-width: 90vw;
+    margin: 0 auto;">
+  <div class="program-box">
+    <p>RED HAT</p>
+    <h2>{{{program-name}}}{{^program-name}}Program{{/program-name}}</h2>
+  </div>
+   {{#subprogram-name}}<h3>{{{subprogram-name}}}</h3> {{/subprogram-name}}
+</div>
+    
+    
+<br /><br /><br /><br /><br />
+    
+    
+        <h4>
+      Black and White logo
+    </h4>
+
+<br />
+    
+     <div class="program"style="    font-size: .7em;
+    margin: 0 auto;
+    max-width: 50vw;">
+  <div class="program-box" style="background-color:#555">
+    <p>RED HAT</p>
+    <h2>{{{program-name}}}{{^program-name}}Program{{/program-name}}</h2>
+  </div>
+   {{#subprogram-name}}<h3 style="color:#555">{{{subprogram-name}}}</h3> {{/subprogram-name}}
+</div>
+    
+
+  </section>
+  
+</body>
+</html>
