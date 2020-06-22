@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+	{{{account.snippets.design-system-link}}}
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <style type="text/css">
+
+      .event-logo h2 > span,
+      .event-logo > h2 > span *{ font-weight: 800 !important; line-height: 1em !important; margin: 0 !important; }
+      body, *{    font-family: 
+        "Red Hat Display", 
+        "Hiragino Kaku Gothic ProN", 
+        "Hiragino Kaku Gothic", 
+        "ヒラギノ角ゴ Pro W3", 
+        sans-serif !important; }
+    </style>
+  </head>
+  <body class="theme-color {{brand-theme}} {{^brand-theme}}corporate{{/brand-theme}} {{#background-image}}background-image-shown{{/background-image}}"
+
+        >
+    <div class="document">
+      <div class="pattern {{brand-theme}}-hero-full-pattern"></div>
+
+      {{#background-image}}
+      <div class="background-image" style="background-image: url('{{background-image}}'); opacity: {{background-image-opacity}}; background-position:{{background-position}}% {{background-position}}% ;" ></div>
+      {{/background-image}}
+
+      <div class="full-height {{brand-theme}}-artwork {{^brand-theme}}corporate-artwork{{/brand-theme}} js-artwork"></div>  
+
+      <div class="content">
+        <div class="text-content">
+          <div class="headings">
+            <h1 id="js-fittext">{{{initials}}}</h1>
+          </div><!-- headings -->
+
+        </div>
+      </div><!--content-->
+    </div><!--document-->
+    <script type="text/javascript">
+      window.redhatArtComplexity = 3;
+    </script>
+
+
+    <script src="//redhatbrand.github.io/RedHatPatterns/red-hat-patterns.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+
+
+  </body>
+</html>
