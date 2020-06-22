@@ -1,0 +1,198 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+<style>@import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+
+  body{background-color: white; font-family: Overpass,sans-serif;  color: #234; padding: 2vw 0vw; text-align:center}
+  blockquote{    font-size:.7em; margin:0;margin-bottom:5em; }
+  a{text-decoration: none; color:#4e9fdd}
+  @import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+  h1{color:#c00; text-transform: uppercase; font-size: .75em; font-weight: 900; margin-top:1em; margin-bottom:0}
+  h4{  font-family: Overpass,sans-serif; font-size: 1vw; color:#bbdde7; text-align:center; text-transform: uppercase; margin-bottom:0}
+  .container {
+
+  font-family: Overpass,sans-serif;
+  border: .05em solid #bbdde7;
+    padding: 2em;
+  font-size: 5vw; 
+   
+}
+
+  #alttext-container{border:0}
+  
+* {
+  box-sizing: border-box;
+}
+
+.large-event-logo {
+  margin: 0 auto;
+  height: 4em;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  position: relative;
+  padding-left: 4.5em;
+  font-family: overpass, sans-serif;
+  line-height: 1em;
+  max-width: 14em;
+}
+.large-event-logo .shield {
+  background-color: #c00;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 4em;
+  height: 4em;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.large-event-logo .shield:after {
+  content: "";
+  width: 1em;
+  height: 1em;
+  background-color: #900;
+  position: absolute;
+  top: 3.4em;
+  left: 1.5em;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.large-event-logo .shield:before {
+  z-index: 4;
+  content: "";
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  width: 0;
+  bottom: 0;
+  right: 0;
+  height: 0;
+  border-style: solid;
+  border-color: transparent #900 transparent transparent;
+  border-width: 4em 4em 0 0em;
+}
+.large-event-logo .shield img {outline:0; border:0;
+  width: 100%;
+  padding: .5em;
+  position: relative;
+  z-index: 9;
+  -webkit-filter: brightness(2) grayscale(1) invert(1);
+  filter: brightness(2) grayscale(1) invert(1);
+}
+.large-event-logo h2 {
+  text-align: left;
+  display: block;
+  -webkit-flex-flow: row;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  font-size: 1.8em;
+  text-transform: uppercase;
+  font-weight: 900 !important;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  line-height: .9em;
+}
+.large-event-logo h2 small {
+  font-size: .5em;
+  display: block;
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+  text-indent: .0666em;
+}
+  
+  .large-event-logo.invert.mono .shield{background-color:#fff}
+  
+  .large-event-logo.invert.mono .shield:after{background-color:#fff}
+  .large-event-logo.invert.mono .shield:before{display:none;}
+  .large-event-logo.invert.mono .shield img{filter:none; -webkit-filter:none;} 
+section{ margin: 1em auto;  padding-top:2em; width: 100%;}
+
+  
+  </style>
+  </head>
+<body>
+  <section>
+    
+<h1>
+  Large Event Name Drafting Document
+    </h1>    
+<blockquote>    
+Example only. See the  <a target="_blank" href="http://brand.redhat.com/logos/eventlogos/large-events/"> Large Event Logo Standards </a>
+    </blockquote>
+   
+        <h4>
+      Standard logo
+    </h4>
+    
+    <br />       
+<div class="container">
+  
+ 
+<div class="large-event-logo">
+   <div class="shield"> <img src="{{icon}}" /></div>
+  <h2 class="row"><small>red hat</small>{{{event-name}}}{{^event-name}}Event Name{{/event-name}}
+
+  </h2>
+</div>    
+  
+     </div>
+    <br /> <br /> 
+        <h4>
+      Wider Variation
+    </h4><br /> 
+<div class="large-event-logo" style="font-size:2.5vw; max-width:22em !important">
+   <div class="shield"> <img src="{{icon}}" /></div>
+  <h2 class="row"><small>red hat</small>{{{event-name}}}{{^event-name}}Event Name{{/event-name}}
+
+  </h2>
+</div>    
+    
+    <br />
+        <h4>
+      inverted Variations
+    </h4><br /> 
+    
+    <div class="container" style="font-size:2.5vw; background-color:#555; color:#fff; border:0; box-shadow:none; display:inline-block; width: 47%">
+<div class="large-event-logo invert" >
+   <div class="shield"> <img src="{{icon}}" /></div>
+  <h2 class="row"><small>red hat</small>{{{event-name}}}{{^event-name}}Event Name{{/event-name}}
+
+  </h2>
+</div>    
+    </div>
+    
+    
+    <div class="container" style="font-size:2.5vw; background-color:#000; color:#fff; border:0; box-shadow:none; display:inline-block; width: 47%">
+<div class="large-event-logo invert mono" >
+   <div class="shield"> <img src="{{icon}}" /></div>
+  <h2 class="row"><small>red hat</small>{{{event-name}}}{{^event-name}}Event Name{{/event-name}}
+
+  </h2>
+</div>    
+    </div>
+    
+    
+  </section>
+  
+</body>
+</html>
