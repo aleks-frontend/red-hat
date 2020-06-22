@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>General Collateral</title>
+    <meta charset="utf-8">
+    <!-- Red Hat Brand Font -->      
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.6.0/clipboard.min.js"></script>  
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>    
+    <script src="main.js"></script>
+   <script>
+    setInterval(() => {
+       injectHeading();
+     }, 1000);
+
+     function injectHeading() {
+       const src = document.querySelector('.js-heading-src');
+       const targets = document.querySelectorAll('.js-heading-target');
+
+       targets.forEach(target => {
+         // If no text is set for the Type, it will fallback to 'Checklist'
+         const output =  src.innerHTML;
+         target.innerHTML = output;
+       });
+     } 
+	</script>
+    <!-- STYLES FOR COPY CLIPBOARD -->
+    <style>
+          @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/stylesheet.css');
+          @import url('https://fonts.googleapis.com/css?family=Overpass+Mono:400,700');
+      
+      .hideOutfit {
+        display: none !important;
+      }
+
+      html, :root {
+        position: relative;
+        background: white;
+        font-size: 100%;
+        counter-reset: pagenumber;
+      }
+      body {
+        margin: 0 auto;
+        max-width: 1140px;
+        border: 1px dotted cyan;
+        padding: 1.5em;
+      }
+
+      .dynamic-content {
+        display: block;
+      }
+
+      .copy-overlay {
+        background: #eee;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+      }
+
+      .copy-content {
+        margin: 0 auto;
+        text-align: center;
+        background: #eee;
+        padding: 2em;
+      }
+
+      .copy-content div {
+        padding: 0 0 2em 0;
+      }
+
+      .btn-red {
+        background-color: #c00;
+        color: #fff;
+        display: inline-block;
+        border: none;
+        font-size: 1rem;
+        padding: 0.4rem 2rem;
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase;
+      }      
+
+      .page {
+        overflow: initial;
+        height: initial;
+        width: initial;
+      }
+
+      .mce-item-table tr:last-child td {
+        border: initial !important;
+        border-bottom: 1px solid var(--grey) !important;
+      }
+
+      .mce-item-table tr:first-child td, table tr:first-child td {
+        border: initial !important;
+        border-top: 1px solid var(--grey) !important;
+        border-bottom: 1px solid var(--grey) !important;
+        background-color: white;
+        color: var(--grey);
+      }
+
+      .mce-item-table td {
+        font-size: 1em;
+        line-height: 1.41;
+        font-weight: 500;
+        padding: 0.4em;
+        border: initial !important;
+        border-right: 1px solid white !important;
+        color: var(--grey);
+      }
+
+      .mce-item-table th {
+        font-size: 1.0625em;
+        line-height: 1.41em;
+        font-weight: 700;
+        text-align: left;
+        padding: 0.4em 0.4em 0.35em 0.4em;
+      }
+      
+      h1 {
+        font-size: 3.6rem;
+        text-transform: initial;
+      }
+
+      h2 {
+        font-size: 1.25rem;
+        text-transform: initial;
+      }
+
+      h3 {
+        font-size: 1.125rem;
+      }
+
+      h4 {
+        font-size: 1.0625rem;
+      }
+
+      h6 {
+        font-size: 1.0625rem;
+      }
+
+      p {
+        font-size: 1.15rem;
+      }
+      
+      .heading {
+        font-size: 3.6rem !important;
+        font-family: 'RedHatDisplay', sans-serif;
+        line-height: 1.25em;
+        font-weight: 500;
+        margin-bottom: 0.8em;
+        color: var(--red);
+        text-transform: initial;
+      }
+
+      .column h2 {
+        font-size: 2.05rem;
+      }
+
+      ul {
+        font-size: 1.0625rem;
+      }
+
+      .call-to-action {
+        font-size: 1.1rem;
+      }
+
+      .cta-text,
+      .cta-text p {
+        font-size: 1rem;
+      }
+
+      .p-med {
+        font-size: 1rem;
+      }
+
+      p.small {
+        font-size: 0.875rem;
+      }
+
+      .p-xsmall {
+        font-size: 0.75rem;
+      }
+      
+      ul li:before {
+        font-size: 1.4rem;
+      }
+      
+      ol {
+        font-size: 1.0625rem;
+      }
+      
+      ol li:before {
+        font-size: 0.7647rem;
+      }
+      
+      td {
+        font-size: 1.0625rem;
+      }
+      
+      th {
+        font-size: 1.0625rem;
+      }
+      
+      .img-container cite {
+        font-size: 0.875rem;
+      }
+      
+      .sidebar h1 {
+        font-size: 3rem;
+      }
+      
+      .sidebar p {
+        font-size: 1rem;
+      }
+      
+      .sidebar-quote h2 {
+        font-size: 1.375rem;
+      }
+      
+      .sidebar-quote p {
+        font-size: 0.75rem;
+      }
+      
+      .footnote {
+        font-size: 0.875rem;
+      }
+      
+      .footer-text p {
+        font-size: 0.975rem;
+      }
+      
+      .footer-text {
+        text-align: right;
+        width: 100%;
+        font-size: 0.8em;
+        font-weight: 600;
+        color: var(--grey);
+      }
+      
+      .about p {
+        font-size: 1rem;           
+      }
+      
+      .sidebar-quote h2 {
+        font-size: 1.375rem;
+      }
+      
+      .sidebar-quote p {
+        font-size: 0.75rem;
+      }
+      
+      .social-links a {
+        font-size: 0.93rem !important;
+      }
+      
+      .locations .text-block {
+        font-size: 0.95rem;
+      }
+      
+      .about h2 {
+        font-size: 1.1rem !important;
+      }
+      
+      .about p {
+        font-size: 0.95rem;
+      }
+      
+      .subheading {
+        line-height: 1.3em;
+        margin-bottom: 1em;
+        font-weight: 700;
+        letter-spacing: 0.015em;
+        font-size: 1.25rem !important;
+      }
+      
+      .redhatLogo img {
+        width: 18rem !important;
+      }
+
+    </style>   
+  </head>
+
+  <body class="">
+    <div class="js-exports"></div>
+
+    <div id="resource">
+      <div id="selections" class="dynamic-content">
+        <!-- Styles that need to be included on the Clipboard -->
+        <style> 
+          /*	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	*\
+          *
+          *
+          *	 	ALL STYLES IN THIS TEMPLATE ARE PREFIXED TO ENSURE NO STYLE CONFLICTS 
+          *		THIS IS BECAUSE THIS TEMPLATE CODE WILL END UP IN RED HAT DRUPAL CSM
+          *
+          *
+          *	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE	NOTE*/
+          /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */ /* Document ========================================================================== */ /** * 1. Correct the line height in all browsers. * 2. Prevent adjustments of font size after orientation changes in iOS. */ #selections html {line-height: 1.15; /* 1 */ -webkit-text-size-adjust: 100%; /* 2 */ } /* Sections ========================================================================== */ /** * Remove the margin in all browsers. */ #selections body {margin: 0; } /** * Correct the font size and margin on `h1` elements within `section` and * `article` contexts in Chrome, Firefox, and Safari. */ #selections h1 {margin: 0; } /* Grouping content ========================================================================== */ /** * 1. Add the correct box sizing in Firefox. * 2. Show the overflow in Edge and IE. */ #selections hr {box-sizing: content-box; /* 1 */ height: 0; /* 1 */ overflow: visible; /* 2 */ } /** * 1. Correct the inheritance and scaling of font size in all browsers. * 2. Correct the odd `em` font sizing in all browsers. */ #selections pre {font-family: monospace, monospace; /* 1 */ font-size: 1em; /* 2 */ } /* Text-level semantics ========================================================================== */ /** * Remove the gray background on active links in IE 10. */ #selections a {background-color: transparent; } /** * 1. Remove the bottom border in Chrome 57- * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari. */ #selections abbr[title] {border-bottom: none; /* 1 */ text-decoration: underline; /* 2 */ text-decoration: underline dotted; /* 2 */ } /** * 1. Correct the inheritance and scaling of font size in all browsers. * 2. Correct the odd `em` font sizing in all browsers. */ #selections code,  #selections kbd, #selections samp {font-family: monospace, monospace; /* 1 */ font-size: 1em; /* 2 */ } /** * Add the correct font size in all browsers. */ #selections small {font-size: 80%; } /** * Prevent `sub` and `sup` elements from affecting the line height in * all browsers. */ #selections sub, #selections sup {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; } #selections sub {bottom: -0.25em; } #selections sup {top: -0.5em; } /* Embedded content ========================================================================== */ /** * Remove the border on images inside links in IE 10. */ #selections img {border-style: none; } /* Forms ========================================================================== */ /** * 1. Change the font styles in all browsers. * 2. Remove the margin in Firefox and Safari. */  #selections button,  #selections input,  #selections optgroup, #selections select, #selections textarea {font-family: inherit; /* 1 */ font-size: 100%; /* 1 */ line-height: 1.15; /* 1 */ margin: 0; /* 2 */ } /** * Show the overflow in IE. * 1. Show the overflow in Edge. */ #selections button, #selections input { /* 1 */ overflow: visible; } /** * Remove the inheritance of text transform in Edge, Firefox, and IE. * 1. Remove the inheritance of text transform in Firefox. */ #selections button, #selections select { /* 1 */ text-transform: none; } /** * Correct the inability to style clickable types in iOS and Safari. */ #selections button, #selections [type="button"], #selections [type="reset"], #selections [type="submit"] {-webkit-appearance: button; } /** * Remove the inner border and padding in Firefox. */ #selections button::-moz-focus-inner, #selections [type="button"]::-moz-focus-inner, #selections [type="reset"]::-moz-focus-inner, #selections [type="submit"]::-moz-focus-inner {border-style: none; padding: 0; } /** * Restore the focus styles unset by the previous rule. */ #selections button:-moz-focusring, #selections [type="button"]:-moz-focusring, #selections [type="reset"]:-moz-focusring, #selections [type="submit"]:-moz-focusring {outline: 1px dotted ButtonText; } /** * Correct the padding in Firefox. */ #selections fieldset {padding: 0.35em 0.75em 0.625em; } /** * 1. Correct the text wrapping in Edge and IE. * 2. Correct the color inheritance from `fieldset` elements in IE. * 3. Remove the padding so developers are not caught out when they zero out *    `fieldset` elements in all browsers. */ #selections legend {box-sizing: border-box; /* 1 */ color: inherit; /* 2 */ display: table; /* 1 */ max-width: 100%; /* 1 */ padding: 0; /* 3 */ white-space: normal; /* 1 */ } /** * Add the correct vertical alignment in Chrome, Firefox, and Opera. */ #selections progress {vertical-align: baseline; } /** * Remove the default vertical scrollbar in IE 10+. */ #selections textarea {overflow: auto; } /** * 1. Add the correct box sizing in IE 10. * 2. Remove the padding in IE 10. */ #selections [type="checkbox"], #selections [type="radio"] {box-sizing: border-box; /* 1 */ padding: 0; /* 2 */ } /** * Correct the cursor style of increment and decrement buttons in Chrome. */ #selections [type="number"]::-webkit-inner-spin-button, #selections [type="number"]::-webkit-outer-spin-button {height: auto; } /** * 1. Correct the odd appearance in Chrome and Safari. * 2. Correct the outline style in Safari. */ #selections [type="search"] {-webkit-appearance: textfield; /* 1 */ outline-offset: -2px; /* 2 */ } /** * Remove the inner padding in Chrome and Safari on macOS. */ #selections [type="search"]::-webkit-search-decoration {-webkit-appearance: none; } /** * 1. Correct the inability to style clickable types in iOS and Safari. * 2. Change font properties to `inherit` in Safari. */ #selections ::-webkit-file-upload-button {-webkit-appearance: button; /* 1 */ font: inherit; /* 2 */ } /* Interactive ========================================================================== */ /* * Add the correct display in Edge, IE 10+, and Firefox. */ #selections details {display: block; } /* * Add the correct display in all browsers. */ #selections summary {display: list-item; } /* Misc ========================================================================== */ /** * Add the correct display in IE 10+. */  #selections template {display: none; } /** * Add the correct display in IE 10. */ #selections [hidden] {display: none; }
+
+          /** Base **/
+
+          :root {
+            --blue: #00a4e4;
+            --red: #ee0000;
+            --black: #000000;
+            --text-black: #231f20;
+            --grey: #58595b;
+            --light-grey: #e6e7e8;
+            --light-light-grey: #ededee;
+          }
+          
+          /** LOGO **/
+
+          #selections .redhatLogo {
+            font-size: 2.01rem;
+            margin: 0.8em 0;
+            display: flex;
+            width: 100%;
+            align-items: center;
+          }
+
+          #selections .redhatLogo img {
+            width: 28rem;
+          }
+
+          #selections .redhatLogo span {
+            font-size: 1.26rem;
+            line-height: 1em;
+            font-weight: 500;
+            margin-left: 2.2125em;
+            margin-top: -0.4em;
+            display: block;
+            color: black;
+            white-space: pre-wrap;
+          }
+
+          /** Headings **/
+
+          #selections h1,
+          #selections h2,
+          #selections h3,
+          #selections h4,
+          #selections h5,
+          #selections h6 {
+            font-family: 'RedHatDisplay', sans-serif;
+          }
+
+          #selections p,
+          #selections li,
+          #selections a,
+          #selections cite, 
+          #selections .footnote, 
+          #selections td, 
+          #selections th {
+            font-family: 'RedHatText', sans-serif;
+          }
+
+          #selections h1 {
+            font-family: 'RedHatDisplay', sans-serif;
+            line-height: 1.25em;
+            font-weight: 500;
+            margin-bottom: 0.8em;
+            color: var(--red);
+          }
+
+          #selections h2 {
+            line-height: 1.3em;
+            margin-bottom: 1em;
+            font-weight: 700;
+            letter-spacing: 0.015em;
+          }
+
+          #selections h3 {
+            line-height: 1.41em;
+            font-weight: 700;
+            margin-bottom: 0.51875em;
+          }
+
+          #selections h4 {
+            line-height: 1.2em;
+            margin-bottom: 0.51875em;
+            font-weight: 700;
+          }
+
+          #selections h6 {
+            line-height: 1.2em;
+            font-weight: 400;
+            margin-bottom: 0.75em;
+            font-family: 'Overpass Mono', monospace;
+          }
+
+          #selections a {
+            color: var(--blue);
+            text-decoration: none;
+          }
+          
+          #selections .footnote .js-heading-target {
+            color: var(--red);
+          }
+          
+          #selections .heading {
+            font-size: 5.9rem;
+            font-family: 'RedHatDisplay', sans-serif;
+            line-height: 1.25em;
+            font-weight: 500;
+            margin-bottom: 0.8em;
+            color: var(--red);
+          }
+          
+          #selections .subheading {
+        	line-height: 1.3em;
+        	margin-bottom: 1em;
+        	font-weight: 700;
+        	letter-spacing: 0.015em;
+        	font-size: 2.1rem;
+          }
+
+          /** Paragraph **/
+
+          #selections p {
+            line-height: 1.42em;
+            font-weight: 400;
+            margin-top: 0;
+            margin-bottom: 0.75em;
+            letter-spacing: 0.01em;
+          }
+
+          #selections .p-med {
+            line-height: 1.3em;
+          }
+
+          #selections p.small {
+            line-height: 1.2em;
+          }
+
+          #selections .p-xsmall {
+            line-height: 1.25;
+          }
+
+          #selections p:last-child {
+            margin: 0;
+          }
+
+          /** List UL **/
+
+          #selections ul {
+            font-weight: 400;
+            list-style: none;
+            margin: 0 0 0.75em 0;
+            padding: 0;
+          }
+
+          #selections ul li {
+            position: relative;
+            padding-left: 1em;
+            line-height: 1.43em;
+            font-weight: 400;
+            margin-top: 0;
+            margin-bottom: 0.93em;
+            letter-spacing: 0.02em;
+          }
+
+          #selections ul ul,
+          #selections ul li:not(:first-of-type) {
+            margin-top: 0.15em;
+          }
+
+          #selections ul li:before {
+            content: '•';
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+
+          #selections ul ul {
+            margin: 0.15em 0 0 1em;
+          }
+
+          #selections ul ul li {
+            padding-left: 1em;
+          }
+
+          /** List OL **/
+
+          #selections ol {
+            font-weight: 400;
+            list-style: none;
+            margin: 0 0 0.75em 0;
+            padding: 0;
+            counter-reset: ol;
+          }
+
+          #selections ol li {
+            position: relative;
+            padding-left: 1em;
+            line-height: 1.41em;
+            font-weight: 400;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+          }
+
+          #selections ol li ol,
+          #selections ol li:not(:first-of-type) {
+            margin-top: 0.15em;
+          }
+
+          #selections ol li:before {
+            content: '•';
+            position: absolute;
+            top: 0.03em;
+            left: 0;
+            font-weight: 700;
+            counter-increment: ol;
+            content: counters(ol, '.') '.';
+          }
+
+          #selections ol ol {
+            margin: 0.15em 0 0 1em;
+          }
+
+          #selections ol ol li {
+            padding-left: 1em;
+          }
+
+          /** Tables **/
+
+          #selections table {
+            width: 100%;
+            border-collapse: collapse;
+          }
+
+          #selections table tr:nth-child(odd) td {
+            background-color: var(--light-grey);
+          }
+
+          #selections table tr:last-child td {
+            border-bottom: 1px solid var(--grey);
+          }
+
+          #selections table tr:first-child th {
+            border-top: 1px solid var(--grey);
+            border-bottom: 1px solid var(--grey);
+            background-color: white;
+          }
+
+          #selections td {
+            line-height: 1.41em;
+            font-weight: 500;
+            padding: 0.4em;
+            border-right: 1px solid white;
+          }
+
+          #selections tr td:last-child {
+            border-right: initial;
+          }
+
+          #selections th {
+            line-height: 1.41em;
+            font-weight: 700;
+            text-align: left;
+            padding: 0.4em 0.4em 0.35em 0.4em;
+          }
+
+          /** Image Container **/
+
+          #selections .img-container img {
+            max-height: 700px;
+            max-width: 100%;
+            margin: 0 auto;
+            display: block;
+          }
+
+          #selections .img-container cite {
+            border-top: 1px solid var(--grey);
+            color: var(--grey);
+            padding-top: 0.875em;
+            margin-top: 0.7em;
+            line-height: 1.3em;
+            font-style: normal;
+            display: block;
+            width: 100%;
+            margin-bottom: 1.2em;
+          }
+
+          /** Sidebar **/
+
+          #selections .sidebar h1,
+          #selections .sidebar h2,
+          #selections .sidebar h3,
+          #selections .sidebar h4,
+          #selections .sidebar h5,
+          #selections .sidebar h6,
+          #selections .sidebar p {
+            text-align: right;
+            color: var(--grey);
+          }
+
+          #selections .sidebar-content {
+            margin-bottom: 1.2em;
+            margin-top: 0.8em;
+          }
+          
+          #selections .sidebar-content.show-keyline-visibility {
+            border-top: 1px solid var(--grey);
+            padding-top: 0.8em !important;
+          }
+
+          #selections .sidebar h1 {
+            line-height: 1.2em;
+            font-weight: 700;
+            margin-bottom: 0;
+          }
+
+          #selections .sidebar p {
+            line-height: 1.5em;
+          }
+
+          /**  FRONT PAGE FOOTER **/
+
+          #selections .footnote {
+            line-height: 1.71em;
+            color: var(--grey);
+            position: relative;
+          }
+
+          #selections .footnote:after {
+            content: attr(data-footnote-number);
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: 400;
+          }
+
+          #selections .footnote__container-checklist {
+            display: flex;
+            margin-top: 5em;
+          }
+          
+          #selections .footer-column:first-child {
+            flex: 25%;
+            text-align: right;
+            padding-right: 2em;
+          }
+          #selections .footer-column:first-child p {
+			font-weight: 500;
+          }
+          #selections .footer-column:last-child {
+            flex: 75%;
+            padding-left: 0.5em;
+          }
+          #selections .document-name {
+            display: inline-block;
+            margin-left: 0.75em;
+          }
+          
+
+          /********************************/
+          /* REFACTOR START 22/01/19 - LM */
+          /* Start STRUCTURE */
+          #selections {
+            box-sizing: border-box;
+            /*background: white;*/
+          }
+          #selections *, 
+          #selections *:before, 
+          #selections *:after {
+            box-sizing: inherit;
+          }
+
+          /* START GLOBAL STYLES */   
+          /* START SIDE BAR STYLES */
+          #selections .sidebar {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            padding: 0 0 1.5em;
+            color: #58595b;
+          }
+          #selections .sidebar-content {
+            padding-top: 1em;
+          }
+          #selections .sidebar-content:first-child {
+            padding-top: 0;
+          } 
+          
+          /* TITLE CONTENT */
+          #selections .title-content {
+            padding-bottom: 2.3em;
+            border-bottom: 1px solid #000;
+            margin-bottom: 2.75em;
+          }
+
+          /* MAIN CONTENT STYLES  */	
+          
+          #selections .page-checklist {
+            padding: 1.15em 0.6em;
+            font-family: 'Red Hat Text', sans-serif;
+          }
+
+          #selections .content-wrapper .guide {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: flex-start;
+          }
+          #selections .page-content {
+            display: flex;
+            flex-flow: column nowrap;
+          }
+          #selections .page-content-checklist {
+            flex: 1;
+          }
+
+          #selections .main-content {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            width: 100%;
+          }
+          
+          #selections .single-column {
+            padding: 2em 2em 1em;
+          }
+          
+          #selections .summary {
+            padding: 2rem 2rem;
+          }
+
+     /*     #selections .column:first-child {
+            padding-right: 3.2em;
+          }
+          #selections .column:last-child {
+            padding-left: 3.2em;
+          } */
+      	  
+          #selections .column h2 {
+            font-weight: 400;
+            margin-top: 0.2em;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5em;
+          }
+          #selections .column h2 strong {
+            font-weight: 600;
+            margin-right: 0.4em;
+          }
+          #selections .column h2:not(:first-child) {
+            margin-top: 1.25em;
+          }
+          
+          /* CTA CONTENT */
+          #selections .cta-column {
+            padding: 0.9rem 2rem;
+          }
+          
+          #selections .cta-content {
+            display: flex;
+            margin-top: 2.25em;
+          }
+          #selections .call-to-action {
+            display: block;
+            background: var(--red);
+            padding: 0.4em 0.75em;
+            font-weight: 600;
+            color: white;
+          }
+          #selections .cta-text {
+            padding: 0.5em;
+            font-family: 'RedHatText', sans-serif;
+          }
+
+          /* MEDIA QUERIES */
+     /*     @media (min-width: 768px) {
+            #selections .sidebar {
+              flex: 0 0 25%;
+              padding: 0 1.5em 0 0;          
+            }
+            /*#selections .page-content {
+              flex: 0 0 75%;
+            }*/
+      /*      #selections .content-wrapper .guide {
+              flex-flow: row nowrap;
+            }
+            #selections .sidebar ul,
+            #selections .sidebar ol {
+              padding: 0 0 0 1.6em;
+            }
+          }      */
+
+          /* JAMES UPDATES 29 MAR */
+          #selections h2 {
+            color: var(--red);
+          }
+
+          #selections h3, 
+          #selections h4,
+          #selections p, 
+          #selections li {
+            color: var(--text-black);
+          }
+          
+          #selections .js-heading-src {
+        	display: none;
+      	  }
+          
+          .header-content.hide {
+            display: none !important;
+          }        
+          
+          /* FARHAAN CO-BRAND IMAGE UPDATES 27 SEPT */
+          
+   
+          #selections .co-brandImage1 {
+            width: 5em;
+          }
+
+          #selections .co-brandImage1  img{
+            height: 100%;
+            width: 100%;
+          }
+
+          #selections .co-brandImage2 {
+            width: 5em;
+          }
+
+          #selections .co-brandImage2 img {
+            height: 100%;
+            width: 100%;
+          }
+		
+          #selections .vertical-line {
+            height: 9.2rem;
+            width: 0.1rem;
+            background-color: var(--grey);
+            /* margin-left: 0px; */
+            margin: 2.3rem 1.3rem;
+            border-radius: 2px;
+          }
+
+          #selections .brand-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-template-areas:
+              "brand-1 brand-2"
+              "brand-3 brand-4";
+            padding: 2.7rem 1rem 0.95rem 1rem;
+          }
+          
+          #selections .brand-link1 { 
+            grid-area: brand-1; 
+          }
+
+          #selections .brand-link2 { 
+            grid-area: brand-2;
+          }
+
+          #selections .brand-link3 { 
+            grid-area: brand-3; 
+          }
+
+          #selections .brand-link4 { 
+            grid-area: brand-4; 
+          }
+		
+          #selections .brand-link1 a, 
+          #selections .brand-link2 a,
+          #selections .brand-link3 a,
+          #selections .brand-link4 a,
+          #selections .cta-text a{
+            color: var(--blue);
+          }
+
+          #selections .building {
+            padding-bottom: 1.7rem;
+          }
+          
+          #selections .about-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+          }
+          
+          #selections .about {
+            border-bottom: 1px solid var(--grey);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+          }
+          
+          #selections .about-contain {
+            display: flex;
+          }
+          
+          #selections .locations-row {
+            display:flex;            
+          }
+
+          #selections .image-contain {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 0;
+          }
+          
+          #selections .column-pad {
+           padding: 0.9rem 2rem;
+          }
+          
+          #selections .split {
+            display: grid;
+            grid-template-columns: 50% 50%;
+          }
+          
+          #selections .column-position {
+            padding: 1rem;
+          }
+          
+          #selections .img-container  {
+            padding: 1rem;
+          }
+          
+          #selections .cta-columns {
+            padding: 0 0.9rem;
+          }
+          
+          #selections .main {
+            height: 100%;
+          }
+          
+          #selections .main.flex-row {
+            margin-top: 2em;
+          }
+          
+          #selections .flex-row {
+            display: flex;
+            flex-direction: row;
+            width: 100%
+          }
+          
+          #selections .flex-col {
+            display: flex;
+            flex-direction: column;
+          }
+          
+          #selections .sidebar-footer {
+            flex-grow: 1;
+            justify-content: flex-end;
+            margin-right: 1.95em;
+            text-align: right;
+            align-items: flex-end;
+          }
+          
+          #selections .building {
+            line-height: 1;
+            margin-bottom: 2.5em;
+          }
+          
+          #selections .building img {
+            width: 3.9em;
+            display: inline-block;
+          }
+          
+          #selections .main-content-footer {
+            widtH: 95%;
+          }
+          
+          #selections .about {
+            border-bottom: 1px solid var(--grey);
+            margin-bottom: 0.65em;
+          }
+          
+          #selections .about h2 {
+            font-weight: 600;
+            margin-bottom: 0.4em;
+            color: var(--grey);
+            letter-spacing: 0.035em;
+            font-size: 2.1rem;
+          }
+          
+          #selections .about p {
+            line-height: 1.2;
+          }
+          
+          #selections .about-text {
+            margin-bottom: 0.9em !important;
+          }
+        </style>
+        <div class="js-heading-src">{{{ type }}}</div>
+        {{#collection.RH_general-collateral--cs}}
+		        {{#block.RH_front-page--cs}}
+        <div class="cover-page page page-checklist"><!-- Start Cover Page -->
+          <div class="content-wrapper"><!-- Start Content-Wrapper -->
+            <div class="guide"><!-- Start Guide -->
+
+              <div class="page-content page-content-checklist js-height-calculator-container"><!-- Start Page-Content -->
+                
+                <div class="title-content"><!-- Start Title-Content -->
+                  {{#collection.RH_title-content--cs}}
+                  {{#block.RH_title-section--cs}}
+                  <h2 class="subheading">{{{ sub-heading }}}</h2>
+                  <p class="introduction">{{{ intro-text }}}</p>
+                  {{/block.RH_title-section--cs}}
+                  {{/collection.RH_title-content--cs}}
+                </div><!--End Title-Content -->
+                
+                
+                <!-- edited collection Farhaan -->
+                
+                <div class="main"><!-- Start Main -->
+                  <div class="main-content js-height-calculator-target">
+                    {{#collection.RH_mainContent-1}}
+                    {{#block.main-content--gc-1}}
+                    <div class="content-rich column column-position">
+                      {{{ RH_checklist-main-content--gc-1 }}}
+                    </div>
+                    {{/block.main-content--gc-1}}
+                    {{ #block.image-section-1 }}
+                    <div class="img-container column">
+                      {{#image1}}
+                      <img src="{{{ image1 }}}" alt="image container" />
+                      <cite>
+                        {{{ caption1 }}}
+                      </cite>
+                      {{/image1}}
+
+                      {{{ RH_image-section-content--gc-1 }}}
+                    </div>
+                    {{ /block.image-section-1 }}
+                    {{/collection.RH_mainContent-1}}
+                  </div><!-- end data-max-height -->
+                </div> <!-- End Main -->  
+               
+
+                <!-- end -->
+				
+                {{#collection.RH_footnotes--cs.length}}
+                <div class="footnote__container-checklist">
+                  {{#collection.RH_footnotes--cs}}
+                  {{ #RH_footnote--cs }}
+                  <div class="footnote footer-column">
+                    {{{ RH_footnote--cs }}}
+                  </div><!-- end innerFootnote -->
+                  <div class="footnote footer-column" data-footnote-number="{{footnote-number}}">
+                    <span class="js-heading-target"></span>
+                    <span class="document-name">{{{ RH_document-name--cs }}}</span>
+                  </div><!-- end innerFootnote -->
+                   {{ /RH_footnote--cs }}
+                  {{/collection.RH_footnotes--cs}}
+                </div><!-- end footnote__container-checklist -->
+                {{/collection.RH_footnotes--cs.length}}
+               
+
+              </div><!-- End page-content-->
+            </div><!-- End Guide -->
+          </div><!-- End Content-Wrapper -->
+        </div><!-- END COVER PAGE --> 
+        {{/block.RH_front-page--cs}}
+        {{#block.RH_internal-page--cs}}
+        <!-- Start Internal Page -->
+        <div class="page internal-page">
+          <div class="content-wrapper">
+            <div class="guide">
+              <div class="page-content page-content-checklist js-height-calculator-container">
+                <!-- Edited collection Farhaan -->
+                
+                {{#collection.RH_textBlockRow}}
+                {{#block.RH_two-text-blocks}}  
+                <div class="main">
+                  <div class="main-content js-height-calculator-target">
+                    <div class="content-rich column column-pad">
+                      {{{ RH_checklist-main-content--gc }}}
+                    </div>                                     
+                    <div class="content-rich column column-pad second-column">
+                      {{{ RH_checklist-main-content1--gc }}}
+                    </div>      
+                  </div>
+                </div>
+                {{/block.RH_two-text-blocks}}
+                {{/collection.RH_textBlockRow}}
+                <!-- End Collection -->
+                
+                <!-- Edited Summary collection  -->              
+                {{#collection.RH_summaryBlockRow}}
+                {{#block.RH_two-text-blocks}}  
+                <div class="main">
+                  <div class="summary js-height-calculator-target">
+                    {{{ RH_checklist-main-content--gc }}}                                      
+                  </div>
+                </div>
+                {{/block.RH_two-text-blocks}}
+                {{/collection.RH_summaryBlockRow}}
+                <!-- End Summary Collection -->
+                
+                
+                <div class="cta-content split">
+                  {{#collection.RH_ctaContent}}
+                  {{#block.cta-content--gc}}
+                  <div class="column cta-column">
+                    <a class="call-to-action" href="{{{ RH_call-to-action-url--gc }}}">{{{ RH_call-to-action--gc }}}{{^RH_call-to-action--gc}}Call to action{{/RH_call-to-action--gc}}</a>
+                    <div class="cta-text"> {{{RH_call-to-action-description--gc}}} </div>
+                  </div>
+                  {{/block.cta-content--gc}}
+                  {{/collection.RH_ctaContent}}
+                </div><!--End cta-content-->
+
+                {{#collection.RH_hyperlink-block}}
+                {{#block.hyperlink--block}}
+                <div class="brand-grid">
+                  <div class="brand-link1">
+                    {{{ RH_brandLink1--cs }}}                      
+                  </div>
+                  <div class="brand-link2">
+                    {{{ RH_brandLink2--cs }}}                      
+                  </div>
+                  <div class="brand-link3">
+                    {{{ RH_brandLink3--cs }}}                      
+                  </div>
+                  <div class="brand-link4">
+                    {{{ RH_brandLink4--cs }}}                      
+                  </div>
+                </div>
+                {{/block.hyperlink--block}}
+                {{/collection.RH_hyperlink-block}}
+                
+              </div><!--page-content-->
+            </div><!-- End Guide -->
+          </div><!--content-wrapper-->       
+        </div><!-- End Page -->
+        {{/block.RH_internal-page--cs}}
+        {{/collection.RH_general-collateral--cs}}
+      </div><!-- End SELECTIONS -->
+    </div><!-- End RESOURCE -->
+  </body>
+</html>
