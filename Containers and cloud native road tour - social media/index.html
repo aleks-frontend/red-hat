@@ -1,0 +1,110 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  {{{account.snippets.design-system-link}}}
+<style>  
+	html {
+      }
+	body {
+  	margin: 0;
+  	padding: 0;
+  	overflow-x: hidden;
+  	overflow-y: hidden;
+  	height: 100vh;
+  	top: 0;
+  	right: 0;
+  	bottom: 0;
+  	left: 0;
+  	position: absolute;
+  	max-width: 100vw; 
+    font-size: 100%;
+	font-family: 'Red Hat Display', sans-serif !important;
+  	-webkit-font-smoothing: antialiased;
+  	line-height: 1.4;
+  	}
+
+    #content {
+     position: absolute;
+     width: 1510px;
+     height: 640px;
+     border: 0px solid #000000;
+     margin: 324px 0 0 95px;
+    }
+
+    #headline {
+     color: #004153;
+     font-size: 98px;
+     font-weight: 900;
+     letter-spacing: 2.5px;
+     line-height: 115%;
+     margin-left: 130px;
+     padding-top: 0px;
+     border: 0px solid #000000;
+    }
+
+    #subheading {
+     position: fixed;
+     color: #000;
+     font-size: 50px;
+     letter-spacing: .5px;
+     padding: 5px;
+     line-height: 110%;
+     margin-top: 72px;
+     border: 0px solid #000000;
+     margin-left: 130px;
+    }
+
+	#call-to-action {
+    position: relative;
+    margin-top: 395px;
+	width: 370px;
+    height: 95px;
+  	font-size: 36px;
+  	color: #fff;
+    background-color: #EE0000;
+  	text-decoration: none;
+    border: 0px solid #000000;
+    margin-left: 130px;
+    font-weight: 900 !important;
+	}
+  
+	.cta-text {
+	margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+	}
+  
+@media (aspect-ratio: 2400/1260) {
+  body {
+   background-image: url("{{{container-roadshow-background-fb}}} {{^container-roadshow-background-fb}} https://files.outfit.io/media_library_items/126907/outfit-linkedin-and-facebook-2400x1260.png {{/container-roadshow-background-fb}}");
+  }
+}
+</style>
+  
+
+</head>
+
+  <body>
+		<div class="outer">
+  			<div class="middle">
+    			<div class="inner">
+ 					<div id="content">
+                    	<div id="headline" class="bold">{{headline-containers-road-tour}} {{^headline-containers-road-tour}}Containers & Cloud-native Road Tour{{/headline-containers-road-tour}}</div>
+  						<div id="subheading">{{subheading-containers-road-tour}}</div>
+
+                 {{#call-to-action}}
+              <div id="call-to-action">
+        		<span class="cta-text">{{{call-to-action}}}</span>
+			  </div>
+	            {{/call-to-action}}
+
+				</div>
+  			 </div>  
+          </div>
+		</div>   
+	</body>
+</html>
