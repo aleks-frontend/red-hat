@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html data-sign="OSB">
+  <head>
+    <title>Template title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/minireset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/placeholder-controller.css">
+
+    <style>
+      @import url('https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/redhat-webfonts.css');
+
+      :root {
+        --white: {{{account.colors.primary-white}}};
+        --black: {{{account.colors.primary-black-text}}};
+      }
+
+      html {
+        font-family: "Red Hat Display";
+        font-size: 10px;
+        color: var(--white);
+        word-break: break-word;
+      }
+
+      .backgroundImage {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        overflow: hidden;
+      }
+
+      .backgroundImage div {
+        width: auto !important;
+        height: auto !important;
+        right: 0;
+        bottom: 0;
+      }      
+
+      /* Helper classes */
+      .u-hide { display: none; }
+
+      /* Helper class for fixing Reposition tool bug */
+      .reposition-fix {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;        
+      }
+
+      .reposition-fix div {
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .fit {
+        top: 3mm;
+        left: 3mm;
+        bottom: 3mm;
+        right: 3mm;
+        display: flex;
+        flex-direction: column;
+        padding: 1.15rem 1rem 1.17rem 11.3rem;
+      }
+
+      .theme--grey .fit {
+        color: var(--black);
+      }
+
+      .layoutSize--twitter .fit { padding: 0.85rem 1.8rem 0.87rem 9.6rem; }
+      .layoutSize--instagram .fit { padding: 1.58rem 1rem 1.17rem 7.2rem; }
+
+      .backgroundImage {
+        background: url('https://files.outfit.io/media_library_items/112307/RedHorizontalFacebook.png') center no-repeat;
+        background-size: cover;
+      }
+
+      .layoutSize--twitter .backgroundImage { background-image: url('https://files.outfit.io/media_library_items/112305/RedHorizontalTwitter.png'); }
+      .layoutSize--instagram .backgroundImage { background-image: url('https://files.outfit.io/media_library_items/112306/RedHorizontalInstagram.png'); }
+      .theme--grey .backgroundImage { background-image: url('https://files.outfit.io/media_library_items/112309/GreyHorizontalFacebook.png'); }
+      .theme--grey.layoutSize--twitter .backgroundImage { background-image: url('https://files.outfit.io/media_library_items/112308/GreyHorizontalTwitter.png'); }
+      .theme--grey.layoutSize--instagram .backgroundImage { background-image: url('https://files.outfit.io/media_library_items/112310/GreyHorizontalInstagram.png'); }
+
+      .header { 
+        position: relative; 
+        margin-bottom: 0.1rem;
+      }
+
+      .layoutSize--twitter .header { margin-bottom: 0;}
+      .layoutSize--instagram .header { margin-bottom: 0.28rem; }
+
+      .logo {
+        display: none;
+        width: 4.35rem; 
+      }
+
+      .theme--red .logo--primary,
+      .theme--grey .logo--secondary  {
+        display: block;
+      }
+
+      .layoutSize--twitter .logo { width: 4.25rem; }
+      .layoutSize--instagram .logo { width: 3.95rem; }
+
+      .body {
+        position: relative; 
+        flex: 1;
+      }
+
+      .label {
+        margin-bottom: 0.2rem;
+        font-size: 0.515rem;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .layoutSize--twitter .label { font-size: 0.5rem;}
+      .layoutSize--instagram .label { font-size: 0.467rem; }
+
+      .location { 
+        max-height: 1rem;
+        font-size: 0.575rem;
+        text-transform: uppercase;
+      }
+
+      .layoutSize--twitter .location { font-size: 0.55rem; }
+
+      .layoutSize--instagram .location { 
+        max-height: 1.9rem;
+        font-size: 0.515rem;
+      }
+
+      .speaker { 
+        display: flex;
+        margin-top: 1.05rem;
+      }
+
+      .layoutSize--twitter .speaker { margin-top: 1.1rem; }
+
+      .layoutSize--instagram .speaker {
+        flex-direction: column;
+        margin-top: 0.45rem;
+      }
+
+      .speaker__image {
+        position: relative;
+        margin-right: 0.56rem;
+        align-self: flex-start;
+        width: 3.4rem;
+        height: 3.4rem;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+
+      .layoutSize--twitter .speaker__image {    
+        margin-right: 0.5rem;
+        width: 3.3rem; 
+        height: 3.3rem; 
+      }
+
+      .layoutSize--instagram .speaker__image { 
+        margin-bottom: 0.38rem;
+        width: 3.05rem; 
+        height: 3.05rem; 
+      }
+
+      .speaker__headline {
+        margin-top: 0.04rem;
+        margin-bottom: 0.46rem;
+        font-size: 0.91rem;
+        line-height: 1.33em;
+        text-transform: uppercase;
+      }
+
+      .layoutSize--twitter .speaker__headline {
+        font-size: 0.88rem;
+      }
+
+      .layoutSize--instagram .speaker__headline {
+        margin-bottom: 0.1rem;
+        font-size: 0.83rem;
+        line-height: 1.33em;
+      }
+
+      .speaker__designation { 
+        max-height: 1.8rem;
+        font-size: 0.57rem;
+        line-height: 1.35em;
+      }
+
+      .layoutSize--twitter .speaker__designation {  font-size: 0.545rem; }
+
+      .layoutSize--instagram .speaker__designation {
+        max-height: 2.5rem;
+        font-size: 0.52rem;
+        line-height: 1.35em;
+      }
+
+      .footer { position: relative; }
+
+      .social { font-size: 0.47rem; }
+
+      .layoutSize--twitter .social,
+      .layoutSize--instagram .social { 
+        font-size: 0.45rem;
+      }
+
+      /* ANY OTHER STYLES THAT NEED MUSTACHE.JS CAPABILITIES */
+    </style>
+  </head>
+  <body style="background: white" class="u-placeholder-{{ placeholder-toggle-new }}{{^placeholder-toggle-new}}hide{{/placeholder-toggle-new}}
+                                         theme--{{RH_theme--pis}}{{^RH_theme--pis}}red{{/RH_theme--pis}}
+                                         layoutSize--{{RH_layout-size--pis}}{{^RH_layout-size--pis}}facebook{{/RH_layout-size--pis}}
+                                         " data-crop="{{show-crop}}">
+    <div class="placeholderMaster" data-opacity="{{ placeholder-opacity }}">
+      <div class="placeholderMaster__item" data-bg="{{ placeholder-image-1 }}"></div>
+    </div><!-- end placeholderMaster -->
+    <div class="page">
+
+      <div class="bleed">
+
+        <div class="container fit">
+          <div class="backgroundImage"> </div> <!-- backgroundImage -->
+          <div class="header"> 
+            <img src="{{{account.logos.mono-white-2019}}}" alt="" class="logo logo--primary"><!--logo-->
+            <img src="{{{account.logos.primary-black-2019}}}" alt="" class="logo logo--secondary"><!--logo-->
+          </div> <!-- header -->
+          <div class="body">
+            <div class="label">red hat forum</div> <!-- label -->
+            {{#RH_location-and-date--pis}} <div class="location" data-max-height="css"> {{{RH_location-and-date--pis}}} </div> <!-- location --> {{/RH_location-and-date--pis}}
+            <div class="speaker"> 
+              {{#RH_speaker-image--pis}}  <div class="speaker__image"> <div class="reposition-fix">{{{RH_speaker-image--pis}}}</div> <!-- reposition-fix --> </div> <!-- speaker__image --> {{/RH_speaker-image--pis}}
+              <div class="speaker__content"> 
+                {{#RH_spleaker-headline--pis}}<div class="speaker__headline" data-max-line="3">{{{RH_spleaker-headline--pis}}}</div> <!-- speaker__headline --> {{/RH_spleaker-headline--pis}}
+                {{#RH_speaker-designation--pis}}<div class="speaker__designation" data-max-height="css">{{{RH_speaker-designation--pis}}}</div> <!-- speaker__designation --> {{/RH_speaker-designation--pis}}
+              </div> <!-- speaker__content -->
+            </div> <!-- speaker -->
+          </div> <!-- body -->
+          <div class="footer">
+            <div class="social">#RedHatForum</div> <!-- social -->
+          </div> <!-- footer -->
+        </div><!--container fit-->
+
+      </div><!--bleed-->
+
+    </div><!--page-->
+
+
+    <script>
+      window.showCrop = {{show-crop}}{{^show-crop}}true{{/show-crop}};
+    </script>
+    <script src="js/main.js"></script>   
+    <script src="js/prefixfree.js"></script>
+    <script src="js/placeholder-controller.js"></script>
+    <script src="js/char-limit.js"></script>
+    <script src="js/check-export-mode.js"></script>
+    <script src="js/max-line-check.js"></script>
+    <script src="js/max-height-check.js"></script>
+    <script src="js/hide-empty-titles.js"></script>
+    <script src="js/dynamic-inject.js"></script>
+    <script src="https://outfit-assets-production.s3-accelerate.amazonaws.com/scripts/textfit.0.0.4.min.js" type="text/javascript"></script>
+    <script>
+
+      // Tracking text changes and firing text restriction functions (mutationObserver)
+      const overflowObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          maxLineCheck();
+          maxHeightCheck();
+          charLimit();
+          hideEmptyTitles();
+        });
+      });
+
+      const injectObserver = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          injectDynamicContent();
+        });
+      });      
+
+      const injectSources = document.querySelectorAll('[data-target-id]');
+
+      overflowObserver.observe(document.body, {
+        attributes: false,
+        characterData: true,
+        childList: true,
+        subtree: true,
+        attributeOldValue: false,
+        characterDataOldValue: true
+      });
+
+      if ( injectSources.length > 0 ) {
+        injectSources.forEach(src => {
+          injectObserver.observe(src, {
+            attributes: false,
+            characterData: true,
+            childList: true,
+            subtree: true,
+            attributeOldValue: false,
+            characterDataOldValue: true
+          });            
+        });
+      }    
+
+      // Calling text size restriction functions once the fonts are loaded
+      document.fonts.ready.then(() => {
+        maxLineCheck();
+        maxHeightCheck();
+        injectDynamicContent();
+        hideEmptyTitles();
+      });
+
+      placeholderController();
+      checkCrop();
+      checkExport();
+      charLimit();
+
+      // TextFit function decreases the font of the selected element to make it fit in single line (if needed, uncomment the code bellow)
+      TextFit.fit({
+        selector: '.textFit'
+      });
+
+      function detectSystem() {
+        const isMac = window.navigator.appVersion.includes('Mac');
+        if ( isMac ) document.body.classList.add('is-mac');
+      }
+
+      detectSystem();
+
+    </script>
+
+
+  </body>
+</html>
