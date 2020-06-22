@@ -1,0 +1,152 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+<style>@import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+
+  body{background-color: white; font-family: Overpass,sans-serif;  color: #234; padding: 2vw 0vw; text-align:center}
+  blockquote{    font-size:.7em; margin:0;margin-bottom:5em; }
+  a{text-decoration: none; color:#4e9fdd}
+  @import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+  h1{color:#c00; text-transform: uppercase; font-size: .75em; font-weight: 900; margin-top:1em; margin-bottom:0}
+  h4{  font-family: Overpass,sans-serif; font-size: 1vw; color:#bbdde7; text-align:center; text-transform: uppercase; margin-bottom:0}
+  p{font-size:1vw; color:#ccc; margin-bottom:0; margin-top:0} 
+  div {
+
+  font-family: Overpass,sans-serif;
+  line-height: .85em;
+  text-transform: uppercase;
+  min-height: 3em;
+ margin: 1em 0vw;margin-top:.15em; margin-bottom:.5em;
+  font-size: 5vw;
+    display:inline-block;
+    text-align:left;
+   border: .05em solid #bbdde7;
+    padding: 3vw;
+}
+div b {
+      -webkit-text-stroke: .02em currentcolor;
+  text-indent: .1em;
+  letter-spacing: .03em;
+  line-height: .75em;
+  white-space: nowrap;
+  font-size: .6666em;
+  font-weight: 900;
+  position: relative;
+  display: inline-block;
+  width: auto;
+}
+div b small {
+  
+        -webkit-text-stroke: 0 !important;
+  position: absolute;
+  right: -1em;
+  top: -.1em;
+  font-weight: 400;
+  font-size: .8vw;
+  line-height: 1em;
+  vertical-align: top;
+  display: inline-block;
+}
+div span {
+  font-weight: 400;
+  letter-spacing: -.01em;  white-space:nowrap;
+  position: relative;
+      padding-top: 0.05em;
+}
+div span small {
+  top: -.1em;
+  font-weight: 400;
+  font-size: .8vw;
+  line-height: 1em;
+  vertical-align: top;
+  display: inline-block;
+}
+
+  
+  .smaller{
+    transform: scale(.7);
+    transform-origin: 50% 0;
+    
+  }
+
+  .variant{display:block; font-weight: 600; font-size: .5em; text-transform: initial; margin-top:-.4em; text-indent:.1em;}
+
+section{ margin: 1em auto;  padding-top:2em; width: 100%;}
+
+  
+  </style>
+  </head>
+<body>
+  <section>
+    
+<h1>
+  Product Name Drafting Document
+    </h1>    
+<blockquote>    
+Example only. See the  <a target="_blank" href="http://brand.redhat.com/logos/productlogos/">Product Logo Standards </a>
+    </blockquote>
+   
+        <h4>
+      Standard logo
+    </h4>
+
+
+ <div class="rh-product" style="margin-botom:2em;">
+   <b>{{#brand-parent}}{{{brand-parent}}}<small>&reg;</small>{{/brand-parent}}
+    {{^brand-parent}}Red Hat<small>&reg;</small>{{/brand-parent}}</b>
+   <b>{{#brand-parent-compliment}} {{brand-parent-compliment}}<small>&reg;</small>{{/brand-parent-compliment}}</b>&nbsp;<br />
+   {{#brand-product}}<span>{{{brand-product}}}<small>&reg;</small></span>{{/brand-product}}
+  <span>{{{brand-extension}}}</span>
+   {{#brand-variant}}<span class="variant">{{{brand-variant}}}</span>{{/brand-variant}}
+</div>
+    
+
+    <h4>
+      Stacked logo
+    </h4>
+    
+    
+ <div class="rh-product smaller" style="max-width: 62vw">
+   <b>{{#brand-parent}}{{{brand-parent}}}<small>&reg;</small>{{/brand-parent}}
+    {{^brand-parent}}Red Hat<small>&reg;</small>{{/brand-parent}}</b>
+   <b>{{#brand-parent-compliment}} {{brand-parent-compliment}}<small>&reg;</small>{{/brand-parent-compliment}}</b>&nbsp;<br />
+   {{#brand-product}}<span style="white-space:normal">{{{brand-product}}}<small>&reg;</small></span>{{/brand-product}}
+  <span style="white-space:normal">{{{brand-extension}}}</span>
+   {{#brand-variant}}<span class="variant">{{{brand-variant}}}</span>{{/brand-variant}}
+</div>
+        
+
+    
+                <h4> Stacked tighter </h4>
+
+    
+ <div class="rh-product smaller" style="max-width: 32vw">
+   <b>{{#brand-parent}}{{brand-parent}}<small>&reg;</small>{{/brand-parent}}
+    {{^brand-parent}}Red Hat<small>&reg;</small>{{/brand-parent}}</b>
+   <b>{{#brand-parent-compliment}} {{brand-parent-compliment}}<small>&reg;</small>{{/brand-parent-compliment}}</b><br />
+   {{#brand-product}}<span style="white-space:normal">{{{brand-product}}}<small>&reg;</small></span>{{/brand-product}}
+  <span style="white-space:normal">{{{brand-extension}}}</span>
+   {{#brand-variant}}<span class="variant">{{{brand-variant}}}</span>{{/brand-variant}}
+</div>
+    
+
+                <h4> In-product one line logo </h4>
+    <p>
+      Only used in product interfaces, this one-line treatment fits the specific constraints of the RCUE system.
+    </p>
+
+        
+ <div class="rh-product smaller uxline" style="min-height:1em; width: 95vw; white-space: nowrap;padding: 3vw;  color: white; border:0; background-color:#444; background: linear-gradient(0deg, #222, #555);">
+   <b style=" -webkit-text-stroke: 0;">{{#brand-parent}}{{brand-parent}}<small>&reg;</small>{{/brand-parent}}
+    {{^brand-parent}}Red Hat<small>&reg;</small>{{/brand-parent}}</b>  
+   {{#brand-parent-compliment}}<b style=" -webkit-text-stroke: 0;">{{brand-parent-compliment}}<small>&reg;</small></b>{{/brand-parent-compliment}} <span style="  font-size: .6666em; font-weight: 600;"> {{{brand-product}}}   {{#brand-product}}
+<small style="line-height:4.15em">&reg;</small>{{/brand-product}}</span>
+  <span style="  font-size: .6666em;; font-weight: 600;"> {{{brand-extension}}}</span>
+</div>
+
+
+  </section>
+  
+</body>
+</html>
