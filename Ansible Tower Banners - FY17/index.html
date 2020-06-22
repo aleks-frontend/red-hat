@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="assets/stylesheets/main.css">
+
+<style type="text/css">
+
+.banner-image{
+    background-image: url("{{{background-image}}}");
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position-x: {{background-position-x}};
+	background-position-y: {{background-position-y}};
+    background-size: {{background-image-width}} {{background-image-height}};
+}
+  
+</style>
+    
+</head>
+
+<body>
+
+<div id="banner" class="{{#ansible-tower-banner-theme}}{{{ansible-tower-banner-theme}}}{{/ansible-tower-banner-theme}}{{^ansible-tower-banner-theme}}teal{{/ansible-tower-banner-theme}}">
+	<div class="banner-image"></div>
+	<div class="gradient-overlay"></div>
+	
+	<div id="content-wrapper">
+		<div id="content">
+			<div id="logo">
+				{{#logo}}
+              		<img src="{{{logo}}}" width="{{{logo-width}}}" height="{{{logo-height}}}" />
+              	{{/logo}}
+                {{^logo}}
+              		<img src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/1c947fd44d167c01f13e1dc70c53191b/ansible-tower-red-mark.svg
+" width="140" height="52" />
+                {{/logo}}
+			</div>
+			<div class="message">
+				<h1>{{#headline}}{{{headline}}}{{/headline}}</h1>
+				<h2>{{#sub-headline}}{{{sub-headline}}}{{/sub-headline}}</h2>
+			</div>
+			<div class="cta">
+				{{#call-to-action}}<a href="{{{call-to-action-url}}}" class="btn">{{{call-to-action}}}</a>{{/call-to-action}}
+			</div>
+          
+			{{#artwork-image}}
+				<div id="artwork">
+              		<img src="{{{artwork-image}}}" width="{{{artwork-image-width}}}" height="{{{artwork-image-height}}}" />
+				</div>
+            {{/artwork-image}}
+		</div>
+	</div>
+	
+</div>
+
+</body>
+</html>
