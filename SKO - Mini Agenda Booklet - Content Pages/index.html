@@ -1,0 +1,279 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="assets/stylesheets/main.css">
+  <style type="text/css">
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+</head>
+  
+<body class="{{crop-bleed}} {{sko-color-theme}}-theme {{^sko-color-theme}}silver-theme{{/sko-color-theme}}">
+  
+  <script type="text/html" class="other-content-front">
+  {{#collection.sko-agenda-pages-front}}
+    <div class="page">
+      <div class="document"> 
+        {{#block.text-page-front}}
+          <div class="content">
+              {{#text-headline}}
+               <h1 style="font-size: {{headline-font-size}}em;">{{{text-headline}}}</h1>
+              {{/text-headline}}
+              {{#text-page-body-content}}
+                <div>
+                  {{{text-page-body-content}}}
+                </div>
+              {{/text-page-body-content}}
+          </div><!--content-->
+        {{/block.text-page-front}}
+       
+       {{#block.list-page-front}}
+         <div class="content">
+            {{#list-headline}}
+              <h1 style="font-size: {{headline-font-size}}em;">{{{list-headline}}}</h1>
+            {{/list-headline}}
+            <div class="list-container">
+             {{#collection.list-page-list}}
+              <div class="list-row">
+                <div class="list-bg" style="background-image: url({{list-row-background-image}});"></div>
+                <div class="list-content">
+                  <h2>{{{title}}}</h2>
+                  {{#list-body-content}}
+                  <div>
+                    {{{list-body-content}}}
+                  </div>
+                  {{/list-body-content}}
+                </div>
+              </div>
+             {{/collection.list-page-list}} 
+            </div>
+         </div><!--content-->
+       {{/block.list-page-front}}
+       
+      </div><!--document-->
+      
+        <div class="crop top-left">
+          <div class="bottom"></div>
+          <div class="right"></div>
+        </div>
+        <div class="crop top-right">
+          <div class="bottom"></div>
+          <div class="left"></div>
+        </div>
+        <div class="crop bottom-right">
+          <div class="top"></div>
+          <div class="left"></div>
+        </div>
+        <div class="crop bottom-left">
+          <div class="top"></div>
+          <div class="right"></div>
+        </div>
+      
+        <div class="crop fold-top">
+          <div class="left"></div>
+          <div class="right"></div>
+        </div>
+      
+        <div class="crop fold-bottom">
+          <div class="left"></div>
+          <div class="right"></div>
+        </div>
+    </div><!--page-->
+     {{/collection.sko-agenda-pages-front}}
+  </script>   
+
+  {{#collection.agenda-day}}
+  <script type="text/html" class="day-template">
+    <div class="day-header">
+      <h1>{{{agenda-title}}}</h1>
+      <h2>{{{agenda-day-title}}}</h2>
+    </div>   
+    {{#spreadsheet.agenda-times}}
+    <div class="row {{time-type}} {{column-break}}">
+      {{#start-time}}<div class="time"><b>{{start-time}}</b><br>{{end-time}}</div>{{/start-time}}
+      <div class="agenda-details">
+        <div class="talk-topic">{{session-title}}</div>
+        <div class="speaker">{{speaker-name}}</div>
+      </div>
+    </div>
+    {{/spreadsheet.agenda-times}}
+  </script>
+  {{/collection.agenda-day}}
+  
+  
+  <script type="text/html" class="other-content-back">
+  {{#collection.sko-agenda-pages-back}}
+    <div class="page">
+      <div class="document"> 
+        {{#block.blank-page}}
+          <div class="content"></div><!--content-->
+        {{/block.blank-page}}
+       
+        {{#block.text-page}}
+          <div class="content">
+              {{#text-headline}}
+               <h1 style="font-size: {{headline-font-size}}em;">{{{text-headline}}}</h1>
+              {{/text-headline}}
+              {{#text-page-body-content}}
+                <div>
+                  {{{text-page-body-content}}}
+                </div>
+              {{/text-page-body-content}}
+          </div><!--content-->
+        {{/block.text-page}}
+        
+        {{#block.notes-page}}
+        <div class="content">
+          {{#notes-headline}}
+          	<h1 style="font-size: {{headline-font-size}}em;">{{{notes-headline}}}</h1>
+          {{/notes-headline}}
+          <div class="notes-lines-container">
+           <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+          </div>
+          </div><!--content-->
+       {{/block.notes-page}}
+       
+       {{#block.list-page}}
+         <div class="content">
+            {{#list-headline}}
+              <h1 style="font-size: {{headline-font-size}}em;">{{{list-headline}}}</h1>
+            {{/list-headline}}
+            <div class="list-container">
+             {{#collection.list-page-list}}
+              <div class="list-row">
+                <div class="list-bg" style="background-image: url({{list-row-background-image}});"></div>
+                <div class="list-content">
+                  <h2>{{{title}}}</h2>
+                  {{#list-body-content}}
+                  <div class="body-content">
+                    {{{list-body-content}}}
+                  </div>
+                  {{/list-body-content}}
+                </div>
+              </div>
+             {{/collection.list-page-list}} 
+            </div>
+         </div><!--content-->
+       {{/block.list-page}}
+       
+      </div><!--document-->
+      
+        <div class="crop top-left">
+          <div class="bottom"></div>
+          <div class="right"></div>
+        </div>
+        <div class="crop top-right">
+          <div class="bottom"></div>
+          <div class="left"></div>
+        </div>
+        <div class="crop bottom-right">
+          <div class="top"></div>
+          <div class="left"></div>
+        </div>
+        <div class="crop bottom-left">
+          <div class="top"></div>
+          <div class="right"></div>
+        </div>
+      
+        <div class="crop fold-top">
+          <div class="left"></div>
+          <div class="right"></div>
+        </div>
+      
+        <div class="crop fold-bottom">
+          <div class="left"></div>
+          <div class="right"></div>
+        </div>
+    </div><!--page-->
+     {{/collection.sko-agenda-pages-back}}
+  </script>
+  
+  <script type="text/html" id="page-template">
+    <div class="page">
+      <div class="document"> 
+        <div class="content">
+        </div><!--content-->
+      </div><!--document-->
+      
+        <div class="crop top-left">
+          <div class="bottom"></div>
+          <div class="right"></div>
+        </div>
+        <div class="crop top-right">
+          <div class="bottom"></div>
+          <div class="left"></div>
+        </div>
+        <div class="crop bottom-right">
+          <div class="top"></div>
+          <div class="left"></div>
+        </div>
+        <div class="crop bottom-left">
+          <div class="top"></div>
+          <div class="right"></div>
+        </div>
+      
+        <div class="crop fold-top">
+          <div class="left"></div>
+          <div class="right"></div>
+        </div>
+      
+        <div class="crop fold-bottom">
+          <div class="left"></div>
+          <div class="right"></div>
+        </div>
+    </div><!--page-->
+  </script>
+  
+  <script>
+    $(document).ready(function(){
+      var current = $($('#page-template').html()).appendTo('body');
+      $('.day-template').each(function(){
+        var children = $($(this).html());
+        children.each(function(){
+          if (!this.tagName) return;
+          current.find('.content').append($(this));
+          if ($('.content', current)[0].scrollHeight > $('.content', current).innerHeight()) {
+            current.find('.content > div:last-child')[0].remove();
+          	current = $($('#page-template').html()).appendTo('body');
+            current.find('.content').append($(this));
+          }
+        });
+      });
+    });
+  </script>
+  
+  <script>
+    $(document).ready(function(){
+      $($('.other-content-back').html()).appendTo('body');
+    });
+  </script>
+  
+  <script>
+    $(document).ready(function(){
+      $($('.other-content-front').html()).prependTo('body');
+    });
+  </script>
+  
+  <script>
+      // vminvmmax
+
+    window.addEventListener("resize", setSize);
+    document.addEventListener("DOMContentLoaded", setSize);
+
+    var vminsize = 1
+    var vmaxsize = 1
+    var vhsize   = 1
+
+    function setSize() {
+      var vw   = window.innerWidth / 100
+      var vh   = window.innerHeight / 100
+      var vmin = Math.min(vw, vh)
+      var vmax = Math.max(vw, vh)
+      document.documentElement.style.fontSize =  (( vmin * vminsize ) + ( vmax * vmaxsize ) + ( vh * vhsize ))  + "px";
+    }
+  </script>
+  <script src="//redhatbrand.github.io/RedHatPatterns/red-hat-patterns.js"></script>
+  
+</body>
+</html>
