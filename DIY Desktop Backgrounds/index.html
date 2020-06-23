@@ -1,0 +1,102 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style>
+
+      html {
+        background-color: #FFFFFF;
+      }  
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .background {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        min-height: 100%; min-width: 100%; 
+        height: 100vh;
+        width: 100vw;
+
+        position: relative;
+        overflow: hidden;
+        -webkit-filter: grayscale(100%);
+      }
+
+      .blend {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(100, 100, 100, 0.2);
+      }
+
+      .blend:before,
+      .blend:after {
+        top: 0;
+        content: "";
+        position: absolute;
+        width: 140%;
+        left: -20%;
+        height: 100%;
+        transform: skew(-45deg);
+        -webkit-transform: skew(-45deg);
+      }
+
+      .blend:before {
+        opacity: .5;
+        background-color: #fff;
+        mix-blend-mode: none;
+      }
+
+      .blend:after {
+        mix-blend-mode: multiply;
+        background-color:  {{account.colors.primary-red-2019}};
+
+
+      }
+
+
+      .red .blend:after{background-color:#d00}
+      .blue .blend:before{opacity:.4;}
+
+      html,body{overflow:hidden;}
+    </style>
+  </head>
+  <body>
+    {{#optional-product-logo}}<img src="{{optional-product-logo}}"  style="position:absolute; z-index:99; top:40%; left: 40%; width: 20%; height: 20%; " alt=""/>{{/optional-product-logo}}
+    <div class="redhat-logo" style="position:absolute; z-index:9; width: 15vw; height: 15vh; bottom:45vh; right:4vw; background-size: contain; background-position: center; background-repeat: no-repeat; background-image: url('{{{account.logos.mono-white-2019}}}')"></div> 
+
+    <svg 
+         xmlns="http://www.w3.org/2000/svg" 
+         viewbox="0 0 70.5 70.5" 
+         preserveaspectratio="xMaxYMax meet"
+         style="position:absolute; 
+                z-index:8;
+                bottom:0; 
+                right:0; 
+                width: 30vw; 
+                height:60vh;" >
+
+      <path 
+            style="fill:none;stroke:#900; opacity:.8;z-index:7;stroke-width:0.3;stroke-linecap:square;"  class="pattern"
+            d="M34 52v-2h2m-3 3v-4h4m-5 5v-6h6m-10-6v2h-2m3-3v4h-4m5-5v6h-6m10-4h2v2h-2zm-1-1h4v4h-4zm-1-1h6v6h-6zm-4 10h-2v2h2zm-3-1h4v4h-4zm5 5v-6h-6v6zm12-10v-2h2m-3 3v-4h4m-5 5v-6h6m-10-6v2h-2m3-3v4h-4m5-5v6h-6m10-2v-2h2v2zm-1-3h4v4h-4zm5 5h-6v-6h6zM18 52h2v-2m-3 3h4v-4m-5 5h6v-6m38-22h-2v2m-8-8h2v-2m-3 3h4v-4m-5 5h6v-6m-4 10h2v2h-2zm-1-1h4v4h-4zm-1-1h6v6h-6zm10-4v-2h2v2zm-6 14h-2v2m3-3h-4v4m5-5h-6v6m-6-10h2v-2m-3 3h4v-4m-5 5h6v-6m14-14v2h-2m13 3H55v16H39v16H23v16H7v8M71 7h-8v16H47v16H31v16H15v16m13-13h-2v2m3-3h-4v4m5-5h-6v6m-6-4h2v2h-2zm-1-1h4v4h-4zm-1-1h6v6h-6zm4 10h-2v2m3-3h-4v4m5-5h-6v6m-6-10h2v-2m-3 3h4v-4m-5 5h6v-6m-2 10h-2v2h2zm-3-1h4v4H9zm-1-1h6v6H8zm53-39h-4v4m5-5h-6v6m1-13h4v4h-4zm-1-1h6v6h-6zm10 4v-2h2m-3 3v-4h4m-5 5v-6h6m-9-7v4h-4m5-5v6h-6m10-4h2v2h-2zm-1-1h4v4h-4zm-1-1h6v6h-6zm4-6v2h-2m3-3v4h-4m5-5v6h-6M4 66v2H2m3-3v4H1m5-5v6H0" />
+
+
+    </svg>
+
+
+
+    <div class="background">
+      {{{diy-background-image}}}
+    </div>
+
+    <div class="blend"></div>
+  </body>
+</html>
