@@ -1,0 +1,42 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- browser reset -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+  <!-- Red Hat Brand -->      
+  {{{account.snippets.design-system-link}}}
+  <!-- template styles -->  
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="certificate-logo-top"></div>
+    <p class="recipient">
+      {{#services-certificate-recipient}}
+        <span class="name">{{services-certificate-recipient}}</span><br>
+        is recognized as a
+      {{/services-certificate-recipient}}x
+    </p>
+    <h1>
+      {{#services-certificate-headline-line-1}}
+      	{{services-certificate-headline-line-1}}
+      {{/services-certificate-headline-line-1}}
+      <br/>
+      {{#services-certificate-headline-line-2}}
+      	{{services-certificate-headline-line-2}}
+      {{/services-certificate-headline-line-2}}
+    </h1>
+    <div class="certificate-line signature-line">
+      
+
+      <p class="certificate-line-meta-description"><strong>Hans J Roth</strong> Vice President, Red Hat Services, Europe, Middle East, Africa</p>
+    </div>
+    <div class="certificate-line date-line">
+      <p>{{{ services-certificate-date }}}</p>
+      <p class="certificate-line-meta-description"><strong>Date</strong></p>
+    </div>
+      <div class="certificate-logo-bottom"><img src="{{{account.logos.primary-black-2019}}}"></div>
+  </div>
+</body>
+</html>
