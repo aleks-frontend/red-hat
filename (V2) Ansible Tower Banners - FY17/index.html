@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style type="text/css">
+      .banner-image {
+        background-image: url("{{{ background-image }}}");
+      }  
+      
+      {{^background-image}}
+        .var-1#banner.teal, .var-1#banner.mango, .var-1#banner.red {
+          background: black;
+        }
+      {{/background-image}}
+      
+      /* .test-background-image {
+        background-image: url('https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/8c5f0d67d0825a9e1896e2f1ece1e9ed/Black%20MREC.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 100;
+        opacity: 0.7;
+      } */
+    </style>
+    
+  </head>
+  <body>
+    <!--<div class="test-background-image"></div>-->
+    <div id="banner" class="{{{ansible-theme}}} {{^ansible-theme}}teal{{/ansible-theme}} {{ansible-variation}}">
+      <div class="banner-image"></div>
+      <div class="gradient-overlay"></div>
+      
+      <div id="content-wrapper">
+        <div id="content">
+          <div id="logo">
+            <img src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/1c947fd44d167c01f13e1dc70c53191b/ansible-tower-red-mark.svg" width="140" height="52" />
+          </div>
+          
+          <div class="heading-two-content-container">
+            <div class="heading-two-content">
+              <h2>{{{ subheading }}}</h2>
+            </div>
+          </div>
+          
+          <div class="heading-one-content-container">
+            <div class="heading-one-content">
+              <h1>{{{ heading }}}</h1>
+            </div>
+          </div>
+          
+          {{#call-to-action}}
+          <div class="cta">
+            <a href="{{{call-to-action-url}}}" class="btn">{{{call-to-action}}}</a>
+          </div>
+          {{/call-to-action}} 
+          
+          {{#artwork-image}}
+            <div id="artwork" style="background-image: url('{{{artwork-image}}}')"></div>
+          {{/artwork-image}}
+          
+        </div>
+      </div>
+    </div>
+  </body>
+  
+  <script>
+    function loop() {
+      checkHeight($(".heading-two-content"));
+      checkHeight($(".heading-one-content"));
+    } setInterval(loop, 2000);
+
+    function checkHeight(element) {
+      var $height = element.height();
+      var $parent = element.parent();
+      var $parentHeight = $parent.height();
+
+      if ($height > $parentHeight) {
+        $parent.addClass('overflow');
+      } else {
+        $parent.removeClass('overflow');
+      }
+
+      if ($('body .text-box').hasClass('overflow')) {
+        $('body').addClass('overflow-true');
+      } else {
+        $('body').removeClass('overflow-true'); 
+      }
+    }
+  </script>
+</html>
