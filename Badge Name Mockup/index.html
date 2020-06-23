@@ -1,0 +1,359 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="minireset.css">
+    <style>@import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+
+      body{background-color: white; font-family: Overpass,sans-serif;  color: #234; padding: 4vw 4vw; text-align:center}
+      blockquote{    font-size:.7em; margin:0;margin-bottom:5em; }
+      a{text-decoration: none; color:#4e9fdd}
+      @import url("https://overpasstest-30e2.kxcdn.com/fonts.css");
+      h1{color:#c00; text-transform: uppercase; font-size: .75em; font-weight: 900; margin-top:1em; margin-bottom:0}
+      h4{  font-family: Overpass,sans-serif; font-size: 1vw; color:#bbdde7; text-align:center; text-transform: uppercase; margin-bottom:0}
+      .container {
+        font-family: Overpass,sans-serif;
+        border: .05em solid #bbdde7;
+        font-size: 5vw; 
+        display: flex;
+        padding: 2em 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #alttext-container{border:0}
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .large-event-logo {
+        margin: 0 auto;
+        height: 4em;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-flow: row;
+        -ms-flex-flow: row;
+        flex-flow: row;
+        position: relative;
+        padding-left: 4.5em;
+        font-family: overpass, sans-serif;
+        line-height: 1em;
+      }
+      .large-event-logo .shield {
+        background-color: {{{brand-color}}} {{^brand-color}}#cc0000{{/brand-color}};
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: 4em;
+        height: 4em;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      
+      .large-event-logo.black .shield {
+        background-color: black;
+      }
+      .large-event-logo .shield:before {
+        z-index: 4;
+        content: "";
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        position: absolute;
+        width: 0;
+        bottom: 0;
+        right: 0;
+        height: 0;
+        border-style: solid;
+        border-color: transparent rgba(0,0,0,0.15) transparent transparent;
+        border-width: 4em 4em 0 0em;
+      }
+      
+      .words {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .large-event-logo .shield img {outline:0; border:0;
+        width: 100%;
+        padding: .1em;
+        position: relative;
+        z-index: 9;
+        -webkit-filter: brightness(2) grayscale(1) invert(1);
+        filter: brightness(2) grayscale(1) invert(1);
+      }
+      .large-event-logo h2 {
+        text-align: left;
+        display: block;
+        -webkit-flex-flow: row;
+        -ms-flex-flow: row;
+        flex-flow: row;
+        font-size: 1.6em;
+        text-transform: uppercase;
+        font-weight: 900 !important;
+        letter-spacing: 0;
+        margin: 0;
+        padding: 0;
+        width: auto;
+        line-height: .9em;
+        word-break: break-all;
+      }
+      .large-event-logo h3 {
+        font-size: 0.7em;
+        display: block;
+        margin: 0;
+        padding: 0;
+        font-weight: 800;
+        line-height: 1em;
+        letter-spacing: 0.03em;
+        text-indent: .0666em;
+        text-align: left;
+        text-transform: uppercase;
+        margin-top: 0.1em;
+      }
+
+      .large-event-logo.invert.mono .shield{background-color:#fff}
+
+      .large-event-logo.invert.mono .shield:after{background-color:#fff}
+      .large-event-logo.invert.mono .shield:before{display:none;}
+      .large-event-logo.invert.mono .shield img{filter:none; -webkit-filter:none;} 
+      section{ margin: 1em auto;  padding-top:2em; width: 100%;}
+      
+      .words.one .badge-name {
+        order: 0;
+      }
+      .words.two .badge-name {
+        order: 1;
+      }
+      
+      .words.one h3 {
+        order: 1;
+      }
+      .words.two h3 {
+        order: 0;
+      }
+      .badge-name-overflow-container {
+        max-height: 2.9em;
+      }
+      
+      .endorsement-overflow-container {
+        height: 0.8em;
+      }
+      
+      object {
+        width: 100%;
+      }
+      
+      .overflow {
+        border: 1px dashed red;
+        position: relative; }
+      .overflow h1, 
+      .overflow h2, 
+      .overflow h3, 
+      .overflow h4, 
+      .overflow h5, 
+      .overflow h6, 
+      .overflow p, 
+      .overflow li { color: red !important; }
+      .overflow::before {
+        content: '+';
+        position: absolute;
+        z-index: 5;
+        top: 5px;
+        right: 5px;
+        height: 15px;
+        width: 15px;
+        border: 1px solid red;
+        color: red;
+        padding: 2px 2px 2px 3px;
+        box-sizing: border-box;
+        font-size: 13px;
+        text-align: center;
+        line-height: 8px;
+        background-color: white;
+        text-align: center; }
+      .overflow:hover:before {
+        background-color: red;
+        color: white; }
+      .overflow:after {
+        display: none; }
+      .overflow:hover:after {
+        display: block;
+        content: 'There is overset content in this column. Please remove it';
+        position: absolute;
+        top: 25px;
+        right: 5px;
+        background-color: black;
+        color: white;
+        border-radius: 2px;
+        padding: 5px;
+        box-sizing: border-box;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 1.1em;
+        text-align: right;
+        width: 15em;
+      }
+
+    </style>
+  </head>
+  <body>
+    <section>
+
+      <h1>
+        Team Badge Name Drafting Document
+      </h1>    
+      <blockquote>    
+        Example only. See the  <a target="_blank" href="http://brand.redhat.com/logos/teams/badges/">Badge Logo Standards</a>
+      </blockquote>
+
+      <h4>Standard logo</h4>
+      <br />       
+      
+      <div class="container">
+        <div class="large-event-logo">
+          <div class="shield"><object type="image/svg+xml" data="{{{ icon }}}" class="logo" id="svgObject"></object></div>
+          <div class="words {{ name-order }}">
+            <div class="badge-name-overflow-container">
+              <div class="badge-name-overflow">
+                <div class="badge-name"></div>
+              </div>
+            </div>  
+            
+            <div class="endorsement-overflow-container">
+              <div class="endorsement-overflow">
+                <h3>{{{established}}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>    
+      </div>
+
+      <br />
+      <h4>Other Variations</h4>
+      <br /> 
+      <div class="container" style="font-size:2.5vw; background-color: #484848; color:#fff; border:0; box-shadow:none; width: 100%">
+          <div class="large-event-logo invert" >
+            <div class="shield"> <img src="{{icon}}" /></div>
+            <div class="words {{ name-order }}">
+              <div class="badge-name-overflow-container">
+              <div class="badge-name-overflow">
+                <div class="badge-name"></div>
+              </div>
+            </div>  
+            
+            <div class="endorsement-overflow-container">
+              <div class="endorsement-overflow">
+                <h3>{{{established}}}</h3>
+              </div>
+            </div>
+            </div>
+          </div>    
+        </div>
+      <br>
+      
+      <div class="flex-elements" style="display: flex; justify-content: space-between;">
+        <div class="container" style="font-size:2.5vw; background-color:#DCDCDC; color:#000; border:0; box-shadow:none; width: 49%">
+          <div class="large-event-logo black" >
+            <div class="shield"> <img src="{{icon}}" /></div>
+            <div class="words {{ name-order }}">
+              <div class="badge-name-overflow-container">
+              <div class="badge-name-overflow">
+                <div class="badge-name"></div>
+              </div>
+            </div>  
+            
+            <div class="endorsement-overflow-container">
+              <div class="endorsement-overflow">
+                <h3>{{{established}}}</h3>
+              </div>
+            </div>
+            </div>
+          </div>    
+        </div>
+
+        <div class="container" style="font-size:2.5vw; background-color:black; color:#fff; border:0; box-shadow:none; width: 49%">
+          <div class="large-event-logo invert mono" >
+            <div class="shield"> <img src="{{icon}}" /></div>
+            <div class="words {{ name-order }}">
+              <div class="badge-name-overflow-container">
+              <div class="badge-name-overflow">
+                <div class="badge-name"></div>
+              </div>
+            </div>  
+            
+            <div class="endorsement-overflow-container">
+              <div class="endorsement-overflow">
+                <h3>{{{established}}}</h3>
+              </div>
+            </div>
+            </div>
+          </div>    
+        </div>
+      </div>
+    </section>
+    
+    <span id="badge-name-input" style="display: none;">{{{badge-name}}}</span>
+    <script>
+      setInterval(function() {
+        var name = document.getElementById('badge-name-input').innerText;
+        var nameArray = name.match(/.{1,12}/g);
+
+        var nameDOM = nameArray && nameArray.map(function(item) {
+          return "<h2>"+item+"</h2>";
+        }).join('');
+        
+        Array.prototype.slice.call(document.getElementsByClassName('badge-name')).forEach(function(node) {
+          node.innerHTML = nameDOM;
+        })
+      }, 1000);
+      
+      function loop() {
+        checkHeight(document.getElementsByClassName('badge-name-overflow'));
+        checkHeight(document.getElementsByClassName('endorsement-overflow'));
+      } setInterval(loop, 500);
+
+      function checkHeight(element) {
+        for (i = 0 ; i < element.length ; i++ ) {
+          var currentElement = element[i];
+          var height         = currentElement.offsetHeight;
+          var parent         = currentElement.parentNode;
+          var parentHeight   = parent.offsetHeight;
+
+          if (height > parentHeight) {
+            parent.classList.add('overflow');
+          } else {
+            parent.classList.remove('overflow');
+          }
+
+          if ((currentElement).parentNode.classList.contains('overflow')) {
+            document.body.classList.add('overflow-true');
+          } else {
+            document.body.classList.remove('overflow-true'); 
+          }
+        }
+      }
+
+      window.onload=function() {
+        var a = document.getElementById("svgObject");
+        var svgDoc = a.contentDocument;
+        svgDoc.setAttribute("fill", "lime");
+      };
+    </script>
+
+  </body>
+</html>
