@@ -1,0 +1,234 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="assets/stylesheets/main.css">
+  <link rel="stylesheet" href="assets/stylesheets/themes.css">
+  <link rel="stylesheet" href="https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/redhat-webfonts.css">
+
+ 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+  <script src="https://apis.google.com/js/client.js"></script>
+  
+  <script type="text/javascript">var page = 0;</script>
+</head>
+<body class="{{crop-bleed}} {{brand-theme}} {{^brand-theme}}corporate{{/brand-theme}}">
+  {{#spreadsheet.event-name-badge-spreadsheet}}
+    <div class="page page-1" data-qr-code="{{qr-code}}">
+    
+    <div class="document">
+      <div class="background">
+        <div class="pattern {{brand-theme}}-hero-full-pattern"></div>
+   
+        <div class="full-height {{brand-theme}}-artwork {{^brand-theme}}corporate-artwork{{/brand-theme}} js-artwork"></div>  
+      </div>
+        
+      <div class="content">  
+        <div class="name">
+           <div class="js-fittext">
+           <h1>{{first-name}}</h1>
+          </div>
+          <div class="js-fittext-sub">
+           <h2>{{last-name}}</h2>
+          </div>
+        </div>
+        <div class="position" style="border-bottom: none !important">
+          <h3>{{position}} <br><span>{{team}}</span></h3>
+        </div>
+        {{#wildcard-topic}}<div class="icebreaker position">
+          <h3 style="line-height:1.1em;"><span>{{{wildcard-topic}}}</span></h3>
+        </div>{{/wildcard-topic}}
+        <div class="flex-logos">
+          <div class="redhat-logo logo">
+            <img src="{{{account.logos.primary-white-2019}}}">
+          </div>
+          <div class="js-skologo logo"></div>
+          {{#qr-code}}
+          <div id="qrcodeCanvas" class="js-qrcode logo"></div>
+          
+          
+          <script>
+            var $qrcode = $('.js-qrcode')[page];
+            page++;
+            
+            $($qrcode).qrcode({
+              text: "{{{qr-code}}}" 
+            });
+          </script>
+          {{/qr-code}}
+          
+        </div><!--flex-logos-->
+      </div><!--content-->
+    </div><!--document-->
+
+    <div class="crop top-left">
+        <div class="bottom"></div>
+        <div class="right"></div>
+      </div>
+      <div class="crop top-right">
+        <div class="bottom"></div>
+        <div class="left"></div>
+      </div>
+      <div class="crop bottom-right">
+        <div class="top"></div>
+        <div class="left"></div>
+      </div>
+      <div class="crop bottom-left">
+        <div class="top"></div>
+        <div class="right"></div>
+      </div>
+  </div><!--page-->
+   {{/spreadsheet.event-name-badge-spreadsheet}}
+  <script type="text/javascript">
+    window.redhatArtComplexity = 2;
+  </script>
+  
+  <script>
+      // vminvmmax
+
+    window.addEventListener("resize", setSize);
+    document.addEventListener("DOMContentLoaded", setSize);
+
+    var vminsize = 1
+    var vmaxsize = 1
+    var vhsize   = 1
+
+    function setSize() {
+      var vw   = window.innerWidth / 100
+      var vh   = window.innerHeight / 100
+      var vmin = Math.min(vw, vh)
+      var vmax = Math.max(vw, vh)
+      document.documentElement.style.fontSize =  (( vmin * vminsize ) + ( vmax * vmaxsize ) + ( vh * vhsize ))  + "px";
+    }
+
+
+    (function (global) {
+      var multipleCanvases = [].slice.call(document.getElementsByClassName('js-artwork'));
+
+        multipleCanvases.forEach(function (canvas) {
+          initArtwork(canvas);
+        });
+      function initArtwork (elem) {
+        var canvasWrapper = elem;
+        var canvas        = document.createElement('div');
+        var animatable    = canvasWrapper.classList.contains('artwork-animate');
+
+        canvas.classList.add('artwork-inner');
+        canvasWrapper.appendChild(canvas);
+
+        var complexity = global.redhatArtComplexity || 10;
+        global.redhatBrandPattern = 'corporate';
+
+        function isPortrait (element) {
+          return element.offsetWidth < element.offsetHeight;
+        }
+
+        function setCanvasSize () {
+          if (isPortrait(canvasWrapper)) {
+            canvas.style.width = canvasWrapper.offsetHeight + 'px';
+          } else {
+            canvas.style.width = 'initial';
+          }
+        }
+
+        setCanvasSize();
+        window.addEventListener('resize', function () {
+          setCanvasSize();
+        });
+
+        function getRandomInt(min, max) {
+          return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function getRandomArbitrary(min, max) {
+          return Math.random() * (max - min) + min;
+        }
+
+        function initArray(n) {
+          return Array.apply([], Array(n));
+        }
+
+        function gridPositions (colCount) {
+          return initArray(colCount).map(function (_elem, index) {
+            return (100 / colCount) * index;
+          });
+        }
+
+        function randomArrayElem (arr) {
+          return arr[getRandomInt(0, arr.length - 1)];
+        }
+
+        var artwork = {
+          gridPositions: gridPositions(10)
+        };
+
+        function createShape (i) {
+          var div = document.createElement('div');
+          div.classList.add('artwork-shape');
+          div.style.left    = randomArrayElem(artwork.gridPositions).toString() + '%';
+          div.style.top     = randomArrayElem(artwork.gridPositions.slice(1)).toString() + '%';
+          div.style.height  = randomArrayElem(artwork.gridPositions.slice(1)).toString() + '%';
+          div.style.width   = randomArrayElem(artwork.gridPositions.slice(1)).toString() + '%';
+          div.style.opacity = randomArrayElem([0.25, 0.5, 0.75]);
+          div.style.animationDuration = getRandomInt(1,3).toString() + 's';
+          canvas.appendChild(div);
+
+          if (animatable) {
+            div.classList.add('skew-animate-in');
+          }
+        }
+
+        function addPattern () {
+          var div = document.createElement('div');
+          div.setAttribute('data-red-hat-pattern', global.redhatBrandPattern);
+          div.classList.add('artwork-pattern');
+          div.style.animationDuration = getRandomInt(1,3).toString() + 's';
+          canvas.appendChild(div);
+
+          if (animatable) {
+            div.classList.add('rotate-animate-in');
+          }
+        }
+
+        function populateCanvas (complexity) {
+          for (var i = 0; i < complexity; i++) {
+            createShape(i);
+          }
+
+          addPattern();
+        }
+        populateCanvas(complexity);
+      }
+    })(window);
+  </script>
+    
+<script type="text/html" class="event-logo">
+     
+</script>
+  
+  <script>
+    
+    var flexLogos = document.getElementsByClassName('js-skologo')
+   for ( i = 0 ; i < flexLogos.length ; i++ ) {
+   	 flexLogos[i].innerHTML = "<div class='small-events {{#logo}}has-logo{{/logo}}{{^logo}}no-logo{{/logo}}'> {{#logo}} <img class='other-logo' src='{{logo}}' alt='logo'/> {{/logo}} {{^logo}} <div class='event-logo'> {{#event-name}} <h2><span>{{{event-name}}}</span> <svg preserveAspectRatio='xMinYMin meet'xmlns='http://www.w3.org/2000/svg'viewBox='0 0 10 3.75'width='100%'height='1em'> <path d='M -0,.5 3,.5 4.5,2.2 6,.5 100,.5'style='stroke:currentcolor;stroke-width:0.25px;fill:none' /> </svg> </h2> <br> <p style='font-size:.6em'>{{{location}}}</p> {{/event-name}} </div> {{/logo}} </div>"
+   };
+  </script>
+  
+  <script>
+    $(document).ready(function(){
+      var els = $('.js-fittext-sub h2, .js-fittext h1');
+      
+      for(var i = 0; i < els.length; ++i) {
+      	while($(els[i]).width() > $(els[i]).parent().width()) {
+            var size = parseInt($(els[i]).css('font-size')); 
+       		$(els[i]).css('font-size', size - 1); 
+       	} 
+      }
+    });
+  </script>
+
+  
+  <script src="//redhatbrand.github.io/RedHatPatterns/red-hat-patterns.js"></script>
+  </body>
+</html>
