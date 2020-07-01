@@ -1,0 +1,118 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="assets/stylesheets/main.css">
+  <style type="text/css">
+
+    .headline-font-size {
+      font-size: {{headline-font-size}}em;
+      /*template is designed for 1em to be used as a base font size*/
+    }
+    .subheading-font-size {
+      font-size: {{subheading-font-size}}em;
+      /*template is designed for 1em to be used as a base font size*/
+    }
+    
+
+    .event-logo h2 > span,
+        .event-logo > h2 > span *{ font-weight: 800 !important; line-height: 1em !important; margin: 0 !important; }
+    body, *{    font-family: 
+          "Overpass", 
+          "Hiragino Kaku Gothic ProN", 
+          "Hiragino Kaku Gothic", 
+          "ヒラギノ角ゴ Pro W3", 
+          sans-serif !important; }
+    
+    sup, sub {
+      vertical-align: baseline;
+      position: relative;
+      top: -0.4em;
+    }
+    
+    sup {
+      font-size: 0.7em;
+      top: -0.5em;
+    }
+    
+    sub { 
+      top: 0em;
+      font-size: 0.9em;
+      text-transform: initial; 
+    }
+  </style>
+</head>
+<body class="theme-color {{brand-theme}} {{^brand-theme}}corporate{{/brand-theme}} {{crop-bleed}} {{#background-image}}background-image-shown{{/background-image}} {{^headline}}no-headline{{/headline}} {{^supporting-logo}}no-supporting-logo{{/supporting-logo}}">
+  <div class="document">
+  <div class="pattern {{brand-theme}}-hero-full-pattern"></div>
+  
+  {{#background-image}}
+  <div class="background-image" style="background-image: url('{{background-image}}'); opacity: {{background-image-opacity}}; background-position:{{background-position}}% {{background-position}}% ;" ></div>
+  {{/background-image}}
+   
+  <div class="full-height {{brand-theme}}-artwork {{^brand-theme}}corporate-artwork{{/brand-theme}} js-artwork"></div>  
+    
+  <div class="content-main">
+  <div class="new-logo-wrap">
+  <div  style="padding-right: 10px;" class="new-logo-redhat">
+<img style="height: 100%;" src="{{{account.logos.mono-white-2019}}}">
+
+  </div>
+  {{#supporting-logo}}
+  <div style="padding-left: 5px;" class="new-logo-support">
+    <img src="{{supporting-logo}}" alt="logo"/>
+  </div><!--small-events-->
+  {{/supporting-logo}}
+</div>
+  <div class="flex-headline-lockup">
+    <div class="text-content">
+      <div class="headings">
+        {{#headline}}
+        <div class="headline-font-size">
+          <h1>{{{headline}}}</h1>
+        </div>
+        {{/headline}}
+        {{#subheading}}
+        <div class="subheading-font-size" style="margin-top:.55em; line-height: 1.3em">
+          <h2>{{{subheading}}}</h2>
+        </div>
+        {{/subheading}}
+      </div><!-- headings -->
+      
+      {{#call-to-action}}
+      <div class="call-to-action">
+        <a href="{{call-to-action-url}}">{{{call-to-action}}}</a>
+      </div>
+      {{/call-to-action}}
+    </div>
+  </div>
+  </div><!--content-->
+  </div><!--document-->
+  <script type="text/javascript">
+    window.redhatArtComplexity = 2;
+  </script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="//redhatbrand.github.io/RedHatPatterns/red-hat-patterns.js"></script>
+  <script type="text/javascript" src="assets/javascripts/main.js"></script>
+
+  
+  <div class="crop top-left">
+    <div class="bottom"></div>
+    <div class="right"></div>
+  </div>
+  <div class="crop top-right">
+    <div class="bottom"></div>
+    <div class="left"></div>
+  </div>
+  <div class="crop bottom-right">
+    <div class="top"></div>
+    <div class="left"></div>
+  </div>
+  <div class="crop bottom-left">
+    <div class="top"></div>
+    <div class="right"></div>
+  </div>
+  
+</body>
+</html>
