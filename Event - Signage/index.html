@@ -1,0 +1,223 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/5.0.0/normalize.css" />
+  <link rel="stylesheet" href="assets/stylesheets/theme.css" />
+  <link rel="stylesheet" href="assets/stylesheets/main.css" />
+  <link rel="stylesheet" href="assets/stylesheets/events.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  <script src="//redhatbrand.github.io/RedHatPatterns/red-hat-patterns.js"></script>
+  <script type="text/javascript">
+    window.redhatArtComplexity = 8;
+        
+	$(function() {
+		if ("{{page}}" == "folded") {
+          	// Clone and flip the original to make this foldable
+            var oDiv = $(".document").clone();
+            $(".document").before(oDiv)
+            $(".document:first").addClass("flip");
+          
+           // Add a class to use the 'default' (dark text) version of the logo
+            $(".event-logo").addClass("default");
+    	}
+	});
+    
+    /*
+    function sizeText(textElem) {
+      var size;
+      var scaleD = 0;
+      var te = textElem;
+      for(var i in te) {
+        if ($(te[i]).width() > $(te[i]).parent().width()) {
+            scaleD = -1;
+        } else if ($(te[i]).width() < $(te[i]).parent().width()) {
+            scaleD = 1;
+        } else {
+          	scaleD = 0;
+        }
+        // while($(te[i]).width() > $(te[i]).parent().width()-1 || $(te[i]).width() < $(te[i]).parent().width()-2) {
+        //    size = parseInt($(te[i]).css('font-size')); 
+        //    $(te[i]).css('font-size', size + scaleD); 
+        // }
+      }
+    }
+    */
+  </script>
+</head>
+
+<body class="{{page}} {{event}} {{color-theme}}-theme {{^color-theme}}red{{/color-theme}}-theme {{crop-bleed}}">
+  <!-- Clipping Mask for Lollypop sign -->
+  <div class="mask">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1224 1944">
+    	<path fill="#ffffff" d="M0-1v1944h1224V-1H0z M1115.5,1347c0,31.5-25.6,57.1-57.1,57.1H719.5v403.7c0,15.2-12.4,27.6-27.6,27.6H532.1
+	c-15.2,0-27.6-12.4-27.6-27.6v-403.7H165.6c-31.5,0-57.1-25.6-57.1-57.1V165.6c0-31.5,25.6-57.1,57.1-57.1h892.8
+	c31.5,0,57.1,25.6,57.1,57.1V1347z"/>
+  	</svg>
+  </div>
+  <!-- END Clipping Mask -->
+  
+  <div class="document">
+	<div id="artwork" class="full-height {{color-theme}}-artwork"></div>
+    <main>
+      <header>
+        {{event-signage-logo}} {{^event-signage-logo}}<div class="event-logo"></div>{{/event-signage-logo}}
+        </header>
+      <section>
+       <article>
+          {{#heading}}<h1>{{{heading}}}</h1>{{/heading}}
+          {{#subheading}}<h2>{{{subheading}}}</h2>{{/subheading}}
+          {{#text-area}}<div class="text-area">{{{text-area}}}</div>{{/text-area}}
+          {{#sponsor-logo}}<figure><img  class="sponsor-logo" src="{{sponsor-logo}}" /></figure>{{/sponsor-logo}}
+          {{#icon-graphic}}<figure><img  class="icon" src="{{icon-graphic}}" /></figure>{{/icon-graphic}}
+        </article>
+        {{#icon-wayfinding}}<figure class="arrow"><img src="{{icon-wayfinding}}" /></figure>{{/icon-wayfinding}}
+      </section>
+      <footer>
+        <div class="brandmark {{brandmark}}{{^brandmark}}shadowman{{/brandmark}}">
+          <div class="logo">
+		    <img style="width: 100%;" src="{{{account.logos.mono-white-2019}}}">
+          </div><!--rh-logo-->
+          <div class="tri">
+             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+               <polygon class="triangle-color" points="100,0 100,100 0,100" />
+             </svg>
+          </div><!--triangle-->
+        </div><!--rh-branding-->
+      </footer>
+    </main>
+  </div><!--document-->
+
+  <div class="crop top-left"><div class="bottom"></div><div class="right"></div></div>
+  <div class="crop top-right"><div class="bottom"></div><div class="left"></div></div>
+  <div class="crop bottom-right"><div class="top"></div><div class="left"></div></div>
+  <div class="crop bottom-left"><div class="top"></div><div class="right"></div></div>
+  
+  <script>
+    // vminvmmax
+    window.addEventListener("resize", setSize);
+    document.addEventListener("DOMContentLoaded", setSize);
+
+    var vminsize = 2
+    var vmaxsize = 1.4
+    var vhsize   = 2
+
+    function setSize() {
+      var vw   = window.innerWidth / 100
+      var vh   = window.innerHeight / 100
+      var vmin = Math.min(vw, vh)
+      var vmax = Math.max(vw, vh)
+      document.documentElement.style.fontSize =  (( vmin * vminsize ) + ( vmax * vmaxsize ) + ( vh * vhsize ))  + "px";
+    }
+
+
+    (function (global) {
+      var defaultCanvas = document.getElementById('artwork');
+      var multipleCanvases = [].slice.call(document.getElementsByClassName('js-artwork'));
+
+      if (defaultCanvas) {
+        initArtwork(defaultCanvas);
+      } else {
+        multipleCanvases.forEach(function (canvas) {
+          initArtwork(canvas);
+        });
+      }
+
+      function initArtwork (elem) {
+        var canvasWrapper = elem;
+        var canvas        = document.createElement('div');
+        var animatable    = canvasWrapper.classList.contains('artwork-animate');
+
+        canvas.classList.add('artwork-inner');
+        canvasWrapper.appendChild(canvas);
+
+        var complexity = global.redhatArtComplexity || 10;
+        global.redhatBrandPattern = 'corporate';
+
+        function isPortrait (element) {
+          return element.offsetWidth < element.offsetHeight;
+        }
+
+        function setCanvasSize () {
+          if (isPortrait(canvasWrapper)) {
+            canvas.style.width = canvasWrapper.offsetHeight + 'px';
+          } else {
+            canvas.style.width = 'initial';
+          }
+        }
+
+        setCanvasSize();
+        window.addEventListener('resize', function () {
+          setCanvasSize();
+        });
+
+        function getRandomInt(min, max) {
+          return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function getRandomArbitrary(min, max) {
+          return Math.random() * (max - min) + min;
+        }
+
+        function initArray(n) {
+          return Array.apply([], Array(n));
+        }
+
+        function gridPositions (colCount) {
+          return initArray(colCount).map(function (_elem, index) {
+            return (100 / colCount) * index;
+          });
+        }
+
+        function randomArrayElem (arr) {
+          return arr[getRandomInt(0, arr.length - 1)];
+        }
+
+        var artwork = {
+          gridPositions: gridPositions(10)
+        };
+
+        function createShape (i) {
+          var div = document.createElement('div');
+          div.classList.add('artwork-shape');
+          div.style.left    = randomArrayElem(artwork.gridPositions).toString() + '%';
+          div.style.top     = randomArrayElem(artwork.gridPositions.slice(1)).toString() + '%';
+          div.style.height  = randomArrayElem(artwork.gridPositions.slice(1)).toString() + '%';
+          div.style.width   = randomArrayElem(artwork.gridPositions.slice(1)).toString() + '%';
+          div.style.opacity = randomArrayElem([0.25, 0.5, 0.75]);
+          div.style.animationDuration = getRandomInt(1,3).toString() + 's';
+          canvas.appendChild(div);
+
+          if (animatable) {
+            div.classList.add('skew-animate-in');
+          }
+        }
+
+        function addPattern () {
+          var div = document.createElement('div');
+          div.setAttribute('data-red-hat-pattern', global.redhatBrandPattern);
+          div.classList.add('artwork-pattern');
+          div.style.animationDuration = getRandomInt(1,3).toString() + 's';
+          canvas.appendChild(div);
+
+          if (animatable) {
+            div.classList.add('rotate-animate-in');
+          }
+        }
+
+        function populateCanvas (complexity) {
+          for (var i = 0; i < complexity; i++) {
+            createShape(i);
+          }
+
+          addPattern();
+        }
+        populateCanvas(complexity);
+      }
+    })(window);
+  </script>
+
+</body>
+</html>
