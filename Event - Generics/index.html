@@ -1,0 +1,243 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <style type="text/css">
+
+      .headline-font-size {
+        font-size: {{headline-font-size}}em;
+        /*template is designed for 1em to be used as a base font size*/
+      }
+      .subheading-font-size {
+        font-size: {{subheading-font-size}}em;
+        /*template is designed for 1em to be used as a base font size*/
+      }
+
+
+      .event-logo h2 > span,
+      .event-logo > h2 > span *{ font-weight: 800 !important; line-height: 1em !important; margin: 0 !important; }
+      body, *{    font-family: 
+        "Red Hat Text", 
+        "Hiragino Kaku Gothic ProN", 
+        "Hiragino Kaku Gothic", 
+        "ヒラギノ角ゴ Pro W3", 
+
+
+      .rh-logo-container {
+        z-index: 500;
+        position: relative;
+        /* top: 0; */
+        /* left: 0; */
+        /* right: 0.5em; */
+        /*bottom: 0.5em; */
+        display: flex;
+        justify-content: center;
+        justify-content: flex-end;
+        align-items: center;
+        background-size: 70%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .rh-logo-lockup {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* padding: 0.6em; */
+        position: relative; }
+
+      @media screen {
+        .rh-logo-lockup:hover, .rh-logo-lockup:hover:before, .rh-logo-lockup:hover:after {
+          background-color: rgba(0,0,255,0.2);
+          border: 0.025em solid rgba(0,0,255,0.6); }
+        .rh-logo-lockup:before {
+          content: '';
+          padding: 0;
+          position: absolute;
+          top: 0.6em;
+          left: 0.6em;
+          bottom: 0.6em;
+          right: 0.6em; }
+        .rh-logo-lockup:after {
+          content: '';
+          padding: 0;
+          position: absolute;
+          top: 0.3em;
+          left: 0.3em;
+          bottom: 0.3em;
+          right: 0.3em; }
+      }
+
+      .rh-logo {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 1.05em;
+        max-width: 3.5em;
+        position: relative; }
+
+      .rh-divider {
+        width: 0.03em;
+        height: 1.6em;
+        background-color: white; 
+        margin: -0.4em 0.6em;
+      }
+
+      .rh-redhat-logo {
+        /*background-image: url('https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/366a0ce4f77f05892d665a6839b0417f/logo-white.svg');*/
+        width: 3.2em;
+      }
+
+      /* VERTICAL STYLES */
+      .vertical .rh-logo-lockup {
+        flex-direction: column; 
+        justify-content: center; }
+      .vertical .rh-logo {
+        margin: 0;
+        max-width: 3.5em; }
+      .vertical .rh-divider {
+        width: 117%;
+        height: 0.03em;
+        background-color: white;
+        margin: 0.4em 0;
+      }
+
+      /* WHITE STYLES */
+      .white .rh-redhat-logo {
+        background-image: url('https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/7c81c59b96b6135a5d7e89e6b0fc5ed8/logo-black.svg'); }
+      .white .rh-divider {
+        background-color: black;
+      }    
+
+      .redhat-logo {
+        /* height: 3em; */
+        width: auto;
+        min-width: 4.5em;
+      }
+
+      .vertical .redhat-logo {
+        display: flex;
+        justify-content: center;
+      }
+      
+      .vertical .rh-logo-container {
+        align-items: flex-end;
+      }
+      
+      .vertical .rh-logo-container {
+        bottom: 0.5em;
+      }
+
+
+    </style>
+  </head>
+  <body class="theme-color {{brand-theme}} {{^brand-theme}}corporate{{/brand-theme}} {{crop-bleed}} {{#background-image}}background-image-shown{{/background-image}} {{^headline}}no-headline{{/headline}} {{^supporting-logo}}no-supporting-logo{{/supporting-logo}} {{{rh-logo-layout}}}">
+    <div class="document">
+      <div class="pattern {{brand-theme}}-hero-full-pattern"></div>
+
+      {{#background-image}}
+      <div class="background-image" style="background-image: url('{{background-image}}'); opacity: {{background-image-opacity}}; background-position:{{background-position}}% {{background-position}}% ;" ></div>
+      {{/background-image}}
+
+      <div class="full-height {{brand-theme}}-artwork {{^brand-theme}}corporate-artwork{{/brand-theme}} js-artwork"></div>  
+
+      <div class="content">
+        <div class="flex-headline-logos">
+          <div class="small-events {{#supporting-logo}}has-logo{{/supporting-logo}}{{^supporting-logo}}no-logo{{/supporting-logo}}">
+            {{#supporting-logo}}
+            <img class="other-logo" src="{{supporting-logo}}" alt="logo"/>
+            {{/supporting-logo}}
+            {{^supporting-logo}}
+
+            <div class="event-logo">
+              {{#event-name}}
+              <h2><span>{{{event-name}}}</span>
+                <svg 
+                     preserveAspectRatio="xMinYMin meet"
+                     xmlns="http://www.w3.org/2000/svg"
+                     viewBox="0 0 10 3.75" 
+                     width="100%"
+                     height="1em">   
+                  <path
+                        d="M -0,.5 3,.5 4.5,2.2 6,.5 100,.5"
+                        style="stroke:currentcolor;stroke-width:0.25px;fill:none" />
+                </svg>
+              </h2> 
+              <br>
+              <p style="font-size:.6em">{{{location}}}</p>
+              {{/event-name}}
+            </div>
+
+            {{/supporting-logo}}  
+          </div><!--small-events-->
+          <div class="redhat-logo">
+
+            <div class="rh-logo-container">
+
+              <div class="rh-logo-lockup rh-horizontal" style="font-size: {{{logo-lockup-size}}}em;">
+                <div class="rh-logo rh-redhat-logo">
+                
+                <img style="width: 100%;" src="{{{account.logos.mono-white-2019}}}">
+                </div>
+                {{#smk-secondary-logo}}<div class="rh-divider"></div>
+                <img class="rh-logo rh-supporting-logo" src="{{{smk-secondary-logo}}}" style="font-size: {{{secondary-logo-size}}}em;">{{/smk-secondary-logo}}
+              </div><!--logo-lockup horizontal-->
+
+
+            </div><!--container-->
+
+          </div>
+        </div>
+        <div class="flex-headline-lockup">
+          <div class="text-content">
+            <div class="headings">
+              {{#headline}}
+              <div class="headline-font-size">
+                <h1>{{{headline}}}</h1>
+              </div>
+              {{/headline}}
+              {{#subheading}}
+              <div class="subheading-font-size" style="margin-top:.55em; line-height: 1.3em">
+                <h2>{{{subheading}}}</h2>
+              </div>
+              {{/subheading}}
+            </div><!-- headings -->
+
+            {{#call-to-action}}
+            <div class="call-to-action">
+              <a href="{{call-to-action-url}}">{{{call-to-action}}}</a>
+            </div>
+            {{/call-to-action}}
+          </div>
+        </div>
+      </div><!--content-->
+    </div><!--document-->
+    <script type="text/javascript">
+      window.redhatArtComplexity = 2;
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="//redhatbrand.github.io/RedHatPatterns/red-hat-patterns.js"></script>
+    <script type="text/javascript" src="assets/javascripts/main.js"></script>
+
+
+    <div class="crop top-left">
+      <div class="bottom"></div>
+      <div class="right"></div>
+    </div>
+    <div class="crop top-right">
+      <div class="bottom"></div>
+      <div class="left"></div>
+    </div>
+    <div class="crop bottom-right">
+      <div class="top"></div>
+      <div class="left"></div>
+    </div>
+    <div class="crop bottom-left">
+      <div class="top"></div>
+      <div class="right"></div>
+    </div>
+
+  </body>
+</html>
