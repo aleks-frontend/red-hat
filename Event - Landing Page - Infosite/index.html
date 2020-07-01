@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+    <link rel="stylesheet" href="assets/stylesheets/themes.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <title>{{webpage-title}}</title>
+
+    <style>
+
+
+      .rh-logo-container {
+        z-index: 500;
+        position: relative;
+        /* top: 0; */
+        /* left: 0; */
+        /* right: 0.5em; */
+        /*bottom: 0.5em; */
+        display: flex;
+        justify-content: center;
+        justify-content: flex-end;
+        align-items: center;
+        background-size: 70%;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+
+      .rh-logo-lockup {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* padding: 0.6em; */
+        position: relative; }
+
+      .rh-logo {
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 1.05em;
+        max-width: 3.5em;
+        position: relative; }
+
+      .rh-divider {
+        width: 0.03em;
+        height: 1.6em;
+        background-color: white; 
+        margin: -0.4em 0.6em;
+      }
+
+      .rh-redhat-logo {
+        background-image: url('https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/366a0ce4f77f05892d665a6839b0417f/logo-white.svg');
+        width: 3.2em;
+      }
+
+      /* VERTICAL STYLES */
+      .vertical .rh-logo-lockup {
+        flex-direction: column; 
+        justify-content: center; }
+      .vertical .rh-logo {
+        margin: 0;
+        max-width: 3.5em; }
+      .vertical .rh-divider {
+        width: 117%;
+        height: 0.03em;
+        background-color: white;
+        margin: 0.4em 0;
+      }
+
+      /* WHITE STYLES */
+      .white .rh-redhat-logo {
+        background-image: url('https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/7c81c59b96b6135a5d7e89e6b0fc5ed8/logo-black.svg'); }
+      .white .rh-divider {
+        background-color: black;
+      }    
+
+      .redhat-logo {
+        height: 3em;
+        width: auto;
+        min-width: 4.5em;
+      }
+
+      .vertical .redhat-logo {
+        display: flex;
+        justify-content: center;
+      }
+
+      .vertical .rh-logo-container {
+        align-items: flex-end;
+      }
+
+
+    </style>
+
+  </head>
+
+  <body class="theme-color {{brand-theme}} {{^brand-theme}}corporate{{/brand-theme}} {{event-form-position}} {{#background-image}}background-image-shown{{/background-image}}">
+
+    <div class="remodal-bg">
+
+      <a href="javascript:void(0)" class="icon">
+        <div class="hamburger">
+          <div class="menui top-menu"></div>
+          <div class="menui mid-menu"></div>
+          <div class="menui bottom-menu"></div>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <div class="container">
+          <ul id="js-nav-list">
+            {{#call-to-action}}
+            <li class="nav-call-to-action">
+              <a {{#event-form-position}}data-remodal-target="{{event-form-position}}"{{/event-form-position}} href="{{call-to-action-url}}">{{{call-to-action}}}</a>
+            </li>
+            {{/call-to-action}}
+          </ul>
+        </div>
+      </nav>
+
+      <section class="header">
+        <div class="background">
+          <div class="pattern {{brand-theme}}-hero-full-pattern"></div>
+
+          {{#background-image}}
+          <div class="background-image" style="background-image: url('{{background-image}}'); opacity: {{background-image-opacity}}"></div>
+          {{/background-image}}
+
+          <div  class="full-height {{brand-theme}}-artwork {{^brand-theme}}corporate-artwork{{/brand-theme}} js-artwork"></div>  
+        </div>
+        <div class="container hero">
+          <div class="logo-lockup">
+            <div class="small-events {{#logo}}has-logo{{/logo}}{{^logo}}no-logo{{/logo}}">
+              {{#logo}}
+              <img class="other-logo" src="{{logo}}" alt="logo">
+              {{/logo}}
+              {{^logo}}
+              <div class="event-logo">
+                {{#event-name}}
+                <h2>{{{event-name}}} 
+                  <svg 
+                       preserveAspectRatio="xMinYMin meet"
+                       xmlns="http://www.w3.org/2000/svg"
+                       viewBox="0 0 10 3.75" 
+                       width="100%"
+                       height="1em">   
+                    <path
+                          d="M -0,.5 3,.5 4.5,2.2 6,.5 100,.5"
+                          style="stroke:currentcolor;stroke-width:0.25px;fill:none" />
+                  </svg>
+                </h2>
+                <br>
+                <p>{{{location}}}</p>
+                {{/event-name}}
+              </div>
+
+              {{/logo}}  
+            </div><!--small-events-->
+            <div class="redhat-logo-hero">
+              <a href="http://redhat.com">
+
+                <div class="rh-logo-container">
+
+                  <div class="rh-logo-lockup rh-horizontal" style="font-size: calc(1em + {{{logo-lockup-size}}}em);">
+                    <div class="rh-logo rh-redhat-logo"></div>
+                    {{#smk-secondary-logo}}<div class="rh-divider"></div>
+                    <img class="rh-logo rh-supporting-logo" src="{{{smk-secondary-logo}}}" style="font-size: {{{secondary-logo-size}}}em;">{{/smk-secondary-logo}}
+                  </div><!--logo-lockup horizontal-->
+
+                </div><!--container-->
+
+              </a>
+            </div>
+          </div><!--logo-lockup-->
+          <div class="headlines">
+            {{#headline}}
+            <div class="headline-font-size">
+              <h1>{{{headline}}}</h1>
+            </div>
+            {{/headline}}
+            {{#subheading}}
+            <div class="subheading-font-size">
+              <h2>{{{subheading}}}</h2>
+            </div>
+            {{/subheading}}
+
+            {{#call-to-action}}
+            <a {{#event-form-position}}data-remodal-target="{{event-form-position}}"{{/event-form-position}} class="call-to-action" href="{{call-to-action-url}}">{{{call-to-action}}}</a>
+            {{/call-to-action}}
+          </div><!--headlines-->
+
+          {{#optional-image}}<br><br><span style="display:inline-block; vertical-align:middle">
+          {{optional-image-text}}</span><img src="{{optional-image}}"  style="max-width:9em;display:inline-block; vertical-align:middle"/> {{/optional-image}}
+        </div>
+      </section><!--header-->
+
+      {{#collection.event-body-sections}} 
+      {{#block.standard-text-section}}
+      <section class="about js-section" id="{{navigation-title}}">
+        <div class="container">
+          <h1>{{{title}}}</h1>
+          {{#foreground-image}}<img src="{{{foreground-image}}}" style="max-width: 100%; height: auto;" />{{/foreground-image}}
+          {{{body-copy}}}
+        </div>
+      </section><!--about-->
+      {{/block.standard-text-section}}
+
+      {{#block.text-with-background-image-section}}
+      <section class="text-image js-section" id="{{navigation-title}}" style="background-image:url({{{background-image-section}}}); background-size:cover; background-color: #304551;  ">
+        <div class="container">
+          <h1>{{{title}}}</h1>
+          <img src="{{{foreground-image}}}" style="max-width: 100%; height: auto;" />
+          {{{body-copy}}}
+
+        </div>
+      </section><!--text-image-->
+      {{/block.text-with-background-image-section}}
+
+      {{#block.video-section}}
+      <section class="video js-section" id="{{navigation-title}}">
+        <div class="container">
+          <h1>{{{title}}}</h1>
+          <div class="video-container">
+            {{{video-url}}}
+          </div>
+        </div>
+      </section><!--video-->
+
+      {{/block.video-section}}
+
+
+      {{#block.iframe-section}}
+      <section class="iframe js-section" id="{{navigation-title}}">
+        <div class="container">
+          <h1>{{{title}}}</h1>
+          <iframe src=" {{{iframe-url}}}"></iframe>
+        </div>
+
+      </section><!--iframe-->
+      {{/block.iframe-section}}
+
+      {{#block.custom-html-section}}
+      <section class="iframe js-section" id="{{navigation-title}}">
+        <div class="container">
+          {{{custom-html}}}
+        </div>
+
+      </section><!--iframe-->
+      {{/block.custom-html-section}}
+
+      {{#block.iframe-section}}
+      <section class="iframe js-section" id="{{navigation-title}}">
+        <div class="container">
+          <h1>{{{title}}}</h1>
+          <iframe src=" {{{iframe-url}}}"></iframe>
+        </div>
+
+      </section><!--iframe-->
+      {{/block.iframe-section}}
+
+
+
+      {{/collection.event-body-sections}}   
+
+      {{#collection.speakers.length}}
+      <section class="js-section speakers" id="speakers">
+        <div class="container">
+          <h1>{{speakers-title}}</h1>
+          {{#collection.speakers}}
+
+          <div class="speakers-container">
+            <div class="speakers-list" data-remodal-target="{{name}}">
+              <div class="speaker-img" style="background-image:url('{{{avatar}}}');background-position: {{horizontal-background-position}}{{^horizontal-background-position}}50%{{/horizontal-background-position}} {{vertical-background-position}}{{^vertical-background-position}}50%{{/vertical-background-position}} "></div>
+              <a href="">{{{name}}}</a>
+            </div>
+          </div>
+
+          <!-- MODAL -->
+          <div class="remodal" data-remodal-id="{{name}}">
+            <button data-remodal-action="close" class="remodal-close"></button>
+            <h1>{{{name}}}</h1>
+            <div class="modal-left">
+              <div class="modal-img" style="background-image:url('{{{avatar}}}');background-position: {{horizontal-background-position}}{{^horizontal-background-position}}50%{{/horizontal-background-position}} {{vertical-background-position}}{{^vertical-background-position}}50%{{/vertical-background-position}}"></div>
+              <div class="modal-title">
+                <h4>{{{position}}}</h4>
+                <h3>{{{company}}}</h3>
+              </div>
+            </div>
+            <div class="modal-content">
+              {{{speaker-bio}}}
+            </div>
+          </div>
+
+          {{/collection.speakers}}
+        </div>
+      </section><!--speakers-->
+      {{/collection.speakers.length}}
+
+      {{#agenda-title}}
+      <section class="js-section agenda" id="agenda">
+        <div class="container">
+          <h1>{{{agenda-title}}}</h1>
+          <div class="tabs">
+            <div class="js-labels labels">
+              <div class="container">
+                <!--populated with Slugify-->
+              </div>  
+            </div><!--labels-->
+            {{#collection.event-agenda-day}}
+            <div class="js-tab-section tab-container" id="{{agenda-day-title}}">
+              <input type="radio" class="radio" name="tabs" id="tab-{{agenda-day-title}}">
+              <div id="tab-content-{{agenda-day-title}}" class="tab-content">
+                <div class="content">
+                  {{#spreadsheet.event-agenda-times}}
+                  <div class="{{^is-it-a-track}}agenda-row fadeInUp animated{{/is-it-a-track}} {{session-type}} track-{{is-it-a-track}}">{{#session-title}}
+                    <div class="agenda-titles">
+                      <h1>{{{session-title}}}</h1>
+                      {{#session-speaker}}
+                      <h2>{{{session-speaker}}}</h2>
+                      {{/session-speaker}}</div>{{/session-title}}{{#session-time}}<div class="agenda-details">
+                    <p><span class="time">{{{session-time}}}</span>{{#session-location}} | {{{session-location}}}{{/session-location}}</p>
+                    </div>
+                    {{/session-time}}</div><!--agenda-row fadeInUp animated-->
+                  {{/spreadsheet.event-agenda-times}}
+                </div><!--content-->
+
+              </div>
+            </div><!--tab-->
+            {{/collection.event-agenda-day}}
+          </div><!--tabs-->
+        </div>
+
+      </section><!--agenda-->
+      {{/agenda-title}}
+
+
+      {{#form-config-script}}
+      <section class="form-section form" id="form">
+        <div class="container">
+          <h1>{{{title}}}</h1>
+        </div>
+      </section>
+      {{/form-config-script}}
+      {{^form-config-script}}<div></div>{{/form-config-script}}
+
+      <!-- FORM MODAL -->
+      <div class="remodal" data-remodal-id="modal">
+        <button data-remodal-action="close" class="remodal-close"></button>
+        {{#form-config-script}}
+        <div class="form-modal form">
+          <div class="container">
+            <h1>{{{title}}}</h1>
+
+          </div>
+        </div>
+        {{/form-config-script}}
+        {{^form-config-script}}<div></div>{{/form-config-script}}
+      </div>
+
+      <footer>
+        <div class="copy">2016 &copy; Red Hat, Inc. All Rights reserved.</div>
+      </footer>
+
+      <script>
+        var links = document.getElementsByClassName('js-nav-links')
+        var totalWidth = 0
+
+        for (i = 0; i < links.length; i++) {
+          totalWidth += links[i].offsetWidth;
+          checkNavWidth();
+        }
+
+        window.addEventListener('resize', checkNavWidth);
+        function checkNavWidth() {
+          if (totalWidth + 30 > window.innerWidth - 150 || totalWidth + 30 > 1000 ) {
+            $(".nav").addClass("mobilenav");
+            $(".icon").addClass("show");
+          }
+
+          else {
+            $(".nav").removeClass("mobilenav");
+            $(".icon").removeClass("show");
+
+          }
+        }
+      </script>
+
+      <script>
+        // Slugify Section Titles for Nav
+        function toSlug(text) {
+          return text.toString().toLowerCase()
+            .replace(/\s+/g, '-')           // Replace spaces with -
+            .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+            .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+            .replace(/^-+/, '')             // Trim - from start of text
+            .replace(/-+$/, '');            // Trim - from end of text
+        }
+
+        $('.js-section').each(function(){
+          var slug    = toSlug($(this).attr('id'))
+          var notSlug = $(this).attr('id')
+
+          if (notSlug !== '') {
+            $(this).attr('id', slug );
+            $('#js-nav-list').append('<li class="js-nav-links capitalize"><a href="/#' + slug + '">' + notSlug + '</a></li>' );
+          }
+        })  
+      </script>
+
+      <script type="text/javascript" src="assets/javascripts/modernizr.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
+      <script type="text/javascript" src="assets/javascripts/main.js"></script>
+      {{#form-config-script}}  
+      <script type="text/javascript">
+        $(document).ready(function () {
+
+          {{{form-config-script}}}
+
+          window.DynamicFormConfig = GatedFormConfig;
+
+          var form_js = document.createElement("script");
+          form_js.type = "text/javascript";
+          form_js.src = "//www.redhat.com/forms/scripts/jquery.gatedform.js";
+          document.getElementsByTagName("body")[0].appendChild(form_js);
+
+          $("#GatedFormContainer").css("opacity", "0");
+
+          var checkExist = setInterval(function() {
+            if ($('#C_FirstName').length) {
+              clearInterval(checkExist);
+              setTimeout(function () { initFormInteractions() }, 1500);
+            }
+          }, 100);
+
+          function initFormInteractions () {
+            $("#GatedFormContainer").css("opacity", "1");
+
+            $("select:not([multiple]) option:first-child").empty(); // Blank first option in all select inputs
+            $("select:not([multiple])").parent().addClass("dropdown-arrow");
+            $(".disabled").parent().css("opacity","0.75");
+
+            blankFirstOption ();
+          }
+        });
+
+        function blankFirstOption () {
+          $("#C_Department1").change(function(){
+            $("#C_Job_Role11").parent().css("opacity","1").parent().css("opacity","1");
+            if ($.trim($("#C_Job_Role11").val()) == '') {
+              var label = $("#C_Job_Role11").parent().siblings().eq(0);
+              label.css("transform", "none");
+              label.css("color","#999");
+              label.css("font-weight","300");
+            }
+            $(".disabled").parent().css("opacity","0.75");
+            $("#C_Job_Role11 option:first-child").empty();
+
+            blankFirstOption ();
+          });
+        }
+      </script>
+      {{/form-config-script}}  
+      <script>
+        // Add/Remove Active Class to Label
+        $(document).ready(function() {
+          $(".tab-label:first-child").addClass("active");
+          $(".tab-label").click(function () {
+            $(".tab-label").removeClass("active");
+            // $(".tab").addClass("active"); // instead of this do the below 
+            $(this).addClass("active");   
+          });
+        });
+      </script>
+
+      <script>
+        // Scroll To Top of Agenda on click
+        $(".tab-label").click(function() {
+          $('html, body').animate({
+            scrollTop: $("#agenda").offset().top},'slow');
+        });
+      </script>
+
+    </div> 
+  </body>
+</html>
