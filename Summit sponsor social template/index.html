@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	{{{account.snippets.design-system-link}}}
+<style>
+
+  html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: initial !important;
+    }
+  
+  body {
+    background-image: url("https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/2ceba2aba65848ed4c9bf4cb2116d95d/sponsor-thank-you-templates-bbh-2400by1256_rh-summit-promotion-social%20Images-sponsors-thank-yous-fb-linkedin-us187184bbh-201811.png");
+    font-family: overpass;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+  	}
+
+  .container {
+    background-size: 2400px 1256px;
+  	}
+
+  .content {
+    
+  	}
+  
+  .summit-sponsor-logo {
+  	text-align: center;
+  	}
+
+  .summit-sponsor-text-top {
+    text-align: center;
+    font-weight: semi-bold;
+	letter-spacing: .025em;
+    color: #FFF;
+    font-size: 86px;
+    padding: 320px 0 25px 0;
+    font-family: overpass;
+  	}
+
+  .summit-sponsor-logo {
+    text-align: center;
+    display: flex;
+    height: 250px;
+    justify-content: center;
+  	}
+
+  .summit-sponsor-logo img {
+	padding-top: {{{summit-sponsor-logo-vertical-position}}}px;
+    text-align: center;
+    height: {{{summit-sponsor-logo-height}}}{{^summit-sponsor-logo-height}}220{{/summit-sponsor-logo-height}}px;
+  	}
+
+  .summit-sponsor-text-bottom-maintext {
+    text-align: center;
+    font-weight: semi-bold;
+	letter-spacing: .025em;
+	color: #FFF;
+    font-size: 86px;
+    text-transform: uppercase;
+	padding: 40px 0 0 0;
+    font-family: overpass;
+  	}
+
+  .summit-sponsor-text-bottom-subtext {
+    text-align: center;
+    font-weight: semi-bold;
+	letter-spacing: .025em;
+	color: #FFF;
+    font-size: 60px;
+    line-height: 120%;
+    padding: 0 0 0 0;
+    font-family: overpass;
+  	}
+
+	@media (aspect-ratio: 880/440) {
+      
+  body {
+	background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/37c9a21a2a12723d267b7eef9290d5f7/sponsor-thank-you-templates-bbh-LOGOONLY_rh-summit-promotion-social%20Images-sponsors-thank-yous-twitter-us187184bbh-201811.png);
+/*    background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/2c9d3f3837aef4bf50eef460d7df7379/sponsor-thank-you-templates-bbh_rh-summit-promotion-social%20Images-sponsors-thank-yous-twitter-us187184bbh-201811.png); */
+    }
+
+  .container {
+    background-size: 880px 440px;
+  	}
+
+  .summit-sponsor-text-top {
+    width: 880px;
+    font-size: 32px;
+    padding: 120px 0 0 0;
+  	}
+
+  .summit-sponsor-logo {
+    text-align: center;
+    height: 50px;
+  	}
+      
+  .summit-sponsor-logo img {
+	padding-top: {{{summit-sponsor-logo-vertical-position}}}px;
+    text-align: center;
+    height: {{{summit-sponsor-logo-height}}}{{^summit-sponsor-logo-height}}60{{/summit-sponsor-logo-height}}px;
+  }
+
+  .summit-sponsor-text-bottom-maintext {
+    padding: 45.3px 0 0 0;
+    width: 880px;
+    color: #FFF;
+    font-size: 32px;
+  }
+
+  .summit-sponsor-text-bottom-subtext {
+    color: #FFF;
+    font-size: 21.5px;
+    line-height: 120%;
+  }
+}
+  
+</style>
+
+</head>
+<body>
+
+  <div class="container">
+    <div class="content">
+
+      <div class="summit-sponsor-text-top">
+        {{{summit-sponsor-text-top}}}
+      </div>
+
+	  <div class="summit-sponsor-logo">
+      	<img src="{{{summit-sponsor-logo}}}{{^summit-sponsor-logo}}https://files.outfit.io/media_library_items/86010/logo-mono-white.svg{{/summit-sponsor-logo}}">
+      </div>
+
+    <div class="summit-sponsor-text-bottom-maintext">
+      {{{summit-sponsor-text-bottom-maintext}}}
+    </div>
+
+    <div class="summit-sponsor-text-bottom-subtext">
+      {{{summit-sponsor-text-bottom-subtext}}}
+    </div>
+
+    </div><!-- content -->
+  </div><!-- container -->
+
+  </body>
+  </html>
