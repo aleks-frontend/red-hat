@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//overpass-30e2.kxcdn.com/overpass.css' rel='stylesheet' />
+    <link href='https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/redhat-webfonts.css' rel='stylesheet' />
+
+    <style>
+
+      @import url(style.css);
+
+      html {
+        font-family: "Red Hat Text";
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      .outer {
+        display: table;
+        position: absolute;
+        height: 90%;
+        width: 90%;
+        border: 0px solid #000000;
+       }
+      .middle {
+        display: table-cell;
+        vertical-align: middle;
+        border: 0px solid #0000FF;
+      }
+      .inner {
+        margin-left: auto;
+        margin-right: auto; 
+        width: 100%;
+        border: 0px solid #000000;
+      }
+      #content {
+        margin-left: 120px;
+        margin-right: 60px;
+        margin-top: 70px;
+        border: 0px solid #FF0000;
+        /*  width: 624px; */
+        /*  height: 395px; */
+        /*     border: 1px solid #000000; */
+      }
+
+      #headline {
+        color: #fff;
+        font-size: 35px;
+        line-height: 117%;
+        /*    letter-spacing: 1.5px; */
+        border: 0px solid #000000;
+        margin-left: 16px;
+        padding-top: 4px;
+        overflow: hidden;
+      }
+       #fancy-quote-left {
+        float: left;
+        font-size: 38px;
+        color: #fff;
+        border: 0px solid #000000;
+		position: relative; 
+		top: -7px;
+		left: -3px;
+        visibility: {{ tep-fancy-quote }};
+      }
+      #fancy-quote-right {
+        font-size: 32px;
+        margin-left: -5px;
+        position: relative; 
+        top: -4px;
+        visibility: {{ tep-fancy-quote }};
+      }
+      #name-dash {
+        float: left;
+        margin-top: -2px;
+        font-size: 20px;
+        font-weight: bold;
+        color: #fff;
+        visibility: {{ tep-fancy-quote }};
+      }
+      #quote-author {
+        margin-top: 40px;
+        font-size: 20px;
+        font-weight: extrabold;
+        text-transform: uppercase;
+        color: #fff;
+        margin-left: 16px;
+      }
+      #position {	
+        margin-top: 3px;
+        font-size: 20px;
+        text-transform: uppercase;
+        color: #fff;
+        margin-left: 16px;
+        text-align: left;
+        font-style: italic;
+      }
+
+      @media (aspect-ratio: 880/440) {
+        body.bg-1 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/32d62d6e43e4a03f23eb3e36cca283eb/twitter-background-1.png);
+        }
+        body.bg-1 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/c6d062868688060c95f1b27e75c61e9f/facebook-background-1.png);
+        }
+        body.bg-2 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/38e98dbde2df73c6e65352c424dbc740/facebook-background-2.png);
+        }
+        body.bg-3 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/b5ed165d34ff39087295456eb9fe5fa0/facebook-background-3.png);
+        }
+        body.bg-4 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/b48fd1c9ca0a4c51b9e85724699fb8c7/facebook-background-4.png);
+        }
+        body.bg-5 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/765a861b4388658e295b0f8788e4701b/facebook-background-5.png);
+        }
+        body.bg-6 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/8e9b0821037ea54bc810a2b5e235b1cc/facebook-background-6.png);
+        }
+      }
+
+      @media (aspect-ratio: 1300/840) {
+        body.bg-1 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/b48fd1c9ca0a4c51b9e85724699fb8c7/facebook-background-1.png);
+        }
+        body.bg-1 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/c6d062868688060c95f1b27e75c61e9f/facebook-background-1.png);
+        }
+        body.bg-2 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/38e98dbde2df73c6e65352c424dbc740/facebook-background-2.png);
+        }
+        body.bg-3 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/b5ed165d34ff39087295456eb9fe5fa0/facebook-background-3.png);
+        }
+        body.bg-4 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/b48fd1c9ca0a4c51b9e85724699fb8c7/facebook-background-4.png);
+        }
+        body.bg-5 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/765a861b4388658e295b0f8788e4701b/facebook-background-5.png);
+        }
+        body.bg-6 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/8e9b0821037ea54bc810a2b5e235b1cc/facebook-background-6.png);
+        }
+
+        #content {
+          margin-left: 170px;
+          margin-right: 40px;
+          border: 0px solid #FF0000;
+        }
+        #headline {
+          color: #fff;
+          font-size: 70px;
+          line-height: 112%;
+          /*    letter-spacing: 1.5px; */
+          margin-left: 50px;
+          margin-right: 10px;
+        }
+        #fancy-quote-left {
+          float: left;
+          font-size: 90px;
+          color: #fff;
+          border: 0px solid #000000;
+          position: relative; 
+          top: -19px;
+          visibility: {{ tep-fancy-quote }};
+        }
+        #fancy-quote-right {
+          font-size: 70px;
+          margin-left: -5px;
+          position: relative; 
+          top: -3px;
+          visibility: {{ tep-fancy-quote }};
+        }
+        #name-dash {
+          margin-top: -8px;
+          margin-right: 8px;
+          margin-left: 26px;
+          font-size: 50px;
+          visibility: {{ tep-fancy-quote }};
+       }
+        #quote-author {
+          margin-top: 60px;
+          font-size: 40px;
+        }
+        #position {
+          margin-top: 7px;
+          margin-left: 55px;
+          font-size: 40px;
+        }
+      }
+
+      @media (aspect-ratio: 300/250) {
+        body.bg-1 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/17401e0abb7ed751b98db2be9ddfa67d/image1.png);
+        }
+        body.bg-1 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/17401e0abb7ed751b98db2be9ddfa67d/image1.png);
+        }
+        body.bg-2 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/e9637225987dcfae7288061b50dce8e6/image2.png);
+        }
+        body.bg-3 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/81df9dfdd134c43d358505fabf0c2387/image3.png);
+        }
+        body.bg-4 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/af5741b522ecf5e604c3d086925edcc2/image4.png);
+        }
+        body.bg-5 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/abbdd725d4c39920ebc6523e89bb5561/image5.png);
+        }
+        body.bg-6 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/f97a4ed70c023dbbfeadbb759c77730e/image6.png);
+        }
+      #headline {
+        color: #fff;
+        font-size: 15px;
+        font-weight: normal;
+        line-height: 117%;
+        /*    letter-spacing: 1.5px; */
+        border: 0px solid #000000;
+        margin-left: 16px;
+        padding-top: 4px;
+        overflow: hidden;
+      }
+      .outer {
+        display: table;
+        position: absolute;
+        height: 90%;
+        width: 90%;
+        border: 1px solid #00FF00;
+       }
+      .middle {
+        display: table-cell;
+        vertical-align: middle;
+        border: 0px solid #0000FF;
+      }
+      .inner {
+        margin-left: auto;
+        margin-right: auto; 
+        width: 100%;
+        border: 1px solid #000000;
+      }
+      #content {
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 10px;
+        border: 1px solid #FF0000;
+        /*  width: 624px; */
+        /*  height: 395px; */
+        /*     border: 1px solid #000000; */
+      }
+     }
+
+    </style>
+  </head>
+  <body class="{{tep-body-class}}">
+    <div class="outer">
+      <div class="middle">
+        <div class="inner">
+			<div id="content">
+{{#tep-fancy-quote}} <br><br>{{/tep-fancy-quote}}
+            <div class="quote-content">
+              <div id="fancy-quote-left">“</div><!-- fancy-quote-left -->
+              {{#headline}}
+              <div id="headline" class="semibold">
+                {{{headline}}}<span id="fancy-quote-right">”</span>
+              </div><!-- headline semibold -->
+              {{/headline}}
+            </div><!-- quote-content 1 -->
+
+            <div class="quote-content">
+              <div id="name-dash">- </div>
+              {{#quote-author}}<div id="quote-author" class="extrabold">{{{quote-author}}}</div>{{/quote-author}}
+              {{#position}}<div id="position" class="regular">{{{position}}}</div>{{/position}}
+            </div><!-- quote-content-2 -->
+          </div><!-- content -->
+        </div><!-- inner -->
+      </div><!-- middle -->
+    </div><!-- outer -->
+  </body>
+</html>
