@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//overpass-30e2.kxcdn.com/overpass.css' rel='stylesheet' />
+
+    <style>
+
+      html {
+		font-family: "Overpass";
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+      }
+
+@media (aspect-ratio: 1310/400) {
+      body {
+/*		background-image: url({{{background-image}}}); */
+		background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/bee0d2ac571b414002606581162d5a4b/Social%20Selling%20Tip%20email%20header.png);
+		}
+       	.content-wrapper {
+		border: 1px solid #FFF;
+        padding: 0px;
+         }
+     #headline {
+		color: #fff;
+        font-size: 119px;
+		letter-spacing: -2.25px;
+        text-transform: uppercase;
+        line-height: 110%;
+        margin-top: 15px;
+		}
+      #subheading {
+		color: #fff;
+        font-size: 38px;
+        margin-top: 150px;
+		}
+      }
+
+	</style>
+  	</head>
+
+  <body>
+	<div class="content-wrapper">
+      <div id="headline">
+        {{{headline}}} {{^headline}}SOCIAL SELLING{{/headline}}
+      </div><!-- headline -->
+      <div id="subheading">
+        {{subheading}} {{^subheading}}Connect. Engage. Sell.{{/subheading}}
+      </div><!-- subheading -->
+	</div><!-- content-wrapper -->
+  </body>
+
+</html>
