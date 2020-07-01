@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Print Generic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{{account.snippets.design-system-link}}}
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+
+    <style>
+      .content {
+        padding: 4em 1em 4em 1em;
+      }
+      
+      .center-text {
+        text-align: center !important;
+      }
+      
+      .subheading-fullwidth {
+        width: 100%;
+      }
+
+      .redhat-logo {
+        background-image: url('{{{account.logos.mono-white-2019}}}');
+        width: 3.2em;
+      }
+      .white .redhat-logo {
+        background-image: url('{{{account.logos.primary-black-2019}}}'); }
+    </style>
+
+  </head>
+  <body class="{{crop-marks}}-crop-marks {{^crop-marks}}show-crop-marks{{/crop-marks}} {{brand-theme}} {{background-artwork}}-artwork {{headline-or-quote}} {{{smk-logo-position}}} {{{smk-logo-visibility}}} {{{center-text}}}">
+    <div class="page">
+      <div class="background">
+        <div class="pattern {{brand-theme}}-hero-full-pattern"></div> 
+
+
+        <div class="full-height {{brand-theme}}-artwork {{^brand-theme}}corporate-artwork{{/brand-theme}} js-artwork"></div>
+        <div class="box-artwork-container"><div class="box"></div></div>
+
+        {{#smk-background-image}}
+        <div class="background-image" style="z-index: 1; opacity: {{^background-image-opacity}}.3{{/background-image-opacity}}{{background-image-opacity}};">
+          {{{smk-background-image}}}
+        </div>
+        {{/smk-background-image}}
+
+      </div><!--background-->
+
+      <div class="document">
+        <div class="content">
+          <div class="text-content">
+
+            <div class="front-page-copy-overflow-container" style="font-size: {{smk-headline-text-size}}em; max-height: 4.6em" >
+              <div class="front-page-copy-overflow">
+
+
+
+                {{#smk-headline}}<h1 style="font-size: 1em;" class="headline">{{{smk-headline}}}</h1>{{/smk-headline}}
+
+
+              </div>
+            </div>
+
+
+<div class="subheading-fullwidth" style="max-height: 1em; margin-top: 0.7em;">
+            {{#smk-subheadline}}<h2 style="font-size: {{subheadline-text-size}}em;" class="subheadline subheading-overflow">{{{smk-subheadline}}}</h2>{{/smk-subheadline}}
+            {{#call-to-action}}<h2 style="font-size: {{cta-text-size}}em; margin-top: {{cta-vertical-spacing}}em;" class="call-to-action">{{{call-to-action}}}</h2>{{/call-to-action}}
+</div>
+            {{#quote}}<h1 style="font-size: {{quote-text-size}}em;" class="quote">{{{quote}}}</h1>{{/quote}}
+
+            <div class="quote-author-container" style="z-index:2;">
+              {{#headshot}}
+              <div class="headshot" style="background-image: url('{{headshot}}'); {{#headshot-size}} min-width: {{headshot-size}}em; width: {{headshot-size}}em; height: {{headshot-size}}em !important; min-height: {{headshot-size}}em;{{/headshot-size}};"></div>
+              {{/headshot}}
+              {{^headshot}}
+              {{#name}} <div class="headshot-replace">-</div> {{/name}}
+              {{^name}} {{#role-company}}<div class="headshot-replace">-</div>{{/role-company}} {{/name}}
+              {{/headshot}}
+
+              <div class="quote-author" style="font-size: {{credits-size}}em; position:relative; z-index:2;">
+                {{#name}}<h2 style="font-size:.6666em" class="subheading">{{{name}}}</h2>{{/name}}
+                {{#role-company}}<h3 class="role"  style="font-size:.66666em" >{{{role-company}}}</h3>{{/role-company}}
+              </div><!--quote-author-->
+            </div><!--quote-author-container -->
+
+
+
+
+
+          </div><!--text-content-->
+
+
+
+
+          <div class="logo-container">
+
+            <div class="logo-lockup horizontal" style="font-size: {{{logo-lockup-size}}}em;">
+              <div class="logo redhat-logo"></div>
+              {{#smk-secondary-logo}}<div class="divider"></div>
+              <img class="logo supporting-logo" src="{{{smk-secondary-logo}}}" style="font-size: {{{secondary-logo-size}}}em;">{{/smk-secondary-logo}}
+            </div><!--logo-lockup horizontal-->
+
+
+            </div><!--container-->
+
+
+
+
+          </div><!--content-->
+        </div><!--document-->
+
+      </div><!--page-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+      <script type="text/javascript" src="assets/javascripts/main.js"></script>
+
+      <script type="text/javascript">
+        window.redhatArtComplexity = 1;
+
+        if($('.logo-lockup').find('.secondary-logo').length != 0) {
+          $('body').addClass('lockup')
+        } else {
+          $(this).removeClass('lockup')
+        }
+      </script>
+
+      <script>
+
+        function loop() {
+          checkHeight(document.getElementsByClassName('front-page-copy-overflow'));
+          
+          checkHeight(document.getElementsByClassName('subheading-overflow'));
+
+
+          /* Add any other text boxes you want to check the overflows on with the following: checkHeight(document.getElementsByClassName('CLASS NAME')); */
+
+        } setInterval(loop, 500);
+
+        function checkHeight(element) {
+          for (i = 0 ; i < element.length ; i++ ) {
+            var currentElement = element[i];
+            var height         = currentElement.offsetHeight;
+            var parent         = currentElement.parentNode;
+            var parentHeight   = parent.offsetHeight;
+
+            if (height > parentHeight) {
+              parent.classList.add('overflow');
+            } else {
+              parent.classList.remove('overflow');
+            }
+
+            if ((currentElement).parentNode.classList.contains('overflow')) {
+              document.body.classList.add('overflow-true');
+            } else {
+              document.body.classList.remove('overflow-true'); 
+            }
+          }
+        }  
+
+
+
+      </script>
+
+
+      <!-- <script>
+
+(function(){ var wr; function gcd(a,b) {if(b>a) {temp = a; a = b; b = temp} while(b!=0) {m=a%b; a=b; b=m;} return a;} function r(x,y) {c=gcd(x,y); return ""+(x/c)+"/"+(y/c)} function setwr() { wr = r(window.innerWidth, window.innerHeight); var rd = document.createElement("div"); rd.id = 'rd'; rd.style.position = 'absolute'; rd.style.backgroundColor = '#000'; rd.style.color = '#FFF'; rd.style.top = 0; rd.style.left = 0; var rt = document.createTextNode(wr); rd.appendChild(rt); document.body.appendChild(rd); } function updatewr(){ wr = r(window.innerWidth, window.innerHeight); document.querySelector('#rd').innerText = wr; } window.addEventListener('resize', updatewr); setwr(); })();
+
+</script> -->
+
+      </body>
+    </html>
