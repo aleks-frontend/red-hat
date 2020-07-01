@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Print Generic</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/stylesheets/main.css">
+
+    <style>
+      .content {
+        padding: 4em 1em 4em 1em;
+      }
+    </style>
+
+  </head>
+  <body class="{{crop-marks}}-crop-marks {{^crop-marks}}show-crop-marks{{/crop-marks}} {{brand-theme}} {{background-artwork}}-artwork {{headline-or-quote}} {{{smk-logo-position}}} {{{smk-logo-visibility}}}">
+    <div class="page">
+      <div class="background">
+        <div class="pattern {{brand-theme}}-hero-full-pattern"></div> 
+
+
+        <div class="full-height {{brand-theme}}-artwork {{^brand-theme}}corporate-artwork{{/brand-theme}} js-artwork"></div>
+        <div class="box-artwork-container"><div class="box"></div></div>
+
+        {{#smk-background-image}}
+        <div class="background-image" style="z-index: 1; opacity: {{^background-image-opacity}}.3{{/background-image-opacity}}{{background-image-opacity}};">
+          {{{smk-background-image}}}
+        </div>
+        {{/smk-background-image}}
+
+      </div><!--background-->
+
+      <div class="document">
+        <div class="content">
+          <div class="text-content">
+
+
+            <div class="front-page-copy-overflow-container" style="font-size: {{smk-quote-text-size}}em; max-height: 3.6em" >
+              <div class="front-page-copy-overflow">
+
+                {{#headline}}<h1 style="font-size: {{headline-text-size}}em;" class="headline">{{{headline}}}</h1>{{/headline}}
+                {{#subheadline}}<h2 style="font-size: {{subheadline-text-size}}em;" class="subheadline">{{{subheadline}}}</h2>{{/subheadline}}
+                {{#call-to-action}}<h2 style="font-size: {{cta-text-size}}em; margin-top: {{cta-vertical-spacing}}em;" class="call-to-action">{{{call-to-action}}}</h2>{{/call-to-action}}
+
+
+
+
+
+                {{#quote}}<h1 class="quote">{{{quote}}}</h1>{{/quote}}
+
+
+
+              </div>
+            </div>
+
+
+
+            <div class="quote-author-container" style="z-index:2; font-size: calc({{#smk-quote-text-size}}{{smk-quote-text-size}}em{{/smk-quote-text-size}})">
+              {{#smk-headshot}}
+              <div class="headshot" style="background-image: url('{{smk-headshot}}'); min-width: calc({{credits-size}}em + 1em); width: calc({{credits-size}}em + 1em); height: calc({{credits-size}}em + 1em) !important; min-height: calc({{credits-size}}em + 1em );"></div>
+              {{/smk-headshot}}
+              {{^smk-headshot}}
+              {{#name}} <div class="headshot-replace"></div> {{/name}}
+              {{^name}} {{#role-company}}<div class="headshot-replace">-</div>{{/role-company}} {{/name}}
+              {{/smk-headshot}}
+
+              <div class="quote-author" style="font-size: {{credits-size}}em; position:relative; z-index:2;">
+                {{#name}}<h2 style="font-size:.6666em" class="subheading">{{{name}}}</h2>{{/name}}
+                {{#role-company}}<h3 class="role"  style="font-size:.66666em" >{{{role-company}}}</h3>{{/role-company}}
+              </div><!--quote-author-->
+            </div><!--quote-author-container -->
+
+
+
+
+          </div><!--text-content-->
+
+
+
+
+          <div class="logo-container">
+
+            <div class="logo-lockup horizontal" style="font-size: {{{logo-lockup-size}}}em;">
+              <div class="logo redhat-logo"></div>
+              {{#smk-secondary-logo}}<div class="divider"></div>
+              <img class="logo supporting-logo" src="{{{smk-secondary-logo}}}" style="font-size: {{{secondary-logo-size}}}em;">{{/smk-secondary-logo}}
+            </div><!--logo-lockup horizontal-->
+
+
+            </div><!--container-->
+
+
+
+
+          </div><!--content-->
+        </div><!--document-->
+
+      </div><!--page-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+      <script type="text/javascript" src="assets/javascripts/main.js"></script>
+
+      <script type="text/javascript">
+        window.redhatArtComplexity = 1;
+
+        if($('.logo-lockup').find('.secondary-logo').length != 0) {
+          $('body').addClass('lockup')
+        } else {
+          $(this).removeClass('lockup')
+        }
+      </script>
+
+      <script>
+
+        function loop() {
+          checkHeight(document.getElementsByClassName('front-page-copy-overflow'));
+
+
+          /* Add any other text boxes you want to check the overflows on with the following: checkHeight(document.getElementsByClassName('CLASS NAME')); */
+
+        } setInterval(loop, 500);
+
+        function checkHeight(element) {
+          for (i = 0 ; i < element.length ; i++ ) {
+            var currentElement = element[i];
+            var height         = currentElement.offsetHeight;
+            var parent         = currentElement.parentNode;
+            var parentHeight   = parent.offsetHeight;
+
+            if (height > parentHeight) {
+              parent.classList.add('overflow');
+            } else {
+              parent.classList.remove('overflow');
+            }
+
+            if ((currentElement).parentNode.classList.contains('overflow')) {
+              document.body.classList.add('overflow-true');
+            } else {
+              document.body.classList.remove('overflow-true'); 
+            }
+          }
+        }  
+
+
+
+      </script>
+
+
+
+      <!-- <script>
+
+(function(){ var wr; function gcd(a,b) {if(b>a) {temp = a; a = b; b = temp} while(b!=0) {m=a%b; a=b; b=m;} return a;} function r(x,y) {c=gcd(x,y); return ""+(x/c)+"/"+(y/c)} function setwr() { wr = r(window.innerWidth, window.innerHeight); var rd = document.createElement("div"); rd.id = 'rd'; rd.style.position = 'absolute'; rd.style.backgroundColor = '#000'; rd.style.color = '#FFF'; rd.style.top = 0; rd.style.left = 0; var rt = document.createTextNode(wr); rd.appendChild(rt); document.body.appendChild(rd); } function updatewr(){ wr = r(window.innerWidth, window.innerHeight); document.querySelector('#rd').innerText = wr; } window.addEventListener('resize', updatewr); setwr(); })();
+
+</script> -->
+
+      </body>
+    </html>
