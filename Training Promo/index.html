@@ -1,0 +1,57 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- browser reset -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+  <!-- Red Hat Brand Font -->      
+  <link href='//red-hat-overpass-fonts.s3.amazonaws.com/overpass.css' rel='stylesheet' />
+  <!-- template styles -->  
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="logo-row">
+      <div class="main-logo">
+        <img src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/8e13aef72630b267a941808cda435eda/red-hat-logo.svg" alt="Red Hat">
+      </div>
+      {{#partner_logo}}
+      <div class="partner-logo">
+        <img src="{{partner_logo}}">
+      </div>
+      {{/partner_logo}}
+    </div>
+    
+    {{#main_content}}
+    <div class="main-content-font-size">
+      <div class="content" style="font-size: {{{main_content_font_size}}}em;">
+        <p style="font-size: 1em">{{{ main_content }}}</p>
+      </div>
+    </div>
+    {{/main_content}}
+
+    {{#sub_content}}
+    <div class="sub-content-font-size">
+      <div class="sub-content" style="font-size: {{{sub_content_font_size}}}em;">
+          <p style="font-size: 1em">{{ sub_content }}</p>
+      </div>
+    </div>
+    {{/sub_content}}
+    
+    {{#button_text}}
+    <div class="button">{{ button_text }}</div>
+    {{/button_text}}
+    
+    <div class="training-logo">
+      <img src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/3b85fe5cf3dd99648d48f100013f9b03/Training_Certification.svg" alt="Red Hat Training + Certification">
+    </div>
+
+    <div class="footer-content" style="display: {{footer_content_visibility}};">
+      {{#footer_content}}
+      <p class="user-footer">{{ footer_content }}</p>
+      {{/footer_content}}
+      <p>Copyright &copy; 2017 Red Hat, Inc. Red Hat and the Shadowman logo are trademarks of Red Hat, Inc., registered in the U.S. and other countries.</p>
+    </div>
+  </div>
+</body>
+</html>
