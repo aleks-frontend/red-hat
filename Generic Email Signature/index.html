@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//overpass-30e2.kxcdn.com/overpass.css' rel='stylesheet' />
+
+    <style>
+      html {
+		font-family: "Overpass";
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+		}
+      body,
+      .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom:0;
+        overflow: hidden;
+        z-index: -1;
+      }
+      .headline-wrapper {
+        width: 60%;
+        height: 100%;
+        text-align: right;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      }
+      #headline {
+		color: #fff;
+        font-size: 1.4rem;
+        line-height: 1.2em;
+        width: 100%;
+      }
+      #headline.black-text {
+      	color: black;
+      }
+      .content-wrapper {
+        margin: 0.625rem 1.5625rem; /* 10px top/bottom 25px left/right */
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+     }
+      
+      .logo {
+        width: 11rem;
+      }
+    .logo.default {
+      width: 7rem;
+     }
+	/* Text First is the Flip to a different Layout Style */
+      .content-wrapper.text-first {
+        flex-flow: row-reverse nowrap;
+      }
+      .content-wrapper.text-first > * {
+        padding: 0 4rem 0 0;
+      }
+      .content-wrapper.text-first .headline-wrapper {
+        text-align: left;
+      }
+      
+      /* Hide the reversed Logo unless black text option selected */
+      .content-wrapper .primary {
+        display: none;
+      }
+      
+      .content-wrapper.black-text .reversed {
+        display: none;
+      }
+      .content-wrapper.black-text .primary {
+        display: block;
+      }
+      
+      /* Check for Overflowing text */
+.checkOverflow.overflow {
+    border: 1px dashed red;
+    position: relative;
+    overflow: visible;
+}
+.overflow::before {
+    content: '+';
+    position: absolute;
+    z-index: 5;
+    top: -15px;
+    right: -15px;
+    height: 15px;
+    width: 15px;
+    border: 1px solid red;
+    color: red;
+    padding: 2px 2px 2px 3px;
+    box-sizing: border-box;
+    font-size: 13px;
+    text-align: center;
+    line-height: 8px;
+    background-color: white;
+    text-align: center;
+}
+.overflow:hover:before {
+    background-color: red;
+    color: white; 
+}
+.overflow:after {
+    display: none; 
+}
+.overflow:hover:after {
+    display: block;
+    content: 'There is overset content in this column. Please remove it';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: black;
+    color: white;
+    border-radius: 2px;
+    padding: 5px;
+    box-sizing: border-box;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.1em;
+    text-align: right;
+    width: 15em;
+}      
+.overflow * {
+    color: red !important; /* Colour internal content red */
+}
+	</style>
+  	</head>
+
+  <body>
+    <div class="background-image">
+      {{{google-doc-header-bg}}}
+    </div>
+	<div class="content-wrapper {{{text-first}}} {{text-color}}">
+      <!-- Show the Given Logo if one is selected -->
+      {{#google-doc-header-secondary-logo}}
+        <img class="logo" src="{{{google-doc-header-secondary-logo}}}" />
+      {{/google-doc-header-secondary-logo}}
+      <!-- Else Show the Redhat Brand Logo -->
+      {{^google-doc-header-secondary-logo}}
+        <img class="logo default primary" src="{{{account.logos.primary-black}}}" />
+        <img class="logo default reversed" src="{{{account.logos.primary-white}}}" />
+      {{/google-doc-header-secondary-logo}}
+      <div class="headline-wrapper checkOverflow">
+        <div id="headline" class="checkHeight {{text-color}}">
+          {{#headline}} 
+              {{{headline}}}
+          {{/headline}}
+        </div><!-- headline -->
+      </div>
+	</div><!-- content-wrapper -->
+  </body>
+  <script>
+// Text overflow management script      
+function loop() {
+  checkHeight(document.querySelector(".checkHeight"));
+  checkWidth(document.querySelector(".checkWidth"), 99);
+} 
+setInterval(loop, 1000);
+
+function checkHeight(element) {
+  if(element == null) { return; };
+  
+  var height = element.offsetHeight;
+  var parent = element.parentElement;
+  var parentHeight = parent.offsetHeight;
+  
+  // Multiply by 2 because we have two columns
+  if (height > parentHeight) {
+    parent.classList.add('overflow');
+  } else {
+    parent.classList.remove('overflow');
+  }
+}
+
+// Check the Width of an Element against a given limit
+// Limit should relate to a % of the elements parent width.
+function checkWidth(element, limit) {
+  if(element == null) { return; };
+  
+  var percent = limit / 100;
+  var width = element.offsetWidth;
+  var parent = element.parentElement;
+  var parentWidth = parent.offsetWidth;
+ 
+  if(width >= (parentWidth * percent)) {
+    parent.classList.add('overflow');
+  }
+  else {
+    parent.classList.remove('overflow');
+  }
+}
+  </script>
+</html>
