@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" style="background: white;">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="minireset.css" />
+  <link rel="stylesheet" type="text/css" href="global.css" />
+  <!-- Fonts -->
+  <link rel="stylesheet" type="text/css" href="https://overpass-30e2.kxcdn.com/overpass.css" />
+  <link rel="stylesheet" type="text/css" href="https://overpass-30e2.kxcdn.com/overpass-mono.css" />
+  <link rel="stylesheet" type="text/css" href="https://outfit-assets-production.s3.amazonaws.com/fonts/redhat/redhat-webfonts.css" />
+
+  <style type="text/css">
+    body {
+      font-family: "Red Hat Text", sans-serif;
+      color: #ffffff;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      line-height: 1em;
+      font-weight: 400;
+    }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+
+    h3 {
+      font-size: 0.6em;
+    }
+
+    h4 {
+      font-size: 0.5em;
+    }
+
+    h5 {
+      font-size: 0.4em;
+    }
+
+    h6 {
+      font-size: 0.3em;
+    }
+
+    p {
+      font-size: 0.3em;
+    }
+
+    .tinymce_style--dark,
+    .text-blue {
+      color: #154ea7;
+    }
+
+    .tinymce_style--light,
+    .text-yellow {
+      color: #E6B121;
+    }
+
+    .text-white {
+      color: #ffffff;
+    }
+
+    .text-cyan {
+      color: #2da3cb;
+    }
+
+    .background {
+      background: rgba(81, 0, 0, 1);
+      background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(81, 0, 0, 1)), color-stop(50%, rgba(158, 0, 0, 1)), color-stop(50%, rgba(207, 0, 0, 1)), color-stop(100%, rgba(82, 0, 0, 1)));
+      background: linear-gradient(135deg, rgba(81, 0, 0, 1) 0%, rgba(158, 0, 0, 1) 50%, rgba(207, 0, 0, 1) 50%, rgba(82, 0, 0, 1) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#510000', endColorstr='#520000', GradientType=1);
+    }
+
+    .wrapper {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: start;
+      -ms-flex-align: start;
+      align-items: center;
+      text-align: center;
+      height: 100%;
+      padding: 0.8em;
+    }
+
+    .logo {
+      width: 4.5em;
+      margin: 0 0 0.25em;
+    }
+
+    .event {
+      font-size: 0.58em;
+      line-height: 1.5em;
+      text-transform: uppercase;
+      width: 80%;
+    }
+
+    .name {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .meta {
+      letter-spacing: 0.1em;
+    }
+
+    .headline {
+      font-size: 2.4em;
+      width: 80%;
+      text-transform: uppercase;
+    }
+
+    .subHeadline {
+      font-size: 0.61em;
+      width: 80%;
+    }
+
+    .call2Action {
+      font-size: 0.52em;
+      color: #cf0000;
+      padding: 0.25em 0.85em;
+      background: #fff;
+      font-weight: 600;
+      line-height: 1em;
+      text-transform: uppercase;
+      max-width: 15em;
+    }
+
+    @media (min-aspect-ratio: 3/2) {}
+    
+    .cta-url {
+      color: white;
+      background-color: initial;
+      padding: initial;
+      text-transform: initial;
+      max-width: initial;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+    <div class="bleed">
+      <div class="background fit"></div>
+      <div class="fit">
+        <div class="wrapper">
+          <img src="{{{account.logos.mono-white-2019}}}"class="logo">
+          <h3 class="event textLimited" data-limit="2">
+            <strong class="name">{{{ eventName }}}</strong><br />
+            {{#eventLocation}}
+            {{#eventDate}}
+            <span class="meta">
+              {{{eventLocation}}} | {{{eventDate}}}
+            </span>
+            {{/eventDate}}
+            {{/eventLocation}}
+          </h3>
+          {{#headline}}<h1 class="headline textLimited" data-limit="2">{{{headline}}}</h1>{{/headline}}
+          {{#subHeadline}}<h3 class="subHeadline textLimited" data-limit="2">{{{subHeadline}}}</h3>{{/subHeadline}}
+          {{#callToAction}}
+            <div class="call2Action {{ call-to-action-type }} textLimited" data-limit="2">
+              {{{callToAction}}}
+            </div>
+            {{/callToAction}}
+        </div>
+      </div>      
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    window.showCrop = {{crop-bleed}}{{^crop-bleed}}false{{/crop-bleed}};
+
+    if (showCrop) {
+      document.querySelector('body').classList.add('crop');
+    }
+
+    var cropImage = 'https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/bdb964a7c7fdc5ebc8bbde9204b62464/crop.svg'
+
+    Array.prototype.slice.call(document.querySelectorAll('.page'))
+      .forEach(function (page) {
+        var parser = new DOMParser();
+        page.style.cssText = 'overflow: hidden; position: relative; height: 100vh; width: 100vw';
+
+        var cropString = (
+          '<div class="crop-marks">' +
+          '<img style="height: 28.81px; width: 28.81px; position: absolute; top: 0; left: 0;" src="' + cropImage + '">' +
+          '<img style="height: 28.81px; width: 28.81px; transform: rotate(90deg); position: absolute; top: 0; right: 0;" src="' + cropImage + '">' +
+          '<img style="height: 28.81px; width: 28.81px; transform: rotate(180deg); position: absolute; bottom: 0; right: 0;" src="' + cropImage + '">' +
+          '<img style="height: 28.81px; width: 28.81px; transform: rotate(270deg); position: absolute; bottom: 0; left: 0;" src="' + cropImage + '">' +
+          '</div>'
+        );
+
+        var cropNode = parser.parseFromString(cropString, "text/html").body.firstChild;
+        !!window.showCrop && page.insertBefore(cropNode, null);
+      });
+
+    Array.prototype.slice.call(document.querySelectorAll('.bleed'))
+      .forEach(function (bleed) {
+        bleed.style.cssText = !!window.showCrop
+          ? 'position: absolute; top: 4.41mm; right: 4.41mm; bottom: 4.41mm; left: 4.41mm;'
+          : 'position: absolute; top: -3mm; right: -3mm; bottom: -3mm; left: -3mm;';
+      });
+
+    window.addEventListener("resize", setSize);
+
+    function setSize() {
+      var vw = (showCrop ? window.innerWidth : window.innerWidth + 57.62) / 100
+      var vh = (showCrop ? window.innerHeight : window.innerHeight + 57.62) / 100
+      var vmin = Math.min(vw, vh)
+      var vmax = Math.max(vw, vh)
+      document.documentElement.style.fontSize = ((vmin * 2) + (vmax * 1.4) + (vh * 2)) + "px";
+    }
+
+    function countElementLines(e) {
+      const height = e.clientHeight;
+      const lineHeight = parseFloat(window.getComputedStyle(e).getPropertyValue('line-height'));
+      const lines = Math.ceil(height / lineHeight);
+
+      return lines;
+    }
+
+    function checkLimitedText() {
+      Array.prototype.slice.call(document.querySelectorAll('.textLimited'))
+        .forEach(function (e) {
+          const limit = e.getAttribute('data-limit');
+          const lines = countElementLines(e);
+        
+          if (lines > limit) {
+            e.classList.add("overflow");
+          } else {
+            e.classList.remove("overflow");
+          }
+        });
+    }
+
+    setSize();
+    setInterval(checkLimitedText, 1000);
+  </script>
+</body>
+
+</html>
