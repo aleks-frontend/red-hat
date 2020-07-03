@@ -1,0 +1,175 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="assets/stylesheets/main.css">
+  <style type="text/css">
+
+    .headline-font-size {
+      font-size: {{headline-font-size}}em;
+      /*template is designed for 1em to be used as a base font size*/
+    }
+    .subheading-font-size {
+      font-size: {{subheading-font-size}}em;
+      /*template is designed for 1em to be used as a base font size*/
+    }
+    
+
+    .event-logo h2 > span,
+        .event-logo > h2 > span *{ font-weight: 800 !important; line-height: 1em !important; margin: 0 !important; }
+    body, *{    font-family: 
+          "Overpass", 
+          "Hiragino Kaku Gothic ProN", 
+          "Hiragino Kaku Gothic", 
+          "ヒラギノ角ゴ Pro W3", 
+          sans-serif !important; }
+    
+    sup, sub {
+      vertical-align: baseline;
+      position: relative;
+      top: -0.4em;
+    }
+    
+    sup {
+      font-size: 0.7em;
+      top: -0.5em;
+    }
+    
+    sub { 
+      top: 0em;
+      font-size: 0.9em;
+      text-transform: initial; 
+    }
+  </style>
+</head>
+<body class="theme-color {{brand-theme}} {{^brand-theme}}corporate{{/brand-theme}} {{crop-bleed}} {{#background-image}}background-image-shown{{/background-image}} {{^headline}}no-headline{{/headline}} {{^supporting-logo}}no-supporting-logo{{/supporting-logo}}">
+  <div class="document">
+  <div class="pattern {{brand-theme}}-hero-full-pattern"></div>
+  
+  {{#background-image}}
+  <div class="background-image" style="background-image: url('{{background-image}}'); opacity: {{background-image-opacity}}; background-position:{{background-position}}% {{background-position}}% ;" ></div>
+  {{/background-image}}
+   
+  <div class="full-height {{brand-theme}}-artwork {{^brand-theme}}corporate-artwork{{/brand-theme}} js-artwork"></div>  
+    
+  <div class="content-main">
+  <div class="new-logo-wrap">
+  <div  style="padding-right: 10px;" class="new-logo-redhat">
+<img style="height: 100%;" src="{{{account.logos.mono-white-2019}}}">
+
+  </div>
+  {{#supporting-logo}}
+  <div style="padding-left: 5px;" class="new-logo-support">
+    <img src="{{supporting-logo}}" alt="logo"/>
+  </div><!--small-events-->
+  {{/supporting-logo}}
+</div>
+  <div class="flex-headline-lockup">
+    <div class="text-content">
+      <div class="headings">
+        {{#headline}}
+        <div class="headline-font-size checkCase" data-case="upper">
+          <h1>{{{headline}}}</h1>
+        </div>
+        {{/headline}}
+        {{#subheading}}
+        <div class="subheading-font-size checkCase" data-case="mixed" style="margin-top:.55em; line-height: 1.3em">
+          <h2>{{{subheading}}}</h2>
+        </div>
+        {{/subheading}}
+      </div><!-- headings -->
+      
+      {{#call-to-action}}
+      <div class="call-to-action checkCase" data-case="upper">
+        <a href="{{call-to-action-url}}">{{{call-to-action}}}</a>
+      </div>
+      {{/call-to-action}}
+    </div>
+  </div>
+  </div><!--content-->
+  </div><!--document-->
+  <script type="text/javascript">
+    window.redhatArtComplexity = 2;
+  </script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="//redhatbrand.github.io/RedHatPatterns/red-hat-patterns.js"></script>
+  <script type="text/javascript" src="assets/javascripts/main.js"></script>
+  
+  <!-- Word Exception -->
+  <script>
+	// Check to see if we are allowing mixed case
+    if({{{mixed-case-exception-words}}}) {
+      initWordException();
+    }
+    // If we are not we need to add text-transform styles
+    else {
+      var uppercase = document.querySelectorAll('[data-case]');
+      // Check that data-case is set to upper else set to lowercase
+      for(var i = 0; i < uppercase.length; i++) {
+        var node = uppercase.item(i);
+        console.log(node);
+        if(node.dataset.case == "upper") {
+          console.log(node);
+         node.setAttribute("style","text-transform: uppercase;"); 
+        }
+      }
+    }
+    
+    
+    function initWordException() {
+      // Define set of words to target for exception and their alternatives.
+      var exemptWords = {
+        "apis" : "APIs",
+        "devops" : "DevOps"
+      }
+      // Define a set of Nodes to have the Exemption Applied to
+      var exemptNodes = document.querySelectorAll(".checkCase");
+
+      // Check all exemptNodes for exemptWords
+      for (var i = 0; i < exemptNodes.length; i++) {
+        forceText(exemptNodes.item(i), exemptWords);
+      }      
+    }
+    
+    // Function Controls the text manipulation of a text node
+    // Enforces styling give by exemptWords param
+    function forceText(node, exemptWords) {
+      var text = node.innerHTML;
+      // First we want to check if we need to force uppercase text
+      if(node.dataset.case == "upper") {
+        text = text.toUpperCase();
+      }
+      
+      // Grab all of our Exempt word rules
+      var allKeys = Object.keys(exemptWords);
+      // Check the string for any exempt words
+      for (var i = 0; i < allKeys.length; i++) {
+        var key = allKeys[i];
+        var regex = new RegExp(key, 'gi');
+        // Do the text replacement
+        text = text.replace(regex, exemptWords[key]);
+      }
+      node.innerHTML = text;
+    }
+  </script>
+  
+  <div class="crop top-left">
+    <div class="bottom"></div>
+    <div class="right"></div>
+  </div>
+  <div class="crop top-right">
+    <div class="bottom"></div>
+    <div class="left"></div>
+  </div>
+  <div class="crop bottom-right">
+    <div class="top"></div>
+    <div class="left"></div>
+  </div>
+  <div class="crop bottom-left">
+    <div class="top"></div>
+    <div class="right"></div>
+  </div>
+  
+</body>
+</html>
