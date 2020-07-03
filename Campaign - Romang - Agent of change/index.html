@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono:300,400,600,700|Overpass:100,100i,200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&subset=latin-ext" rel="stylesheet">
+    <style> 
+
+    </style>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-family: "Overpass";
+      }
+
+      @media (aspect-ratio: 160/600) { 
+
+        body {
+          background-image: url(https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/41d8f0fc44678f2d0f81e219e41cfd45/160x600_background-outfit.png);
+          background-repeat: no-repeat;
+        }
+        .container {
+          width: 160px;
+          height: 500px;
+          border: 0px solid green;
+          padding: 0px;
+          margin: 0px;
+          position: relative;
+        }
+        .content {
+          height: 300px;
+          border: 3px solid transparent;
+        }
+        .headline {
+          margin: 33px 15px 0 14px;
+          color: #000;
+          font-size: {{{headline-font-size-agent-of-change}}}px;
+          text-transform: uppercase;
+          font-style: normal;
+          font-weight: 900;
+          line-height: 110%;
+          letter-spacing: 1px;
+          padding-top: 30px;
+          position: absolute;
+        }
+        .subheading {
+          color: #fff;
+          font-size: {{{subheading-font-size-agent-of-change}}}px;
+          line-height: 140%;
+          margin: 190px 15px 0 18px;
+          position: absolute;
+        }
+        .right-arrow {
+          height: calc({{{subheading-font-size-agent-of-change}}}px / 1.5);
+          margin: 0 0 0 .26em;
+        }
+      }
+
+      @media (aspect-ratio: 300/250) {
+        body {
+          background-image: url(https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/7d39f09c2b983cb4a056f04e3c92d8bc/300x250_background-outfit.png);
+          background-repeat: no-repeat;
+        }
+        .container {
+          width: 290px;
+          height: 240px;
+          border: 0px solid green;
+          padding: 0px;
+          margin: 0px;
+          position: relative;
+        }
+        .content {
+          height: 240px;
+          border: 0px solid blue;
+        }
+        .headline {
+          margin: 25px 15px 0 30px;
+          color: #000;
+          font-size: {{{headline-font-size-agent-of-change}}}px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-weight: 900;
+          line-height: 110%;
+          padding-top: 30px;
+          position: absolute;
+        }
+        .subheading {
+          color: #fff;
+          font-size: {{{subheading-font-size-agent-of-change}}}px;
+          line-height: 150%;
+          margin: 155px 65px 0 30px;
+          position: absolute;
+        }
+        .right-arrow {
+          height: calc({{{subheading-font-size-agent-of-change}}}px / 1.5);
+          margin: 0 0 0 .26em;
+        }
+      }
+      @media (aspect-ratio: 728/90) {
+        body {
+          background-image: url(https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/3684ac68cd6032910387bf5040d6daff/728x90_background-outfit.png);
+          background-repeat: no-repeat;
+        }
+        .container {
+          width: 728px;
+          height: 90px;
+          border: 0px solid green;
+          position: relative;
+        }
+        .content {
+          height: 84px;
+          border: 0px solid blue;
+        }
+        .headline {
+          margin: 20px 0 0 69px;
+          color: #000;
+          font-size: {{{headline-font-size-agent-of-change}}}px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          white-space: nowrap;
+          font-weight: 900;
+          line-height: 110%;
+          position: absolute;
+        }
+        .subheading {
+          color: #fff;
+          font-size: {{{subheading-font-size-agent-of-change}}}px;
+          line-height: 100%;
+          margin: 54px 0 0 69px;
+          position: absolute;
+        }
+        .right-arrow {
+          height: calc({{{subheading-font-size-agent-of-change}}}px / 1.5);
+          margin: 0 0 0 .26em;
+        }
+      }
+      @media (aspect-ratio: 1200/628) {
+        body {
+          background-image: url(https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/563c1fa1908046d1bfb1aa63295bd0f5/1200x627-LinkedIn.png);
+          /*    background-image: url(https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/f8425f34a6aa9c9294cf76112521c3c1/RH_CORP_004704_04_MECH_Facebook.png); */
+          background-repeat: no-repeat;
+        }
+        .container {
+          width: 1200px;
+          height: 628px;
+          border: 0px solid green;
+          position: relative;
+        }
+        .content {
+          height: 600px;
+          border: 0px solid blue;
+        }
+        .headline {
+          margin: 130px 0 0 90px;
+          color: #000;
+          font-size: {{{headline-font-size-agent-of-change}}}px;
+          text-transform: uppercase;
+          font-weight: 900;
+          letter-spacing: 1px;
+          line-height: 100%;
+          position: absolute;
+        }
+        .subheading {
+          color: #fff;
+          font-size: {{{subheading-font-size-agent-of-change}}}px;
+          letter-spacing: 1px;
+          line-height: 133%;
+          margin: 389px 0 0 90px;
+          position: absolute;
+        }
+        .right-arrow {
+          height: calc({{{subheading-font-size-agent-of-change}}}px / 1.5);
+          margin: 0 0 0 .28em;
+        }
+      }        
+      @media (aspect-ratio: 800/418) {
+        body {
+          background-image: url(https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/08df21a6af0a905d2625faa4b5e99438/800x418-Twitter.png);
+          background-repeat: no-repeat;
+        }
+        .container {
+          width: 800px;
+          height: 418px;
+          border: 0px solid green;
+          position: relative;
+        }
+        .content {
+          height: 400px;
+          border: 0px solid blue;
+        }
+        .headline {
+          margin: 90px 0 0 72px;
+          color: #000;
+          font-size: {{{headline-font-size-agent-of-change}}}px;
+          text-transform: uppercase;
+          font-weight: 900;
+          letter-spacing: 1.9px;
+          line-height: 105%;
+          position: absolute;
+        }
+        .subheading {
+          color: #fff;
+          font-size: {{{subheading-font-size-agent-of-change}}}px;
+          letter-spacing: 1.5px;
+          line-height: 138%;
+          margin: 243px 0 0 72px;
+          position: absolute;
+        }
+        .right-arrow {
+          height: calc({{{subheading-font-size-agent-of-change}}}px / 1.8);
+          margin: 0 0 0 .28em;
+        }
+      }        
+      @media (min-width: 620px) and (max-width: 630px) and (min-height: 430px) and (max-height: 440px) { 
+        html {
+          background-color: red;
+        }
+        
+        body {
+          background-image: url('https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/dec1cf0d81626ada8108d6599f7ad3e4/rh-agent-of-change-postcard-4x6-f11720wg-201803_front.svg'); 
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position:center;
+          width:100vw;
+          height: 100vh;
+        }
+        
+        .page {
+          width: 100vw;
+          height: 100vh;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        .fit {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+        
+        .container {
+          width: 6in;
+          height: 4in;
+          margin-left: 0.25in;
+          margin-top: 0.25in;
+          border: 0px solid green;
+          position: relative;
+        }
+
+        
+        .headline {
+          margin: 90px 0 0 72px;
+          color: #000;
+          font-size: {{{headline-font-size-agent-of-change}}}px;
+          text-transform: uppercase;
+          font-weight: 900;
+          letter-spacing: 1.9px;
+          line-height: 105%;
+          position: absolute;
+        }
+        
+        .subheading {
+          color: #fff;
+          font-size: {{{subheading-font-size-agent-of-change}}}px;
+          letter-spacing: 1.5px;
+          line-height: 138%;
+          margin: 243px 0 0 72px;
+          position: absolute;
+        }
+        
+        .right-arrow {
+          height: calc({{{subheading-font-size-agent-of-change}}}px / 1.8);
+          margin: 0 0 0 .28em;
+        }
+
+        .crop {
+          position: absolute;
+          width: calc(0.25in + 2px);
+          height: calc(0.25in + 2px);
+        }
+        .crop.top-left {
+          top: 0;
+          left: 0;
+        }
+        .crop.top-left .right {
+          position: absolute;
+          right: 1px;
+          top: 0;
+          bottom: 2.11mm;
+          border-right: 1px solid #000;
+        }
+        .crop.top-left .right:before {
+          content: '';
+          position: absolute;
+          right: 0px;
+          top: 0;
+          bottom: 0mm;
+          border-right: 1px solid #fff;
+        }
+        .crop.top-left .right:after {
+          content: '';
+          position: absolute;
+          right: -2px;
+          top: 0;
+          bottom: 0mm;
+          border-right: 1px solid #fff;
+        }
+        .crop.top-left .bottom {
+          position: absolute;
+          right: 2.11mm;
+          left: 0;
+          top: 0;
+          bottom: 1px;
+          border-bottom: 1px solid #000;
+        }
+        .crop.top-left .bottom:before {
+          content: '';
+          position: absolute;
+          right: 0px;
+          bottom: 0mm;
+          left: 0;
+          border-bottom: 1px solid #fff;
+        }
+        .crop.top-left .bottom:after {
+          left: 0;
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          right: 0;
+          border-bottom: 1px solid #fff;
+        }
+        .crop.top-right {
+          top: 0;
+          right: 0;
+        }
+        .crop.top-right .left {
+          position: absolute;
+          left: 1px;
+          top: 0;
+          bottom: 2.11mm;
+          border-right: 1px solid #000;
+        }
+        .crop.top-right .left:before {
+          content: '';
+          position: absolute;
+          right: 0px;
+          top: 0;
+          bottom: 0mm;
+          border-right: 1px solid #fff;
+        }
+        .crop.top-right .left:after {
+          content: '';
+          position: absolute;
+          right: -2px;
+          top: 0;
+          bottom: 0mm;
+          border-right: 1px solid #fff;
+        }
+        .crop.top-right .bottom {
+          position: absolute;
+          left: 2.11mm;
+          right: 0;
+          top: 0;
+          bottom: 1px;
+          border-bottom: 1px solid #000;
+        }
+        .crop.top-right .bottom:before {
+          content: '';
+          position: absolute;
+          right: 0px;
+          bottom: 0mm;
+          left: 0;
+          border-bottom: 1px solid #fff;
+        }
+        .crop.top-right .bottom:after {
+          left: 0;
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          right: 0;
+          border-bottom: 1px solid #fff;
+        }
+        .crop.bottom-right {
+          right: 0;
+          bottom: 0;
+        }
+        .crop.bottom-right .left {
+          position: absolute;
+          left: 1px;
+          top: 2.11mm;
+          bottom: 0mm;
+          border-left: 1px solid #000;
+        }
+        .crop.bottom-right .left:before {
+          content: '';
+          position: absolute;
+          left: 0px;
+          top: 0;
+          bottom: 0mm;
+          border-left: 1px solid #fff;
+        }
+        .crop.bottom-right .left:after {
+          content: '';
+          position: absolute;
+          left: -2px;
+          top: 0;
+          bottom: 0mm;
+          border-left: 1px solid #fff;
+        }
+        .crop.bottom-right .top {
+          position: absolute;
+          left: 2.11mm;
+          right: 0;
+          top: 1px;
+          bottom: 0px;
+          border-top: 1px solid #000;
+        }
+        .crop.bottom-right .top:before {
+          content: '';
+          position: absolute;
+          right: 0px;
+          top: 0mm;
+          left: 0;
+          border-top: 1px solid #fff;
+        }
+        .crop.bottom-right .top:after {
+          left: 0;
+          content: '';
+          position: absolute;
+          top: -2px;
+          right: 0;
+          border-top: 1px solid #fff;
+        }
+        .crop.bottom-left {
+          bottom: 0;
+          left: 0;
+        }
+        .crop.bottom-left .right {
+          position: absolute;
+          right: 1px;
+          top: 2.11mm;
+          bottom: 0mm;
+          border-right: 1px solid #000;
+        }
+        .crop.bottom-left .right:before {
+          content: '';
+          position: absolute;
+          right: 0px;
+          top: 0;
+          bottom: 0mm;
+          border-right: 1px solid #fff;
+        }
+        .crop.bottom-left .right:after {
+          content: '';
+          position: absolute;
+          right: -2px;
+          top: 0;
+          bottom: 0mm;
+          border-right: 1px solid #fff;
+        }
+        .crop.bottom-left .top {
+          position: absolute;
+          right: 2.11mm;
+          left: 0;
+          top: 1px;
+          bottom: 0px;
+          border-top: 1px solid #000;
+        }
+        .crop.bottom-left .top:before {
+          content: '';
+          position: absolute;
+          right: 0px;
+          top: 0mm;
+          left: 0;
+          border-top: 1px solid #fff;
+        }
+        .crop.bottom-left .top:after {
+          left: 0;
+          content: '';
+          position: absolute;
+          top: -2px;
+          right: 0;
+          border-top: 1px solid #fff;
+        }
+      }    
+      
+      @media screen and (width: 6.5in) and (height: 4.5in) { 
+        body {
+          background-image: url({{{postcard-background-image-agent-of-change}}});
+		  background-color: white;
+          /*          background-image: url('https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/dec1cf0d81626ada8108d6599f7ad3e4/rh-agent-of-change-postcard-4x6-f11720wg-201803_front.svg');           */
+        }
+        .crop-line {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border: 1px solid cyan;
+        }
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="crop-marks fit" style="z-index: 100;"><div class="crop top-left"> <div class="bottom"></div> <div class="right"></div> </div> <div class="crop top-right"> <div class="bottom"></div> <div class="left"></div> </div> <div class="crop bottom-right"> <div class="top"></div> <div class="left"></div> </div> <div class="crop bottom-left"> <div class="top"></div> <div class="right"></div> </div></div>
+    
+    <div class="page">
+      <div class="container"><span class="crop-line"></span>
+        <div class="content">  
+          <div class="headline">{{{headline-agent-of-change}}}</div>
+          <!--      	  <div class="headline">BE AN AGENT OF CHANGE</div> -->
+          <div class="subheading">{{{subheading-agent-of-change}}}<span><img class="right-arrow" src="https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/716d0066c94e8f87959eb69dcd14737e/angle-arrow-right.png"></span></div>
+          <!--          <div class="subheading">Learn how to optimize your IT. ></div> -->
+        </div>
+      </div>
+    </div>
+    
+    <script>
+       // document.dispatchEvent(new Event('printready'))
+    </script>
+
+  </body>
+</html>
