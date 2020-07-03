@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='//overpass-30e2.kxcdn.com/overpass.css' rel='stylesheet' />
+
+    <style>
+
+      html {
+		font-family: "Overpass";
+		-ms-text-size-adjust: 100%;
+		-webkit-text-size-adjust: 100%;
+        }
+
+@media (aspect-ratio: 1600/600) {
+        body.bg-1 {
+          background-color: #A30000;
+        }
+        body.bg-2 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/bbbf4a5975bab9c146a67a721aa42251/storage-screencap-20171211.png);
+        }
+ 		.outside-content-wrapper {
+        height: 550px;
+        margin-left: 50px;
+        margin-right: 50px;
+        position: relative;
+        border: 0px solid #FFF; 
+		}
+		.content-wrapper {
+        position: absolute;
+        margin-left: 30px;
+        top: 75%;
+        transform: translate(0%, -50%);
+		}
+		.logo-wrapper {
+        position: absolute;
+        top: 25%;
+        transform: translate(0%, -75%);
+		margin-left: 500px;
+  		}
+		.logo {
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+		margin-left: 520px;
+		width: 400px;
+  		}
+      #headline {
+		color: #fff;
+        font-size: 96px;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-top: 10px;
+		}
+      #subheading {
+		color: #fff;
+        font-size: 64px;
+        font-weight: 400;
+        margin-top: 10px;
+        }
+      }
+
+@media (aspect-ratio: 1200/200) {
+        body.bg-1 {
+          background-color: #A30000;
+        }
+        body.bg-2 {
+          background-image: url(https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/bb9ee6e3713a79e80b82ee77cb483bce/storage-screencap-20171212.png);
+        }
+ 		.outside-content-wrapper {
+        height: 180px;
+        margin-left: 25px;
+        margin-right: 25px;
+        position: relative;
+        border: 0px solid #FFF; 
+		}
+/*		.content-wrapper {
+        position: absolute;
+        margin-left: 30px;
+        top: 75%;
+        transform: translate(0%, -50%);
+		} */
+		.content-wrapper {
+        position: absolute;
+        margin-left: 15px;
+        margin-top: 70px;
+		}
+		.logo-wrapper {
+        position: absolute;
+        top: 30%;
+        transform: translate(0%, -70%);
+		margin-left: 365px;
+  		}
+		.logo {
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+		margin-left: 575px;
+		width: 180px;
+  		}
+      #headline {
+		color: #fff;
+        font-size: 40px;
+        text-transform: uppercase;
+        font-weight: 800;
+        margin-top: 20px;
+		}
+      #subheading {
+		color: #fff;
+        font-size: 30px;
+        font-weight: 400;
+        margin-top: 5px;
+        }
+      }
+
+	</style>
+  	</head>
+
+  <body class="{{pdf-header-body-class}}">
+	<div class="outside-content-wrapper">
+	<div class="content-wrapper">
+      <div id="headline">
+        {{{headline}}} {{^headline}}{{/headline}}
+      </div><!-- headline -->
+      <div id="subheading">
+        {{{subheading}}} {{^subheading}}{{/subheading}}
+      </div><!-- subheading -->
+	</div><!-- content-wrapper -->
+	  <div class="logo-wrapper">
+        <img class="logo" src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/25bced43d77a06e05d4f9ba327113d34/Red_Hat_RGB_reverse-exported.svg">
+      </div><!-- logo-wrapper -->
+	</div><!-- outside-content-wrapper -->
+  </body>
+
+</html>
