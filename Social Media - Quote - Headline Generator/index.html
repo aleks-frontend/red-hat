@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Print Generic</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/stylesheets/main.css">
+</head>
+<body class="{{crop-marks}}-crop-marks {{^crop-marks}}show-crop-marks{{/crop-marks}} {{brand-theme}} {{background-artwork}}-artwork {{headline-or-quote}}">
+  <div class="page">
+     <div class="background">
+      <div class="pattern {{brand-theme}}-hero-full-pattern"></div> 
+
+
+      <div class="full-height {{brand-theme}}-artwork {{^brand-theme}}corporate-artwork{{/brand-theme}} js-artwork"></div>
+      <div class="box-artwork-container"><div class="box"></div></div>
+      {{#background-image}}
+      <div class="background-image" style="z-index: 1; background-image: url('{{background-image}}'); opacity: {{^background-image-opacity}}.3{{/background-image-opacity}}{{background-image-opacity}}; {{#background-position}}background-position: {{background-position}}% {{background-position}}%;{{/background-position}}"></div>
+      {{/background-image}}
+
+    </div><!--background-->
+
+    <div class="document">
+      <div class="content">
+        <div class="text-content">
+          {{#headline}}<h1 style="font-size: {{headline-text-size}}em;" class="headline">{{{headline}}}</h1>{{/headline}}
+          {{#subheadline}}<h2 style="font-size: {{subheadline-text-size}}em;" class="subheadline">{{{subheadline}}}</h2>{{/subheadline}}
+          {{#call-to-action}}<h2 style="font-size: {{cta-text-size}}em; margin-top: {{cta-vertical-spacing}}em;" class="call-to-action">{{{call-to-action}}}</h2>{{/call-to-action}}
+          
+          {{#quote}}<h1 style="font-size: {{quote-text-size}}em;" class="quote">{{{quote}}}</h1>{{/quote}}
+          
+          <div class="quote-author-container" style="z-index:2;">
+            {{#headshot}}
+              <div class="headshot" style="background-image: url('{{headshot}}'); {{#headshot-size}} min-width: {{headshot-size}}em; width: {{headshot-size}}em; height: {{headshot-size}}em !important; min-height: {{headshot-size}}em;{{/headshot-size}};"></div>
+            {{/headshot}}
+            {{^headshot}}
+            	{{#name}} <div class="headshot-replace"></div> {{/name}}
+            	{{^name}} {{#role-company}}<div class="headshot-replace"></div>{{/role-company}} {{/name}}
+            {{/headshot}}
+            
+            <div class="quote-author" style="font-size: {{credits-size}}em; position:relative; z-index:2;">
+              {{#name}}<h2 style="font-size:.6666em" class="subheading">{{{name}}}</h2>{{/name}}
+              {{#role-company}}<h3 class="role"  style="font-size:.66666em" >{{{role-company}}}</h3>{{/role-company}}
+            </div><!--quote-author-->
+          </div><!--quote-author-container -->
+        </div><!--text-content-->
+        <div class="logo-lockup" style="z-index:2;">
+          {{#secondary-logo}}<div class="secondary-logo logo" style="height: {{secondary-logo-size}}em; text-align: right;"><img src="{{secondary-logo}}" style="border: 0; height: 100%;"/></div>{{/secondary-logo}}
+          <div class="redhat-logo logo" style="height: {{logo-size}}em; display:{{show-logo}};">
+			<img src="{{{account.logos.mono-white-2019}}}">
+          </div><!--logo-->
+        </div><!--logo-lockup-->
+      </div><!--content-->
+    </div><!--document-->
+
+  </div><!--page-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/javascripts/main.js"></script>
+  
+  <script type="text/javascript">
+    window.redhatArtComplexity = 1;
+    
+    if($('.logo-lockup').find('.secondary-logo').length != 0) {
+      $('body').addClass('lockup')
+    } else {
+      $(this).removeClass('lockup')
+    }
+  </script>
+  
+</body>
+</html>
