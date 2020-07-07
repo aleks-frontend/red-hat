@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- template styles -->  
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <!-- reset defauly browser styles -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+    <!-- Red Hat Brand Font -->      
+    <link href='//red-hat-overpass-fonts.s3.amazonaws.com/overpass.css' rel='stylesheet' />
+    <!-- Map styles -->      
+    <link href='//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.5/leaflet.css' rel='stylesheet' />
+    <style>
+      .page {
+        border-bottom: 2em solid {{partner-color}} !important; } 
+      .header { background-color: {{partner-color}} !important; }
+    </style>
+
+  </head>
+  <body>
+    <div class="first-page page">
+      <div class="header">
+        <p class="solution-brief">SOLUTION BRIEF</p>
+        <div class="header-content">
+          <div class="flex items-center">
+            <div class="partner-logo">
+              <img width="100%" style="max-height: 6em; height: auto; width: auto; max-width: 15em;" src="{{{partner-logo}}}">
+            </div>
+            <div class="header-copy">
+              <h1 class="white">{{partner-name}} and Red Hat</h1>
+              <h4 class="white">{{{subheading}}}</h4>
+            </div>
+          </div>
+        </div>
+      </div><!--header-->    
+      <div class="content-wrapper">
+        <div class="content">
+          <div class="flex">
+            <div class="sixty-six">
+              <h2>Key Challenges</h2>
+              <p>
+                Maintaining compliance with a myriad of internal security 
+                standards (e.g., SANS 20 CSC, COBIT, ITIL) and/or external 
+                industry and government regulations (e.g., PCI, HIPAA,
+                PCI) is a challenging task by any measure. Most IT 
+                security standards and regulations call for monitoring 
+                systems for unpatched vulnerabilities, but generating 
+                adequate audit reports is nearly impossible without 
+                performing credentialed network scans. And for some 
+                environments, credentialed scanning is either impractical 
+                or against internal IT policy.
+              </p>
+              <p>
+                Furthermore, some rudimentary vulnerability scanning 
+                solutions are only equipped with checks for recent 
+                system vulnerabilities, while others lack adequate 
+                coverage for certain Linux-based platforms. Also, most 
+                scanners cannot properly identify backported Linux 
+                patches, making accurately depicting Linux vulnerabilities 
+                next to impossible.
+              </p>
+              <p>
+                Without a best-of-breed vulnerability management solution,
+                Red Hat customers, in particular, face the following 
+                two challenges:
+              </p>
+
+              <ul>
+                <li>
+                  Inability to generate adequate vulnerability management 
+                  reports for compliance auditors depicting the patch 
+                  status of internal IT Red Hat Enterprise Linux (RHEL
+                  ) systems when credentialed scanning is not possible
+                </li>
+
+                <li>
+                  Inability to detect both recent and legacy vulnerabilities 
+                  and security miscon gurations within RHEL hosts
+                </li>
+
+                <li>
+                  Inability to identify backported patches to avoid 
+                  false positive Linux vulnerabilities
+                </li>
+              </ul>
+
+              <h2> Solution Overview </h2>
+
+              <p> 
+                Red Hat Network Satellite is an easy-to-use systems 
+                management platform that makes managing hundreds of 
+                RHEL hosts as easy as managing one. It provides powerful 
+                systems administration capabilities, including provisioning,
+                monitoring, and patch management. For RHEL environments 
+                where credentialed scanning is not possible, Tenable 
+                Nessus can interface with Red Hat’s Network Satellite 
+                API to automatically import—in real time—the patch 
+                status.
+              </p>
+
+              <p> 
+                of all monitored RHEL hosts. This intelligence is then 
+                shared with the Tenable SecurityCenter management console 
+                to be incorporated into compliance reports.
+              </p>
+
+              <p> 
+                Tenable offers thousands of plugins/checks for detecting 
+                both recent and legacy vulnerabilities and security 
+                miscon gurations within your RHEL environment. Tenable 
+                PVS passively monitors RHEL hosts for vulnerabilities 
+                in between periodic Nessus active scans, and Tenable 
+                LCE identi es new RHEL hosts for scanning on network 
+                segments not monitored by PVS.
+              </p>
+
+              <img class="one-hundred" src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/105fae65272166bbefefbe0a9e869321/Screen%20Shot%202016-11-24%20at%202.35.30%20PM.png">
+
+              <h2>How it Works</h2>
+              <p>
+                Step 1: Nessus interfaces with Red Hat Network Satellite API and imports the patch status of each monitored RHEL host—including identifying backported patches. This intelligence is then shared with the SecurityCenter for compliance reporting.
+              </p>
+
+            </div>         
+            <div class="thirty-three" style="padding-left: 3em;">
+
+              <img class="one-hundred" src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/f735bdea1e35f8d6ac94ec11a9a1d919/redhatblack.svg">
+
+              <br>
+
+              <div class="border-left">
+                <h3>Solution Components</h3>
+
+                <ul>
+                  <li>
+                    Tenable SecurityCenter management console
+                  </li>
+                  <li>
+                    Tenable Nessus vulnerability scanners
+                  </li>
+                  <li>
+                    Tenable Passive Vulnerability Scanners (PVS)
+                  </li>
+                  <li>
+                    Tenable Log Correlation Engine (LCE) • Red Hat Network Satellite
+                  </li>
+                  <li>
+                    Red Hat Network Satellite API
+                  </li>
+                  <li>
+                    Red Hat Enterprise Linux
+                  </li>
+                  <li>
+                </ul>
+                <h3> Key Benefits </h3>
+                <ul>
+                  <li>
+                    Import patch status of RHEL hosts into SecurityCenter management console for simpler compliance reporting
+                  </li>
+                  <li>
+                    Actively scan RHEL hosts for both current and legacy vulnerabilities and security miscon gurations
+                  </li>
+                  <li>
+                    Passively scan RHEL hosts in between periodic Nessus active scans
+                  </li>
+                  <li>
+                    Detect new RHEL hosts for scanning on network segments not monitored by PVS
+                  </li>
+                  <li>
+                    Eliminate false positive Linux vulnerabilities by properly identifying backported RHEL patches
+                  </li>
+                  <li>
+                    Leverage RHEL as a Tenable-supported platform for hosting SecurityCenter, Nessus, PVS, and LCE software
+                  </li>
+                </ul>
+              </div>
+            </div>         
+          </div>
+        </div><!--content-->
+      </div><!--content-wrapper-->
+    </div><!--cover-page--> 
+
+    <div class="back-page page">
+      <div class="header">
+        <p class="solution-brief">SOLUTION BRIEF</p>	
+      </div><!--header-->    
+      <div class="content-wrapper">
+        <div class="content">
+          <div class="back-page-layout">
+            <div class="flex">
+              <div class="fifty">
+                <p>
+                  <strong>Step 2:</strong> Nessus actively scans RHEL hosts for vulnerabilities and security miscon gurations.
+                </p>
+
+                <p>
+                  <strong>Step 3:</strong> PVS passively scans RHEL hosts in between periodic Nessus scans, 
+                  and LCE aggregates log data from network infrastructure devices to 
+                  identify new RHEL hosts for scanning on network segments not monitored 
+                  by PVS.
+                </p>
+
+                <img class="one-hundred" src='https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/547321429625f3eda97db4655bad7c09/Screen%20Shot%202016-11-25%20at%208.57.29%20AM.png'>
+
+                <i>
+                  By importing patch status of all RHEL hosts monitored by Red Hat Network
+                  Satellite into Nessus, compliance auditors can incorporate RHEL patch
+                  intelligence into their SecurityCenter compliance reports.
+                </i>
+
+                <h2>
+                  Integration Benefits
+                </h2>
+
+                <p>
+                  Tenable makes it easy to incorporate the patch status of RHEL
+                  hosts monitored by Red Hat Network Satellite into SecurityCenter 
+                  compliance reports. This is particularly important for Red Hat 
+                  customers that have restrictions on performing credentialed scans 
+                  of internal systems.
+                </p>
+
+                <p>
+                  Also, since Nessus and PVS are equipped with thousands of plugins/
+                  checks speci cally designed to detect vulnerabilities and security
+                  miscon gurations within RHEL hosts—while LCE identi es new RHEL hosts
+                  to be scanned by Nessus—Red Hat customers gain peace of mind knowing
+                  that their Tenable vulnerability management solution will protect their
+                  RHEL investment.
+                </p>
+              </div>         
+              <div class="fifty" style="padding-left: 3em;">
+                <p>
+                  The benefits of a joint Tenable-Red Hat solution can be summarized
+                  as follows:
+                </p>
+
+                <ul>
+                  <li>
+                    Incorporate RHEL systems’ patch status into SecurityCenter 
+                    compliance reports
+                  </li>
+                  <li>
+                    Detect recent and legacy vulnerabilities and security miscon
+                    gurations within RHEL hosts
+                  </li>
+                  <li>
+                    Passively detect security concerns within RHEL hosts in between
+                    periodic Nessus active scans
+                  </li>
+                  <li>
+                    Identify new RHEL hosts to be scanned by Nessus on network 
+                    segments not monitored by PVS
+                  </li>
+                  <li>
+                    Eliminate false positive Linux vulnerabilities by properly 
+                    identifying backported RHEL patches
+                  </li>
+                  <li>
+                    Leverage RHEL as an ideal platform to host Tenable SecurityCenter,
+                    Nessus, PVS, and LCE software
+                  </li>
+                </ul>
+
+                <h2>
+                  About Red Hat
+                </h2>
+
+                <p>
+                  Red Hat is the world’s leading provider of open source software 
+                  solutions, taking a community-powered approach to reliable and 
+                  high-performing cloud, Linux, middleware, storage, and virtualization
+                  technologies. Red Hat also offers award-winning support, training, 
+                  and consulting services. As the connective hub in a global network 
+                  of enterprises, partners, and open source communities, Red Hat helps
+                  create relevant, innovative technologies that liberate resources for
+                  growth and prepare customers for the future of IT. For more 
+                  information about Red Hat, please visit www.redhat.com.
+                </p>
+
+                <h2> About {{partner-name}} </h2>
+
+                {{{partner-about}}}
+              </div>         
+            </div>
+            <div>
+              <div class="flex">
+
+                <div class="fifty">
+                </div>
+
+                <div class="fifty" style="padding-left: 3em;">
+                  <hr>  
+                  <h4> For More Information </h4>
+                  <strong> Questions, purchasing, or evaluation: </strong>
+                  <strong>sales@tenable.com</strong> or 410.872.0555, x500 <br>
+                  Twitter: <strong>@TenableSecurity</strong> <br>
+                  YouTube: <strong>youtube.com/tenablesecurity</strong> <br>
+                  Tenable Blog: <strong>blog.tenable.com</strong> <br>
+                  Tenable Discussions: <strong>discussions.nessus.org</strong> <br>
+                  <strong>www.tenable.com</strong>
+                  <hr>
+                </div>
+              </div>
+              <footer>
+                <p>
+                  Copyright © 2016. {{partner-name}}. All rights reserved.
+                </p>
+              </footer>
+            </div> 
+          </div>
+        </div><!--content-->
+      </div><!--content-wrapper-->
+    </div><!--back-page--> 
+    <!-- autoprefix css -->  
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+  </body>
+</html>
