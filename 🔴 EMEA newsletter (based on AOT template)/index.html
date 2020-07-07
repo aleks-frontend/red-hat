@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+ 
+<style>
+@import url(http://overpass-30e2.kxcdn.com/overpass.css);
+#outlook a {padding:0;}   
+body{width:100% !important; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; margin:0; padding:0;}   
+.ReadMsgBody {width: 100%;}
+.ExternalClass {width:100%;} 
+.backgroundTable {margin:0 auto; padding:0; width:100%;!important;} 
+table td {border-collapse: collapse; font-family: overpass,sans-serif}
+.ExternalClass * {line-height: 115%;}
+  
+  a{color:#00B9E4; text-decoration: none }
+
+
+  li{padding-bottom:1em;}
+  h2{font-weight:300; font-size: 28px; margin-top:0;}
+
+/* End reset */
+@media screen and (max-width: 630px){
+*[class="container"] { width: 320px !important; padding:0px !important}     
+*[class="mobile-column"] {display: block;}
+*[class="mob-column"] {float: none !important;width: 100% !important;}  
+*[class="mobile-padding"] {padding-left:10px !important;padding-right:10px !important;}  
+*[class="hide"] {display:none !important;}   
+*[class="100p"] {width:100% !important; height:auto !important;}   
+*[class="mobile-column-blog"] {padding-bottom:20px;display:block;}
+
+
+}
+@media screen and (max-width: 450px){
+*[class="mobhide"] {display:none !important;}  
+*[class="font-bump"] {font-size:16px !important;}
+*[class="link-bump"] {font-size:21px !important;}
+*[class="100p-mob"] {width:100% !important; height:auto !important;}
+}
+</style>
+</head>
+<body>
+<div style="background:#efefef;">
+<table border="0" cellpadding="0" cellspacing="0" class="mobile-padding" width="100%">
+<tr>
+<td align="center" valign="top">
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td height="10"></td>
+</tr>
+<tr>
+<td align="right"></td>
+</tr>
+</table>{{#emea-hero-image}}
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td valign="top"><img alt="" border="0" class="100p" src="{{emea-hero-image}}" style="display:block"></td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td height="20"></td>
+</tr>
+</table>{{/emea-hero-image}} {{#collection.aot-email-sections}} 
+  {{#block.one-column-text-section}}
+<table border="0" cellpadding="0" cellspacing="0" class="100p" style="background-color: #E6E6E6;      {{{background-option}}}" width="60">
+<tr>
+<td valign="top" style="{{{background-option}}}{{#background-image}}background-repeat:norepeat; background-size: 100%; background-position:top left;background-image:url( {{{background-image}}} );{{/background-image}}">
+  <table border="0" cellpadding="{{^cellpadding}}20{{/cellpadding}}{{{cellpadding}}}" cellspacing="0" width="640"><tr><td>
+    <table border="0" cellpadding="0" cellspacing="0">
+    {{#headline}}<tr><td align="left" style="font-size:20px; {{{fg-color}}}"><b style="font-weight:900;text-transform:uppercase;">{{{headline}}}</b></td></tr>{{/headline}}
+    <tr>
+      <td align="left" class="font-bump" style="font-size:14px; {{{fg-color}}} ">
+        {{{body-copy}}} 
+        {{#call-to-action}}{{#call-to-action-url}}
+        <a style="color:#fff; background-color:{{account.colors.primary-red-2019}};text-decoration:none;" href="{{call-to-action-url}}">
+          <table border="0" cellpadding="5" cellspacing="0" class="100p" style="background-color: {{account.colors.primary-red-2019}}">
+          <tr>
+            <td align="center" class="link-bump" style="font-size:16px; color:#FFFFFF;"><a href="{{call-to-action-url}}" style="background-color: {{account.colors.primary-red-2019}};color:#FFFFFF !important; text-decoration:none; text-transform:uppercase; padding:0 .5em;"> {{{call-to-action}}} </a></td>
+          </tr>
+        </table></a>{{/call-to-action-url}} {{/call-to-action}}
+      </td>
+    </tr>
+    </table>
+    </td></tr></table>
+</td>
+</tr>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640"><tr><td height="20"></td></tr>
+</table>{{/block.one-column-text-section}} 
+  
+  
+  {{#block.two-column-text-section}}
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td align="center" valign="top">
+  <table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+    <tr>
+      <td align="left" class="mobile-column-blog" valign="top">
+        <table align="left" border="0" cellpadding="20" cellspacing="0" class="mob-column" style="background-color: #E4E4E5" width="310">
+          <tr>
+            <td align="left" class="font-bump" colspan="3" style="font-size:14px; color:#272425; font-family:overpass, sans-serif;">
+              {{#column-1-image}} {{#column-1-call-to-action-url}}<a href="{{column-1-call-to-action-url}}">{{/column-1-call-to-action-url}} <img alt="" border="0" class=
+              "100p-mob" src="{{column-1-image}}" style="display:block; max-width: 100%" /> {{/column-1-image}} {{#column-1-call-to-action-url}} </a>{{/column-1-call-to-action-url}}
+              {{{column-1-copy}}} {{#column-1-call-to-action}} <a href="{{column-1-call-to-action-url}}" style="color:#fff; text-decoration:none;">
+              <table border="0" cellpadding="5" cellspacing="0" class="100p" style="background-color: {{account.colors.primary-red-2019}}">
+                <tr>
+                  <td align="center" class="link-bump" style="font-size:16px; color:#ffffff; font-family:overpass, sans-serif;">
+                    <a href="{{column-1-call-to-action-url}}" style="color:#fff; text-decoration:none;text-transform:uppercase; padding:0 .5em;">{{{column-1-call-to-action}}}</a></td>
+                </tr>
+              </table></a>{{/column-1-call-to-action}}
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td align="left" class="mobile-column" valign="top">
+        <table align="left" border="0" cellpadding="0" cellspacing="0" class="mob-column" width="20">
+          <tr>
+            <td align="left" height="20">&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+      <td align="left" class="mobile-column-blog" valign="top">
+        <table align="left" border="0" cellpadding="20" cellspacing="0" class="mob-column" style="background-color: #E4E4E5" width="310">
+          <tr>
+            <td align="left" class="font-bump" colspan="3" style="font-size:14px; color:#272425; font-family:overpass, sans-serif;">
+              {{#column-2-image}} {{#column-2-call-to-action-url}}<a href="{{column-2-call-to-action-url}}">{{/column-2-call-to-action-url}} <img alt="" border="0" class=
+              "100p-mob" src="{{column-2-image}}" style="display:block; max-width: 100%">{{/column-2-image}} {{#column-2-call-to-action-url}}</a>{{/column-2-call-to-action-url}}
+              {{{column-2-copy}}} {{#column-2-call-to-action}} <a href="{{column-2-call-to-action-url}}" style="color:#fff; text-decoration:none;">
+              <table border="0" cellpadding="5" cellspacing="0" class="100p" style="background-color: {{account.colors.primary-red-2019}}">
+                <tr>
+                  <td align="center" class="link-bump" style="font-size:16px; color:#ffffff; font-family:overpass, sans-serif;"><a href="{{column-2-call-to-action-url}}" style="color:#fff; text-decoration:none;text-transform:uppercase; padding:0 .5em;">{{{column-2-call-to-action}}}</a></td>
+                </tr>
+              </table></a>{{/column-2-call-to-action}}
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td height="20"></td>
+</tr>
+</table>{{/block.two-column-text-section}} {{#block.full-width-image-section}}
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td valign="top">
+  {{#image-link}}<a href="{{image-link}}">{{/image-link}}<img alt="" border="0" class="100p" src="{{hero-image}}" style="display:block; max-width: 100%">
+  {{#image-link}}</a>{{/image-link}}
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td height="20"></td>
+</tr>
+</table>{{/block.full-width-image-section}} 
+  
+   
+  
+  {{#block.two-column-image-right}}
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td align="center" valign="top">
+  <table border="0" cellpadding="0" cellspacing="0" class="100p" width="640" style="background-color: #E6E6E6;      {{{background-option}}}">
+    <tr>
+      <td align="left" class="mobile-column-blog" valign="top">
+        <table align="left" border="0" cellpadding="20" cellspacing="0" class="mob-column" style="background-color: transparent;      {{{background-option}}}" width="410">
+          <tr>
+            <td align="left" class="font-bump" colspan="3" style="font-size:14px; color:#272425; font-family:overpass, sans-serif;">
+              
+              {{{body-copy}}} 
+              
+              {{#call-to-action}} <a href="{{call-to-action-url}}" style="color:#fff; text-decoration:none;">
+              <table border="0" cellpadding="5" cellspacing="0" class="100p" style="background-color: {{account.colors.primary-red-2019}}">
+                <tr>
+                  <td align="center" class="link-bump" style="font-size:16px; color:#ffffff; font-family:overpass, sans-serif;">
+                    <a href="{{call-to-action-url}}" style="color:#fff; text-decoration:none;text-transform:uppercase; padding:0 .5em;">{{{call-to-action}}}</a></td>
+                </tr>
+              </table></a>{{/call-to-action}}
+            </td>
+          </tr>
+        </table>
+      </td>
+<!--      <td align="left" class="mobile-column" valign="top">
+        <table align="left" border="0" cellpadding="0" cellspacing="0" class="mob-column" width="20">
+          <tr>
+            <td align="left" height="20">&nbsp;</td>
+          </tr>
+        </table>
+      </td> -->
+      <td align="left" class="mobile-column-blog" valign="top">
+        <table align="left" border="0" cellpadding="20" cellspacing="0" class="mob-column" style="background-color: transparent;      {{{background-option}}}" width="230">
+          <tr>
+            <td align="left" class="font-bump" colspan="3" style="font-size:14px; color:#272425; font-family:overpass, sans-serif;">
+              {{#image}} {{#call-to-action-url}}<a href="{{call-to-action-url}}">{{/call-to-action-url}} <img alt="" border="0" class=
+              "100p-mob" src="{{image}}" style="display:block; max-width: 100%" />{{/image}} {{#call-to-action-url}}</a>{{/call-to-action-url}}
+              {{{image-caption-copy}}} 
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td height="20"></td>
+</tr>
+</table>{{/block.two-column-image-right}} 
+  
+  
+  
+  {{#block.two-column-image-left}}
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td align="center" valign="top">
+  <table border="0" cellpadding="0" cellspacing="0" class="100p" width="640" style="background-color: #E6E6E6;      {{{background-option}}}">
+    <tr>
+
+      <td align="left" class="mobile-column-blog" valign="top">
+        <table align="left" border="0" cellpadding="20" cellspacing="0" class="mob-column" style="background-color: transparent;      {{{background-option}}}" width="230">
+          <tr>
+            <td align="left" class="font-bump" colspan="3" style="font-size:14px; color:#272425; font-family:overpass, sans-serif;">
+              {{#image}} {{#call-to-action-url}}<a href="{{call-to-action-url}}">{{/call-to-action-url}} <img alt="" border="0" class=
+              "100p-mob" src="{{image}}" style="display:block; max-width: 100%" />{{/image}} {{#call-to-action-url}}</a>{{/call-to-action-url}}
+              {{{image-caption-copy}}} 
+            </td>
+          </tr>
+        </table>
+      </td>
+<!--       <td align="left" class="mobile-column" valign="top">
+        <table align="left" border="0" cellpadding="0" cellspacing="0" class="mob-column" width="20">
+          <tr>
+            <td align="left" height="20">&nbsp;</td>
+          </tr>
+        </table>
+      </td>-->
+      <td align="left" class="mobile-column-blog" valign="top">
+        <table align="left" border="0" cellpadding="20" cellspacing="0" class="mob-column" style="background-color: transparent; {{{background-option}}}" width="410">
+          <tr>
+            <td align="left" class="font-bump" colspan="3" style="font-size:14px; color:#272425; font-family:overpass, sans-serif;">
+              
+              {{{body-copy}}} 
+              
+              {{#call-to-action}} <a href="{{call-to-action-url}}" style="color:#fff; text-decoration:none;">
+              <table border="0" cellpadding="5" cellspacing="0" class="100p" style="background-color: {{account.colors.primary-red-2019}}">
+                <tr>
+                  <td align="center" class="link-bump" style="font-size:16px; color:#ffffff; font-family:overpass, sans-serif;">
+                    <a href="{{call-to-action-url}}" style="color:#fff; text-decoration:none;text-transform:uppercase; padding:0 .5em;">{{{call-to-action}}}</a></td>
+                </tr>
+              </table></a>{{/call-to-action}}
+            </td>
+          </tr>
+        </table>
+      </td>
+
+    </tr>
+  </table>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td height="20"></td>
+</tr>
+</table>{{/block.two-column-image-left}} 
+  
+  
+  
+  
+
+  
+  
+  
+  
+  
+  {{#block.three-column-section}}
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td align="center" valign="top">
+  <table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+    <tr>
+      <td align="left" class="mobile-column-blog" valign="top">
+        <table align="left" border="0" cellpadding="20" cellspacing="0" class="mob-column" style="background-color: #262e32; {{background-option}}" width="204">
+          <tr>
+            <td align="center" class="font-bump" colspan="3" style="font-size:14px; color:#ffffff; {{fg-color}}; font-family:overpass, sans-serif;">
+              {{#column-1-image}} {{#column-1-call-to-action-url}}<a href="{{column-1-call-to-action-url}}">{{/column-1-call-to-action-url}} <img alt="" border="0"  src="{{column-1-image}}" style="display:block; max-width: 100%" />  {{#column-1-call-to-action-url}} </a>{{/column-1-call-to-action-url}} {{/column-1-image}}
+              {{{column-1-copy}}} {{#column-1-call-to-action}} <a href="{{column-1-call-to-action-url}}" style="color:#fff; text-decoration:none;">
+              <table border="0" cellpadding="5" cellspacing="0" class="100p" style="background-color: {{account.colors.primary-red-2019}}">
+                <tr>
+                  <td align="center" class="link-bump" style="font-size:12px; color:#ffffff; font-family:overpass, sans-serif;">
+                    <a href="{{column-1-call-to-action-url}}" style="color:#fff; text-decoration:none;text-transform:uppercase; padding:0 .5em;">{{{column-1-call-to-action}}}</a></td>
+                </tr>
+              </table></a>{{/column-1-call-to-action}}
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td align="left" class="mobile-column" valign="top">
+        <table align="left" border="0" cellpadding="0" cellspacing="0" class="mob-column" width="14">
+          <tr>
+            <td align="left" height="20">&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+      <td align="left" class="mobile-column-blog" valign="top">
+        <table align="left" border="0" cellpadding="20" cellspacing="0" class="mob-column" style="background-color: #262e32; {{background-option}}" width="204">
+          <tr>
+            <td align="center" class="font-bump" colspan="3" style="font-size:14px; color:#ffffff;; {{fg-color}}; font-family:overpass, sans-serif;">
+              {{#column-2-image}} {{#column-2-call-to-action-url}}<a href="{{column-2-call-to-action-url}}">{{/column-2-call-to-action-url}} <img alt="" border="0"   src="{{column-2-image}}" style="display:block; max-width: 100%" /> {{#column-2-call-to-action-url}}</a>{{/column-2-call-to-action-url}} {{/column-2-image}}
+              {{{column-2-copy}}} {{#column-2-call-to-action}} <a href="{{column-2-call-to-action-url}}" style="color:#fff; text-decoration:none;">
+              <table border="0" cellpadding="5" cellspacing="0" class="100p" style="background-color: {{account.colors.primary-red-2019}}">
+                <tr>
+                  <td align="center" class="link-bump" style="font-size:12px; color:#ffffff; font-family:overpass, sans-serif;"><a href="{{column-2-call-to-action-url}}" style="color:#fff; text-decoration:none;text-transform:uppercase; padding:0 .5em;">{{{column-2-call-to-action}}}</a></td>
+                </tr>
+              </table></a>{{/column-2-call-to-action}}
+            </td>
+            </tr>
+        </table></td>
+
+            <td align="left" class="mobile-column" valign="top">
+        <table align="left" border="0" cellpadding="0" cellspacing="0" class="mob-column" width="14">
+          <tr>
+            <td align="left" height="20">&nbsp;</td>
+          </tr>
+        </table>
+      </td>
+
+            
+      <td align="left" class="mobile-column-blog" valign="top">
+        <table align="left" border="0" cellpadding="20" cellspacing="0" class="mob-column" style="background-color: #262e32; {{background-option}}" width="204">
+          <tr>
+            <td align="center" class="font-bump" colspan="3" style="font-size:14px; color:#ffffff;; {{fg-color}}; font-family:overpass, sans-serif;">
+              {{#column-3-image}} {{#column-3-call-to-action-url}}<a href="{{column-3-call-to-action-url}}">{{/column-3-call-to-action-url}} <img alt="" border="0"   src="{{column-3-image}}" style="display:block; max-width: 100%" />  {{#column-3-call-to-action-url}}</a>{{/column-3-call-to-action-url}} {{/column-3-image}}
+              {{{column-3-copy}}} {{#column-3-call-to-action}} <a href="{{column-3-call-to-action-url}}" style="color:#fff; text-decoration:none;">
+              <table border="0" cellpadding="5" cellspacing="0" class="100p" style="background-color: {{account.colors.primary-red-2019}}">
+                <tr>
+                  <td   align="center"  class="link-bump" style="font-size:12px; color:#ffffff; font-family:overpass, sans-serif;"><a href="{{column-3-call-to-action-url}}" style="color:#fff; text-decoration:none;text-transform:uppercase; padding:0 .5em;">{{{column-3-call-to-action}}}</a></td>
+                </tr>
+              </table></a>{{/column-3-call-to-action}}
+            </td>
+
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</td>
+</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td height="20"></td>
+</tr>
+</table>{{/block.three-column-section}}
+  
+  
+  {{/collection.aot-email-sections}}
+<table border="0" cellpadding="0" cellspacing="0" class="100p" width="640">
+<tr>
+<td height="20"></td>
+</tr>
+
+  
+<!--Header--> 
+  <table border="0" align="center" width="100%" cellspacing="0" cellpadding="0" class="MainWidth">
+  <tbody><tr>
+    <td align="center" valign="top" class="Top10" style="padding: 0 0 0 0;"> 
+    
+  <!--Logo/Social-->
+  <table border="0" bgcolor="#e7e7e7" align="center" width="640px" cellspacing="0" cellpadding="0" style="background-color: #e7e7e7 !important;" class="MainWidth">
+  <tbody><tr>
+  <!--Logo-->
+    <td width="34%" valign="top" style="padding:20px 0 20px 27px;" class=""><a href="http://app.engage.redhat.com/e/er?s=1795&lid=157&elqTrackId=ef54c9101510405d909a24a553e8ee99&elq=28ee478bd88a4e0dbff87aa704d5fdea&elqaid=39797&elqat=1"><img border="0" height="39" width="120" style="display:block;" alt="Red Hat" src="{{{account.logos.primary-black-2019}}}" class=""></a></td>
+  <!--Logo-->
+  </tr>
+ </tbody></table>
+   <!--Logo/Social-->
+
+   </td>
+  </tr>
+ </tbody></table>
+   <!--END Header--> 
+  
+<tbody>
+<tr>
+<td align="center" valign="top" width="100%"><!--Wrapper-->
+<table align="center" bgcolor="#e7e7e7" border="0" cellpadding="0" cellspacing="0" class="MainWidth" width="640px">
+<tbody>
+<tr>
+<td align="center" class="MainWidth" style="max-width:100%; padding: 0;" valign="top">
+  <!--Legal-->
+<table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody>
+<tr>
+<td align="center" style="font-family:'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif; padding:20px 28px; text-align: center; color:#d3d3d3; background-color: #252525; font-size:11px; line-height:16px;" valign="top"><br />
+<br />
+&quot;Red&nbsp;Hat&quot; and the &quot;Shadowman&quot; logo are trademarks or registered trademarks of Red&nbsp;Hat, Inc.<br />
+Linux is a registered trademark of Linus Torvalds.<br />
+&copy; 2018 Red&nbsp;Hat, Inc. All rights reserved.<br />
+</tr>
+</tbody>
+</table>
+<!--Legal--></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</table>
+</div>
+</body>
+</html>
