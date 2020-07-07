@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <title>{{{ title }}} {{^title}}Red Hat Training{{/title}}</title>
+
+    <style type="text/css">    
+
+      @media screen { 
+        @font-face {
+          font-family: 'Overpass';
+          font-style: normal;
+          font-weight: 400;
+          src: local('Overpass-Regular'), url(https://fonts.gstatic.com/s/overpass/v1/n_MBJY8bhXgAxUcp8SMNzHYhjbSpvc47ee6xR_80Hnw.woff) format('woff');
+        }
+      }
+
+      #templatePreheader{display:none !important;} /* Hide the template preheader to save space */
+
+      @media only screen and (max-width: 640px) {
+        .deviceWidth {
+          width: 100% !important;
+          padding: 0; 
+          display: block;
+          text-align: left;
+        }
+        .imgWidth{
+          width: 100% !important;
+          height: inherit !important;
+        }
+        .logoWidth{
+          padding: 0 0 0 20px;
+        }
+        .logoWidthRight{
+          padding: 0 20px 0 0 !important;
+        }
+        .boxWidth{
+          padding: 0 20px 0 20px;
+        }
+        .center{
+          margin: 0 auto !important;
+          display: block;
+        }
+        .spacer{
+          display: none;
+        }
+        .spacerHeight{
+          margin: 20px 0 0 0 !important;
+        }
+      }
+      @media only screen and (max-width: 380px) {
+        .textMobile{
+          font-size: 9px !important;
+        }
+      }
+    </style>
+
+    <style type="text/css">
+
+    </style>
+  </head>
+  <body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif; font-size:13px; color: #505050; background-color: #FFF;">
+
+
+
+
+
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center">
+          <table class="deviceWidth" width="600" border="0" cellspacing="0" cellpadding="0" style="background-color: #FFF; font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif;">
+
+            <!-- START preheader -->
+
+            <tr>
+              <td>    
+
+                <table align="left" border="0" cellspacing="0" cellpadding="0" id="templatepreheader">
+                  <tr>
+                    <td valign="top" class="preheaderContent" style="padding:0px; visibility: hidden; color: #ffffff; font-size: 8px;">
+                      {{{ preheader-text }}}
+                    </td>
+
+                  </tr>
+                </table>
+
+                <table align="right" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>
+
+                    </td>
+                  </tr>
+                </table>
+              </td>  
+            </tr>
+
+            <!-- END preheader -->
+
+            <!-- START Header -->
+            <tr>
+              <td>
+                <img width="600" class="imgWidth" src="{{{ banner-image }}}" alt="Red Hat Training & Certification" title="Red Hat Training & Certification" style="display: block;">
+              </td>
+            </tr>
+            <!-- START Header -->
+
+            <!-- START 1 column-->
+            <tr>
+              <td align="left" style="padding: 20px;">
+                <table border="0" cellspacing="0" cellpadding="0" width="100%">
+
+                  <tr>    
+
+
+                    <!-- column-->
+                    <td class="deviceWidth" width="600" align="left" valign="top">
+                      <table border="0" cellspacing="0" cellpadding="0" width="100%" style="font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif;">
+                        <tr>
+                          <td>
+                            <h2 style=" color: {{account.colors.primary-red-2019}}; margin: 5px 0 15px 0; padding: 0;">
+                              {{{ headline }}}
+                            </h2>
+
+                            <p style="font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif; font-size: 13px; line-height: 18px; color: #505050; margin: 15px 0 0 0; padding: 0;">
+                              {{{ email-copy }}}
+
+                            </p>
+
+
+                            {{#call-to-action}}                                    
+                            <br><div><!--[if mso]>
+  <v:rect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="{{{ mso-call-to-action-url }}}" style="height:35px;v-text-anchor:middle;width:150px;" stroke="f" fillcolor="{{account.colors.primary-red-2019}}">
+    <w:anchorlock/>
+    <center>
+  <![endif]-->
+
+
+                            <a href="{{{ call-to-action-url }}}" style="background-color:{{account.colors.primary-red-2019}};color:#ffffff;display:inline-block;font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif;font-size:13px;font-weight:bold;line-height:35px;text-align:center;text-decoration:none;width:150px;-webkit-text-size-adjust:none; text-transform: uppercase;">{{{ call-to-action }}}</a>
+
+                            <!--[if mso]>
+    </center>
+  </v:rect>
+<![endif]--></div>
+                            {{/call-to-action}}
+
+
+
+
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+
+                    <!-- Spacer -->
+                    <td class="spacer"><img src="http://images.engage.redhat.com/EloquaImages/clients/RedHat/{45d39278-e768-45a9-b3c7-de3c1910ba23}_spacer.jpg" width="30" height="1" alt="Spacer" title="Spacer"></td>
+                    <!-- END Spacer -->
+
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- END -->
+            {{#collection.grey-modules}}
+            <!-- GREY MODULE SECTION -->
+            <tr>
+
+              <td valign="top" style="padding: 0 0 20px 0;">
+
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif; text-align: left; padding:10px;" class="boxWidth">
+                  <tr>
+                    <!-- GREY MODULE 1 -->
+
+                    <td style="padding: 15px; background-color: #f0f0f0;">
+                      <p style="font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif; font-size: 16px; line-height: 10px; color:{{account.colors.primary-red-2019}}; margin: 0; font-weight:bold; margin: 5px 0 15px 0;">
+
+                        {{{ module-headline }}}</p>
+                      <p style="font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif; font-size: 13px; line-height: 18px; color: #505050; margin: 0 0 5px 0; padding: 0; font-weight: bold;">
+                        {{{module-subheading}}}
+
+                      </p>
+                      <p style="font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif; font-size: 13px; line-height: 18px; color: #505050; margin: 0 0 5px 0; padding: 0;">
+                        {{{ module-body-copy }}} 
+
+
+
+                      </p>
+                      <p style="font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif; font-size: 13px; line-height: 18px; color: #505050; margin: 0; padding: 0;">
+                        <a href="{{{ module-call-to-action-url }}}" target="_blank" title="Red Hat Certified Administrator" alt="Red Hat Certified Administrator" style="text-decoration: none; text-transform: uppercase; border: 0; color: {{account.colors.primary-red-2019}};">{{{ module-call-to-action }}} ></a>
+                      </p>
+                    </td>
+                    <td style="padding: 15px; background-color: #f0f0f0;">
+                      <p style="font-family: 'Overpass', Overpass, Helvetica, helvetica, arial, sans-serif; font-size: 13px; line-height: 18px; color:#505050; margin: 0 0 5px 0; padding: 0;">
+                        {{#module-icon}}
+                        <a href="#"><img src="{{{ module-icon }}}" style="width: 100px;" width="100" title="Red Hat Certificate" alt="Grow your Career">
+                          {{/module-icon}}
+                          {{^module-icon}}
+                          <img src="http://images.engage.redhat.com/EloquaImages/clients/RedHat/%7Bcefdfa57-8f86-4e65-804b-6f91d00272f6%7D_Icon_RH_Object_Gear-Group_RGB_Flat_with_red_copy_150px_wide.png" style="width: 100px;" width="100" title="Red Hat Certificate" alt="Grow your Career"></a>
+                        {{/module-icon}}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <!-- END GREY MODULE 1 -->
+
+            {{/collection.grey-modules}}
+
+
+
+
+
+          </table>
+
+        </td>
+      </tr>
+    </table>
+
+    <!---FOOTER CODE--->
+    <table align="center" bgcolor="#252525" border="0" cellpadding="0" cellspacing="0" style="{{#footer-visibility}}display: {{{ footer-visibility }}};{{/footer-visibility}} width:100% !important; height:auto !important; max-width: 600px; margin: auto;" width="600">
+      <tbody>
+        <tr colspan="2" style="max-width: 560px !important;" width="560">
+          <td style="vertical-align: top; padding-left: 6px; padding-right: 6px; width:100%; max-width: 560px;" width="560"><!--Wrapper-->
+            <table align="center" bgcolor="#252525" border="0" cellpadding="0" cellspacing="0" class="MainWidth" width="560">
+              <tbody>
+                <tr>
+                  <td align="center" class="MainWidth" style="max-width:655px; padding: 0;" valign="top"><!--Legal-->
+                    <table align="center" border="0" cellpadding="0" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr>
+                          <td align="center" style="font-family: 'Overpass', Overpass, helvetica, Helvetica, arial, Arial, sans-serif; padding:20px 28px; text-align: center; color:#d3d3d3; background-color: #252525; font-size:11px; line-height:16px;" valign="top"><a href="http://www.redhat.com/apps/webform.html?event_type=contact_sales&eid=21&elqTrackId=4ba5b57488ec49c3acc53900b93cee84&elq=6bc5dccd8643420cb7d50d483b6c8443&elqaid=36214&elqat=1&elqCampaignId=" style="color: #ffffff; text-decoration: underline;">contact our sales team</a> &nbsp;|&nbsp; <a href="https://engage.redhat.com/global-Preference-Center?elqTrackId=f1ce84a099fa464f87c4a556e1416201&elq=6bc5dccd8643420cb7d50d483b6c8443&elqaid=36214&elqat=1&elqCampaignId=" style="color: #ffffff; text-decoration: underline;">manage your newsletter preferences</a> &nbsp;|&nbsp; <a href="http://www.redhat.com/legal/privacy_statement.html?elqTrackId=ed90d61e0ddf4a33a11363eb8c465f3a&elq=6bc5dccd8643420cb7d50d483b6c8443&elqaid=36214&elqat=1&elqCampaignId=" style="color: #ffffff; text-decoration: underline;">read our privacy policy</a><br>
+                            <a href="https://www.redhat.com/wapps/ugc/master-unsubscribe.html?elqc=10&elqTrackId=df612c5872294a5fab86a100d61c0e1b&elq=6bc5dccd8643420cb7d50d483b6c8443&elqaid=36214&elqat=1&elqCampaignId=" style="color: #ffffff; text-decoration: underline;">unsubscribe from all Red&nbsp;Hat email</a><br>
+                            <br>
+                            &quot;Red&nbsp;Hat&quot; and the &quot;Shadowman&quot; logo are trademarks or registered trademarks of Red&nbsp;Hat, Inc.<br>
+                            Linux is a registered trademark of Linus Torvalds.<br>
+                            &copy; 2017 Red&nbsp;Hat, Inc. All rights reserved.<br>
+                            <br>
+                            100 East Davie Street<br>
+                            Raleigh, NC 27601</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <!--Legal--></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body></html>
