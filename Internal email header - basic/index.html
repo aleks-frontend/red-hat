@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{{account.snippets.design-system-link}}}
+
+    <style>
+      html {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        font-size: initial; 
+      }
+
+      body {
+        background-image: url({{{background-image}}}{{^background-image}}https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/1ef962c5d6f261c3f23449456778e234/corporate-background-placeholder.jpg{{/background-image}});
+        color: {{{email-banner-text-color}}}{{^email-banner-text-color}}white{{/email-banner-text-color}};
+        background-size: cover;
+      }
+
+      .content-wrapper {
+        width: 70%;
+        margin: 2em 0 0 2em;
+      }
+
+      #internal-email-banner-headline {
+        font-size: {{{internal-email-banner-heading-font-size}}}em;
+        line-height: 110%;
+      }
+      
+      #internal-email-banner-date {
+        font-size: {{{internal-email-banner-date-size}}}em;
+        margin-top: 2.6em;
+      }
+      
+      #internal-email-banner-subheading {
+        padding: 0 0 {{internal-email-banner-subheading-padding-bottom}}px 0;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="content-wrapper">
+      <div id="internal-email-banner-headline">
+        {{{internal-email-banner-headline}}}
+      </div><!-- internal-email-banner-headline -->
+      <div id="internal-email-banner-date">
+        {{{internal-email-banner-date}}}
+      </div><!-- internal-email-banner-date -->
+      <div id="internal-email-banner-subheading" style="font-size: {{{internal-email-banner-subheading-font-size}}}em;">
+        {{{internal-email-banner-subheading}}}
+      </div><!-- internal-email-banner-subheading -->
+    </div><!-- content-wrapper -->
+  </body>
+
+</html>
