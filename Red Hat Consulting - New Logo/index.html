@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{{account.snippets.design-system-link}}}
+    <link href='//overpass-30e2.kxcdn.com/overpass.css' rel='stylesheet' />
+
+    <style>
+
+      html {
+        -ms-text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        overflow: hidden;
+      }
+
+      @media (aspect-ratio: 1200/200) {
+        body {
+        }
+        .background-image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom:0;
+          overflow: hidden;
+          z-index: -1;
+        }
+        .background-image::after {
+          
+        }
+        #headline {
+          color: #fff;
+          font-size: 40px;
+          font-weight: normal;
+          line-height: 110%;
+          position: absolute;
+          top: 70px;
+        }
+        .content-wrapper {
+          border: 0px solid #000;
+          margin-left: 35px;
+          margin-right: 20px;
+          margin-bottom: -20px;
+          margin-top: -10px;
+          height: 200px;
+          padding: 0px;
+        }
+        .logo-wrapper {
+          border: 0px solid #FFF;
+        }
+        .logo {
+          width: 130px;
+          margin-top: 35px;
+        }
+        .secondary-logo {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: 30px;
+          height: 70px;
+        }
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div class="background-image">{{{ google-doc-header-bg }}}</div>
+    <div class="content-wrapper">
+      <div class="logo-wrapper">
+        <img class="logo" src="{{{account.logos.primary-white-2019}}}">
+      </div><!-- logo-wrapper -->
+      <div id="headline">
+        {{{headline}}}
+      </div><!-- headline -->
+      <img class="secondary-logo" src="{{{google-doc-header-secondary-logo}}}">
+    </div><!-- content-wrapper -->
+  </body>
+
+</html>
