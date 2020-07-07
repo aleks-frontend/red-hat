@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta name="generator" content="HTML Tidy for Linux/x86 (vers 25 March 2009), see www.w3.org">
+<title>Red Hat</title>
+
+<style type="text/css">
+
+body {background-color: #eeeeee; margin: 0px; width: 100% !important;}
+
+#wrapper {margin:20px auto;}
+
+
+body, table, p, li, ul {font-family: RedHatDisplay, liberation sans, verdana, arial, helvetica, lucida, sans-serif; color: rgb(51, 51, 51);}
+
+h1 {font-family: RedHatDisplayBold, RedHatDisplay, liberation sans, verdana, arial, helvetica, lucida, sans-serif; color: #FFFFFF; font-size: 24pt;}
+  
+p, li {font-size: 10pt; line-height: 18px;}
+
+a:link, a:visited {color: #cc0000; text-decoration: none;}
+
+h2 {color: #000000; font-size: 15pt;} .footer { font-family: RedHatDisplay, liberation sans, verdana, arial, helvetica, lucida, sans-serif; color: #666666; font-size: 7pt; }
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
+}
+ @media only screen and (max-width: 500px) {
+    .footerTD {
+        float: left;
+    }
+}
+
+</style>
+</head>
+<body>
+      <table width="640" cellspacing="0" cellpadding="0" border="0" align="center" style="max-width:600px; width:100%;" bgcolor="#FFFFFF">
+        <!-- Start Header Rows -->
+        <tr>
+            <td align="center" valign="top">
+                <table width="600" cellspacing="0" cellpadding="0" border="0" align="center" style="max-width:600px; width:100%;">
+                  <tbody>
+                    <tr>
+                        <td height="93" style="background: right / cover no-repeat #cc0000 ;" align="right" valign="top">
+                          	<table width="100%" height="93" cellspacing="0" cellpadding="0" border="0" align="center">
+                              <tbody>
+                                <tr>
+                                  <td width="100%;" align="left" valign="center" style="padding: 0 10px;">
+                                    <h1 style="color: white; margin: 0;">FRIDAY FIVE</h1>
+                                  </td>
+                                  <td width="100%;" align="right" valign="center" style="padding: 0 0px;">
+                                    <img style="display: block;" src="https://files.outfit.io/media_library_items/94567/friday-five-logo-newbrand.png" />
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr class="header">
+            <td align="left" valign="top" style="padding: 14px 20px 20px 20px">
+                <p><b>{{friday-five-date}}</b></p>
+                <p style="font-size: 18px; line-height: 18px;"><b>The week's top news and ideas for Red Hat<sup>&reg;</sup> associates to read and share.</b></p>
+                <p><b>{{{friday-five-link}}}</b></p>
+                <img src="https://files.outfit.io/media_library_items/94566/friday-five-bar-newcolor.png" width="100%" height="10px">              
+            </td>
+        </tr>
+        <!-- /end Header Rows -->
+
+        <!-- Start Body Rows -->
+        <tr class="body">
+            <td align="left" valign="top" style="padding: 0 20px 0 20px">
+                <!-- Start Content Block -->
+                {{#collection.friday-five-EDM}}
+              	{{#block.friday-five-block}}
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                  <tbody>
+                    <tr>
+                        <!-- Number -->
+                        <td style="padding: 40px 0 10px 0;" align="left" valign="top">
+                            <img src="{{{ friday-five-EDM-block-number }}}" max-width="100%" width="80" height="80" />
+                        </td>
+                        <!-- Support Graphic -->
+                        <td style="padding: 0 0 20px 0;" align="right" valign="top">
+                            <a style="display: block;" href="{{{ friday-five-EDM-image-link }}}">
+                              <img src="{{{ friday-five-EDM-image }}}" max-width="100%" width="140" />
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Tagline -->
+                    <tr>
+                        <td colspan="2" align="left" valign="top">
+                            <p style="margin: 0; padding: 0 0 10px; font-weight: 700;  font-size: 18px; line-height: 18px; color: #7d7d7d;">{{{ friday-five-EDM-intro-title }}}</p>
+<!--                            <p style="margin: 0; padding: 0 0 30px; ">{{{ friday-five-EDM-intro-copy }}}</p> -->
+                        </td>
+                    </tr>
+                    <!-- End Tagline -->
+                    <!-- Main Content -->
+                    <tr>
+                        <td style="padding: 0 0 18px;" colspan="2" align="left" valign="top">
+                            {{{ friday-five-EDM-body-copy }}}
+                        </td>
+                    </tr>
+                    <!-- End Main Content -->
+                  
+                    <!-- Learn More Button -->
+                    {{#friday-five-EDM-learn-more-link}}
+                    <tr>
+                        <td style="padding: 0 0 15px;" align="left" valign="middle">
+                            <a class="display: block;" href="{{{ friday-five-EDM-learn-more-link}}}" target="_blank">
+                                <img width="160" src="https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/3d68ebf326deb581ec8f26ed30a869f0/learn-more.png" />
+                            </a>
+                        </td>
+                    </tr>
+                    {{/friday-five-EDM-learn-more-link}}
+                  <!-- /end More Button -->
+                  <!-- Start Social Shares -->
+                    <tr>
+                      <td align="left" valign="middle">
+                      	<p style="font-size: 10pt; padding: 0 0 5px; margin: 0;"><font color="#cc0000"><b>SHARE&nbsp;IT!</b><br></font></p>
+                        <p style="margin: 0;">
+                          {{#friday-five-EDM-li-link}}
+                          <a style="display: inline-block; padding: 0 10px 0 0;" href="{{{ friday-five-EDM-li-link }}}" target="_blank">
+                            <img src="https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/c711e46bea0772110c53a346e300cda9/linkedin-logo.png" height=30 width=30 border=0 />
+                          </a>{{/friday-five-EDM-li-link}}{{#friday-five-EDM-tw-link}}<a style="display: inline-block; padding: 0 10px 0 0;" href="{{{ friday-five-EDM-tw-link }}}" target="_blank">
+                            <img src="https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/c2e6cd75e878c95795116cf86a3da09e/twitter-logo.png" height=30 width=30 border=0 />
+                          </a>{{/friday-five-EDM-tw-link}}{{#friday-five-EDM-fb-link}}<a style="display: inline-block;" href="{{{ friday-five-EDM-fb-link }}}" target="_blank">
+                            <img src="https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/229c0f6e4a21acf8f0a4f4da5015524f/facebook-logo.png" height=30 width=30 border=0 />
+                          </a>
+                          {{/friday-five-EDM-fb-link}}
+                        </p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="padding: 0 0 18px;" colspan="2">
+                        <hr/>
+                      </td>
+                    </tr>
+                    <!-- /end Social Shares -->
+                  </tbody>
+                </table>
+                <!-- /end Content Block -->
+                {{/block.friday-five-block}}
+                {{/collection.friday-five-EDM}}
+            </td>
+        </tr>
+        <!-- /end Body Rows -->
+        <!-- Start Footer Row -->
+        <tr>
+            <td style="padding: 0 20px 0 20px;">
+              <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr valign=top>
+                  <td class="footerTD" style="padding: 0 0 33px 0;" width=50%>
+                    <p><b>Have an idea for a future Friday Five?</b><br>
+                    Email us at <a href="mailto:marketing@redhat.com" target="_blank">marketing@redhat.com</a>.
+                    </p>
+                  </td>
+                  <td class="footerTD" style="padding: 0 0 33px 0;">
+                    <p>
+                    <b>Want more Red Hat content?</b><br>
+                    <a href="http://red.ht/1qxGsE7" target="_blank">Subscribe to Red Hat's corporate newsletter</a> // <a href="http://red.ht/1Fh9KZ7" target="_blank">Business insights</a> // <a href="http://red.ht/1N0DbFk" target="_blank">News</a> // <a href="http://red.ht/1N0DfF2" target="_blank">Newsroom RSS feed</a> // <a href="http://red.ht/1hRTRne" target="_blank">Videos</a> // <a href="http://red.ht/1hRU21N" target="_blank">Customer success stories</a> // <a href="http://red.ht/1KpruJi" target="_blank">Upcoming events</a> // <a href="http://red.ht/1EzWO60" target="_blank">Friday Five archives</a>
+                    </p>
+                    <p>
+<b>For Red Hat associates:</b><br>
+<a href="http://red.ht/1KEqobo" target="_blank">Media-monitor news list</a> // <a href="http://bit.ly/1U45yaf" target="_blank">Events calendar</a> // <a href="http://sforce.co/1NJFgWU" target="_blank">Customer reference database</a> 
+</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <!-- End Footer Row -->
+    </table>                  
+</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>
