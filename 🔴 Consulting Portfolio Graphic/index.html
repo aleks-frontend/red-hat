@@ -1,0 +1,90 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- browser reset -->
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+		<!-- Red Hat Brand Font -->      
+		<link href='//red-hat-overpass-fonts.s3.amazonaws.com/overpass.css' rel='stylesheet' />
+		<!-- template styles -->  
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				<h1>
+                  {{#title}}
+                  	{{{title}}}
+                  {{/title}}
+                  {{^title}}
+                 	Container Consulting Portfolio Graphic
+                  {{/title}}
+              	</h1>
+			</div>
+			<div class="folded-paper">
+				
+				<div class="fold-one">
+                  
+                  	<div class="intro-text">
+                      BEGIN
+                  	</div>
+                  
+					<div class="intro-boxes">
+                      {{ #collection.intro-boxes }}
+                      	{{ #block.intro-box }}
+                      		<div class="intro-box" style="background-color: {{{background-color}}}; color: {{{font-color}}};">
+                            	{{{intro-box-title}}}
+                            </div>
+                      	{{ /block.intro-box }}
+                      {{ /collection.intro-boxes }}
+                  	</div>
+                  
+                  	<div class="red-box">
+                      {{#red-box-1-text}}
+                        {{{red-box-1-text}}}
+                      {{/red-box-1-text}}
+                      {{^red-box-1-text}}
+                        <img src="https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/163062242ba2064fe7919251ceba698b/Logotype_RH_Consulting_White.svg" width="212" height="47" alt="Red Hat | Consulting">
+                      {{/red-box-1-text}}
+                  	</div>
+				</div>
+				
+				<div class="fold-depth">
+                  <div class="red-box"></div>
+				</div>
+				
+				<div class="fold-main">	
+					
+                  	{{ #collection.phases }}
+                  	
+                  		{{ #block.phase }}
+                            
+                  			<div class="phase">
+                                <div class="phase-content-wrapper">
+                                    <div class="phase-content">
+                                      	{{ #collection.phase-boxes }}
+                                        <div class="phase-box" style="background-color: {{{background-color}}}; color: {{{font-color}}};">
+                                            <h3 {{#title-font-size}} style="font-size: {{{title-font-size}}}px;" {{/title-font-size}} >{{{ phase-box-title }}}</h3>
+                                            <p {{#sub-title-font-size}} style="font-size: {{{sub-title-font-size}}}px;" {{/sub-title-font-size}} >{{{ phase-box-sub-title }}}</p>
+                                        </div>
+      									{{ /collection.phase-boxes }}
+                                    </div>
+                                    <div class="phase-title">
+                                        <h2><strong>{{{ phase-block-title }}}</strong> {{{ phase-block-sub-title }}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                  
+                  		{{ /block.phase }}
+                  
+                  	{{ /collection.phases }}
+					
+                  	<div class="red-box">
+                  		{{{red-box-2-text}}}	
+                  	</div>
+                  
+				</div> <!-- end fold-main -->
+			</div> <!-- end folded paper -->
+		</div> <!-- end wrapper -->
+	</body>
+</html>
