@@ -1,0 +1,71 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="utf-8">
+    <link href='//red-hat-overpass-fonts.s3.amazonaws.com/overpass.css' rel='stylesheet' />
+
+<script>
+function limitChars() {
+    var str = "{{social-media-standards-row1}}";
+    var res = str.substring(0, 25);
+    document.getElementById("row1").innerHTML = res;
+}
+</script>
+  
+  </head>
+<body onload="limitChars()">
+  
+ <style>
+	html {
+	font-family: "Overpass";
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+    body {
+    background-image: url("https://outfit-v2-exports-production.s3-ap-southeast-2.amazonaws.com/media_library_items/41eaebfc24dae46044d1e46358dd023f/cloud-social-image-without-words.png");
+}
+    #row1 {
+	padding-top: 130px;
+    font-weight: bold;
+    font-size: 24px;
+	letter-spacing: -.25px;
+	margin: auto;
+	color: #fff;
+	text-align: center;
+}
+    #row2 {
+	margin-top: -12px;
+	white-space: nowrap;
+	overflow: hidden;
+    font-weight: bold;
+    font-size: 85px;
+	letter-spacing: -.25px;
+	margin-right: auto;
+	margin-left: auto;
+    width: 300px;
+	color: #fff;
+	text-align: center;
+}
+    #row3 {	
+	text-align: justify;
+	text-transform: uppercase;
+	margin-top: -15px;
+	white-space: nowrap;
+	overflow: hidden;
+    font-weight: light;
+    font-size: 35px;
+	letter-spacing: -.25px;
+	margin-right: auto;
+	margin-left: auto;
+/*    width: 300px; */
+	color: #fff;
+	text-align: center;
+}
+</style>
+
+  <div id="row1"> {{social-media-standards-row1}} {{^social-media-standards-row1}} Limit this field to 25 characters. {{/social-media-standards-row1}}</div>
+  <div id="row2"> {{social-media-standards-row2}} </div>
+  <div id="row3"> {{social-media-standards-row3}} </div> 
+  
+</body>
+</html>
