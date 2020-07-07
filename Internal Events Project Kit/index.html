@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{{account.snippets.design-system-link}}}
+
+    <style> 
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+      }
+
+      @media (aspect-ratio: 4267/4267) { 
+        body {
+          background-image: url(https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/1514b438440fbb020ea82aee6c9632aa/app-store-icon-1024x1024-us121210rm-201703.png);
+          background-repeat: no-repeat;
+        }
+      }
+
+      @media (aspect-ratio: 1200/300) { 
+        body {
+          background-image: url(https://outfit-v2-exports-production.s3-accelerate.amazonaws.com/media_library_items/568ada6d20350035de98b9ad23049c78/rh-internal-events-email-header_1200x540-blank.png);
+          background-repeat: no-repeat;
+        }
+        .container {
+          padding: 0 0px 0px 90px;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+        .internal-events-subheading {
+          font-size: 24px;
+          font-weight: 900;
+          letter-spacing: 1px; 
+          color: #FFF;
+          text-transform: uppercase;
+          padding-bottom: 17px;
+        }
+        .internal-events-headline {
+          font-size: 72px;
+          font-weight: normal;
+          color: #FFF;
+          padding-bottom: 17px;
+        }
+        .internal-events-location-and-date {
+          font-size: 33px;
+          font-style: light;
+          letter-spacing: 1px;
+          color: #FFF;
+        }
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+    <div class="page" style="background: initial !important;">
+      <div class="container">
+        <div class="content">
+          <div class="internal-events-subheading">{{{internal-events-subheading}}}</div>
+          <div class="internal-events-headline">{{{internal-events-headline}}}</div>
+          <div class="internal-events-location-and-date">{{{internal-events-location-and-date}}}</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
